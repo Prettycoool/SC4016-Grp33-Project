@@ -516,41 +516,11 @@
         ]
     },
     {
-        "name": "hunters",
-        "captcha": false,
-        "parser": true,
-        "javascript_render": false,
-        "meta": null,
-        "locations": [
-            {
-                "fqdn": "hunters55rdxciehoqzwv7vgyv6nt37tbwax2reroyzxhou7my5ejyid.onion",
-                "title": null,
-                "version": 3,
-                "slug": "https://hunters55rdxciehoqzwv7vgyv6nt37tbwax2reroyzxhou7my5ejyid.onion/api/public/companies",
-                "available": false,
-                "updated": "2025-06-17 04:31:36.892792",
-                "lastscrape": "2025-06-17 04:31:36.892778",
-                "enabled": true
-            },
-            {
-                "fqdn": "hunters33mmcwww7ek7q5ndahul6nmzmrsumfs6aenicbqon6mxfiqyd.onion",
-                "title": "Loading...",
-                "version": 3,
-                "slug": "https://hunters33mmcwww7ek7q5ndahul6nmzmrsumfs6aenicbqon6mxfiqyd.onion/login",
-                "available": false,
-                "updated": "2025-06-17 04:31:43.940884",
-                "lastscrape": "2025-06-17 04:31:43.940870",
-                "enabled": true
-            }
-        ],
-        "profile": []
-    },
-    {
         "name": "dragonforce",
         "captcha": true,
         "parser": true,
         "javascript_render": false,
-        "meta": null,
+        "meta": "blog migrated to xjhmtitnrdrgzw4vmsghirdoo2fk35a3tzj4enlmah4pvehdspydsiyd.onion (pgp-signed notice on the old blog)",
         "locations": [
             {
                 "fqdn": "z3wqggtxft7id3ibr7srivv5gjof5fwg76slewnzwwakjuf3nlhukdid.onion",
@@ -570,6 +540,16 @@
                 "available": true,
                 "updated": "2026-09-27 04:03:20.165197",
                 "lastscrape": "2026-09-27 04:03:20.165190",
+                "enabled": true
+            },
+            {
+                "fqdn": "xjhmtitnrdrgzw4vmsghirdoo2fk35a3tzj4enlmah4pvehdspydsiyd.onion",
+                "title": null,
+                "version": 3,
+                "slug": "http://xjhmtitnrdrgzw4vmsghirdoo2fk35a3tzj4enlmah4pvehdspydsiyd.onion",
+                "available": false,
+                "updated": null,
+                "lastscrape": "2021-05-01 00:00:00.000000",
                 "enabled": true
             }
         ],
@@ -1072,6 +1052,26 @@
                 "available": true,
                 "updated": "2026-09-27 04:11:23.203258",
                 "lastscrape": "2026-09-27 04:11:23.203247",
+                "enabled": true
+            }
+        ],
+        "profile": []
+    },
+    {
+        "name": "krybit",
+        "captcha": false,
+        "parser": false,
+        "javascript_render": false,
+        "meta": "blog lists every post on one page, dates & company details are on the post pages",
+        "locations": [
+            {
+                "fqdn": "krybitx3fh5krdnhegyp2ob3lhizsaiadturtio3ginf7it5gsdgu2yd.onion",
+                "title": null,
+                "version": 3,
+                "slug": "http://krybitx3fh5krdnhegyp2ob3lhizsaiadturtio3ginf7it5gsdgu2yd.onion",
+                "available": false,
+                "updated": null,
+                "lastscrape": "2021-05-01 00:00:00.000000",
                 "enabled": true
             }
         ],

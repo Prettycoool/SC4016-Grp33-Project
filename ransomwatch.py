@@ -47,7 +47,7 @@ if len(sys.argv) == 1:
     )
 
 parser = argparse.ArgumentParser(description='👀 🦅 ransomwatch')
-parser.add_argument("--name", help='provider name')
+parser.add_argument("--name", help='provider name (backfill: comma separated groups, default all supported)')
 parser.add_argument("--location", help='target web location (full URI)')
 parser.add_argument("--since", default='2026-01-01', help='backfill victims posted on or after this date (YYYY-MM-DD)')
 parser.add_argument(
@@ -196,7 +196,7 @@ if args.mode == 'victims':
 if args.mode == 'backfill':
     if not checktcp(sockshost, socksport):
         honk("socks proxy unavailable and required to fetch onionsites!")
-    victims.backfill(args.since)
+    victims.backfill(args.since, groups=args.name.split(',') if args.name else None)
 
 if args.mode == 'markdown':
     markdown()
@@ -299,7 +299,6 @@ if args.mode == 'parse':
     parsers.threeam()
     parsers.cryptbb()
     parsers.losttrust()
-    parsers.hunters()
     parsers.meow()
     parsers.dragonforce()
     parsers.werewolves()

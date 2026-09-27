@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"/>
+<title>sansilvestre.edu.pe — Leaks</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --panel: rgba(248, 249, 250, 0.8);
+    --muted: #6c757d;
+    --accent: #000000;
+    --accent-hover: #333333;
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-2: rgba(248, 249, 250, 0.8);
+    --card-border: rgba(0, 0, 0, 0.08);
+    --card-border-hover: rgba(0, 0, 0, 0.15);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.12);
+    --transition: all 0.2s cubic-bezier(0.2, 0.8, 0.3, 1);
+    --border-radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    color: #212529;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: auto;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+a:hover {
+    color: var(--accent-hover);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: 'Space Mono', monospace;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.header-badge {
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    font-size: 13px;
+    color: #666666;
+    font-family: 'Space Mono', monospace;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+}
+
+.sidebar {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 24px;
+    height: fit-content;
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+.sidebar-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999999;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.stat-block {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stat-block:hover {
+    border-color: var(--card-border-hover);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.stat-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    font-size: 13px;
+    color: #444444;
+    font-family: 'Space Mono', monospace;
+    width: 100%;
+    text-align: center;
+}
+
+.main-content {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 32px;
+}
+
+.article-header {
+    margin-bottom: 30px;
+}
+
+.article-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: #000000;
+}
+
+.article-subtitle {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.article-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    font-size: 13px;
+    color: #444444;
+    font-family: 'Space Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meta-item i {
+    font-size: 12px;
+    color: #888888;
+}
+
+.preview-image {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    margin: 24px 0;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.preview-image:hover {
+    border-color: var(--card-border-hover);
+}
+
+.article-content {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.8;
+}
+
+.article-content p {
+    margin: 20px 0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 140px;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    object-fit: cover;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    border-color: var(--card-border-hover);
+}
+
+.timer-section {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+}
+
+.timer-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.timer-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.timer-header i {
+    color: #888888;
+}
+
+.timer-display {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.timer-block {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 20px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.timer-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 42px;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1;
+}
+
+.timer-label {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timestamp {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #888888;
+    font-family: 'Space Mono', monospace;
+}
+
+.links-container {
+    margin: 30px 0;
+}
+
+.direct-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 2px solid #000000;
+    border-radius: 100px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.direct-link:hover {
+    background: #000000;
+    transform: translateY(-2px);
+}
+
+.direct-link:hover .direct-link-icon,
+.direct-link:hover .direct-link-text,
+.direct-link:hover .direct-link-arrow {
+    color: #ffffff;
+}
+
+.direct-link:hover .direct-link-icon {
+    background: #ffffff;
+    color: #000000;
+}
+
+.direct-link-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.direct-link-icon {
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.direct-link-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.direct-link-arrow {
+    color: #000000;
+    font-size: 20px;
+    margin-left: 15px;
+    transition: var(--transition);
+}
+
+.footer {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+}
+
+.footer-btn {
+    padding: 12px 30px;
+    background: transparent;
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-btn:hover {
+    border-color: #000000;
+    background: #000000;
+    color: #ffffff;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: #000000;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    font-size: 28px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lightbox-nav:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: #000000;
+}
+
+.lightbox-nav.prev {
+    left: 30px;
+}
+
+.lightbox-nav.next {
+    right: 30px;
+}
+
+@media (max-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        border-radius: 24px;
+        padding: 15px 20px;
+    }
+    
+    .article-title {
+        font-size: 28px;
+    }
+    
+    .timer-display {
+        gap: 10px;
+    }
+    
+    .timer-block {
+        min-width: 80px;
+        padding: 15px;
+    }
+    
+    .timer-number {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        border-radius: 20px;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .article-title {
+        font-size: 24px;
+    }
+    
+    .timer-display {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .timer-block {
+        width: 100%;
+    }
+    
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .lightbox-nav.prev {
+        left: 10px;
+    }
+    
+    .lightbox-nav.next {
+        right: 10px;
+    }
+    
+    .footer {
+        padding: 15px;
+    }
+    
+    .direct-link {
+        padding: 15px 20px;
+    }
+    
+    .direct-link-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 16px;
+    }
+    
+    .article-title {
+        font-size: 20px;
+    }
+    
+    .meta-item {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+    
+    .direct-link-content {
+        gap: 10px;
+    }
+    
+    .direct-link-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
+}
+</style>
+</head>
+<body oncontextmenu="return false" onkeydown="if(event.keyCode===123||(event.ctrlKey&&event.shiftKey&&event.keyCode===73)) return false;">
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">L</div>
+            <span class="logo-text">LEAKS</span>
+        </div>
+        <div class="header-badge">
+            <i class="fas fa-eye"></i> BLOG
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">STATUS</div>
+                <div class="status-tag">
+                    PUBLISHED                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">STATISTICS</div>
+                <div class="stats-grid">
+                    <div class="stat-block">
+                        <div class="stat-number">143734</div>
+                        <div class="stat-label">VIEWS</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-number">23</div>
+                        <div class="stat-label">IMAGES</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="article-header">
+                <h1 class="article-title">sansilvestre.edu.pe</h1>
+                                <div class="article-subtitle">sansilvestre.edu.pe</div>
+                                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i class="far fa-clock"></i>
+                        <span id="header-timer">00m 00s</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-eye"></i>
+                        143734 views
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="article-content" id="article-content">
+                <p>San Silvestre School (Asociación Civil) is one of Peru&#039;s most prestigious private all-girls British schools, founded in 1932 and located in the Miraflores district of Lima, Peru. For over eight decades, San Silvestre has provided world-class education combining the finest aspects of the British and Peruvian educational systems, exclusively for girls from Early Years through Secondary (Nursery to Grade 12). The school offers the University of Cambridge IGCSE programme (authorized since 1991) and the International Baccalaureate Diploma Programme (IB), with instruction primarily in English and Spanish. San Silvestre features state-of-the-art infrastructure including 2 libraries with computers, 2 auditoriums with lighting and sound systems, 7 fully equipped laboratories, 6 computer rooms, 1 sports coliseum with swimming pool, and a ceramics workshop. The school Director is Brenda Seoane Reyes. Enrollment fee is $16,500 USD with monthly tuition of S/ 4,650 PEN (9 installments per year).</p><p>Av. Santa Cruz 1251, Miraflores, Lima 18, Perú 🇵🇪</p><p>TEL: (+511) 241-3334</p><p>colegio@sansilvestre.edu.pe</p><p>facebook.com/colegiosansilvestreperu</p><p>www.sansilvestre.edu.pe</p><p>size Data: 148.75 GB</p>
+                                <div class="gallery">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388174.6083-bandicam-2026-06-25-13-41-12-483.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388174.6083-bandicam-2026-06-25-13-41-18-928.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388174.6083-bandicam-2026-06-25-13-41-23-080.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388174.6083-bandicam-2026-06-25-13-41-27-729.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388174.6083-bandicam-2026-06-25-13-41-33-587.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388174.6083-bandicam-2026-06-25-13-41-37-547.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388174.6083-bandicam-2026-06-25-13-41-42-390.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388225.5679-bandicam-2026-06-25-13-36-55-510.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388225.5679-bandicam-2026-06-25-13-37-00-719.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388225.5679-bandicam-2026-06-25-13-37-57-667.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388225.5679-bandicam-2026-06-25-13-40-54-780.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388225.5679-bandicam-2026-06-25-13-40-58-993.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388225.5679-bandicam-2026-06-25-13-41-06-434.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-34-54-489.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-35-02-498.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-35-25-848.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-35-37-819.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-35-41-566.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-36-15-206.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-36-21-380.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-36-33-732.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-36-46-100.jpg" alt="" loading="lazy">
+                                        <img class="gallery-item" src="/assets/blog_images/content/1782388278.2346-bandicam-2026-06-25-13-36-52-039.jpg" alt="" loading="lazy">
+                                    </div>
+                
+                                <div class="timer-section" id="locker">
+                    <div class="timer-header">
+                        <i class="fas fa-lock"></i>
+                        <h3>-----SOON-----</h3>
+                    </div>
+                    
+                    <div class="timer-display">
+                        <div class="timer-block">
+                            <div class="timer-number" id="ct-h">00</div>
+                            <div class="timer-label">HOURS</div>
+                        </div>
+                        <div class="timer-block">
+                            <div class="timer-number" id="ct-m">00</div>
+                            <div class="timer-label">MINUTES</div>
+                        </div>
+                        <div class="timer-block">
+                            <div class="timer-number" id="ct-s">00</div>
+                            <div class="timer-label">SECONDS</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timestamp" id="unlock-time">
+                        2026-06-29 14:47:38                    </div>
+                </div>
+
+                <div class="links-container" id="links-list" style="display:block">
+                                        <a href="http://krybivdln3oc3twbin4budgznzq7dmcolldnsx455lspxxe23b56y5qd.onion/e0f2132c597192388fe4cd2effba5e9f" target="_blank" rel="noopener noreferrer" class="direct-link">
+                        <div class="direct-link-content">
+                            <div class="direct-link-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <span class="direct-link-text">OPEN DATA</span>
+                            <span class="direct-link-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+                                    </div>
+                            </div>
+
+            <div class="footer">
+                <button class="footer-btn" onclick="location.href='/'">
+                    <i class="fas fa-arrow-left"></i> BACK TO HOME
+                </button>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<script>
+(function(){
+    const articleId = 58;
+    let endTime = 1782733658000;
+    
+    const ctH = document.getElementById('ct-h');
+    const ctM = document.getElementById('ct-m');
+    const ctS = document.getElementById('ct-s');
+    const linksList = document.getElementById('links-list');
+    const unlockTime = document.getElementById('unlock-time');
+    const headerTimer = document.getElementById('header-timer');
+
+    function pad(n) {
+        return n < 10 ? '0' + n : n;
+    }
+
+    function formatTimeRemaining(seconds) {
+        let hours = Math.floor(seconds / 3600);
+        seconds -= hours * 3600;
+        let minutes = Math.floor(seconds / 60);
+        seconds = Math.floor(seconds % 60);
+        
+        if (hours > 0) {
+            return hours + 'h ' + pad(minutes) + 'm ' + pad(seconds) + 's';
+        } else {
+            return pad(minutes) + 'm ' + pad(seconds) + 's';
+        }
+    }
+
+    function updateTimer() {
+        const now = Date.now();
+        let diff = Math.max(0, endTime - now);
+        let seconds = Math.floor(diff / 1000);
+        
+        let hours = Math.floor(seconds / 3600);
+        let minutes = Math.floor((seconds % 3600) / 60);
+        let secs = seconds % 60;
+        
+        if (ctH) ctH.textContent = pad(hours);
+        if (ctM) ctM.textContent = pad(minutes);
+        if (ctS) ctS.textContent = pad(secs);
+        
+        if (headerTimer) {
+            headerTimer.textContent = formatTimeRemaining(seconds);
+        }
+        
+        if (diff <= 0) {
+            if (linksList) {
+                linksList.style.display = 'block';
+            }
+        } else {
+            if (linksList) {
+                linksList.style.display = 'none';
+            }
+        }
+    }
+
+    function checkDatabase() {
+        fetch(window.location.pathname + '?ajax=check_timer&id=' + articleId, {
+            method: 'GET',
+            cache: 'no-store',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.timer_end) {
+                const newEndTime = data.timer_end * 1000;
+                if (newEndTime !== endTime) {
+                    endTime = newEndTime;
+                    if (unlockTime) {
+                        const date = new Date(endTime);
+                        unlockTime.textContent = 
+                            date.getFullYear() + '-' + 
+                            pad(date.getMonth() + 1) + '-' + 
+                            pad(date.getDate()) + ' ' + 
+                            pad(date.getHours()) + ':' + 
+                            pad(date.getMinutes()) + ':' + 
+                            pad(date.getSeconds());
+                    }
+                    updateTimer();
+                }
+            }
+        })
+        .catch(error => console.error('Error checking timer:', error));
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+    setInterval(checkDatabase, 3000);
+    setTimeout(checkDatabase, 1000);
+
+    const galleryImages = Array.from(document.querySelectorAll('.gallery-item'));
+    if(galleryImages.length) {
+        let lightbox = null;
+        let currentIndex = 0;
+
+        function createLightbox() {
+            if (lightbox) return;
+            
+            lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            
+            const img = document.createElement('img');
+            img.id = 'lightbox-img';
+            
+            const closeBtn = document.createElement('div');
+            closeBtn.className = 'lightbox-close';
+            closeBtn.innerHTML = '×';
+            closeBtn.onclick = closeLightbox;
+            
+            const prevBtn = document.createElement('div');
+            prevBtn.className = 'lightbox-nav prev';
+            prevBtn.innerHTML = '‹';
+            prevBtn.onclick = () => navigate(-1);
+            
+            const nextBtn = document.createElement('div');
+            nextBtn.className = 'lightbox-nav next';
+            nextBtn.innerHTML = '›';
+            nextBtn.onclick = () => navigate(1);
+            
+            lightbox.appendChild(img);
+            lightbox.appendChild(closeBtn);
+            lightbox.appendChild(prevBtn);
+            lightbox.appendChild(nextBtn);
+            document.body.appendChild(lightbox);
+            
+            document.addEventListener('keydown', keyHandler);
+        }
+
+        function closeLightbox() {
+            if (lightbox) {
+                document.removeEventListener('keydown', keyHandler);
+                lightbox.remove();
+                lightbox = null;
+            }
+        }
+
+        function keyHandler(e) {
+            if (!lightbox) return;
+            if (e.key === 'ArrowRight') navigate(1);
+            else if (e.key === 'ArrowLeft') navigate(-1);
+            else if (e.key === 'Escape') closeLightbox();
+        }
+
+        function navigate(dir) {
+            if (!lightbox) return;
+            currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
+            const img = lightbox.querySelector('img');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = galleryImages[currentIndex].src;
+                img.style.opacity = '1';
+            }, 150);
+        }
+
+        function openLightbox(index) {
+            createLightbox();
+            currentIndex = index;
+            const img = lightbox.querySelector('img');
+            img.src = galleryImages[currentIndex].src;
+        }
+
+        galleryImages.forEach((img, idx) => {
+            img.addEventListener('click', () => openLightbox(idx));
+        });
+    }
+
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = Date.now();
+        if (now - lastTouchEnd <= 300) { event.preventDefault(); }
+        lastTouchEnd = now;
+    }, false);
+})();
+</script>
+</body>
+</html>

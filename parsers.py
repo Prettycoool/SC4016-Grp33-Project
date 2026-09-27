@@ -1238,17 +1238,6 @@ def losttrust():
     for post in posts:
         appender(post, 'losttrust')
 
-def hunters():
-    stdlog('parser: ' + 'hunters')
-    parser = '''
-    jq -r '.[].title' source/hunters-hunters55*.html | sort -u || true
-    '''
-    posts = runshellcmd(parser)
-    if len(posts) == 1:
-        errlog('hunters: ' + 'parsing fail')
-    for post in posts:
-        appender(post, 'hunters')
-
 def meow():
     stdlog('parser: ' + 'meow')
     # jq -r '.data[].title' source/meow-totos*.html || true

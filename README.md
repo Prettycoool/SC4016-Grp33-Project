@@ -31,6 +31,7 @@ rw parse      # legacy parsers → posts.json, then builds the structured table 
 rw markdown   # optional: regenerates the docs/ site pages and graphs
 
 rw victims    # rebuild data/*.csv from the saved pages without re-scraping
-rw backfill --since 2026-01-01   # walk incransom/qilin/play/safepay/akira history back to a date + fetch post pages (cached in source/detail/)
+rw backfill --since 2026-01-01   # walk incransom/qilin/play/safepay/akira/krybit history back to a date + fetch post pages (cached in source/detail/)
+rw backfill --name krybit       # backfill only the named groups (comma separated)
 rw add --name <group> --location http://<address>.onion   # track a new site
 ```

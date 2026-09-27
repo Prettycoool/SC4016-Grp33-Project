@@ -33,6 +33,8 @@ DETAILDIR = os.path.join('source', 'detail')
 JSONFILE = os.path.join(DATADIR, 'victims.json')
 CSVFILE = os.path.join(DATADIR, 'victims.csv')
 TYPESFILE = os.path.join(DATADIR, 'victim_data_types.csv')
+# the table only covers attacks from this date on
+CUTOFF = '2026-01-01'
 
 COLUMNS = [
     'group', 'victim', 'website', 'date', 'date_source', 'published', 'first_seen', 'last_seen',
@@ -131,21 +133,6 @@ def parse_incransom(content, slug):
             'published': ms_to_date(post.get('createdAt')),
             'views': post.get('visits'),
             'status': ','.join(post.get('categories') or []) or None,
-        })
-    return victims
-
-def parse_hunters(content, slug):
-    data = json.loads(content)
-    victims = []
-    for post in data:
-        victims.append({
-            'victim': clean(post.get('title')),
-            'website': domain_from(post.get('website')),
-            'country': post.get('country'),
-            'revenue_usd': to_int(post.get('revenue')),
-            'employees': to_int(post.get('employees')),
-            'encrypted': post.get('encrypted_data'),
-            'published': s_to_date(post.get('updated_at')),
         })
     return victims
 
@@ -267,6 +254,26 @@ def parse_akira(content, slug):
             })
     return victims
 
+def parse_krybit(content, slug):
+    '''krybit lists every post on one page with no dates - the post page carries the date (see parse_krybit_detail)'''
+    soup = BeautifulSoup(content, 'html.parser')
+    victims = []
+    for card in soup.select('div.post-card'):
+        title = card.select_one('.post-title')
+        if title is None:
+            continue
+        status = card.select_one('.post-status')
+        views = card.select_one('.post-views')
+        link = re.search(r"window\.location='([^']+)'", card.get('onclick', ''))
+        victims.append({
+            'victim': clean(title.get_text()),
+            'website': domain_from(title.get_text()),
+            'status': 'published' if status and 'published' in status.get('class', []) else 'pending',
+            'views': to_int(clean(views.get_text()).replace(',', '')) if views else None,
+            'post_url': base_url(slug) + link.group(1) if link else None,
+        })
+    return victims
+
 '''
 per-group detail parsers
 the listing pages only carry a summary, the post page is where groups describe what they took
@@ -290,6 +297,60 @@ def parse_play_detail(content):
             fields['leak_claim'] = strip_noise(value)
     return fields
 
+# "$12-15 million" keeps the lower bound, with the unit that follows the range
+MONEY_RE = re.compile(r'\$\s*([\d.,]+)(?:\s*[–-]\s*[\d.,]+)?\s*(billion|bn|b|million|mn|m|thousand|k)?\b', re.IGNORECASE)
+MONEY_SCALE = {'billion': 1e9, 'bn': 1e9, 'b': 1e9, 'million': 1e6, 'mn': 1e6, 'm': 1e6, 'thousand': 1e3, 'k': 1e3}
+
+def money_from(text):
+    match = MONEY_RE.search(text or '')
+    if not match:
+        return None
+    try:
+        amount = float(match.group(1).replace(',', ''))
+    except ValueError:
+        return None
+    return int(amount * MONEY_SCALE.get((match.group(2) or '').lower(), 1))
+
+KRYBIT_LABEL_RE = re.compile(r'^\s*([A-Za-z][\w ()&/.\-]{0,40}?)\s*:\s*(.+)$')
+KRYBIT_IMAGE_RE = re.compile(r'/content/(\d{10})(?:\.\d+)?-')
+
+def parse_krybit_detail(content):
+    soup = BeautifulSoup(content, 'html.parser')
+    fields = {}
+    # proof screenshots are named after their upload time - the earliest one is when the post went up.
+    # the unlock time is the deadline the group set, only used if a post has no screenshots
+    uploads = [int(m.group(1)) for img in soup.select('img.gallery-item')
+               for m in [KRYBIT_IMAGE_RE.search(img.get('src', ''))] if m]
+    unlock = soup.select_one('#unlock-time')
+    unlock_date = re.search(r'\d{4}-\d{2}-\d{2}', unlock.get_text()) if unlock else None
+    fields['published'] = s_to_date(min(uploads)) if uploads else (unlock_date.group(0) if unlock_date else None)
+    # the post is company prose followed by labelled contact & company lines - only the prose and
+    # the sector, headcount & data size labels are kept, never the addresses, phone numbers or emails
+    prose, in_prose = [], True
+    for paragraph in soup.select('.article-content p'):
+        text = clean(paragraph.get_text(' '))
+        if not text:
+            continue
+        label = KRYBIT_LABEL_RE.match(text)
+        if label:
+            in_prose = False
+            key, value = label.group(1).strip().lower(), label.group(2)
+            if key == 'sector':
+                fields['activity_raw'] = clean(value)
+            elif key == 'employees':
+                # often a range ("201-500") or "3,325+" - the lower bound is kept
+                number = re.search(r'\d[\d,]*', value)
+                fields['employees'] = to_int(number.group(0).replace(',', '')) if number else None
+            elif key == 'revenue':
+                # several estimates are sometimes given, the first is kept
+                fields['revenue_usd'] = money_from(value)
+            elif key.endswith('data'):
+                fields['data_size'] = data_size_from(value)
+        elif in_prose:
+            prose.append(text)
+    fields['description'] = clean(' '.join(prose)) if prose else None
+    return fields
+
 def parse_safepay_detail(content):
     soup = BeautifulSoup(content, 'html.parser')
     fields = {}
@@ -305,16 +366,17 @@ def parse_safepay_detail(content):
 
 PARSERS = {
     'incransom': parse_incransom,
-    'hunters': parse_hunters,
     'qilin': parse_qilin,
     'play': parse_play,
     'safepay': parse_safepay,
     'akira': parse_akira,
+    'krybit': parse_krybit,
 }
 
 DETAIL_PARSERS = {
     'play': parse_play_detail,
     'safepay': parse_safepay_detail,
+    'krybit': parse_krybit_detail,
 }
 
 # how to request page n of each of a group's victim feeds, given one of its location slugs
@@ -327,6 +389,8 @@ PAGERS = {
     'safepay': [lambda slug, n: base_url(slug) + '/?page=' + str(n)],
     'akira': [lambda slug, n: base_url(slug) + '/l?page=' + str(n) + '&sort=date%3Adesc',
               lambda slug, n: base_url(slug) + '/n?page=' + str(n) + '&sort=date%3Adesc'],
+    # krybit has no pagination, every post is on its home page
+    'krybit': [lambda slug, n: base_url(slug) + '/' if n == 1 else None],
 }
 
 '''
@@ -614,9 +678,18 @@ def merge(existing, found):
         classify_leak(record)
         if record.get('leak_claim'):
             record['leak_claim_generic'] = claims[(record['group'], record['leak_claim'][:100].lower())] >= GENERIC_CLAIM_MIN
-        record['date'] = record.get('published') or record['first_seen'][:10]
+        # a scheduled release date (krybit's countdown) can lie in the future, but a post can't be dated
+        # later than the day we first saw it
+        record['date'] = min(record['published'], record['first_seen'][:10]) if record.get('published') \
+            else record['first_seen'][:10]
         record['date_source'] = 'site' if record.get('published') else 'first_seen'
-    return sorted(existing.values(), key=lambda r: (r['date'], r['group'], r['victim']), reverse=True)
+    # only attacks the group itself dated on or after the cutoff are kept - a first_seen date is when we
+    # happened to scrape the post, which for an undated listing can be years after the attack
+    kept = [r for r in existing.values() if r['date_source'] == 'site' and r['date'] >= CUTOFF]
+    undated = sum(1 for r in existing.values() if r['date_source'] != 'site')
+    stdlog('victims: kept ' + str(len(kept)) + ' victims dated ' + CUTOFF + ' or later, dropped '
+           + str(len(existing) - len(kept) - undated) + ' older & ' + str(undated) + ' with no site date')
+    return sorted(kept, key=lambda r: (r['date'], r['group'], r['victim']), reverse=True)
 
 def write(records):
     os.makedirs(DATADIR, exist_ok=True)
@@ -707,7 +780,10 @@ def backfill_feed(group, host, pager, getter, since, maxpages, workers):
     parser = PARSERS[group['name']]
     found = []
     for page in range(1, maxpages + 1):
-        content = getter(pager(host['slug'], page))
+        url = pager(host['slug'], page)
+        if url is None:
+            break
+        content = getter(url)
         try:
             victims = parser(content, host['slug']) if content else []
         except (ValueError, KeyError, TypeError):
@@ -740,12 +816,12 @@ def backfill_group(group, since, maxpages, workers):
         errlog('victims: backfill ' + group['name'] + ' - nothing parsed from ' + host['slug'])
     return []
 
-def backfill(since, maxpages=100, workers=6):
+def backfill(since, maxpages=100, workers=6, groups=None):
     stdlog('victims: backfilling supported groups back to ' + since)
     existing = load_existing()
     found = []
     for group in openjson('groups.json'):
-        if group['name'] not in PAGERS:
+        if group['name'] not in PAGERS or (groups and group['name'] not in groups):
             continue
         victims = backfill_group(group, since, maxpages, workers)
         stdlog('victims: backfill ' + group['name'] + ' - ' + str(len(victims)) + ' victims since ' + since)
