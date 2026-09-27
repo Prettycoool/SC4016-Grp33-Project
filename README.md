@@ -1,3 +1,10 @@
+# SC4016 Group Project: ransomwatch
+
+Fork of [joshhighet/ransomwatch](https://github.com/joshhighet/ransomwatch) (original README: [.github/UPSTREAM_README.md](.github/UPSTREAM_README.md)).
+
+## Usage
+
+```bash
 # 1. Start Tor. Either the project's sidecar container:
 sudo docker run -d --name tor -p 9050:9050 ghcr.io/joshhighet/torsocc:latest
 #    or your local daemon:  sudo systemctl start tor
@@ -26,3 +33,4 @@ rw markdown   # optional: regenerates the docs/ site pages and graphs
 rw victims    # rebuild data/*.csv from the saved pages without re-scraping
 rw backfill --since 2026-01-01   # walk incransom/qilin/play/safepay/akira history back to a date + fetch post pages (cached in source/detail/)
 rw add --name <group> --location http://<address>.onion   # track a new site
+```
