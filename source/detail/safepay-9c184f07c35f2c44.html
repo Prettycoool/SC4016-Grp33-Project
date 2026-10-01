@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <input type="hidden" name="csrfmiddlewaretoken" value="C9K0UNyHyxHxHVkesgFy33nfWLR5rJxze6C1kyidqlpBiEnfcrUFbnHtxK4REL08">
+    <meta name="csrf-token" content="C9K0UNyHyxHxHVkesgFy33nfWLR5rJxze6C1kyidqlpBiEnfcrUFbnHtxK4REL08">
+    <title>Holiday Inn Vilnius | Blog</title>
+    <link href="/static/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/libs/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body class="bg-dark text-light" data-user-id="None">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-12 main-content">
+            
+                
+<div class="main-container" style="visibility: hidden;">
+    <div class="container-fluid h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="card bg-dark text-light">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            
+                            <h2 class="mb-0">Holiday Inn Vilnius</h2>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="countdown-header-bar" id="countdown-header-bar">
+                        <div class="countdown-progress" id="countdown-progress-bar" style="width: 0%;"></div>
+                        <div class="countdown-text" id="countdown-header-text">Loading...</div>
+                    </div>
+                    
+                    <div class="card-body scrollable-content">
+                        <p class="text-muted mb-2 unselectable">
+                            <i class="bi bi-calendar"></i> 2026-09-28 07:25
+                            &nbsp;|&nbsp;
+                            <i class="bi bi-eye"></i> 4403
+                        </p>
+                        
+                        <div class="mb-3">
+                            <p>Holiday Inn Vilnius is a full-service business and leisure hotel located in central Vilnius, Lithuania, within walking distance of the city&#x27;s historic Old Town.</p>
+                        </div>
+                         <div class="mb-3">
+                            <p>The property operates under the international Holiday Inn brand of IHG Hotels &amp; Resorts. The hotel provides 134 guest rooms, including standard and premium rooms and suites, and serves both business travelers and tourists visiting Lithuania&#x27;s capital.<br>The hotel provides accommodation together with food and beverage, business and event services. Its facilities include the RIB ROOM restaurant, a lobby bar, fitness facilities, parking and several conference rooms. The meeting facilities can accommodate corporate events and meetings for up to approximately 250 people, making business events an important part of the hotel&#x27;s service offering.</p>
+                        </div>
+                        
+                        
+                        <div id="countdown-block">
+                            <div id="countdown-link-block" style="display: none;">
+                                
+                                <div class="alert alert-info mb-0">
+                                    The link will be added soon.
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="card-footer d-flex justify-content-between flex-wrap">
+                    
+                    <a href="/blog/" class="btn btn-modern-secondary btn-sm ms-auto">
+                        <i class="bi bi-arrow-left"></i> Back to blog
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const mainContainer = document.querySelector('.main-container');
+            if (mainContainer) {
+                mainContainer.style.visibility = 'visible';
+                mainContainer.style.opacity = '1';
+            }
+        }, 50);
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const countdownData = {'end': '2026-10-01T20:00:00+00:00', 'created': '2026-09-28T07:25:10.903711+00:00', 'now': '2026-10-01T04:20:57.605169+00:00'};
+        const end = new Date(countdownData.end);
+        const created = new Date(countdownData.created);
+        const serverNow = new Date(countdownData.now);
+
+        const clientNow = new Date();
+        const timeOffset = clientNow - serverNow;
+
+        const headerBar = document.getElementById('countdown-header-bar');
+        const progressBar = document.getElementById('countdown-progress-bar');
+        const headerText = document.getElementById('countdown-header-text');
+        const linkBlock = document.getElementById('countdown-link-block');
+
+        function updateTimer() {
+            const now = new Date();
+            const adjustedNow = new Date(now.getTime() - timeOffset);
+
+            let diff = Math.floor((end - adjustedNow) / 1000);
+
+            const totalDuration = (end - created) / 1000;
+            const elapsed = totalDuration - diff;
+            const progressPercent = Math.min(100, Math.max(0, (elapsed / totalDuration) * 100));
+
+            if (progressBar) {
+                progressBar.style.width = progressPercent + '%';
+            }
+
+            if (diff > 0) {
+                const days = Math.floor(diff / 86400);
+                diff %= 86400;
+                const hours = Math.floor(diff / 3600);
+                diff %= 3600;
+                const minutes = Math.floor(diff / 60);
+                const seconds = diff % 60;
+
+                let parts = [];
+                if (days) parts.push(days + 'd');
+                if (hours || days) parts.push(hours + 'h');
+                if (minutes || hours || days) parts.push(minutes + 'm');
+                parts.push(seconds + 's');
+
+                const timerText = '' + parts.join(' ');
+
+                if (headerText) {
+                    headerText.textContent = timerText;
+                }
+                if (headerBar) {
+                    headerBar.style.display = '';
+                }
+                if (linkBlock) linkBlock.style.display = 'none';
+            } else {
+                if (headerBar) {
+                    headerBar.style.display = 'none';
+                }
+                if (linkBlock) linkBlock.style.display = '';
+            }
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    });
+</script>
+
+
+<script>
+    function incrementLinkClicks(postId) {
+
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        fetch(`/blog/api/post/${postId}/link-click/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                const clicksElement = document.getElementById('link-clicks-count');
+                if (clicksElement) {
+                    clicksElement.textContent = data.clicks;
+                }
+                console.log('Link clicks updated:', data.clicks);
+            }
+        })
+        .catch(error => {
+            console.error('Error updating link clicks:', error);
+        });
+    }
+</script>
+
+<style>
+    .main-container {
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
+
+    .unselectable {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .scrollable-content {
+        max-height: 65vh;
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    .scrollable-content::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-track {
+        background: #343a40;
+        border-radius: 4px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-thumb {
+        background: #6c757d;
+        border-radius: 4px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-thumb:hover {
+        background: #5a6268;
+    }
+
+    .card {
+        max-height: 85vh;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-teal {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-teal:hover {
+        background-color: #0b5fe9;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-modern-primary {
+        background-color: #4361ee;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-modern-primary:hover {
+        background-color: #3a56d4;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-modern-danger {
+        background-color: #ef476f;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-modern-danger:hover {
+        background-color: #d63f63;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-modern-secondary {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-modern-secondary:hover {
+        background-color: #5a6268;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .countdown-header-bar {
+        position: relative;
+        height: 30px;
+        background-color: #343a40;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .countdown-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: rgb(149, 1, 1);
+        z-index: 1;
+        transition: width 1s linear;
+    }
+
+    .countdown-text {
+        position: relative;
+        z-index: 2;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+</style>
+
+            </div>
+        </div>
+    </div>
+    <script src="/static/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+	<script src="/static/js/csrf.js"></script>
+    
+</body>
+</html>

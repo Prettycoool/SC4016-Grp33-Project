@@ -7,6 +7,7 @@ enriches each victim (country, industry, data types, company size) and writes fl
   data/victims.json          - source of truth, upserted on every run
   data/victims.csv           - one row per victim (for tableau & co)
   data/victim_data_types.csv - one row per victim per data type (long format, for breakdowns)
+  data/history.json/.csv     - same columns for posts dated before the cutoff, only filled by a deep backfill
 every enriched field carries a *_source column so site-provided values can be told apart from inferred ones
 description is what the group says about the victim, leak_claim is what the group says it stole -
 data types & leak subject are only ever derived from leak_claim, never from the company description
@@ -33,6 +34,8 @@ DETAILDIR = os.path.join('source', 'detail')
 JSONFILE = os.path.join(DATADIR, 'victims.json')
 CSVFILE = os.path.join(DATADIR, 'victims.csv')
 TYPESFILE = os.path.join(DATADIR, 'victim_data_types.csv')
+HISTJSON = os.path.join(DATADIR, 'history.json')
+HISTCSV = os.path.join(DATADIR, 'history.csv')
 # the table only covers attacks from this date on
 CUTOFF = '2026-01-01'
 
@@ -41,7 +44,7 @@ COLUMNS = [
     'country', 'country_name', 'country_source',
     'activity', 'activity_raw', 'activity_source',
     'revenue_usd', 'revenue_band', 'employees', 'employee_band',
-    'data_types', 'leak_subject', 'data_size', 'data_files', 'encrypted', 'status', 'views',
+    'data_types', 'leak_subject', 'data_size', 'data_files', 'proof_count', 'proof_ids', 'encrypted', 'status', 'views',
     'description', 'leak_claim', 'leak_claim_generic', 'post_url', 'source_url',
 ]
 
@@ -133,6 +136,9 @@ def parse_incransom(content, slug):
             'published': ms_to_date(post.get('createdAt')),
             'views': post.get('visits'),
             'status': ','.join(post.get('categories') or []) or None,
+            # ids of the proof files on incransom's cdn - the same id under two posts is the same upload
+            'proof_count': len(post.get('proof') or []) or None,
+            'proof_ids': ';'.join(sorted(post.get('proof') or [])) or None,
         })
     return victims
 
@@ -254,26 +260,6 @@ def parse_akira(content, slug):
             })
     return victims
 
-def parse_krybit(content, slug):
-    '''krybit lists every post on one page with no dates - the post page carries the date (see parse_krybit_detail)'''
-    soup = BeautifulSoup(content, 'html.parser')
-    victims = []
-    for card in soup.select('div.post-card'):
-        title = card.select_one('.post-title')
-        if title is None:
-            continue
-        status = card.select_one('.post-status')
-        views = card.select_one('.post-views')
-        link = re.search(r"window\.location='([^']+)'", card.get('onclick', ''))
-        victims.append({
-            'victim': clean(title.get_text()),
-            'website': domain_from(title.get_text()),
-            'status': 'published' if status and 'published' in status.get('class', []) else 'pending',
-            'views': to_int(clean(views.get_text()).replace(',', '')) if views else None,
-            'post_url': base_url(slug) + link.group(1) if link else None,
-        })
-    return victims
-
 '''
 per-group detail parsers
 the listing pages only carry a summary, the post page is where groups describe what they took
@@ -297,60 +283,6 @@ def parse_play_detail(content):
             fields['leak_claim'] = strip_noise(value)
     return fields
 
-# "$12-15 million" keeps the lower bound, with the unit that follows the range
-MONEY_RE = re.compile(r'\$\s*([\d.,]+)(?:\s*[–-]\s*[\d.,]+)?\s*(billion|bn|b|million|mn|m|thousand|k)?\b', re.IGNORECASE)
-MONEY_SCALE = {'billion': 1e9, 'bn': 1e9, 'b': 1e9, 'million': 1e6, 'mn': 1e6, 'm': 1e6, 'thousand': 1e3, 'k': 1e3}
-
-def money_from(text):
-    match = MONEY_RE.search(text or '')
-    if not match:
-        return None
-    try:
-        amount = float(match.group(1).replace(',', ''))
-    except ValueError:
-        return None
-    return int(amount * MONEY_SCALE.get((match.group(2) or '').lower(), 1))
-
-KRYBIT_LABEL_RE = re.compile(r'^\s*([A-Za-z][\w ()&/.\-]{0,40}?)\s*:\s*(.+)$')
-KRYBIT_IMAGE_RE = re.compile(r'/content/(\d{10})(?:\.\d+)?-')
-
-def parse_krybit_detail(content):
-    soup = BeautifulSoup(content, 'html.parser')
-    fields = {}
-    # proof screenshots are named after their upload time - the earliest one is when the post went up.
-    # the unlock time is the deadline the group set, only used if a post has no screenshots
-    uploads = [int(m.group(1)) for img in soup.select('img.gallery-item')
-               for m in [KRYBIT_IMAGE_RE.search(img.get('src', ''))] if m]
-    unlock = soup.select_one('#unlock-time')
-    unlock_date = re.search(r'\d{4}-\d{2}-\d{2}', unlock.get_text()) if unlock else None
-    fields['published'] = s_to_date(min(uploads)) if uploads else (unlock_date.group(0) if unlock_date else None)
-    # the post is company prose followed by labelled contact & company lines - only the prose and
-    # the sector, headcount & data size labels are kept, never the addresses, phone numbers or emails
-    prose, in_prose = [], True
-    for paragraph in soup.select('.article-content p'):
-        text = clean(paragraph.get_text(' '))
-        if not text:
-            continue
-        label = KRYBIT_LABEL_RE.match(text)
-        if label:
-            in_prose = False
-            key, value = label.group(1).strip().lower(), label.group(2)
-            if key == 'sector':
-                fields['activity_raw'] = clean(value)
-            elif key == 'employees':
-                # often a range ("201-500") or "3,325+" - the lower bound is kept
-                number = re.search(r'\d[\d,]*', value)
-                fields['employees'] = to_int(number.group(0).replace(',', '')) if number else None
-            elif key == 'revenue':
-                # several estimates are sometimes given, the first is kept
-                fields['revenue_usd'] = money_from(value)
-            elif key.endswith('data'):
-                fields['data_size'] = data_size_from(value)
-        elif in_prose:
-            prose.append(text)
-    fields['description'] = clean(' '.join(prose)) if prose else None
-    return fields
-
 def parse_safepay_detail(content):
     soup = BeautifulSoup(content, 'html.parser')
     fields = {}
@@ -364,19 +296,39 @@ def parse_safepay_detail(content):
     fields['leak_claim'] = strip_noise(claim)
     return fields
 
+QILIN_PHOTO_RE = re.compile(r'/photos/(?:thumbs/)?([0-9a-f]{32})\.\w+')
+
+def parse_qilin_detail(content):
+    soup = BeautifulSoup(content, 'html.parser')
+    fields = {}
+    # the stat row is a list of icon + value pairs, the icon says what the value is
+    for icon in soup.select('div.item_box-info__item img'):
+        value, kind = clean(icon.parent.get_text()), os.path.basename(icon.get('src', ''))
+        if not value:
+            continue
+        if kind == 'eye.png':
+            fields['views'] = to_int(value)
+        elif kind == 'image.png':
+            fields['proof_count'] = to_int(value.split()[0])
+    # proof photos are named by a 32 hex digest, kept so the same proof can be spotted under two posts
+    # (the images themselves are never downloaded)
+    photos = sorted(set(QILIN_PHOTO_RE.findall(content)))
+    if photos:
+        fields['proof_ids'] = ';'.join(photos)
+    return fields
+
 PARSERS = {
     'incransom': parse_incransom,
     'qilin': parse_qilin,
     'play': parse_play,
     'safepay': parse_safepay,
     'akira': parse_akira,
-    'krybit': parse_krybit,
 }
 
 DETAIL_PARSERS = {
     'play': parse_play_detail,
     'safepay': parse_safepay_detail,
-    'krybit': parse_krybit_detail,
+    'qilin': parse_qilin_detail,
 }
 
 # how to request page n of each of a group's victim feeds, given one of its location slugs
@@ -389,8 +341,6 @@ PAGERS = {
     'safepay': [lambda slug, n: base_url(slug) + '/?page=' + str(n)],
     'akira': [lambda slug, n: base_url(slug) + '/l?page=' + str(n) + '&sort=date%3Adesc',
               lambda slug, n: base_url(slug) + '/n?page=' + str(n) + '&sort=date%3Adesc'],
-    # krybit has no pagination, every post is on its home page
-    'krybit': [lambda slug, n: base_url(slug) + '/' if n == 1 else None],
 }
 
 '''
@@ -620,10 +570,12 @@ table building
 def victimkey(group, victim):
     return group + '|' + re.sub(r'[^a-z0-9]', '', (victim or '').lower())
 
-def load_existing():
-    if not os.path.exists(JSONFILE):
+def load_existing(jsonfile=JSONFILE):
+    '''stored victims, minus any group no longer in groups.json - dropping a group there drops its rows'''
+    if not os.path.exists(jsonfile):
         return {}
-    return {victimkey(r['group'], r['victim']): r for r in openjson(JSONFILE)}
+    tracked = {group['name'] for group in openjson('groups.json')}
+    return {victimkey(r['group'], r['victim']): r for r in openjson(jsonfile) if r['group'] in tracked}
 
 def collect():
     '''run the structured parsers over every saved source page for supported groups'''
@@ -654,7 +606,7 @@ def collect():
 
 GENERIC_CLAIM_MIN = 5
 
-def merge(existing, found):
+def merge(existing, found, cutoff=CUTOFF):
     timestamp = now()
     for victim in found:
         key = victimkey(victim['group'], victim['victim'])
@@ -678,28 +630,30 @@ def merge(existing, found):
         classify_leak(record)
         if record.get('leak_claim'):
             record['leak_claim_generic'] = claims[(record['group'], record['leak_claim'][:100].lower())] >= GENERIC_CLAIM_MIN
-        # a scheduled release date (krybit's countdown) can lie in the future, but a post can't be dated
-        # later than the day we first saw it
+        # a scheduled release date can lie in the future, but a post can't be dated later than the day
+        # we first saw it
         record['date'] = min(record['published'], record['first_seen'][:10]) if record.get('published') \
             else record['first_seen'][:10]
         record['date_source'] = 'site' if record.get('published') else 'first_seen'
     # only attacks the group itself dated on or after the cutoff are kept - a first_seen date is when we
     # happened to scrape the post, which for an undated listing can be years after the attack
-    kept = [r for r in existing.values() if r['date_source'] == 'site' and r['date'] >= CUTOFF]
+    kept = [r for r in existing.values() if r['date_source'] == 'site' and r['date'] >= cutoff]
     undated = sum(1 for r in existing.values() if r['date_source'] != 'site')
-    stdlog('victims: kept ' + str(len(kept)) + ' victims dated ' + CUTOFF + ' or later, dropped '
+    stdlog('victims: kept ' + str(len(kept)) + ' victims dated ' + cutoff + ' or later, dropped '
            + str(len(existing) - len(kept) - undated) + ' older & ' + str(undated) + ' with no site date')
     return sorted(kept, key=lambda r: (r['date'], r['group'], r['victim']), reverse=True)
 
-def write(records):
+def write(records, jsonpath=JSONFILE, csvpath=CSVFILE, typespath=TYPESFILE):
     os.makedirs(DATADIR, exist_ok=True)
-    with open(JSONFILE, 'w', encoding='utf-8') as jsonfile:
+    with open(jsonpath, 'w', encoding='utf-8') as jsonfile:
         json.dump(records, jsonfile, ensure_ascii=False, indent=4)
-    with open(CSVFILE, 'w', encoding='utf-8', newline='') as csvfile:
+    with open(csvpath, 'w', encoding='utf-8', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=COLUMNS, extrasaction='ignore')
         writer.writeheader()
         writer.writerows(records)
-    with open(TYPESFILE, 'w', encoding='utf-8', newline='') as csvfile:
+    if typespath is None:
+        return
+    with open(typespath, 'w', encoding='utf-8', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['group', 'victim', 'date', 'country', 'activity', 'data_type', 'subject'])
         for r in records:
@@ -788,7 +742,9 @@ def backfill_feed(group, host, pager, getter, since, maxpages, workers):
             victims = parser(content, host['slug']) if content else []
         except (ValueError, KeyError, TypeError):
             victims = []
-        if not victims:
+        # some sites serve the first page again past the end of their archive
+        seen = {v.get('post_url') or v.get('victim') for v in found}
+        if not victims or all((v.get('post_url') or v.get('victim')) in seen for v in victims):
             break
         add_details(group['name'], victims, workers)
         for victim in victims:
@@ -818,7 +774,9 @@ def backfill_group(group, since, maxpages, workers):
 
 def backfill(since, maxpages=100, workers=6, groups=None):
     stdlog('victims: backfilling supported groups back to ' + since)
-    existing = load_existing()
+    # history first so a victim in both keeps the current table's record
+    existing = load_existing(HISTJSON)
+    existing.update(load_existing())
     found = []
     for group in openjson('groups.json'):
         if group['name'] not in PAGERS or (groups and group['name'] not in groups):
@@ -826,9 +784,15 @@ def backfill(since, maxpages=100, workers=6, groups=None):
         victims = backfill_group(group, since, maxpages, workers)
         stdlog('victims: backfill ' + group['name'] + ' - ' + str(len(victims)) + ' victims since ' + since)
         found.extend(victims)
-    records = merge(existing, found)
-    write(records)
-    stdlog('victims: ' + str(len(records)) + ' victims written to ' + CSVFILE)
+    # a backfill past the cutoff keeps the older posts in a separate history table
+    records = merge(existing, found, cutoff=min(since, CUTOFF))
+    current = [r for r in records if r['date'] >= CUTOFF]
+    history = [r for r in records if r['date'] < CUTOFF]
+    write(current)
+    stdlog('victims: ' + str(len(current)) + ' victims written to ' + CSVFILE)
+    if history or os.path.exists(HISTJSON):
+        write(history, HISTJSON, HISTCSV, None)
+        stdlog('victims: ' + str(len(history)) + ' older victims written to ' + HISTCSV)
 
 def main():
     stdlog('victims: building structured victim table')

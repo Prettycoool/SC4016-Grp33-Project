@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <input type="hidden" name="csrfmiddlewaretoken" value="wz4LJzmbRWvGBzY3ROBlKZvgwYzTyDWY4UNeLK0Y7Hy2J7EONObPrhEW6cR8GNbu">
+    <meta name="csrf-token" content="wz4LJzmbRWvGBzY3ROBlKZvgwYzTyDWY4UNeLK0Y7Hy2J7EONObPrhEW6cR8GNbu">
+    <title>activecosmetic.com.ar | Blog</title>
+    <link href="/static/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/libs/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body class="bg-dark text-light" data-user-id="None">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-12 main-content">
+            
+                
+<div class="main-container" style="visibility: hidden;">
+    <div class="container-fluid h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="card bg-dark text-light">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            
+                                <img src="https://www.google.com/s2/favicons?domain=http://activecosmetic.com.ar&amp;sz=32" alt="favicon"
+                                     style="width: 24px; height: 24px; margin-right: 10px;">
+                            
+                            <h2 class="mb-0">activecosmetic.com.ar</h2>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="card-body scrollable-content">
+                        <p class="text-muted mb-2 unselectable">
+                            <i class="bi bi-calendar"></i> 2025-08-02 20:26
+                            &nbsp;|&nbsp;
+                            <i class="bi bi-eye"></i> 104334
+                        </p>
+                        
+                        <div class="mb-3">
+                            <p>Revenue $26.7 Million</p>
+                        </div>
+                         <div class="mb-3">
+                            <p>Active Cosmetic, founded in 1997 and headquartered in Martínez, Buenos Aires province, is a private company specializing in cosmetics and personal hygiene product development and distribution. It serves over 6,000 clients in Argentina and exports to roughly 15 other countries across Latin America.</p>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    <div class="card-footer d-flex justify-content-between flex-wrap">
+                    
+                    <a href="/blog/" class="btn btn-modern-secondary btn-sm ms-auto">
+                        <i class="bi bi-arrow-left"></i> Back to blog
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const mainContainer = document.querySelector('.main-container');
+            if (mainContainer) {
+                mainContainer.style.visibility = 'visible';
+                mainContainer.style.opacity = '1';
+            }
+        }, 50);
+    });
+</script>
+
+
+
+<script>
+    function incrementLinkClicks(postId) {
+
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        fetch(`/blog/api/post/${postId}/link-click/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                const clicksElement = document.getElementById('link-clicks-count');
+                if (clicksElement) {
+                    clicksElement.textContent = data.clicks;
+                }
+                console.log('Link clicks updated:', data.clicks);
+            }
+        })
+        .catch(error => {
+            console.error('Error updating link clicks:', error);
+        });
+    }
+</script>
+
+<style>
+    .main-container {
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
+
+    .unselectable {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .scrollable-content {
+        max-height: 65vh;
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    .scrollable-content::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-track {
+        background: #343a40;
+        border-radius: 4px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-thumb {
+        background: #6c757d;
+        border-radius: 4px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-thumb:hover {
+        background: #5a6268;
+    }
+
+    .card {
+        max-height: 85vh;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-teal {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-teal:hover {
+        background-color: #0b5fe9;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-modern-primary {
+        background-color: #4361ee;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-modern-primary:hover {
+        background-color: #3a56d4;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-modern-danger {
+        background-color: #ef476f;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-modern-danger:hover {
+        background-color: #d63f63;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-modern-secondary {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-modern-secondary:hover {
+        background-color: #5a6268;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .countdown-header-bar {
+        position: relative;
+        height: 30px;
+        background-color: #343a40;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .countdown-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: rgb(149, 1, 1);
+        z-index: 1;
+        transition: width 1s linear;
+    }
+
+    .countdown-text {
+        position: relative;
+        z-index: 2;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+</style>
+
+            </div>
+        </div>
+    </div>
+    <script src="/static/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+	<script src="/static/js/csrf.js"></script>
+    
+</body>
+</html>
