@@ -7,3 +7,5 @@ matplotlib===3.8.1
 BeautifulSoup4==4.12.2
 requests[socks]
 tweepy==4.14.0
+Pillow
+numpy

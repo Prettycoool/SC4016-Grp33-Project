@@ -54,7 +54,7 @@ parser.add_argument("--pages", type=int, default=100, help='backfill: most listi
 parser.add_argument(
     "mode",
     help='operation to execute',
-    choices=['add', 'scrape', 'parse', 'victims', 'backfill', 'markdown']
+    choices=['add', 'scrape', 'parse', 'victims', 'backfill', 'listings', 'proofs', 'markdown']
     )
 args = parser.parse_args()
 
@@ -198,6 +198,16 @@ if args.mode == 'backfill':
     if not checktcp(sockshost, socksport):
         honk("socks proxy unavailable and required to fetch onionsites!")
     victims.backfill(args.since, maxpages=args.pages, groups=args.name.split(',') if args.name else None)
+
+if args.mode == 'listings':
+    if not checktcp(sockshost, socksport):
+        honk("socks proxy unavailable and required to fetch onionsites!")
+    victims.listings(groups=args.name.split(',') if args.name else None)
+
+if args.mode == 'proofs':
+    if not checktcp(sockshost, socksport):
+        honk("socks proxy unavailable and required to fetch onionsites!")
+    victims.proofs(groups=args.name.split(',') if args.name else None)
 
 if args.mode == 'markdown':
     markdown()

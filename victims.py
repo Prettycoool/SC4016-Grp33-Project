@@ -8,6 +8,7 @@ enriches each victim (country, industry, data types, company size) and writes fl
   data/victims.csv           - one row per victim (for tableau & co)
   data/victim_data_types.csv - one row per victim per data type (long format, for breakdowns)
   data/history.json/.csv     - same columns for posts dated before the cutoff, only filled by a deep backfill
+  data/history_data_types.csv - long format data types for the history table
 every enriched field carries a *_source column so site-provided values can be told apart from inferred ones
 description is what the group says about the victim, leak_claim is what the group says it stole -
 data types & leak subject are only ever derived from leak_claim, never from the company description
@@ -15,14 +16,17 @@ data types & leak subject are only ever derived from leak_claim, never from the 
 import os
 import re
 import csv
+import io
 import json
 import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urlsplit, urljoin
 
+import numpy as np
 import requests
 import tldextract
+from PIL import Image
 import pycountry
 from bs4 import BeautifulSoup
 
@@ -31,11 +35,15 @@ from sharedutils import stdlog, errlog
 
 DATADIR = 'data'
 DETAILDIR = os.path.join('source', 'detail')
+LISTINGDIR = os.path.join('source', 'listing')
+PROOFHASHDIR = os.path.join('source', 'proofhash')
+PROOFDISTANCES = os.path.join(DATADIR, 'proof_distances.csv')
 JSONFILE = os.path.join(DATADIR, 'victims.json')
 CSVFILE = os.path.join(DATADIR, 'victims.csv')
 TYPESFILE = os.path.join(DATADIR, 'victim_data_types.csv')
 HISTJSON = os.path.join(DATADIR, 'history.json')
 HISTCSV = os.path.join(DATADIR, 'history.csv')
+HISTTYPES = os.path.join(DATADIR, 'history_data_types.csv')
 # the table only covers attacks from this date on
 CUTOFF = '2026-01-01'
 
@@ -43,8 +51,9 @@ COLUMNS = [
     'group', 'victim', 'website', 'date', 'date_source', 'published', 'first_seen', 'last_seen',
     'country', 'country_name', 'country_source',
     'activity', 'activity_raw', 'activity_source',
-    'revenue_usd', 'revenue_band', 'employees', 'employee_band',
-    'data_types', 'leak_subject', 'data_size', 'data_files', 'proof_count', 'proof_ids', 'encrypted', 'status', 'views',
+    'revenue_usd', 'revenue_band', 'revenue_source', 'employees', 'employee_band', 'employees_source',
+    'data_types', 'data_types_source', 'leak_subject', 'listing_entries', 'data_size', 'data_files', 'proof_count', 'proof_ids', 'proof_sha256', 'proof_dhash',
+    'encrypted', 'status', 'views',
     'description', 'leak_claim', 'leak_claim_generic', 'post_url', 'source_url',
 ]
 
@@ -92,7 +101,8 @@ def to_int(value):
 
 # first line of a post that starts describing the stolen data rather than the victim
 CLAIM_START_RE = re.compile(r'\b(leak(ed|age)?|stolen|exfiltrat\w*|data\s*(type)?\s*:|full data|types of information'
-                            r'|access has been gained|confidential files|we will upload|will be (uploaded|published))',
+                            r'|access has been gained|confidential files|we will upload|will be (uploaded|published)'
+                            r'|ha(s|ve) collected such data)',
                             re.IGNORECASE)
 # never keep download locations or archive passwords, only the description of what was taken
 CLAIM_NOISE_RE = re.compile(r'(https?://\S+|\S+\.onion\S*|magnet:\S+|(rar |zip |archive )?password\s*:.*$)', re.IGNORECASE)
@@ -136,6 +146,8 @@ def parse_incransom(content, slug):
             'published': ms_to_date(post.get('createdAt')),
             'views': post.get('visits'),
             'status': ','.join(post.get('categories') or []) or None,
+            # the tag is only ever added, so a post without it is unknown rather than not encrypted
+            'encrypted': True if 'Encrypted' in (post.get('categories') or []) else None,
             # ids of the proof files on incransom's cdn - the same id under two posts is the same upload
             'proof_count': len(post.get('proof') or []) or None,
             'proof_ids': ';'.join(sorted(post.get('proof') or [])) or None,
@@ -310,6 +322,10 @@ def parse_qilin_detail(content):
             fields['views'] = to_int(value)
         elif kind == 'image.png':
             fields['proof_count'] = to_int(value.split()[0])
+        elif kind == 'file-text.png':
+            fields['data_files'] = to_int(value.split()[0])
+        elif kind == 'download-cloud.png':
+            fields['data_size'] = data_size_from(value)
     # proof photos are named by a 32 hex digest, kept so the same proof can be spotted under two posts
     # (the images themselves are never downloaded)
     photos = sorted(set(QILIN_PHOTO_RE.findall(content)))
@@ -454,25 +470,31 @@ DATA_TYPES = {
     'Personal data (PII)': ['personal data', 'personal information', 'pii', 'passport', 'passports', 'id card',
                             'id cards', 'driver license', "driver's license", 'ssn', 'social security',
                             'date of birth', 'home addresses', 'ids', "id's", 'personal files', 'personal documents',
-                            'private data', 'personal confidential'],
+                            'private data', 'personal confidential', 'dl', 'dl scans', 'drivers license',
+                            'drivers licenses', 'dob', 'addresses', 'phone numbers', 'phones', 'birth certs',
+                            'birth certificates', 'death certs', 'death certificates', 'visa', 'w-9', 'w9'],
     'Employee / HR': ['employee', 'employees', 'hr', 'human resources', 'payroll', 'personnel', 'salary',
-                      'salaries', 'staff data', 'resumes', 'disciplinary', 'staff'],
+                      'salaries', 'staff data', 'resumes', 'disciplinary', 'staff', 'i-9', 'i9'],
     'Financial': ['financial', 'finance', 'accounting', 'bank statements', 'invoices', 'invoice', 'tax', 'taxes',
-                  'budget', 'balance sheet', 'payments', 'credit card', 'audit', 'bank details'],
+                  'budget', 'balance sheet', 'payments', 'credit card', 'audit', 'bank details', 'payment details',
+                  'accounts receivable', 'accounts payable', 'w-9', 'w9'],
     'Customer data': ['customer', 'customers', 'client', 'clients', 'crm', 'patients', 'students',
                       'members', 'policyholders', 'guests', 'tenants'],
     'Medical (PHI)': ['medical records', 'patient', 'patients', 'phi', 'health records', 'diagnosis',
-                      'prescriptions', 'medical data'],
+                      'prescriptions', 'medical data', 'medical information', 'health information',
+                      'medical files', 'medical reports'],
     'Legal / contracts': ['contract', 'contracts', 'agreement', 'agreements', 'nda', 'litigation', 'case files',
-                          'legal documents', 'lawsuit', 'discovery'],
+                          'legal documents', 'lawsuit', 'discovery', 'court files', 'court hearings',
+                          'police reports'],
     'Intellectual property / technical': ['source code', 'blueprint', 'blueprints', 'drawings', 'cad', 'r&d',
                                           'research', 'patent', 'patents', 'formula', 'formulas', 'technical',
                                           'engineering', 'designs', 'product data', 'quality control',
-                                          'certification'],
+                                          'certification', 'projects', 'project files', 'specifications'],
     'Credentials / IT': ['password', 'passwords', 'credentials', 'database', 'databases', 'backup', 'backups',
                          'sql', 'active directory', 'server'],
     'Corporate confidential': ['confidential', 'corporate', 'internal documents', 'board', 'correspondence',
-                               'emails', 'email', 'mail', 'strategy', 'nda', 'counterparties'],
+                               'emails', 'email', 'mail', 'strategy', 'nda', 'counterparties', 'partners information',
+                               'suppliers', 'business partners'],
 }
 DATA_TYPE_RES = {name: re.compile(r'\b(' + '|'.join(re.escape(k) for k in words) + r')(?:s|es)?\b')
                  for name, words in DATA_TYPES.items()}
@@ -549,14 +571,129 @@ def enrich(record):
     record['activity_source'] = source
 
     record['data_size'] = record.get('data_size') or data_size_from(record.get('leak_claim'))
-    record['revenue_band'] = band(record.get('revenue_usd'), REVENUE_BANDS)
-    record['employee_band'] = band(record.get('employees'), EMPLOYEE_BANDS)
     return classify_leak(record)
 
+'''
+company facts & leak details written into a post's text
+some groups put labelled fields in the post body (incransom "Employees: 10 Revenue: $5 Million Industry: ...",
+safepay "Revenue $5.8 Million") - these are site values. others only mention them in prose
+("with 133 employees", "$7.3 million in revenue") - these are kept as text values so they can be filtered out.
+only the description is read, the leak claim talks about stolen employee records, not headcount.
+only dollar amounts are kept, no exchange rates are applied. a range keeps its lower bound
+'''
+
+MONEY = r'(?<![<≤])(?:us\s*)?\$\s?(\d[\d,]*(?:\.\d+)?)\s*(thousand|million|billion|mln|mn|bn|k|m|b)?\b'
+MULTIPLIERS = {'thousand': 1e3, 'k': 1e3, 'million': 1e6, 'mln': 1e6, 'mn': 1e6, 'm': 1e6, 'billion': 1e9, 'bn': 1e9,
+               'b': 1e9}
+SITE_REVENUE_RE = re.compile(r'\brevenue\s*:?\s*' + MONEY, re.IGNORECASE)
+TEXT_REVENUE_RES = [re.compile(r'\b(?:revenues?|turnover|annual sales)\b[^.$€£]{0,50}?' + MONEY, re.IGNORECASE),
+                    re.compile(MONEY + r'\s+(?:in|of)\s+(?:annual\s+|yearly\s+)?(?:revenues?|turnover|sales)\b',
+                               re.IGNORECASE)]
+COUNT = r'(\d{1,3}(?:[,.]\d{3})+|\d+)'
+SITE_EMPLOYEES_RE = re.compile(r'\bemployees\s*:\s*' + COUNT, re.IGNORECASE)
+TEXT_EMPLOYEES_RES = [
+    re.compile(r'\b(?:with|employs|employing|has|have|team of|approximately|around|about|over|more than|nearly|some)\s+'
+               r'(?:(?:approximately|around|about|over|more than|nearly|some|a team of|a workforce of)\s+)?' + COUNT
+               + r'\s*\+?\s*(?:[-–]\s*[\d,.]+\s*)?(?:full[- ]time\s+|permanent\s+)?(?:employees|staff members|staff)\b',
+               re.IGNORECASE),
+    re.compile(r'\b(?:employs|employing|employ)\s+(?:approximately|around|about|over|more than|nearly|some)?\s*' + COUNT
+               + r'\s*\+?\s*(?:[-–]\s*[\d,.]+\s*)?(?:people|workers|employees|staff)\b', re.IGNORECASE),
+    re.compile(r'\b(?:workforce|headcount)\s+of\s+(?:approximately|around|about|over|more than|nearly|some)?\s*' + COUNT,
+               re.IGNORECASE),
+]
+INDUSTRY_LABEL_RE = re.compile(r'\bIndustry\s*:\s*(.+?)(?=\s+(?:Phone Number|Employees|Revenue)\b|$)')
+SIZE_LABEL_RE = re.compile(r'\b(?:laek|leak size|data size|total data in the leak|total leak)\s*[:\-–]?\s*'
+                           r'(\d+(?:[.,]\d+)?\s*(?:tb|gb|mb))\b', re.IGNORECASE)
+# a windows dir listing pasted as proof: "Total Files Listed: 711367 File(s) 384,756,064,224 bytes"
+FILE_LISTING_RE = re.compile(r'Total Files Listed:\s*([\d,]+)\s*File\(s\)\s*([\d,]+)\s*bytes', re.IGNORECASE)
+# "DLs of more than 100 employees" counts stolen records, not staff
+DATA_CONTEXT_RE = re.compile(r'\b(dls?|ssns?|scans?|records?|data|information|files?|docs?|documents?|forms?|details)\b'
+                             r'[^.]{0,30}$', re.IGNORECASE)
+CLAIM_HEADER_RE = re.compile(r'\b(?:we\s+)?ha(?:s|ve)\s+collected\s+such\s+data\b', re.IGNORECASE)
+# post tags that name a type of stolen data
+TAG_DATA_TYPES = {'AD%20Dump': 'Credentials / IT'}
+
+def money(match):
+    value = float(match.group(1).replace(',', ''))
+    return int(value * MULTIPLIERS.get((match.group(2) or '').lower(), 1))
+
+def count(text):
+    # 1.200 is a european thousands separator, not a decimal
+    return int(re.sub(r'[,.]', '', text))
+
+def human_size(size):
+    for unit, factor in (('TB', 1024 ** 4), ('GB', 1024 ** 3), ('MB', 1024 ** 2)):
+        if size >= factor:
+            return str(round(size / factor, 1)) + ' ' + unit
+    return None
+
+def first_match(patterns, text):
+    for pattern in patterns:
+        for match in pattern.finditer(text):
+            if not DATA_CONTEXT_RE.search(text[max(0, match.start() - 60):match.start()]):
+                return match
+    return None
+
+def site_facts(record):
+    '''fills revenue, employees, industry, leak size & claim from the stored post text - safe to run repeatedly'''
+    description = record.get('description') or ''
+    # incransom appends its claim to the company blurb under a header the line splitter never saw
+    header = CLAIM_HEADER_RE.search(description)
+    if header and not record.get('leak_claim'):
+        record['leak_claim'] = strip_noise(description[header.start():])
+        record['description'] = description = clean(description[:header.start()]) or ''
+
+    if record.get('revenue_usd') and not record.get('revenue_source'):
+        record['revenue_source'] = 'site'
+    if not record.get('revenue_usd'):
+        match = SITE_REVENUE_RE.search(description)
+        source = 'site'
+        if not match:
+            match, source = first_match(TEXT_REVENUE_RES, description), 'text'
+        if match and money(match) >= 1000:
+            record['revenue_usd'], record['revenue_source'] = money(match), source
+
+    if not record.get('employees'):
+        match = SITE_EMPLOYEES_RE.search(description)
+        source = 'site'
+        if not match:
+            match, source = first_match(TEXT_EMPLOYEES_RES, description), 'text'
+        if match and count(match.group(1)) > 0:
+            record['employees'], record['employees_source'] = count(match.group(1)), source
+
+    industry = INDUSTRY_LABEL_RE.search(description)
+    if industry and not record.get('activity_raw'):
+        record['activity_raw'] = clean(industry.group(1))
+        activity = classify(record['activity_raw'], INDUSTRY_RES)
+        if activity:
+            record['activity'], record['activity_source'] = activity, 'site'
+
+    listing = FILE_LISTING_RE.search(description)
+    if listing:
+        record['data_files'] = record.get('data_files') or count(listing.group(1))
+        record['data_size'] = record.get('data_size') or human_size(count(listing.group(2)))
+    size = SIZE_LABEL_RE.search(description)
+    record['data_size'] = record.get('data_size') or (data_size_from(size.group(1)) if size else None) \
+        or data_size_from(record.get('leak_claim'))
+
+    if record.get('group') == 'incransom' and 'Encrypted' in (record.get('status') or '').split(','):
+        record['encrypted'] = True
+    record['revenue_band'] = band(record.get('revenue_usd'), REVENUE_BANDS)
+    record['employee_band'] = band(record.get('employees'), EMPLOYEE_BANDS)
+    return record
+
 def classify_leak(record):
-    '''data types & subject from the group's claim only - a victim with no claim stays blank, not guessed'''
+    '''data types & subject from the group's claim & data tags, else the leak's folder names - otherwise blank, not guessed'''
     types = data_types_from(record.get('leak_claim'))
+    for tag in (record.get('status') or '').split(','):
+        if tag in TAG_DATA_TYPES and TAG_DATA_TYPES[tag] not in types:
+            types.append(TAG_DATA_TYPES[tag])
+    source = 'claim' if types else None
+    # the group's own words win, the leak's folder names only fill in where the group said nothing
+    if not types and record.get('listing_types'):
+        types, source = list(record['listing_types']), 'listing'
     record['data_types'] = ';'.join(types) or None
+    record['data_types_source'] = source
     if types:
         record['leak_subject'] = ';'.join(leak_subjects(types))
     else:
@@ -618,6 +755,8 @@ def merge(existing, found, cutoff=CUTOFF):
         record.update({k: v for k, v in victim.items() if v not in (None, '')})
         record['last_seen'] = timestamp
         existing[key] = enrich(record)
+    for record in existing.values():
+        site_facts(record)
     # a claim repeated word for word across a group's posts is a template, not a description of that victim
     claims = {}
     for record in existing.values():
@@ -791,14 +930,379 @@ def backfill(since, maxpages=100, workers=6, groups=None):
     write(current)
     stdlog('victims: ' + str(len(current)) + ' victims written to ' + CSVFILE)
     if history or os.path.exists(HISTJSON):
-        write(history, HISTJSON, HISTCSV, None)
+        write(history, HISTJSON, HISTCSV, HISTTYPES)
         stdlog('victims: ' + str(len(history)) + ' older victims written to ' + HISTCSV)
+
+'''
+leak listings
+safepay & qilin say nothing about what they took, but publish a browsable index of the stolen files.
+only that index is read, never a file: archive links are skipped, non-html responses are dropped unread
+and every response is capped. folder & file names often carry personal data (people's names, patients,
+employees), so names only ever exist in memory - each is turned into a data type on the spot and only the
+per-type counts are kept, in source/listing/ & on the record. no name is ever logged or written to disk
+'''
+
+LISTING_MAX_BYTES = 2 * 1024 * 1024
+LISTING_MAX_SUBDIRS = 25
+LISTING_GROUPS = ('safepay', 'qilin')
+# qilin sends every request to a different file server mirror, often all down - try a few before spending
+# a minute per post on the rest
+LISTING_PROBE = 5
+# folder & file name words the claim keywords don't cover - safepay victims are often german
+FOLDER_TYPES = {
+    'Employee / HR': ['lohn', 'gehalt', 'gehaelter', 'personalakte', 'personalakten', 'bewerbung', 'bewerbungen'],
+    'Financial': ['buchhaltung', 'finanzen', 'rechnung', 'rechnungen', 'steuer', 'steuern', 'bank', 'datev',
+                  'quickbooks', 'qbw', 'sage', 'ap', 'ar', 'billing'],
+    'Customer data': ['kunden', 'kunde'],
+    'Legal / contracts': ['vertrag', 'vertraege', 'verträge', 'legal', 'recht'],
+    'Credentials / IT': ['bak', 'mdf', 'ldf', 'vmdk', 'vhdx', 'kdbx', 'it'],
+    'Corporate confidential': ['pst', 'ost', 'management', 'geschaeftsfuehrung', 'geschäftsführung'],
+}
+FOLDER_TYPE_RES = {name: re.compile(r'\b(' + '|'.join(re.escape(k) for k in words) + r')\b')
+                   for name, words in FOLDER_TYPES.items()}
+ARCHIVE_RE = re.compile(r'\.(rar|zip|7z|tar|gz|tgz|bz2|xz|iso|exe|bin)$', re.IGNORECASE)
+SKIP_LINK_RE = re.compile(r'^(\.\./?|/|\?.*|#.*|parent directory)$', re.IGNORECASE)
+
+def listing_cache(group, url):
+    return os.path.join(LISTINGDIR, group + '-' + hashlib.sha1(url.encode()).hexdigest()[:16] + '.json')
+
+def listing_url(record):
+    '''the leak index linked from a cached post page - none for archives or posts we have no page for'''
+    cache = os.path.join(DETAILDIR, record['group'] + '-' + hashlib.sha1(record['post_url'].encode()).hexdigest()[:16]
+                         + '.html')
+    if not os.path.exists(cache):
+        return None
+    with open(cache, encoding='utf-8', errors='ignore') as cachefile:
+        soup = BeautifulSoup(cachefile.read(), 'html.parser')
+    if record['group'] == 'safepay':
+        links = [a.get('href', '') for a in soup.select('a.btn-teal')]
+        links = [link for link in links if '.onion/' in link and link.endswith('/')]
+    else:
+        links = [urljoin(record['post_url'], a.get('href', '')) for a in soup.select('a.learn_more')
+                 if '/site/data' in a.get('href', '')]
+    return links[0] if links else None
+
+def fetch_capped(url):
+    '''(index page text, url it was served from after redirects) - None for anything that is not a page,
+    so a file served at the url is never read'''
+    try:
+        with requests.get(url, proxies=oproxies, headers=headers(), timeout=60, verify=False, stream=True) as response:
+            kind = response.headers.get('Content-Type', '').lower()
+            if response.status_code != 200 or not ('html' in kind or 'json' in kind):
+                return None, None
+            body = b''
+            for chunk in response.iter_content(65536):
+                body += chunk
+                if len(body) >= LISTING_MAX_BYTES:
+                    break
+            return body.decode(response.encoding or 'utf-8', errors='ignore'), response.url
+    except requests.exceptions.RequestException as error:
+        errlog('victims: listing - ' + url + ' - ' + str(error))
+        return None, None
+
+def listing_entries(content, url):
+    '''(names, subfolder urls) on an index page - autoindex style links, or name/path fields of a json index'''
+    names, folders = [], []
+    if content.lstrip()[:1] in '[{':
+        try:
+            stack = [json.loads(content)]
+        except ValueError:
+            stack = []
+        while stack:
+            item = stack.pop()
+            if isinstance(item, dict):
+                names.extend(str(v) for k, v in item.items() if k.lower() in ('name', 'path', 'filename', 'title')
+                             and isinstance(v, str))
+                stack.extend(v for v in item.values() if isinstance(v, (dict, list)))
+            elif isinstance(item, list):
+                stack.extend(item)
+        return names, folders
+    host = urlsplit(url).netloc
+    for link in BeautifulSoup(content, 'html.parser').find_all('a'):
+        href, text = link.get('href', ''), clean(link.get_text()) or ''
+        if not href or SKIP_LINK_RE.match(href) or SKIP_LINK_RE.match(text):
+            continue
+        target = urljoin(url, href)
+        if urlsplit(target).netloc != host or target == url:
+            continue
+        # an autoindex link extends the index url, other indexes (qilin) are read by link text
+        if target.startswith(url):
+            names.append(unquote(target[len(url):].rstrip('/')))
+            if target.endswith('/') and not ARCHIVE_RE.search(target.rstrip('/')):
+                folders.append(target)
+        elif text:
+            names.append(text)
+    return names, folders
+
+def name_types(name):
+    '''data types a folder or file name points at - "HR_Payroll/Lohn2024.xlsx" -> employee & financial'''
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', name)
+    text = re.sub(r'[_\-.\\/()\[\]]+|(?<=[a-z])(?=\d)', ' ', text).lower()
+    # in a file name "dl" is a download, not a driving licence
+    text = re.sub(r'\bdl\b', ' ', text)
+    types = data_types_from(text)
+    return types + [t for t, pattern in FOLDER_TYPE_RES.items() if pattern.search(text) and t not in types]
+
+def read_listing(url):
+    '''{data type: number of names pointing at it} & how many names were read, over the index & its subfolders'''
+    counts, entries = {}, 0
+    # qilin's data page redirects to the index on a separate file server
+    content, url = fetch_capped(url)
+    if content is None:
+        return None
+    names, folders = listing_entries(content, url)
+    for folder in folders[:LISTING_MAX_SUBDIRS]:
+        page, served = fetch_capped(folder)
+        if page:
+            names.extend(folder[len(url):] + name for name in listing_entries(page, served)[0])
+    for name in names:
+        entries += 1
+        for data_type in name_types(name):
+            counts[data_type] = counts.get(data_type, 0) + 1
+    return {'entries': entries, 'types': counts, 'fetched': now()}
+
+def apply_listing(record):
+    '''put a cached index summary on the record - no fetching'''
+    if record['group'] not in LISTING_GROUPS or not record.get('post_url'):
+        return
+    url = listing_url(record)
+    cache = listing_cache(record['group'], url) if url else None
+    if cache is None or not os.path.exists(cache):
+        return
+    summary = openjson(cache)
+    record['listing_entries'] = summary['entries']
+    # most-named first, a type named once in thousands of files is noise rather than what the leak holds
+    record['listing_types'] = [t for t, n in sorted(summary['types'].items(), key=lambda kv: -kv[1]) if n >= 2]
+
+def listings(groups=None, workers=4):
+    '''read the leak index of every published safepay / qilin post we have a page for, then rebuild the tables'''
+    records = list(load_existing(HISTJSON).values()) + list(load_existing().values())
+    todo = {}
+    for record in records:
+        if record['group'] not in LISTING_GROUPS or (groups and record['group'] not in groups):
+            continue
+        if record.get('status') == 'pending' or not record.get('post_url'):
+            continue
+        url = listing_url(record)
+        if url and not os.path.exists(listing_cache(record['group'], url)):
+            todo[url] = record['group']
+    stdlog('victims: listings - ' + str(len(todo)) + ' leak indexes to read')
+    os.makedirs(LISTINGDIR, exist_ok=True)
+    def work(item):
+        url, group = item
+        summary = read_listing(url)
+        # failures aren't cached, so the next run tries them again
+        if summary is not None:
+            with open(listing_cache(group, url), 'w', encoding='utf-8') as cachefile:
+                json.dump(summary, cachefile)
+        return summary is not None
+    done = 0
+    for group in LISTING_GROUPS:
+        items = [(url, g) for url, g in todo.items() if g == group]
+        if not items:
+            continue
+        probe = [work(item) for item in items[:LISTING_PROBE]]
+        if not any(probe):
+            errlog('victims: listings - ' + group + ' - first ' + str(len(probe)) + ' indexes unreachable, skipping '
+                   + str(len(items) - len(probe)) + ' more')
+            continue
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            done += sum(probe) + sum(pool.map(work, items[LISTING_PROBE:]))
+    stdlog('victims: listings - read ' + str(done) + ' of ' + str(len(todo)))
+    main()
+
+'''
+proof hashes
+a group's proof ids are upload ids, so the same screenshot posted again gets a new id. to spot re-posted
+proofs each proof image is fetched & hashed - sha256 for the identical file, a 64 bit difference hash for
+the same picture re-saved or resized. proofs are usually photos of the stolen documents, so an image only
+ever exists in memory: it is hashed & dropped, never written to disk, and only the hashes are kept
+(source/proofhash/<group>.json, proof id -> [sha256, dhash]). qilin is read from its thumbnails
+'''
+
+PROOF_MAX_BYTES = 10 * 1024 * 1024
+PROOF_GROUPS = ('qilin', 'incransom')
+QILIN_THUMB_RE = re.compile(r'src="(/uploads/blog/\d+/photos/thumbs/([0-9a-f]{32})\.\w+)"')
+# a hash shared by more posts than this is a group banner or template, not a re-post
+PROOF_TEMPLATE_MIN = 5
+BLANK_DHASHES = {'0000000000000000', 'ffffffffffffffff'}
+
+def proof_urls(record):
+    '''proof id -> image url for a post'''
+    ids = [p for p in (record.get('proof_ids') or '').split(';') if p]
+    if not ids:
+        return {}
+    if record['group'] == 'incransom':
+        # the blog renders each proof from {api}/api/v1/blog/download/{id}
+        return {p: base_url(record['source_url']) + '/api/v1/blog/download/' + p for p in ids}
+    cache = os.path.join(DETAILDIR, 'qilin-' + hashlib.sha1((record.get('post_url') or '').encode()).hexdigest()[:16]
+                         + '.html')
+    if not os.path.exists(cache):
+        return {}
+    with open(cache, encoding='utf-8', errors='ignore') as cachefile:
+        thumbs = {digest: path for path, digest in QILIN_THUMB_RE.findall(cachefile.read())}
+    return {p: base_url(record['post_url']) + thumbs[p] for p in ids if p in thumbs}
+
+def dhash(image):
+    '''64 bit difference hash - neighbouring pixel brightness on a 9x8 greyscale copy'''
+    pixels = list(image.convert('L').resize((9, 8), Image.LANCZOS).tobytes())
+    bits = ''.join('1' if pixels[row * 9 + col] > pixels[row * 9 + col + 1] else '0'
+                   for row in range(8) for col in range(8))
+    return '%016x' % int(bits, 2)
+
+def hash_proof(url):
+    '''[sha256, dhash] of the image at url, or None - the image itself is never kept'''
+    try:
+        with requests.get(url, proxies=oproxies, headers=headers(), timeout=90, verify=False, stream=True) as response:
+            if response.status_code != 200 or not response.headers.get('Content-Type', '').startswith('image/'):
+                return None
+            body = b''
+            for chunk in response.iter_content(65536):
+                body += chunk
+                if len(body) > PROOF_MAX_BYTES:
+                    return None
+        with Image.open(io.BytesIO(body)) as image:
+            return [hashlib.sha256(body).hexdigest(), dhash(image)]
+    except (requests.exceptions.RequestException, OSError, Image.DecompressionBombError) as error:
+        errlog('victims: proof - ' + url + ' - ' + type(error).__name__)
+        return None
+
+def proof_hash_cache(group):
+    path = os.path.join(PROOFHASHDIR, group + '.json')
+    return openjson(path) if os.path.exists(path) else {}
+
+def apply_proof_hashes(records):
+    caches = {group: proof_hash_cache(group) for group in PROOF_GROUPS}
+    for record in records:
+        hashes = [caches[record['group']][p] for p in (record.get('proof_ids') or '').split(';')
+                  if record['group'] in caches and p in caches[record['group']]]
+        record['proof_sha256'] = ';'.join(h[0] for h in hashes) or None
+        record['proof_dhash'] = ';'.join(h[1] for h in hashes) or None
+
+def proofs(groups=None, workers=6):
+    '''hash every proof image not hashed yet, then rebuild the tables'''
+    records = list(load_existing(HISTJSON).values()) + list(load_existing().values())
+    os.makedirs(PROOFHASHDIR, exist_ok=True)
+    for group in PROOF_GROUPS:
+        if groups and group not in groups:
+            continue
+        cache = proof_hash_cache(group)
+        todo = {}
+        for record in records:
+            if record['group'] == group:
+                todo.update({p: u for p, u in proof_urls(record).items() if p not in cache})
+        stdlog('victims: proofs - ' + group + ' - ' + str(len(todo)) + ' images to hash, ' + str(len(cache)) + ' done')
+        items = list(todo.items())
+        # saved every batch so an interrupted run keeps its progress
+        for start in range(0, len(items), 200):
+            batch = items[start:start + 200]
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                for (proof, _), hashes in zip(batch, pool.map(lambda item: hash_proof(item[1]), batch)):
+                    if hashes:
+                        cache[proof] = hashes
+            with open(os.path.join(PROOFHASHDIR, group + '.json'), 'w', encoding='utf-8') as cachefile:
+                json.dump(cache, cachefile)
+            stdlog('victims: proofs - ' + group + ' - ' + str(min(start + 200, len(items))) + '/' + str(len(items)))
+    main()
+
+PROOF_DISTANCE_MAX = 4
+POPCOUNT = np.array([bin(i).count('1') for i in range(256)], dtype=np.uint8)
+
+def bit_distance(left, right):
+    '''bits that differ between every hash in left & every hash in right - a len(left) x len(right) matrix'''
+    xor = np.ascontiguousarray(left[:, None] ^ right[None, :])
+    return POPCOUNT[xor.view(np.uint8)].reshape(xor.shape + (8,)).sum(axis=-1)
+
+def write_proof_distances(study, records):
+    '''
+    one row per pair of a study post (the 2026 table) & any other post whose proof images come within
+    PROOF_DISTANCE_MAX bits of each other. distance is the number of differing bits between two 64 bit
+    difference hashes - 0 is the same picture, re-saved or resized pictures stay within a few bits
+    '''
+    posts = [r for r in records if r.get('proof_dhash')]
+    hashes, owners = [], []
+    for index, record in enumerate(posts):
+        for value in record['proof_dhash'].split(';'):
+            if value not in BLANK_DHASHES:
+                hashes.append(int(value, 16))
+                owners.append(index)
+    hashes, owners = np.array(hashes, dtype=np.uint64), np.array(owners)
+    study_keys = {victimkey(r['group'], r['victim']) for r in study}
+    rows = []
+    for index, record in enumerate(posts):
+        if victimkey(record['group'], record['victim']) not in study_keys:
+            continue
+        mine = owners == index
+        if not mine.any():
+            continue
+        distance = bit_distance(hashes[mine], hashes[~mine])
+        others = owners[~mine]
+        close = distance <= PROOF_DISTANCE_MAX
+        # an image close to many posts is a banner or a blank-ish page, not a re-post
+        for row in range(close.shape[0]):
+            if len(set(others[close[row]])) > PROOF_TEMPLATE_MIN:
+                close[row] = False
+        sha = set((record.get('proof_sha256') or '').split(';')) - {''}
+        for other in sorted(set(others[close.any(axis=0)])):
+            columns = others == other
+            best = distance[:, columns].min(axis=1)
+            matched = posts[other]
+            rows.append({
+                'group': record['group'], 'victim': record['victim'], 'date': record['date'],
+                'other_group': matched['group'], 'other_victim': matched['victim'], 'other_date': matched['date'],
+                'gap_days': (datetime.strptime(matched['date'], '%Y-%m-%d')
+                             - datetime.strptime(record['date'], '%Y-%m-%d')).days,
+                'min_distance': int(best.min()),
+                'mean_distance': round(float(best.mean()), 1),
+                'close_images': int(close[:, columns].any(axis=1).sum()),
+                'proof_count': int(mine.sum()),
+                'other_proof_count': int(columns.sum()),
+                'identical': len(sha & set((matched.get('proof_sha256') or '').split(';'))),
+            })
+            rows[-1]['overlap'] = round(rows[-1]['close_images'] / rows[-1]['proof_count'], 2)
+    rows.sort(key=lambda r: (-r['overlap'], r['min_distance'], r['mean_distance']))
+    columns = ['group', 'victim', 'date', 'other_group', 'other_victim', 'other_date', 'gap_days', 'min_distance',
+               'mean_distance', 'close_images', 'proof_count', 'other_proof_count', 'overlap', 'identical']
+    with open(PROOFDISTANCES, 'w', encoding='utf-8', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(rows)
+    stdlog('victims: ' + str(len(rows)) + ' post pairs within ' + str(PROOF_DISTANCE_MAX) + ' bits written to '
+           + PROOFDISTANCES)
+
+def refresh_details(records):
+    '''re-read cached post pages so fields added to a detail parser reach posts fetched before it - never fetches'''
+    for record in records:
+        parser = DETAIL_PARSERS.get(record['group'])
+        if parser is None or not record.get('post_url'):
+            continue
+        cache = os.path.join(DETAILDIR, record['group'] + '-' + hashlib.sha1(record['post_url'].encode()).hexdigest()[:16]
+                             + '.html')
+        if not os.path.exists(cache) or os.path.getsize(cache) == 0:
+            continue
+        with open(cache, encoding='utf-8', errors='ignore') as cachefile:
+            fields = parser(cachefile.read())
+        record.update({k: v for k, v in fields.items() if v not in (None, '') and record.get(k) in (None, '')})
+        apply_listing(record)
 
 def main():
     stdlog('victims: building structured victim table')
-    records = merge(load_existing(), collect())
+    existing = load_existing()
+    refresh_details(existing.values())
+    apply_proof_hashes(existing.values())
+    records = merge(existing, collect())
     write(records)
     stdlog('victims: ' + str(len(records)) + ' victims written to ' + CSVFILE)
+    history = []
+    if os.path.exists(HISTJSON):
+        history = load_existing(HISTJSON)
+        refresh_details(history.values())
+        apply_proof_hashes(history.values())
+        history = [r for r in merge(history, [], cutoff='0000-00-00') if r['date'] < CUTOFF]
+        write(history, HISTJSON, HISTCSV, HISTTYPES)
+        stdlog('victims: ' + str(len(history)) + ' older victims written to ' + HISTCSV)
+    # the study period is the 2026 table, matched against every post we hold
+    write_proof_distances(records, records + history)
 
 if __name__ == '__main__':
     main()

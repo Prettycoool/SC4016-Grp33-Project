@@ -29,6 +29,7 @@ akira,Knit,2026-09-28,,Education,Employee / HR,Employees
 akira,Knit,2026-09-28,,Education,Financial,Company
 akira,Knit,2026-09-28,,Education,Customer data,Customers
 akira,Knit,2026-09-28,,Education,Legal / contracts,Company
+akira,Knit,2026-09-28,,Education,Intellectual property / technical,Company
 akira,Knit,2026-09-28,,Education,Corporate confidential,Company
 akira,Geebee Garments,2026-09-28,BD,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Geebee Garments,2026-09-28,BD,Manufacturing,Employee / HR,Employees
@@ -47,6 +48,7 @@ akira,Wallatec,2026-09-24,,Manufacturing,Personal data (PII),Individuals (unspec
 akira,Wallatec,2026-09-24,,Manufacturing,Employee / HR,Employees
 akira,Wallatec,2026-09-24,,Manufacturing,Financial,Company
 akira,Wallatec,2026-09-24,,Manufacturing,Customer data,Customers
+akira,Wallatec,2026-09-24,,Manufacturing,Intellectual property / technical,Company
 akira,Wallatec,2026-09-24,,Manufacturing,Corporate confidential,Company
 akira,Strack Companies,2026-09-24,,Construction,Employee / HR,Employees
 akira,Strack Companies,2026-09-24,,Construction,Financial,Company
@@ -63,6 +65,7 @@ incransom,Lemon Law,2026-09-23,US,Unknown,Corporate confidential,Company
 akira,Urban Engineering,2026-09-23,,Unknown,Employee / HR,Employees
 akira,Urban Engineering,2026-09-23,,Unknown,Financial,Company
 akira,Urban Engineering,2026-09-23,,Unknown,Legal / contracts,Company
+akira,Urban Engineering,2026-09-23,,Unknown,Intellectual property / technical,Company
 akira,Urban Engineering,2026-09-23,,Unknown,Corporate confidential,Company
 akira,HIT dd,2026-09-23,SI,Hospitality & Leisure,Personal data (PII),Individuals (unspecified)
 akira,HIT dd,2026-09-23,SI,Hospitality & Leisure,Employee / HR,Employees
@@ -81,17 +84,20 @@ akira,TDMI,2026-09-22,,Manufacturing,Employee / HR,Employees
 akira,TDMI,2026-09-22,,Manufacturing,Financial,Company
 akira,TDMI,2026-09-22,,Manufacturing,Customer data,Customers
 akira,TDMI,2026-09-22,,Manufacturing,Legal / contracts,Company
+akira,TDMI,2026-09-22,,Manufacturing,Intellectual property / technical,Company
 akira,TDMI,2026-09-22,,Manufacturing,Corporate confidential,Company
 akira,DI.C.S.EL. S.R.L.,2026-09-22,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,DI.C.S.EL. S.R.L.,2026-09-22,,Unknown,Employee / HR,Employees
 akira,DI.C.S.EL. S.R.L.,2026-09-22,,Unknown,Financial,Company
 akira,DI.C.S.EL. S.R.L.,2026-09-22,,Unknown,Legal / contracts,Company
+akira,DI.C.S.EL. S.R.L.,2026-09-22,,Unknown,Intellectual property / technical,Company
 akira,DI.C.S.EL. S.R.L.,2026-09-22,,Unknown,Corporate confidential,Company
 akira,Coe Press Equipment,2026-09-22,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Coe Press Equipment,2026-09-22,,Manufacturing,Employee / HR,Employees
 akira,Coe Press Equipment,2026-09-22,,Manufacturing,Financial,Company
 akira,Coe Press Equipment,2026-09-22,,Manufacturing,Customer data,Customers
 akira,Coe Press Equipment,2026-09-22,,Manufacturing,Legal / contracts,Company
+akira,Coe Press Equipment,2026-09-22,,Manufacturing,Intellectual property / technical,Company
 akira,Coe Press Equipment,2026-09-22,,Manufacturing,Corporate confidential,Company
 play,Metallco,2026-09-21,NO,Unknown,Personal data (PII),Individuals (unspecified)
 play,Metallco,2026-09-21,NO,Unknown,Employee / HR,Employees
@@ -124,22 +130,31 @@ play,Barrett Mahony Consulting Engineers,2026-09-18,IE,Construction,Employee / H
 play,Barrett Mahony Consulting Engineers,2026-09-18,IE,Construction,Financial,Company
 play,Barrett Mahony Consulting Engineers,2026-09-18,IE,Construction,Customer data,Customers
 play,Barrett Mahony Consulting Engineers,2026-09-18,IE,Construction,Corporate confidential,Company
+incransom,www.roancampingholidays.com,2026-09-18,NL,Unknown,Credentials / IT,Company
+incransom,www.kendallhunt.com,2026-09-18,US,Education,Credentials / IT,Company
 akira,Anderson Industries,2026-09-18,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Anderson Industries,2026-09-18,,Manufacturing,Employee / HR,Employees
 akira,Anderson Industries,2026-09-18,,Manufacturing,Financial,Company
 akira,Anderson Industries,2026-09-18,,Manufacturing,Customer data,Customers
 akira,Anderson Industries,2026-09-18,,Manufacturing,Legal / contracts,Company
+akira,Anderson Industries,2026-09-18,,Manufacturing,Intellectual property / technical,Company
 akira,Anderson Industries,2026-09-18,,Manufacturing,Corporate confidential,Company
+incransom,www.diarco.com.ar,2026-09-17,AR,Business Services,Credentials / IT,Company
+incransom,www.appliancefactory.com,2026-09-17,US,Manufacturing,Credentials / IT,Company
 akira,Vetta,2026-09-17,,Technology,Customer data,Customers
+akira,Vetta,2026-09-17,,Technology,Intellectual property / technical,Company
 akira,Vetta,2026-09-17,,Technology,Corporate confidential,Company
 akira,Practice Management (maximized revenue.com),2026-09-17,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Practice Management (maximized revenue.com),2026-09-17,,Healthcare,Employee / HR,Employees
 akira,Practice Management (maximized revenue.com),2026-09-17,,Healthcare,Customer data,Customers
+akira,Practice Management (maximized revenue.com),2026-09-17,,Healthcare,Medical (PHI),Customers
+akira,Practice Management (maximized revenue.com),2026-09-17,,Healthcare,Intellectual property / technical,Company
 akira,Practice Management (maximized revenue.com),2026-09-17,,Healthcare,Corporate confidential,Company
 akira,Javep Chevrolet,2026-09-17,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Javep Chevrolet,2026-09-17,,Unknown,Employee / HR,Employees
 akira,Javep Chevrolet,2026-09-17,,Unknown,Customer data,Customers
 akira,Javep Chevrolet,2026-09-17,,Unknown,Legal / contracts,Company
+akira,Javep Chevrolet,2026-09-17,,Unknown,Intellectual property / technical,Company
 akira,Javep Chevrolet,2026-09-17,,Unknown,Corporate confidential,Company
 akira,Manders,2026-09-16,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Manders,2026-09-16,,Construction,Employee / HR,Employees
@@ -152,14 +167,17 @@ akira,Blossomland Accounting,2026-09-16,,Business Services,Employee / HR,Employe
 akira,Blossomland Accounting,2026-09-16,,Business Services,Financial,Company
 akira,Blossomland Accounting,2026-09-16,,Business Services,Customer data,Customers
 akira,Blossomland Accounting,2026-09-16,,Business Services,Legal / contracts,Company
+akira,Blossomland Accounting,2026-09-16,,Business Services,Intellectual property / technical,Company
 akira,Blossomland Accounting,2026-09-16,,Business Services,Corporate confidential,Company
 akira,Bee Maid Honey,2026-09-16,CA,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Bee Maid Honey,2026-09-16,CA,Business Services,Employee / HR,Employees
 akira,Bee Maid Honey,2026-09-16,CA,Business Services,Financial,Company
 akira,Bee Maid Honey,2026-09-16,CA,Business Services,Legal / contracts,Company
+akira,Bee Maid Honey,2026-09-16,CA,Business Services,Intellectual property / technical,Company
 akira,Bee Maid Honey,2026-09-16,CA,Business Services,Corporate confidential,Company
 akira,Southern California Telephone Company,2026-09-15,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Southern California Telephone Company,2026-09-15,,Technology,Employee / HR,Employees
+akira,Southern California Telephone Company,2026-09-15,,Technology,Financial,Company
 akira,Southern California Telephone Company,2026-09-15,,Technology,Customer data,Customers
 akira,Southern California Telephone Company,2026-09-15,,Technology,Legal / contracts,Company
 akira,Southern California Telephone Company,2026-09-15,,Technology,Corporate confidential,Company
@@ -168,6 +186,7 @@ akira,Pilot Precision,2026-09-15,,Manufacturing,Employee / HR,Employees
 akira,Pilot Precision,2026-09-15,,Manufacturing,Financial,Company
 akira,Pilot Precision,2026-09-15,,Manufacturing,Customer data,Customers
 akira,Pilot Precision,2026-09-15,,Manufacturing,Legal / contracts,Company
+akira,Pilot Precision,2026-09-15,,Manufacturing,Intellectual property / technical,Company
 akira,Pilot Precision,2026-09-15,,Manufacturing,Corporate confidential,Company
 akira,Lazyboyz,2026-09-15,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Lazyboyz,2026-09-15,,Unknown,Employee / HR,Employees
@@ -178,6 +197,7 @@ akira,Brentwood Country Cl ub,2026-09-15,,Hospitality & Leisure,Personal data (P
 akira,Brentwood Country Cl ub,2026-09-15,,Hospitality & Leisure,Employee / HR,Employees
 akira,Brentwood Country Cl ub,2026-09-15,,Hospitality & Leisure,Financial,Company
 akira,Brentwood Country Cl ub,2026-09-15,,Hospitality & Leisure,Customer data,Customers
+akira,Brentwood Country Cl ub,2026-09-15,,Hospitality & Leisure,Intellectual property / technical,Company
 akira,Brentwood Country Cl ub,2026-09-15,,Hospitality & Leisure,Corporate confidential,Company
 play,Sys-kool,2026-09-10,US,Manufacturing,Personal data (PII),Individuals (unspecified)
 play,Sys-kool,2026-09-10,US,Manufacturing,Employee / HR,Employees
@@ -196,7 +216,9 @@ akira,George Cameron Nash,2026-09-10,,Manufacturing,Legal / contracts,Company
 akira,George Cameron Nash,2026-09-10,,Manufacturing,Corporate confidential,Company
 akira,Eagle Construction,2026-09-10,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Eagle Construction,2026-09-10,,Construction,Employee / HR,Employees
+akira,Eagle Construction,2026-09-10,,Construction,Financial,Company
 akira,Eagle Construction,2026-09-10,,Construction,Customer data,Customers
+akira,Eagle Construction,2026-09-10,,Construction,Intellectual property / technical,Company
 akira,Eagle Construction,2026-09-10,,Construction,Corporate confidential,Company
 akira,AK Stamping,2026-09-10,,Manufacturing,Credentials / IT,Company
 akira,AK Stamping,2026-09-10,,Manufacturing,Corporate confidential,Company
@@ -205,6 +227,7 @@ akira,Kyodo USA,2026-09-09,,Manufacturing,Employee / HR,Employees
 akira,Kyodo USA,2026-09-09,,Manufacturing,Financial,Company
 akira,Kyodo USA,2026-09-09,,Manufacturing,Customer data,Customers
 akira,Kyodo USA,2026-09-09,,Manufacturing,Legal / contracts,Company
+akira,Kyodo USA,2026-09-09,,Manufacturing,Intellectual property / technical,Company
 akira,Kyodo USA,2026-09-09,,Manufacturing,Corporate confidential,Company
 play,Red Star Oil,2026-09-08,US,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 play,Red Star Oil,2026-09-08,US,Retail & Consumer,Employee / HR,Employees
@@ -220,22 +243,31 @@ akira,CreateASoft,2026-09-08,,Technology,Employee / HR,Employees
 akira,CreateASoft,2026-09-08,,Technology,Financial,Company
 akira,CreateASoft,2026-09-08,,Technology,Customer data,Customers
 akira,CreateASoft,2026-09-08,,Technology,Legal / contracts,Company
+akira,CreateASoft,2026-09-08,,Technology,Intellectual property / technical,Company
 akira,CreateASoft,2026-09-08,,Technology,Corporate confidential,Company
 akira,Brent Electric,2026-09-08,,Energy & Utilities,Personal data (PII),Individuals (unspecified)
 akira,Brent Electric,2026-09-08,,Energy & Utilities,Employee / HR,Employees
 akira,Brent Electric,2026-09-08,,Energy & Utilities,Financial,Company
 akira,Brent Electric,2026-09-08,,Energy & Utilities,Customer data,Customers
 akira,Brent Electric,2026-09-08,,Energy & Utilities,Legal / contracts,Company
+akira,Brent Electric,2026-09-08,,Energy & Utilities,Intellectual property / technical,Company
 akira,Brent Electric,2026-09-08,,Energy & Utilities,Corporate confidential,Company
+incransom,jms building corporation,2026-09-07,US,Financial Services,Financial,Company
+incransom,jms building corporation,2026-09-07,US,Financial Services,Customer data,Customers
+incransom,jms building corporation,2026-09-07,US,Financial Services,Legal / contracts,Company
+incransom,jms building corporation,2026-09-07,US,Financial Services,Credentials / IT,Company
+incransom,jms building corporation,2026-09-07,US,Financial Services,Corporate confidential,Company
 akira,Worrell,2026-09-04,,Business Services,Employee / HR,Employees
 akira,Worrell,2026-09-04,,Business Services,Financial,Company
 akira,Worrell,2026-09-04,,Business Services,Customer data,Customers
 akira,Worrell,2026-09-04,,Business Services,Legal / contracts,Company
+akira,Worrell,2026-09-04,,Business Services,Intellectual property / technical,Company
 akira,Worrell,2026-09-04,,Business Services,Corporate confidential,Company
 akira,Stransky Heiz-Mess-Regeltechni k GmbH,2026-09-04,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Stransky Heiz-Mess-Regeltechni k GmbH,2026-09-04,,Technology,Employee / HR,Employees
 akira,Stransky Heiz-Mess-Regeltechni k GmbH,2026-09-04,,Technology,Financial,Company
 akira,Stransky Heiz-Mess-Regeltechni k GmbH,2026-09-04,,Technology,Legal / contracts,Company
+akira,Stransky Heiz-Mess-Regeltechni k GmbH,2026-09-04,,Technology,Intellectual property / technical,Company
 akira,Stransky Heiz-Mess-Regeltechni k GmbH,2026-09-04,,Technology,Corporate confidential,Company
 akira,ScrubaDub Auto Wash Centers,2026-09-02,GB,Unknown,Personal data (PII),Individuals (unspecified)
 akira,ScrubaDub Auto Wash Centers,2026-09-02,GB,Unknown,Employee / HR,Employees
@@ -263,12 +295,15 @@ akira,Congressional Iron Works,2026-09-01,,Manufacturing,Personal data (PII),Ind
 akira,Congressional Iron Works,2026-09-01,,Manufacturing,Employee / HR,Employees
 akira,Congressional Iron Works,2026-09-01,,Manufacturing,Financial,Company
 akira,Congressional Iron Works,2026-09-01,,Manufacturing,Customer data,Customers
+akira,Congressional Iron Works,2026-09-01,,Manufacturing,Medical (PHI),Customers
 akira,Congressional Iron Works,2026-09-01,,Manufacturing,Legal / contracts,Company
+akira,Congressional Iron Works,2026-09-01,,Manufacturing,Intellectual property / technical,Company
 akira,Congressional Iron Works,2026-09-01,,Manufacturing,Corporate confidential,Company
 akira,BYK Construction,2026-09-01,,Construction,Personal data (PII),Individuals (unspecified)
 akira,BYK Construction,2026-09-01,,Construction,Employee / HR,Employees
 akira,BYK Construction,2026-09-01,,Construction,Financial,Company
 akira,BYK Construction,2026-09-01,,Construction,Customer data,Customers
+akira,BYK Construction,2026-09-01,,Construction,Intellectual property / technical,Company
 akira,BYK Construction,2026-09-01,,Construction,Corporate confidential,Company
 play,Meteor Group,2026-08-31,DE,Manufacturing,Personal data (PII),Individuals (unspecified)
 play,Meteor Group,2026-08-31,DE,Manufacturing,Employee / HR,Employees
@@ -290,11 +325,13 @@ play,Figgins Family Wine Estates,2026-08-31,US,Agriculture & Food,Employee / HR,
 play,Figgins Family Wine Estates,2026-08-31,US,Agriculture & Food,Financial,Company
 play,Figgins Family Wine Estates,2026-08-31,US,Agriculture & Food,Customer data,Customers
 play,Figgins Family Wine Estates,2026-08-31,US,Agriculture & Food,Corporate confidential,Company
+incransom,zummocorp.com,2026-08-31,US,Agriculture & Food,Credentials / IT,Company
 akira,WEMS,2026-08-31,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,WEMS,2026-08-31,,Manufacturing,Employee / HR,Employees
 akira,WEMS,2026-08-31,,Manufacturing,Financial,Company
 akira,WEMS,2026-08-31,,Manufacturing,Customer data,Customers
 akira,WEMS,2026-08-31,,Manufacturing,Legal / contracts,Company
+akira,WEMS,2026-08-31,,Manufacturing,Intellectual property / technical,Company
 akira,WEMS,2026-08-31,,Manufacturing,Corporate confidential,Company
 akira,KFZ-MEISTERBETRIEB JOST GmbH,2026-08-31,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,KFZ-MEISTERBETRIEB JOST GmbH,2026-08-31,,Unknown,Employee / HR,Employees
@@ -306,24 +343,29 @@ akira,Gale Credit Union,2026-08-31,,Financial Services,Employee / HR,Employees
 akira,Gale Credit Union,2026-08-31,,Financial Services,Financial,Company
 akira,Gale Credit Union,2026-08-31,,Financial Services,Customer data,Customers
 akira,Gale Credit Union,2026-08-31,,Financial Services,Legal / contracts,Company
+akira,Gale Credit Union,2026-08-31,,Financial Services,Intellectual property / technical,Company
 akira,Gale Credit Union,2026-08-31,,Financial Services,Corporate confidential,Company
 akira,JRT Mechanical,2026-08-28,,Construction,Personal data (PII),Individuals (unspecified)
 akira,JRT Mechanical,2026-08-28,,Construction,Employee / HR,Employees
 akira,JRT Mechanical,2026-08-28,,Construction,Financial,Company
 akira,JRT Mechanical,2026-08-28,,Construction,Customer data,Customers
+akira,JRT Mechanical,2026-08-28,,Construction,Medical (PHI),Customers
 akira,JRT Mechanical,2026-08-28,,Construction,Legal / contracts,Company
+akira,JRT Mechanical,2026-08-28,,Construction,Intellectual property / technical,Company
 akira,JRT Mechanical,2026-08-28,,Construction,Corporate confidential,Company
 akira,BEPeterson,2026-08-28,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,BEPeterson,2026-08-28,,Manufacturing,Employee / HR,Employees
 akira,BEPeterson,2026-08-28,,Manufacturing,Financial,Company
 akira,BEPeterson,2026-08-28,,Manufacturing,Customer data,Customers
 akira,BEPeterson,2026-08-28,,Manufacturing,Legal / contracts,Company
+akira,BEPeterson,2026-08-28,,Manufacturing,Intellectual property / technical,Company
 akira,BEPeterson,2026-08-28,,Manufacturing,Corporate confidential,Company
 akira,Alumax,2026-08-28,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Alumax,2026-08-28,,Construction,Employee / HR,Employees
 akira,Alumax,2026-08-28,,Construction,Financial,Company
 akira,Alumax,2026-08-28,,Construction,Customer data,Customers
 akira,Alumax,2026-08-28,,Construction,Legal / contracts,Company
+akira,Alumax,2026-08-28,,Construction,Intellectual property / technical,Company
 akira,Alumax,2026-08-28,,Construction,Corporate confidential,Company
 incransom,Ruby Seven Studios,2026-08-27,US,Unknown,Personal data (PII),Individuals (unspecified)
 incransom,Ruby Seven Studios,2026-08-27,US,Unknown,Employee / HR,Employees
@@ -339,6 +381,7 @@ akira,Seabrook Island,2026-08-27,,Hospitality & Leisure,Employee / HR,Employees
 akira,Seabrook Island,2026-08-27,,Hospitality & Leisure,Financial,Company
 akira,Seabrook Island,2026-08-27,,Hospitality & Leisure,Customer data,Customers
 akira,Seabrook Island,2026-08-27,,Hospitality & Leisure,Legal / contracts,Company
+akira,Seabrook Island,2026-08-27,,Hospitality & Leisure,Intellectual property / technical,Company
 akira,Seabrook Island,2026-08-27,,Hospitality & Leisure,Corporate confidential,Company
 akira,Cetylite,2026-08-27,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Cetylite,2026-08-27,,Healthcare,Employee / HR,Employees
@@ -351,6 +394,7 @@ akira,CGP MEP,2026-08-27,,Education,Employee / HR,Employees
 akira,CGP MEP,2026-08-27,,Education,Financial,Company
 akira,CGP MEP,2026-08-27,,Education,Customer data,Customers
 akira,CGP MEP,2026-08-27,,Education,Legal / contracts,Company
+akira,CGP MEP,2026-08-27,,Education,Intellectual property / technical,Company
 akira,CGP MEP,2026-08-27,,Education,Corporate confidential,Company
 akira,PA-ID,2026-08-26,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,PA-ID,2026-08-26,,Manufacturing,Employee / HR,Employees
@@ -378,6 +422,7 @@ incransom,Macro Engineering & Technology,2026-08-25,CA,Financial Services,Legal 
 incransom,Macro Engineering & Technology,2026-08-25,CA,Financial Services,Corporate confidential,Company
 akira,WINTER Ingenieure,2026-08-25,DE,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,WINTER Ingenieure,2026-08-25,DE,Manufacturing,Employee / HR,Employees
+akira,WINTER Ingenieure,2026-08-25,DE,Manufacturing,Intellectual property / technical,Company
 akira,WINTER Ingenieure,2026-08-25,DE,Manufacturing,Corporate confidential,Company
 akira,Davis & Ferber,2026-08-25,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Davis & Ferber,2026-08-25,,Healthcare,Customer data,Customers
@@ -424,6 +469,8 @@ akira,Cascade Coffee,2026-08-20,,Manufacturing,Employee / HR,Employees
 akira,Cascade Coffee,2026-08-20,,Manufacturing,Financial,Company
 akira,Cascade Coffee,2026-08-20,,Manufacturing,Legal / contracts,Company
 akira,Cascade Coffee,2026-08-20,,Manufacturing,Corporate confidential,Company
+incransom,UNIPLASTICS.COM,2026-08-19,US,Manufacturing,Credentials / IT,Company
+incransom,BANGKOKCABLE,2026-08-19,TH,Manufacturing,Credentials / IT,Company
 akira,Ericksen Krentel,2026-08-19,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Ericksen Krentel,2026-08-19,,Business Services,Employee / HR,Employees
 akira,Ericksen Krentel,2026-08-19,,Business Services,Financial,Company
@@ -438,6 +485,11 @@ play,Woodhaven Association,2026-08-17,US,Unknown,Employee / HR,Employees
 play,Woodhaven Association,2026-08-17,US,Unknown,Financial,Company
 play,Woodhaven Association,2026-08-17,US,Unknown,Customer data,Customers
 play,Woodhaven Association,2026-08-17,US,Unknown,Corporate confidential,Company
+incransom,SD Associates Sdn Bhd,2026-08-16,MY,Financial Services,Financial,Company
+incransom,SD Associates Sdn Bhd,2026-08-16,MY,Financial Services,Customer data,Customers
+incransom,SD Associates Sdn Bhd,2026-08-16,MY,Financial Services,Legal / contracts,Company
+incransom,SD Associates Sdn Bhd,2026-08-16,MY,Financial Services,Credentials / IT,Company
+incransom,SD Associates Sdn Bhd,2026-08-16,MY,Financial Services,Corporate confidential,Company
 akira,Keystops,2026-08-14,,Energy & Utilities,Personal data (PII),Individuals (unspecified)
 akira,Keystops,2026-08-14,,Energy & Utilities,Employee / HR,Employees
 akira,Keystops,2026-08-14,,Energy & Utilities,Financial,Company
@@ -452,7 +504,9 @@ akira,Cozad Asset Management,2026-08-14,,Financial Services,Corporate confidenti
 akira,CF Supply,2026-08-13,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,CF Supply,2026-08-13,,Manufacturing,Customer data,Customers
 akira,CF Supply,2026-08-13,,Manufacturing,Legal / contracts,Company
+akira,CF Supply,2026-08-13,,Manufacturing,Intellectual property / technical,Company
 akira,CF Supply,2026-08-13,,Manufacturing,Corporate confidential,Company
+akira,i4 Solutions,2026-08-10,,Construction,Intellectual property / technical,Company
 akira,i4 Solutions,2026-08-10,,Construction,Corporate confidential,Company
 akira,One Vision Imaging,2026-08-10,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,One Vision Imaging,2026-08-10,,Unknown,Employee / HR,Employees
@@ -463,6 +517,7 @@ akira,Alcast,2026-08-10,,Manufacturing,Personal data (PII),Individuals (unspecif
 akira,Alcast,2026-08-10,,Manufacturing,Employee / HR,Employees
 akira,Alcast,2026-08-10,,Manufacturing,Customer data,Customers
 akira,Alcast,2026-08-10,,Manufacturing,Legal / contracts,Company
+akira,Alcast,2026-08-10,,Manufacturing,Intellectual property / technical,Company
 akira,Alcast,2026-08-10,,Manufacturing,Corporate confidential,Company
 play,Rilpa Enterprises,2026-08-09,CA,Technology,Personal data (PII),Individuals (unspecified)
 play,Rilpa Enterprises,2026-08-09,CA,Technology,Employee / HR,Employees
@@ -531,6 +586,7 @@ incransom,Loyalist College,2026-08-03,CA,Education,Personal data (PII),Individua
 incransom,Loyalist College,2026-08-03,CA,Education,Employee / HR,Employees
 incransom,Loyalist College,2026-08-03,CA,Education,Customer data,Customers
 incransom,Loyalist College,2026-08-03,CA,Education,Intellectual property / technical,Company
+incransom,Loyalist College,2026-08-03,CA,Education,Credentials / IT,Company
 incransom,ATMS,2026-08-03,IN,Financial Services,Financial,Company
 incransom,ATMS,2026-08-03,IN,Financial Services,Customer data,Customers
 incransom,ATMS,2026-08-03,IN,Financial Services,Intellectual property / technical,Company
@@ -568,11 +624,13 @@ incransom,PARTNERED HEALTH GROUP,2026-07-30,AU,Healthcare,Medical (PHI),Customer
 incransom,PARTNERED HEALTH GROUP,2026-07-30,AU,Healthcare,Legal / contracts,Company
 incransom,PARTNERED HEALTH GROUP,2026-07-30,AU,Healthcare,Credentials / IT,Company
 incransom,PARTNERED HEALTH GROUP,2026-07-30,AU,Healthcare,Corporate confidential,Company
+incransom,harwal.net,2026-07-29,AE,Manufacturing,Credentials / IT,Company
 play,The DeBruler,2026-07-25,US,Unknown,Personal data (PII),Individuals (unspecified)
 play,The DeBruler,2026-07-25,US,Unknown,Employee / HR,Employees
 play,The DeBruler,2026-07-25,US,Unknown,Financial,Company
 play,The DeBruler,2026-07-25,US,Unknown,Customer data,Customers
 play,The DeBruler,2026-07-25,US,Unknown,Corporate confidential,Company
+incransom,foundationstofreedom.org,2026-07-25,US,Real Estate,Credentials / IT,Company
 incransom,minigrip.com.mx,2026-07-24,MX,Financial Services,Financial,Company
 incransom,minigrip.com.mx,2026-07-24,MX,Financial Services,Customer data,Customers
 incransom,minigrip.com.mx,2026-07-24,MX,Financial Services,Intellectual property / technical,Company
@@ -597,6 +655,7 @@ play,Record Go Alquiler,2026-07-23,ES,Unknown,Employee / HR,Employees
 play,Record Go Alquiler,2026-07-23,ES,Unknown,Financial,Company
 play,Record Go Alquiler,2026-07-23,ES,Unknown,Customer data,Customers
 play,Record Go Alquiler,2026-07-23,ES,Unknown,Corporate confidential,Company
+akira,University Sprinkler Systems,2026-07-22,,Education,Personal data (PII),Individuals (unspecified)
 akira,University Sprinkler Systems,2026-07-22,,Education,Employee / HR,Employees
 akira,University Sprinkler Systems,2026-07-22,,Education,Customer data,Customers
 akira,University Sprinkler Systems,2026-07-22,,Education,Corporate confidential,Company
@@ -605,6 +664,7 @@ akira,Kruse Construction,2026-07-22,,Construction,Employee / HR,Employees
 akira,Kruse Construction,2026-07-22,,Construction,Financial,Company
 akira,Kruse Construction,2026-07-22,,Construction,Customer data,Customers
 akira,Kruse Construction,2026-07-22,,Construction,Legal / contracts,Company
+akira,Kruse Construction,2026-07-22,,Construction,Intellectual property / technical,Company
 akira,Kruse Construction,2026-07-22,,Construction,Corporate confidential,Company
 play,Tax MT,2026-07-21,US,Business Services,Personal data (PII),Individuals (unspecified)
 play,Tax MT,2026-07-21,US,Business Services,Employee / HR,Employees
@@ -621,9 +681,11 @@ akira,Novasport s.r.o.,2026-07-21,,Manufacturing,Employee / HR,Employees
 akira,Novasport s.r.o.,2026-07-21,,Manufacturing,Financial,Company
 akira,Novasport s.r.o.,2026-07-21,,Manufacturing,Customer data,Customers
 akira,Novasport s.r.o.,2026-07-21,,Manufacturing,Legal / contracts,Company
+akira,Novasport s.r.o.,2026-07-21,,Manufacturing,Intellectual property / technical,Company
 akira,Novasport s.r.o.,2026-07-21,,Manufacturing,Corporate confidential,Company
 akira,Finer & Finer,2026-07-21,,Business Services,Employee / HR,Employees
 akira,Finer & Finer,2026-07-21,,Business Services,Customer data,Customers
+akira,Finer & Finer,2026-07-21,,Business Services,Medical (PHI),Customers
 akira,Finer & Finer,2026-07-21,,Business Services,Legal / contracts,Company
 akira,Finer & Finer,2026-07-21,,Business Services,Corporate confidential,Company
 akira,"McKeever , Varga & Senko",2026-07-20,,Financial Services,Personal data (PII),Individuals (unspecified)
@@ -631,11 +693,13 @@ akira,"McKeever , Varga & Senko",2026-07-20,,Financial Services,Employee / HR,Em
 akira,"McKeever , Varga & Senko",2026-07-20,,Financial Services,Customer data,Customers
 akira,"McKeever , Varga & Senko",2026-07-20,,Financial Services,Legal / contracts,Company
 akira,"McKeever , Varga & Senko",2026-07-20,,Financial Services,Corporate confidential,Company
+akira,L&A Transport,2026-07-20,,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 akira,L&A Transport,2026-07-20,,Transportation & Logistics,Employee / HR,Employees
 akira,L&A Transport,2026-07-20,,Transportation & Logistics,Financial,Company
 akira,L&A Transport,2026-07-20,,Transportation & Logistics,Customer data,Customers
 akira,L&A Transport,2026-07-20,,Transportation & Logistics,Legal / contracts,Company
 akira,L&A Transport,2026-07-20,,Transportation & Logistics,Corporate confidential,Company
+incransom,reatile.co.za,2026-07-18,ZA,Manufacturing,Credentials / IT,Company
 akira,Westcoast Communication Servic es,2026-07-17,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Westcoast Communication Servic es,2026-07-17,,Unknown,Employee / HR,Employees
 akira,Westcoast Communication Servic es,2026-07-17,,Unknown,Financial,Company
@@ -677,30 +741,35 @@ akira,Plumley Engineering,2026-07-16,,Unknown,Personal data (PII),Individuals (u
 akira,Plumley Engineering,2026-07-16,,Unknown,Employee / HR,Employees
 akira,Plumley Engineering,2026-07-16,,Unknown,Customer data,Customers
 akira,Plumley Engineering,2026-07-16,,Unknown,Legal / contracts,Company
+akira,Plumley Engineering,2026-07-16,,Unknown,Intellectual property / technical,Company
 akira,Plumley Engineering,2026-07-16,,Unknown,Corporate confidential,Company
 akira,Pioneer Construction,2026-07-15,US,Construction,Personal data (PII),Individuals (unspecified)
 akira,Pioneer Construction,2026-07-15,US,Construction,Employee / HR,Employees
 akira,Pioneer Construction,2026-07-15,US,Construction,Financial,Company
 akira,Pioneer Construction,2026-07-15,US,Construction,Customer data,Customers
 akira,Pioneer Construction,2026-07-15,US,Construction,Legal / contracts,Company
+akira,Pioneer Construction,2026-07-15,US,Construction,Intellectual property / technical,Company
 akira,Pioneer Construction,2026-07-15,US,Construction,Corporate confidential,Company
 akira,Vandalia Rental,2026-07-10,,Government,Personal data (PII),Individuals (unspecified)
 akira,Vandalia Rental,2026-07-10,,Government,Employee / HR,Employees
 akira,Vandalia Rental,2026-07-10,,Government,Financial,Company
 akira,Vandalia Rental,2026-07-10,,Government,Customer data,Customers
 akira,Vandalia Rental,2026-07-10,,Government,Legal / contracts,Company
+akira,Vandalia Rental,2026-07-10,,Government,Intellectual property / technical,Company
 akira,Vandalia Rental,2026-07-10,,Government,Corporate confidential,Company
 akira,Transworld Signs,2026-07-10,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Transworld Signs,2026-07-10,,Technology,Employee / HR,Employees
 akira,Transworld Signs,2026-07-10,,Technology,Financial,Company
 akira,Transworld Signs,2026-07-10,,Technology,Customer data,Customers
 akira,Transworld Signs,2026-07-10,,Technology,Legal / contracts,Company
+akira,Transworld Signs,2026-07-10,,Technology,Intellectual property / technical,Company
 akira,Transworld Signs,2026-07-10,,Technology,Corporate confidential,Company
 akira,Wade's Dairy,2026-07-08,,Agriculture & Food,Personal data (PII),Individuals (unspecified)
 akira,Wade's Dairy,2026-07-08,,Agriculture & Food,Employee / HR,Employees
 akira,Wade's Dairy,2026-07-08,,Agriculture & Food,Financial,Company
 akira,Wade's Dairy,2026-07-08,,Agriculture & Food,Customer data,Customers
 akira,Wade's Dairy,2026-07-08,,Agriculture & Food,Legal / contracts,Company
+akira,Wade's Dairy,2026-07-08,,Agriculture & Food,Intellectual property / technical,Company
 akira,Wade's Dairy,2026-07-08,,Agriculture & Food,Corporate confidential,Company
 play,United Infrastructure,2026-07-07,GB,Construction,Personal data (PII),Individuals (unspecified)
 play,United Infrastructure,2026-07-07,GB,Construction,Employee / HR,Employees
@@ -722,6 +791,7 @@ akira,RISE Architecture,2026-07-07,JE,Construction,Employee / HR,Employees
 akira,RISE Architecture,2026-07-07,JE,Construction,Financial,Company
 akira,RISE Architecture,2026-07-07,JE,Construction,Customer data,Customers
 akira,RISE Architecture,2026-07-07,JE,Construction,Legal / contracts,Company
+akira,RISE Architecture,2026-07-07,JE,Construction,Intellectual property / technical,Company
 akira,RISE Architecture,2026-07-07,JE,Construction,Corporate confidential,Company
 akira,Excalibur Rentals,2026-07-07,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Excalibur Rentals,2026-07-07,,Manufacturing,Employee / HR,Employees
@@ -765,6 +835,7 @@ akira,Advanced Business Systems,2026-06-30,,Technology,Personal data (PII),Indiv
 akira,Advanced Business Systems,2026-06-30,,Technology,Employee / HR,Employees
 akira,Advanced Business Systems,2026-06-30,,Technology,Customer data,Customers
 akira,Advanced Business Systems,2026-06-30,,Technology,Legal / contracts,Company
+akira,Advanced Business Systems,2026-06-30,,Technology,Intellectual property / technical,Company
 akira,Advanced Business Systems,2026-06-30,,Technology,Corporate confidential,Company
 play,Kuhnline,2026-06-27,US,Unknown,Personal data (PII),Individuals (unspecified)
 play,Kuhnline,2026-06-27,US,Unknown,Employee / HR,Employees
@@ -775,30 +846,38 @@ akira,Precise Forms,2026-06-26,,Construction,Personal data (PII),Individuals (un
 akira,Precise Forms,2026-06-26,,Construction,Employee / HR,Employees
 akira,Precise Forms,2026-06-26,,Construction,Customer data,Customers
 akira,Precise Forms,2026-06-26,,Construction,Legal / contracts,Company
+akira,Precise Forms,2026-06-26,,Construction,Intellectual property / technical,Company
 akira,Precise Forms,2026-06-26,,Construction,Corporate confidential,Company
 akira,Padget Technologies,2026-06-25,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Padget Technologies,2026-06-25,,Technology,Employee / HR,Employees
+akira,Padget Technologies,2026-06-25,,Technology,Financial,Company
 akira,Padget Technologies,2026-06-25,,Technology,Customer data,Customers
 akira,Padget Technologies,2026-06-25,,Technology,Legal / contracts,Company
+akira,Padget Technologies,2026-06-25,,Technology,Intellectual property / technical,Company
 akira,Padget Technologies,2026-06-25,,Technology,Corporate confidential,Company
 akira,JMS Southeast,2026-06-25,,Energy & Utilities,Personal data (PII),Individuals (unspecified)
 akira,JMS Southeast,2026-06-25,,Energy & Utilities,Employee / HR,Employees
+akira,JMS Southeast,2026-06-25,,Energy & Utilities,Financial,Company
 akira,JMS Southeast,2026-06-25,,Energy & Utilities,Customer data,Customers
 akira,JMS Southeast,2026-06-25,,Energy & Utilities,Legal / contracts,Company
+akira,JMS Southeast,2026-06-25,,Energy & Utilities,Intellectual property / technical,Company
 akira,JMS Southeast,2026-06-25,,Energy & Utilities,Corporate confidential,Company
 akira,Miami Machine,2026-06-24,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Miami Machine,2026-06-24,,Manufacturing,Employee / HR,Employees
 akira,Miami Machine,2026-06-24,,Manufacturing,Customer data,Customers
 akira,Miami Machine,2026-06-24,,Manufacturing,Legal / contracts,Company
+akira,Miami Machine,2026-06-24,,Manufacturing,Intellectual property / technical,Company
 akira,Miami Machine,2026-06-24,,Manufacturing,Corporate confidential,Company
 akira,Jit Ex,2026-06-24,,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 akira,Jit Ex,2026-06-24,,Transportation & Logistics,Employee / HR,Employees
 akira,Jit Ex,2026-06-24,,Transportation & Logistics,Financial,Company
 akira,Jit Ex,2026-06-24,,Transportation & Logistics,Customer data,Customers
 akira,Jit Ex,2026-06-24,,Transportation & Logistics,Legal / contracts,Company
+akira,Jit Ex,2026-06-24,,Transportation & Logistics,Intellectual property / technical,Company
 akira,Jit Ex,2026-06-24,,Transportation & Logistics,Corporate confidential,Company
 akira,Leo International,2026-06-23,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Leo International,2026-06-23,,Manufacturing,Employee / HR,Employees
+akira,Leo International,2026-06-23,,Manufacturing,Medical (PHI),Customers
 akira,Leo International,2026-06-23,,Manufacturing,Corporate confidential,Company
 akira,IH Engineers,2026-06-23,JE,Business Services,Personal data (PII),Individuals (unspecified)
 akira,IH Engineers,2026-06-23,JE,Business Services,Employee / HR,Employees
@@ -808,15 +887,19 @@ akira,IH Engineers,2026-06-23,JE,Business Services,Corporate confidential,Compan
 akira,Ntd Apparel,2026-06-22,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,Ntd Apparel,2026-06-22,,Retail & Consumer,Employee / HR,Employees
 akira,Ntd Apparel,2026-06-22,,Retail & Consumer,Customer data,Customers
+akira,Ntd Apparel,2026-06-22,,Retail & Consumer,Medical (PHI),Customers
 akira,Ntd Apparel,2026-06-22,,Retail & Consumer,Legal / contracts,Company
+akira,Ntd Apparel,2026-06-22,,Retail & Consumer,Intellectual property / technical,Company
 akira,Ntd Apparel,2026-06-22,,Retail & Consumer,Corporate confidential,Company
 akira,Berg Lilly,2026-06-18,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Berg Lilly,2026-06-18,,Business Services,Financial,Company
 akira,Berg Lilly,2026-06-18,,Business Services,Customer data,Customers
+akira,Berg Lilly,2026-06-18,,Business Services,Medical (PHI),Customers
 akira,Berg Lilly,2026-06-18,,Business Services,Legal / contracts,Company
 akira,Berg Lilly,2026-06-18,,Business Services,Corporate confidential,Company
 akira,Apptricity,2026-06-18,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Apptricity,2026-06-18,,Technology,Employee / HR,Employees
+akira,Apptricity,2026-06-18,,Technology,Financial,Company
 akira,Apptricity,2026-06-18,,Technology,Customer data,Customers
 akira,Apptricity,2026-06-18,,Technology,Legal / contracts,Company
 akira,Apptricity,2026-06-18,,Technology,Intellectual property / technical,Company
@@ -841,6 +924,7 @@ akira,Smith Filter,2026-06-17,,Manufacturing,Employee / HR,Employees
 akira,Smith Filter,2026-06-17,,Manufacturing,Financial,Company
 akira,Smith Filter,2026-06-17,,Manufacturing,Customer data,Customers
 akira,Smith Filter,2026-06-17,,Manufacturing,Legal / contracts,Company
+akira,Smith Filter,2026-06-17,,Manufacturing,Intellectual property / technical,Company
 akira,Smith Filter,2026-06-17,,Manufacturing,Corporate confidential,Company
 incransom,neuwoges.de,2026-06-16,DE,Real Estate,Employee / HR,Employees
 incransom,neuwoges.de,2026-06-16,DE,Real Estate,Customer data,Customers
@@ -853,11 +937,13 @@ akira,Insite Architects,2026-06-16,,Construction,Personal data (PII),Individuals
 akira,Insite Architects,2026-06-16,,Construction,Employee / HR,Employees
 akira,Insite Architects,2026-06-16,,Construction,Financial,Company
 akira,Insite Architects,2026-06-16,,Construction,Customer data,Customers
+akira,Insite Architects,2026-06-16,,Construction,Intellectual property / technical,Company
 akira,Insite Architects,2026-06-16,,Construction,Corporate confidential,Company
 akira,DDC Domus Design Collection,2026-06-12,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,DDC Domus Design Collection,2026-06-12,,Manufacturing,Employee / HR,Employees
 akira,DDC Domus Design Collection,2026-06-12,,Manufacturing,Financial,Company
 akira,DDC Domus Design Collection,2026-06-12,,Manufacturing,Customer data,Customers
+akira,DDC Domus Design Collection,2026-06-12,,Manufacturing,Intellectual property / technical,Company
 akira,DDC Domus Design Collection,2026-06-12,,Manufacturing,Corporate confidential,Company
 incransom,fineconsulting,2026-06-11,RO,Financial Services,Financial,Company
 incransom,fineconsulting,2026-06-11,RO,Financial Services,Customer data,Customers
@@ -919,6 +1005,11 @@ akira,Centre Ellipse,2026-06-09,,Healthcare,Customer data,Customers
 akira,Centre Ellipse,2026-06-09,,Healthcare,Medical (PHI),Customers
 akira,Centre Ellipse,2026-06-09,,Healthcare,Legal / contracts,Company
 akira,Centre Ellipse,2026-06-09,,Healthcare,Corporate confidential,Company
+incransom,FIZA,2026-06-08,CZ,Business Services,Financial,Company
+incransom,FIZA,2026-06-08,CZ,Business Services,Customer data,Customers
+incransom,FIZA,2026-06-08,CZ,Business Services,Legal / contracts,Company
+incransom,FIZA,2026-06-08,CZ,Business Services,Credentials / IT,Company
+incransom,FIZA,2026-06-08,CZ,Business Services,Corporate confidential,Company
 akira,HRC Sicherheitsdienste,2026-06-08,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,HRC Sicherheitsdienste,2026-06-08,,Healthcare,Employee / HR,Employees
 akira,HRC Sicherheitsdienste,2026-06-08,,Healthcare,Financial,Company
@@ -974,19 +1065,23 @@ akira,Hal Otey Financial,2026-06-03,,Financial Services,Personal data (PII),Indi
 akira,Hal Otey Financial,2026-06-03,,Financial Services,Financial,Company
 akira,Hal Otey Financial,2026-06-03,,Financial Services,Customer data,Customers
 akira,Hal Otey Financial,2026-06-03,,Financial Services,Legal / contracts,Company
+akira,Hal Otey Financial,2026-06-03,,Financial Services,Intellectual property / technical,Company
 akira,Hal Otey Financial,2026-06-03,,Financial Services,Corporate confidential,Company
 akira,Factors Western,2026-06-03,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Factors Western,2026-06-03,,Unknown,Employee / HR,Employees
 akira,Factors Western,2026-06-03,,Unknown,Financial,Company
 akira,Factors Western,2026-06-03,,Unknown,Customer data,Customers
 akira,Factors Western,2026-06-03,,Unknown,Legal / contracts,Company
+akira,Factors Western,2026-06-03,,Unknown,Intellectual property / technical,Company
 akira,Factors Western,2026-06-03,,Unknown,Corporate confidential,Company
 akira,Cherokee Distributing Co,2026-06-03,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,Cherokee Distributing Co,2026-06-03,,Retail & Consumer,Employee / HR,Employees
 akira,Cherokee Distributing Co,2026-06-03,,Retail & Consumer,Financial,Company
 akira,Cherokee Distributing Co,2026-06-03,,Retail & Consumer,Customer data,Customers
 akira,Cherokee Distributing Co,2026-06-03,,Retail & Consumer,Legal / contracts,Company
+akira,Cherokee Distributing Co,2026-06-03,,Retail & Consumer,Intellectual property / technical,Company
 akira,Cherokee Distributing Co,2026-06-03,,Retail & Consumer,Corporate confidential,Company
+incransom,CUSTOMSIGN,2026-06-02,US,Technology,Credentials / IT,Company
 play,Hightower Communications,2026-06-01,US,Construction,Personal data (PII),Individuals (unspecified)
 play,Hightower Communications,2026-06-01,US,Construction,Employee / HR,Employees
 play,Hightower Communications,2026-06-01,US,Construction,Financial,Company
@@ -997,24 +1092,34 @@ play,Digitall Graphics,2026-06-01,CA,Unknown,Employee / HR,Employees
 play,Digitall Graphics,2026-06-01,CA,Unknown,Financial,Company
 play,Digitall Graphics,2026-06-01,CA,Unknown,Customer data,Customers
 play,Digitall Graphics,2026-06-01,CA,Unknown,Corporate confidential,Company
+incransom,Oztugotomotiv,2026-06-01,TR,Manufacturing,Financial,Company
+incransom,Oztugotomotiv,2026-06-01,TR,Manufacturing,Customer data,Customers
+incransom,Oztugotomotiv,2026-06-01,TR,Manufacturing,Legal / contracts,Company
+incransom,Oztugotomotiv,2026-06-01,TR,Manufacturing,Credentials / IT,Company
+incransom,Oztugotomotiv,2026-06-01,TR,Manufacturing,Corporate confidential,Company
+incransom,Bradley law firm,2026-06-01,US,Business Services,Credentials / IT,Company
 incransom,belimed.com,2026-05-29,US,Unknown,Employee / HR,Employees
 incransom,belimed.com,2026-05-29,US,Unknown,Financial,Company
 incransom,belimed.com,2026-05-29,US,Unknown,Customer data,Customers
 incransom,belimed.com,2026-05-29,US,Unknown,Legal / contracts,Company
 incransom,belimed.com,2026-05-29,US,Unknown,Credentials / IT,Company
+akira,Schacht Law Office,2026-05-29,,Real Estate,Personal data (PII),Individuals (unspecified)
 akira,Schacht Law Office,2026-05-29,,Real Estate,Financial,Company
 akira,Schacht Law Office,2026-05-29,,Real Estate,Customer data,Customers
 akira,Schacht Law Office,2026-05-29,,Real Estate,Legal / contracts,Company
+akira,Schacht Law Office,2026-05-29,,Real Estate,Intellectual property / technical,Company
 akira,Schacht Law Office,2026-05-29,,Real Estate,Corporate confidential,Company
 akira,Interstate Roofing,2026-05-29,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Interstate Roofing,2026-05-29,,Construction,Employee / HR,Employees
 akira,Interstate Roofing,2026-05-29,,Construction,Customer data,Customers
 akira,Interstate Roofing,2026-05-29,,Construction,Legal / contracts,Company
+akira,Interstate Roofing,2026-05-29,,Construction,Intellectual property / technical,Company
 akira,Interstate Roofing,2026-05-29,,Construction,Corporate confidential,Company
 akira,Maschinen-Stockert,2026-05-28,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Maschinen-Stockert,2026-05-28,,Manufacturing,Employee / HR,Employees
 akira,Maschinen-Stockert,2026-05-28,,Manufacturing,Financial,Company
 akira,Maschinen-Stockert,2026-05-28,,Manufacturing,Customer data,Customers
+akira,Maschinen-Stockert,2026-05-28,,Manufacturing,Intellectual property / technical,Company
 akira,Maschinen-Stockert,2026-05-28,,Manufacturing,Corporate confidential,Company
 akira,GS Yuasa Lithium Power,2026-05-28,US,Manufacturing,Customer data,Customers
 akira,GS Yuasa Lithium Power,2026-05-28,US,Manufacturing,Legal / contracts,Company
@@ -1037,14 +1142,22 @@ akira,Gone Fishin' Marine,2026-05-27,,Unknown,Employee / HR,Employees
 akira,Gone Fishin' Marine,2026-05-27,,Unknown,Financial,Company
 akira,Gone Fishin' Marine,2026-05-27,,Unknown,Customer data,Customers
 akira,Gone Fishin' Marine,2026-05-27,,Unknown,Legal / contracts,Company
+akira,Gone Fishin' Marine,2026-05-27,,Unknown,Intellectual property / technical,Company
 akira,Gone Fishin' Marine,2026-05-27,,Unknown,Corporate confidential,Company
 akira,General Doors,2026-05-27,,Manufacturing,Financial,Company
+akira,General Doors,2026-05-27,,Manufacturing,Intellectual property / technical,Company
 akira,General Doors,2026-05-27,,Manufacturing,Corporate confidential,Company
+incransom,Distrigaz Vest S.A.,2026-05-26,RO,Energy & Utilities,Financial,Company
+incransom,Distrigaz Vest S.A.,2026-05-26,RO,Energy & Utilities,Customer data,Customers
+incransom,Distrigaz Vest S.A.,2026-05-26,RO,Energy & Utilities,Legal / contracts,Company
+incransom,Distrigaz Vest S.A.,2026-05-26,RO,Energy & Utilities,Credentials / IT,Company
+incransom,Distrigaz Vest S.A.,2026-05-26,RO,Energy & Utilities,Corporate confidential,Company
 akira,"Sunrise, Toscana Country Club, Andalusia Country Club.",2026-05-26,,Hospitality & Leisure,Personal data (PII),Individuals (unspecified)
 akira,"Sunrise, Toscana Country Club, Andalusia Country Club.",2026-05-26,,Hospitality & Leisure,Employee / HR,Employees
 akira,"Sunrise, Toscana Country Club, Andalusia Country Club.",2026-05-26,,Hospitality & Leisure,Financial,Company
 akira,"Sunrise, Toscana Country Club, Andalusia Country Club.",2026-05-26,,Hospitality & Leisure,Customer data,Customers
 akira,"Sunrise, Toscana Country Club, Andalusia Country Club.",2026-05-26,,Hospitality & Leisure,Legal / contracts,Company
+akira,"Sunrise, Toscana Country Club, Andalusia Country Club.",2026-05-26,,Hospitality & Leisure,Intellectual property / technical,Company
 akira,"Sunrise, Toscana Country Club, Andalusia Country Club.",2026-05-26,,Hospitality & Leisure,Corporate confidential,Company
 play,Round Hill Country Club,2026-05-25,US,Hospitality & Leisure,Personal data (PII),Individuals (unspecified)
 play,Round Hill Country Club,2026-05-25,US,Hospitality & Leisure,Employee / HR,Employees
@@ -1076,33 +1189,48 @@ play,De Waard Transport,2026-05-25,NL,Transportation & Logistics,Employee / HR,E
 play,De Waard Transport,2026-05-25,NL,Transportation & Logistics,Financial,Company
 play,De Waard Transport,2026-05-25,NL,Transportation & Logistics,Customer data,Customers
 play,De Waard Transport,2026-05-25,NL,Transportation & Logistics,Corporate confidential,Company
+incransom,lawants,2026-05-25,ES,Financial Services,Financial,Company
+incransom,lawants,2026-05-25,ES,Financial Services,Customer data,Customers
+incransom,lawants,2026-05-25,ES,Financial Services,Legal / contracts,Company
+incransom,lawants,2026-05-25,ES,Financial Services,Credentials / IT,Company
+incransom,lawants,2026-05-25,ES,Financial Services,Corporate confidential,Company
+incransom,www.labexpress.com,2026-05-22,US,Financial Services,Credentials / IT,Company
 akira,Karlin Foods,2026-05-22,,Agriculture & Food,Employee / HR,Employees
 akira,Karlin Foods,2026-05-22,,Agriculture & Food,Financial,Company
 akira,Karlin Foods,2026-05-22,,Agriculture & Food,Customer data,Customers
 akira,Karlin Foods,2026-05-22,,Agriculture & Food,Legal / contracts,Company
+akira,Karlin Foods,2026-05-22,,Agriculture & Food,Intellectual property / technical,Company
 akira,Karlin Foods,2026-05-22,,Agriculture & Food,Corporate confidential,Company
 akira,Gitis,2026-05-22,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Gitis,2026-05-22,,Manufacturing,Employee / HR,Employees
 akira,Gitis,2026-05-22,,Manufacturing,Financial,Company
 akira,Gitis,2026-05-22,,Manufacturing,Customer data,Customers
 akira,Gitis,2026-05-22,,Manufacturing,Legal / contracts,Company
+akira,Gitis,2026-05-22,,Manufacturing,Intellectual property / technical,Company
 akira,Gitis,2026-05-22,,Manufacturing,Corporate confidential,Company
 akira,Function Enterprises,2026-05-22,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Function Enterprises,2026-05-22,,Construction,Employee / HR,Employees
 akira,Function Enterprises,2026-05-22,,Construction,Financial,Company
 akira,Function Enterprises,2026-05-22,,Construction,Customer data,Customers
 akira,Function Enterprises,2026-05-22,,Construction,Legal / contracts,Company
+akira,Function Enterprises,2026-05-22,,Construction,Intellectual property / technical,Company
 akira,Function Enterprises,2026-05-22,,Construction,Corporate confidential,Company
 akira,Buffalo Niagara Convention Cen ter,2026-05-22,,Hospitality & Leisure,Personal data (PII),Individuals (unspecified)
 akira,Buffalo Niagara Convention Cen ter,2026-05-22,,Hospitality & Leisure,Employee / HR,Employees
 akira,Buffalo Niagara Convention Cen ter,2026-05-22,,Hospitality & Leisure,Financial,Company
 akira,Buffalo Niagara Convention Cen ter,2026-05-22,,Hospitality & Leisure,Customer data,Customers
 akira,Buffalo Niagara Convention Cen ter,2026-05-22,,Hospitality & Leisure,Legal / contracts,Company
+akira,Buffalo Niagara Convention Cen ter,2026-05-22,,Hospitality & Leisure,Intellectual property / technical,Company
 akira,Buffalo Niagara Convention Cen ter,2026-05-22,,Hospitality & Leisure,Corporate confidential,Company
 incransom,threadinnovations,2026-05-21,CA,Financial Services,Financial,Company
 incransom,threadinnovations,2026-05-21,CA,Financial Services,Customer data,Customers
 incransom,threadinnovations,2026-05-21,CA,Financial Services,Intellectual property / technical,Company
 incransom,threadinnovations,2026-05-21,CA,Financial Services,Corporate confidential,Company
+incransom,Mecanizados y Montajes Aeronáuticos (mymgroup.es),2026-05-21,ES,Manufacturing,Financial,Company
+incransom,Mecanizados y Montajes Aeronáuticos (mymgroup.es),2026-05-21,ES,Manufacturing,Customer data,Customers
+incransom,Mecanizados y Montajes Aeronáuticos (mymgroup.es),2026-05-21,ES,Manufacturing,Legal / contracts,Company
+incransom,Mecanizados y Montajes Aeronáuticos (mymgroup.es),2026-05-21,ES,Manufacturing,Credentials / IT,Company
+incransom,Mecanizados y Montajes Aeronáuticos (mymgroup.es),2026-05-21,ES,Manufacturing,Corporate confidential,Company
 akira,Sid Harvey's,2026-05-20,US,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,Sid Harvey's,2026-05-20,US,Retail & Consumer,Employee / HR,Employees
 akira,Sid Harvey's,2026-05-20,US,Retail & Consumer,Financial,Company
@@ -1114,6 +1242,10 @@ play,Zuther Hautmann,2026-05-19,DE,Manufacturing,Employee / HR,Employees
 play,Zuther Hautmann,2026-05-19,DE,Manufacturing,Financial,Company
 play,Zuther Hautmann,2026-05-19,DE,Manufacturing,Customer data,Customers
 play,Zuther Hautmann,2026-05-19,DE,Manufacturing,Corporate confidential,Company
+incransom,Nothing,2026-05-19,TW,Financial Services,Financial,Company
+incransom,Nothing,2026-05-19,TW,Financial Services,Customer data,Customers
+incransom,Nothing,2026-05-19,TW,Financial Services,Legal / contracts,Company
+incransom,Nothing,2026-05-19,TW,Financial Services,Corporate confidential,Company
 akira,TSG Enterprises,2026-05-19,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,TSG Enterprises,2026-05-19,,Unknown,Employee / HR,Employees
 akira,TSG Enterprises,2026-05-19,,Unknown,Financial,Company
@@ -1124,6 +1256,7 @@ akira,Acton Electrical,2026-05-19,,Technology,Personal data (PII),Individuals (u
 akira,Acton Electrical,2026-05-19,,Technology,Employee / HR,Employees
 akira,Acton Electrical,2026-05-19,,Technology,Financial,Company
 akira,Acton Electrical,2026-05-19,,Technology,Legal / contracts,Company
+akira,Acton Electrical,2026-05-19,,Technology,Intellectual property / technical,Company
 akira,Acton Electrical,2026-05-19,,Technology,Corporate confidential,Company
 akira,Vacu - Lug,2026-05-18,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Vacu - Lug,2026-05-18,,Unknown,Employee / HR,Employees
@@ -1141,6 +1274,7 @@ akira,Fox Valley Tax Solutions,2026-05-15,,Unknown,Financial,Company
 akira,Fox Valley Tax Solutions,2026-05-15,,Unknown,Customer data,Customers
 akira,Fox Valley Tax Solutions,2026-05-15,,Unknown,Legal / contracts,Company
 akira,Fox Valley Tax Solutions,2026-05-15,,Unknown,Corporate confidential,Company
+incransom,Silergy Corp,2026-05-14,US,Energy & Utilities,Credentials / IT,Company
 akira,Institute of Private Enterpris e Development,2026-05-13,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Institute of Private Enterpris e Development,2026-05-13,,Unknown,Employee / HR,Employees
 akira,Institute of Private Enterpris e Development,2026-05-13,,Unknown,Financial,Company
@@ -1193,6 +1327,7 @@ akira,Vision 3 Architects,2026-05-12,,Construction,Personal data (PII),Individua
 akira,Vision 3 Architects,2026-05-12,,Construction,Employee / HR,Employees
 akira,Vision 3 Architects,2026-05-12,,Construction,Customer data,Customers
 akira,Vision 3 Architects,2026-05-12,,Construction,Legal / contracts,Company
+akira,Vision 3 Architects,2026-05-12,,Construction,Intellectual property / technical,Company
 akira,Vision 3 Architects,2026-05-12,,Construction,Corporate confidential,Company
 akira,Taylor Clay Products,2026-05-12,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Taylor Clay Products,2026-05-12,,Construction,Employee / HR,Employees
@@ -1244,9 +1379,11 @@ akira,Zojirushi,2026-05-08,,Energy & Utilities,Personal data (PII),Individuals (
 akira,Zojirushi,2026-05-08,,Energy & Utilities,Employee / HR,Employees
 akira,Zojirushi,2026-05-08,,Energy & Utilities,Financial,Company
 akira,Zojirushi,2026-05-08,,Energy & Utilities,Legal / contracts,Company
+akira,Zojirushi,2026-05-08,,Energy & Utilities,Intellectual property / technical,Company
 akira,Zojirushi,2026-05-08,,Energy & Utilities,Corporate confidential,Company
 akira,Réseau Radiologique Romand,2026-05-08,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Réseau Radiologique Romand,2026-05-08,,Healthcare,Employee / HR,Employees
+akira,Réseau Radiologique Romand,2026-05-08,,Healthcare,Financial,Company
 akira,Réseau Radiologique Romand,2026-05-08,,Healthcare,Medical (PHI),Customers
 akira,Réseau Radiologique Romand,2026-05-08,,Healthcare,Legal / contracts,Company
 akira,Réseau Radiologique Romand,2026-05-08,,Healthcare,Corporate confidential,Company
@@ -1283,16 +1420,19 @@ akira,Grau GmbH,2026-05-07,,Retail & Consumer,Personal data (PII),Individuals (u
 akira,Grau GmbH,2026-05-07,,Retail & Consumer,Employee / HR,Employees
 akira,Grau GmbH,2026-05-07,,Retail & Consumer,Financial,Company
 akira,Grau GmbH,2026-05-07,,Retail & Consumer,Customer data,Customers
+akira,Grau GmbH,2026-05-07,,Retail & Consumer,Intellectual property / technical,Company
 akira,Grau GmbH,2026-05-07,,Retail & Consumer,Corporate confidential,Company
 akira,Elia Law Firm,2026-05-07,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Elia Law Firm,2026-05-07,,Business Services,Employee / HR,Employees
 akira,Elia Law Firm,2026-05-07,,Business Services,Financial,Company
+akira,Elia Law Firm,2026-05-07,,Business Services,Legal / contracts,Company
 akira,Elia Law Firm,2026-05-07,,Business Services,Corporate confidential,Company
 akira,SDK Environmental,2026-05-06,,Real Estate,Personal data (PII),Individuals (unspecified)
 akira,SDK Environmental,2026-05-06,,Real Estate,Employee / HR,Employees
 akira,SDK Environmental,2026-05-06,,Real Estate,Financial,Company
 akira,SDK Environmental,2026-05-06,,Real Estate,Customer data,Customers
 akira,SDK Environmental,2026-05-06,,Real Estate,Legal / contracts,Company
+akira,SDK Environmental,2026-05-06,,Real Estate,Intellectual property / technical,Company
 akira,SDK Environmental,2026-05-06,,Real Estate,Corporate confidential,Company
 akira,Moorman Harting,2026-05-06,,Financial Services,Personal data (PII),Individuals (unspecified)
 akira,Moorman Harting,2026-05-06,,Financial Services,Employee / HR,Employees
@@ -1304,29 +1444,45 @@ akira,Clinical Registry Solutions,2026-05-06,US,Healthcare,Personal data (PII),I
 akira,Clinical Registry Solutions,2026-05-06,US,Healthcare,Employee / HR,Employees
 akira,Clinical Registry Solutions,2026-05-06,US,Healthcare,Financial,Company
 akira,Clinical Registry Solutions,2026-05-06,US,Healthcare,Customer data,Customers
+akira,Clinical Registry Solutions,2026-05-06,US,Healthcare,Medical (PHI),Customers
 akira,Clinical Registry Solutions,2026-05-06,US,Healthcare,Legal / contracts,Company
 akira,Clinical Registry Solutions,2026-05-06,US,Healthcare,Corporate confidential,Company
 akira,ABI and Ideal Tape,2026-05-06,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,ABI and Ideal Tape,2026-05-06,,Retail & Consumer,Employee / HR,Employees
 akira,ABI and Ideal Tape,2026-05-06,,Retail & Consumer,Customer data,Customers
 akira,ABI and Ideal Tape,2026-05-06,,Retail & Consumer,Legal / contracts,Company
+akira,ABI and Ideal Tape,2026-05-06,,Retail & Consumer,Intellectual property / technical,Company
 akira,ABI and Ideal Tape,2026-05-06,,Retail & Consumer,Corporate confidential,Company
 akira,Punch & Associates Investment Management,2026-05-05,,Financial Services,Personal data (PII),Individuals (unspecified)
 akira,Punch & Associates Investment Management,2026-05-05,,Financial Services,Employee / HR,Employees
 akira,Punch & Associates Investment Management,2026-05-05,,Financial Services,Financial,Company
 akira,Punch & Associates Investment Management,2026-05-05,,Financial Services,Customer data,Customers
 akira,Punch & Associates Investment Management,2026-05-05,,Financial Services,Legal / contracts,Company
+akira,Punch & Associates Investment Management,2026-05-05,,Financial Services,Intellectual property / technical,Company
 akira,Punch & Associates Investment Management,2026-05-05,,Financial Services,Corporate confidential,Company
 akira,Pipestone,2026-05-05,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Pipestone,2026-05-05,,Healthcare,Employee / HR,Employees
 akira,Pipestone,2026-05-05,,Healthcare,Financial,Company
 akira,Pipestone,2026-05-05,,Healthcare,Customer data,Customers
+akira,Pipestone,2026-05-05,,Healthcare,Medical (PHI),Customers
 akira,Pipestone,2026-05-05,,Healthcare,Legal / contracts,Company
 akira,Pipestone,2026-05-05,,Healthcare,Corporate confidential,Company
+incransom,Aerodiagnostics,2026-05-04,US,Financial Services,Financial,Company
+incransom,Aerodiagnostics,2026-05-04,US,Financial Services,Customer data,Customers
+incransom,Aerodiagnostics,2026-05-04,US,Financial Services,Legal / contracts,Company
+incransom,Aerodiagnostics,2026-05-04,US,Financial Services,Credentials / IT,Company
+incransom,Aerodiagnostics,2026-05-04,US,Financial Services,Corporate confidential,Company
+incransom,northshoreenv.com,2026-05-02,US,Business Services,Credentials / IT,Company
+incransom,EXPEDITOR,2026-05-01,US,Healthcare,Financial,Company
+incransom,EXPEDITOR,2026-05-01,US,Healthcare,Customer data,Customers
+incransom,EXPEDITOR,2026-05-01,US,Healthcare,Legal / contracts,Company
+incransom,EXPEDITOR,2026-05-01,US,Healthcare,Credentials / IT,Company
+incransom,EXPEDITOR,2026-05-01,US,Healthcare,Corporate confidential,Company
 akira,ATF Aerospace,2026-04-30,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,ATF Aerospace,2026-04-30,,Manufacturing,Employee / HR,Employees
 akira,ATF Aerospace,2026-04-30,,Manufacturing,Customer data,Customers
 akira,ATF Aerospace,2026-04-30,,Manufacturing,Legal / contracts,Company
+akira,ATF Aerospace,2026-04-30,,Manufacturing,Intellectual property / technical,Company
 akira,ATF Aerospace,2026-04-30,,Manufacturing,Corporate confidential,Company
 incransom,Iowa Spring Manufacturing & Sales,2026-04-29,US,Manufacturing,Financial,Company
 incransom,Iowa Spring Manufacturing & Sales,2026-04-29,US,Manufacturing,Legal / contracts,Company
@@ -1336,11 +1492,14 @@ incransom,Selex - Gruppo Commerciale,2026-04-27,IT,Technology,Employee / HR,Empl
 incransom,Selex - Gruppo Commerciale,2026-04-27,IT,Technology,Financial,Company
 incransom,Selex - Gruppo Commerciale,2026-04-27,IT,Technology,Customer data,Customers
 incransom,Selex - Gruppo Commerciale,2026-04-27,IT,Technology,Legal / contracts,Company
+incransom,Selex - Gruppo Commerciale,2026-04-27,IT,Technology,Intellectual property / technical,Company
 incransom,Selex - Gruppo Commerciale,2026-04-27,IT,Technology,Credentials / IT,Company
+incransom,Selex - Gruppo Commerciale,2026-04-27,IT,Technology,Corporate confidential,Company
 incransom,BELFOR,2026-04-27,SG,Unknown,Personal data (PII),Individuals (unspecified)
 incransom,BELFOR,2026-04-27,SG,Unknown,Employee / HR,Employees
 incransom,BELFOR,2026-04-27,SG,Unknown,Financial,Company
 incransom,BELFOR,2026-04-27,SG,Unknown,Customer data,Customers
+incransom,BELFOR,2026-04-27,SG,Unknown,Medical (PHI),Customers
 incransom,BELFOR,2026-04-27,SG,Unknown,Legal / contracts,Company
 incransom,BELFOR,2026-04-27,SG,Unknown,Intellectual property / technical,Company
 incransom,BELFOR,2026-04-27,SG,Unknown,Corporate confidential,Company
@@ -1357,22 +1516,27 @@ akira,Rockville Fuel & Feed,2026-04-24,,Construction,Legal / contracts,Company
 akira,Rockville Fuel & Feed,2026-04-24,,Construction,Corporate confidential,Company
 incransom,Dorotea Sweden,2026-04-23,SE,Government,Employee / HR,Employees
 incransom,Dorotea Sweden,2026-04-23,SE,Government,Customer data,Customers
+incransom,Dorotea Sweden,2026-04-23,SE,Government,Credentials / IT,Company
 akira,Gumpp Kunststoffe,2026-04-23,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Gumpp Kunststoffe,2026-04-23,,Manufacturing,Employee / HR,Employees
 akira,Gumpp Kunststoffe,2026-04-23,,Manufacturing,Customer data,Customers
 akira,Gumpp Kunststoffe,2026-04-23,,Manufacturing,Legal / contracts,Company
+akira,Gumpp Kunststoffe,2026-04-23,,Manufacturing,Intellectual property / technical,Company
 akira,Gumpp Kunststoffe,2026-04-23,,Manufacturing,Corporate confidential,Company
 akira,Alkegen,2026-04-23,,Energy & Utilities,Personal data (PII),Individuals (unspecified)
 akira,Alkegen,2026-04-23,,Energy & Utilities,Employee / HR,Employees
 akira,Alkegen,2026-04-23,,Energy & Utilities,Financial,Company
 akira,Alkegen,2026-04-23,,Energy & Utilities,Customer data,Customers
+akira,Alkegen,2026-04-23,,Energy & Utilities,Medical (PHI),Customers
 akira,Alkegen,2026-04-23,,Energy & Utilities,Legal / contracts,Company
+akira,Alkegen,2026-04-23,,Energy & Utilities,Intellectual property / technical,Company
 akira,Alkegen,2026-04-23,,Energy & Utilities,Corporate confidential,Company
 akira,S4K Entertainment,2026-04-22,,Hospitality & Leisure,Personal data (PII),Individuals (unspecified)
 akira,S4K Entertainment,2026-04-22,,Hospitality & Leisure,Employee / HR,Employees
 akira,S4K Entertainment,2026-04-22,,Hospitality & Leisure,Financial,Company
 akira,S4K Entertainment,2026-04-22,,Hospitality & Leisure,Customer data,Customers
 akira,S4K Entertainment,2026-04-22,,Hospitality & Leisure,Legal / contracts,Company
+akira,S4K Entertainment,2026-04-22,,Hospitality & Leisure,Intellectual property / technical,Company
 akira,S4K Entertainment,2026-04-22,,Hospitality & Leisure,Corporate confidential,Company
 akira,Kubiak Melton & Associates,2026-04-22,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Kubiak Melton & Associates,2026-04-22,,Unknown,Financial,Company
@@ -1398,6 +1562,7 @@ akira,Alva Manufacturing,2026-04-21,,Manufacturing,Personal data (PII),Individua
 akira,Alva Manufacturing,2026-04-21,,Manufacturing,Employee / HR,Employees
 akira,Alva Manufacturing,2026-04-21,,Manufacturing,Financial,Company
 akira,Alva Manufacturing,2026-04-21,,Manufacturing,Legal / contracts,Company
+akira,Alva Manufacturing,2026-04-21,,Manufacturing,Intellectual property / technical,Company
 akira,Alva Manufacturing,2026-04-21,,Manufacturing,Corporate confidential,Company
 incransom,rheem,2026-04-20,US,Energy & Utilities,Personal data (PII),Individuals (unspecified)
 incransom,rheem,2026-04-20,US,Energy & Utilities,Employee / HR,Employees
@@ -1415,22 +1580,26 @@ akira,R Roese Contracting,2026-04-16,,Energy & Utilities,Employee / HR,Employees
 akira,R Roese Contracting,2026-04-16,,Energy & Utilities,Financial,Company
 akira,R Roese Contracting,2026-04-16,,Energy & Utilities,Customer data,Customers
 akira,R Roese Contracting,2026-04-16,,Energy & Utilities,Legal / contracts,Company
+akira,R Roese Contracting,2026-04-16,,Energy & Utilities,Intellectual property / technical,Company
 akira,R Roese Contracting,2026-04-16,,Energy & Utilities,Corporate confidential,Company
 akira,Pharmathek,2026-04-16,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Pharmathek,2026-04-16,,Technology,Employee / HR,Employees
 akira,Pharmathek,2026-04-16,,Technology,Financial,Company
 akira,Pharmathek,2026-04-16,,Technology,Customer data,Customers
 akira,Pharmathek,2026-04-16,,Technology,Legal / contracts,Company
+akira,Pharmathek,2026-04-16,,Technology,Intellectual property / technical,Company
 akira,Pharmathek,2026-04-16,,Technology,Corporate confidential,Company
 akira,Law Offices of James C Shields,2026-04-16,,Financial Services,Personal data (PII),Individuals (unspecified)
 akira,Law Offices of James C Shields,2026-04-16,,Financial Services,Financial,Company
 akira,Law Offices of James C Shields,2026-04-16,,Financial Services,Customer data,Customers
+akira,Law Offices of James C Shields,2026-04-16,,Financial Services,Legal / contracts,Company
 akira,Law Offices of James C Shields,2026-04-16,,Financial Services,Corporate confidential,Company
 akira,Truckload Carriers Association,2026-04-15,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Truckload Carriers Association,2026-04-15,,Unknown,Employee / HR,Employees
 akira,Truckload Carriers Association,2026-04-15,,Unknown,Financial,Company
 akira,Truckload Carriers Association,2026-04-15,,Unknown,Customer data,Customers
 akira,Truckload Carriers Association,2026-04-15,,Unknown,Legal / contracts,Company
+akira,Truckload Carriers Association,2026-04-15,,Unknown,Intellectual property / technical,Company
 akira,Truckload Carriers Association,2026-04-15,,Unknown,Corporate confidential,Company
 akira,Fletcher Chrysler Products,2026-04-15,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Fletcher Chrysler Products,2026-04-15,,Manufacturing,Employee / HR,Employees
@@ -1443,7 +1612,9 @@ akira,CIR Realty,2026-04-15,CA,Real Estate,Employee / HR,Employees
 akira,CIR Realty,2026-04-15,CA,Real Estate,Financial,Company
 akira,CIR Realty,2026-04-15,CA,Real Estate,Customer data,Customers
 akira,CIR Realty,2026-04-15,CA,Real Estate,Legal / contracts,Company
+akira,CIR Realty,2026-04-15,CA,Real Estate,Intellectual property / technical,Company
 akira,CIR Realty,2026-04-15,CA,Real Estate,Corporate confidential,Company
+incransom,Arban & Carosi,2026-04-14,US,Unknown,Personal data (PII),Individuals (unspecified)
 incransom,Arban & Carosi,2026-04-14,US,Unknown,Employee / HR,Employees
 incransom,Arban & Carosi,2026-04-14,US,Unknown,Financial,Company
 incransom,Arban & Carosi,2026-04-14,US,Unknown,Customer data,Customers
@@ -1466,12 +1637,14 @@ akira,La Tuilerie,2026-04-14,,Construction,Employee / HR,Employees
 akira,La Tuilerie,2026-04-14,,Construction,Financial,Company
 akira,La Tuilerie,2026-04-14,,Construction,Customer data,Customers
 akira,La Tuilerie,2026-04-14,,Construction,Legal / contracts,Company
+akira,La Tuilerie,2026-04-14,,Construction,Intellectual property / technical,Company
 akira,La Tuilerie,2026-04-14,,Construction,Corporate confidential,Company
 akira,INDESMALLA,2026-04-14,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,INDESMALLA,2026-04-14,,Manufacturing,Employee / HR,Employees
 akira,INDESMALLA,2026-04-14,,Manufacturing,Financial,Company
 akira,INDESMALLA,2026-04-14,,Manufacturing,Customer data,Customers
 akira,INDESMALLA,2026-04-14,,Manufacturing,Legal / contracts,Company
+akira,INDESMALLA,2026-04-14,,Manufacturing,Intellectual property / technical,Company
 akira,INDESMALLA,2026-04-14,,Manufacturing,Corporate confidential,Company
 akira,CSA SpA,2026-04-14,,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 akira,CSA SpA,2026-04-14,,Transportation & Logistics,Employee / HR,Employees
@@ -1484,6 +1657,7 @@ akira,DeMera DeMera Cameron,2026-04-13,,Business Services,Financial,Company
 akira,DeMera DeMera Cameron,2026-04-13,,Business Services,Customer data,Customers
 akira,DeMera DeMera Cameron,2026-04-13,,Business Services,Legal / contracts,Company
 akira,DeMera DeMera Cameron,2026-04-13,,Business Services,Corporate confidential,Company
+incransom,Straten & Kollegen,2026-04-12,DE,Business Services,Credentials / IT,Company
 incransom,www.campbell.edu,2026-04-11,US,Unknown,Personal data (PII),Individuals (unspecified)
 incransom,www.campbell.edu,2026-04-11,US,Unknown,Customer data,Customers
 akira,Turbo International,2026-04-10,US,Manufacturing,Personal data (PII),Individuals (unspecified)
@@ -1496,6 +1670,7 @@ akira,Netgain Networks,2026-04-10,,Technology,Personal data (PII),Individuals (u
 akira,Netgain Networks,2026-04-10,,Technology,Employee / HR,Employees
 akira,Netgain Networks,2026-04-10,,Technology,Financial,Company
 akira,Netgain Networks,2026-04-10,,Technology,Customer data,Customers
+akira,Netgain Networks,2026-04-10,,Technology,Medical (PHI),Customers
 akira,Netgain Networks,2026-04-10,,Technology,Legal / contracts,Company
 akira,Netgain Networks,2026-04-10,,Technology,Corporate confidential,Company
 akira,Shingle & Gibb Automation,2026-04-09,,Manufacturing,Personal data (PII),Individuals (unspecified)
@@ -1507,6 +1682,7 @@ akira,Shingle & Gibb Automation,2026-04-09,,Manufacturing,Corporate confidential
 akira,Sehlmann Fensterbau,2026-04-09,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Sehlmann Fensterbau,2026-04-09,,Manufacturing,Employee / HR,Employees
 akira,Sehlmann Fensterbau,2026-04-09,,Manufacturing,Financial,Company
+akira,Sehlmann Fensterbau,2026-04-09,,Manufacturing,Intellectual property / technical,Company
 akira,Sehlmann Fensterbau,2026-04-09,,Manufacturing,Corporate confidential,Company
 akira,Newman & Marquez,2026-04-09,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Newman & Marquez,2026-04-09,,Healthcare,Employee / HR,Employees
@@ -1519,17 +1695,20 @@ akira,MN Health Insurance Network,2026-04-09,,Healthcare,Employee / HR,Employees
 akira,MN Health Insurance Network,2026-04-09,,Healthcare,Financial,Company
 akira,MN Health Insurance Network,2026-04-09,,Healthcare,Customer data,Customers
 akira,MN Health Insurance Network,2026-04-09,,Healthcare,Legal / contracts,Company
+akira,MN Health Insurance Network,2026-04-09,,Healthcare,Intellectual property / technical,Company
 akira,MN Health Insurance Network,2026-04-09,,Healthcare,Corporate confidential,Company
 akira,ImageMaster,2026-04-09,,Government,Personal data (PII),Individuals (unspecified)
 akira,ImageMaster,2026-04-09,,Government,Employee / HR,Employees
 akira,ImageMaster,2026-04-09,,Government,Financial,Company
 akira,ImageMaster,2026-04-09,,Government,Customer data,Customers
 akira,ImageMaster,2026-04-09,,Government,Legal / contracts,Company
+akira,ImageMaster,2026-04-09,,Government,Intellectual property / technical,Company
 akira,ImageMaster,2026-04-09,,Government,Corporate confidential,Company
 akira,Mabetex Group,2026-04-08,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Mabetex Group,2026-04-08,,Healthcare,Employee / HR,Employees
 akira,Mabetex Group,2026-04-08,,Healthcare,Financial,Company
 akira,Mabetex Group,2026-04-08,,Healthcare,Customer data,Customers
+akira,Mabetex Group,2026-04-08,,Healthcare,Intellectual property / technical,Company
 akira,Mabetex Group,2026-04-08,,Healthcare,Corporate confidential,Company
 akira,School Health,2026-04-07,,Healthcare,Employee / HR,Employees
 akira,School Health,2026-04-07,,Healthcare,Financial,Company
@@ -1539,12 +1718,15 @@ akira,School Health,2026-04-07,,Healthcare,Corporate confidential,Company
 akira,Research & Planning Consultant s,2026-04-07,,Business Services,Employee / HR,Employees
 akira,Research & Planning Consultant s,2026-04-07,,Business Services,Financial,Company
 akira,Research & Planning Consultant s,2026-04-07,,Business Services,Customer data,Customers
+akira,Research & Planning Consultant s,2026-04-07,,Business Services,Intellectual property / technical,Company
 akira,Research & Planning Consultant s,2026-04-07,,Business Services,Corporate confidential,Company
 akira,CMD Outsourcing Solutions,2026-04-07,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,CMD Outsourcing Solutions,2026-04-07,,Business Services,Employee / HR,Employees
 akira,CMD Outsourcing Solutions,2026-04-07,,Business Services,Financial,Company
+akira,CMD Outsourcing Solutions,2026-04-07,,Business Services,Medical (PHI),Customers
 akira,CMD Outsourcing Solutions,2026-04-07,,Business Services,Legal / contracts,Company
 akira,CMD Outsourcing Solutions,2026-04-07,,Business Services,Corporate confidential,Company
+akira,Adrian Jules,2026-04-07,US,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Adrian Jules,2026-04-07,US,Manufacturing,Employee / HR,Employees
 akira,Adrian Jules,2026-04-07,US,Manufacturing,Financial,Company
 akira,Adrian Jules,2026-04-07,US,Manufacturing,Customer data,Customers
@@ -1595,33 +1777,40 @@ akira,Westamerica Communications,2026-04-03,,Technology,Personal data (PII),Indi
 akira,Westamerica Communications,2026-04-03,,Technology,Employee / HR,Employees
 akira,Westamerica Communications,2026-04-03,,Technology,Financial,Company
 akira,Westamerica Communications,2026-04-03,,Technology,Customer data,Customers
+akira,Westamerica Communications,2026-04-03,,Technology,Intellectual property / technical,Company
 akira,Westamerica Communications,2026-04-03,,Technology,Corporate confidential,Company
 akira,The Russell's Law Fi rm,2026-04-03,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,The Russell's Law Fi rm,2026-04-03,,Business Services,Financial,Company
 akira,The Russell's Law Fi rm,2026-04-03,,Business Services,Customer data,Customers
 akira,The Russell's Law Fi rm,2026-04-03,,Business Services,Medical (PHI),Customers
+akira,The Russell's Law Fi rm,2026-04-03,,Business Services,Legal / contracts,Company
 akira,The Russell's Law Fi rm,2026-04-03,,Business Services,Corporate confidential,Company
 akira,Charles River Insurance,2026-04-03,,Financial Services,Personal data (PII),Individuals (unspecified)
 akira,Charles River Insurance,2026-04-03,,Financial Services,Employee / HR,Employees
 akira,Charles River Insurance,2026-04-03,,Financial Services,Financial,Company
 akira,Charles River Insurance,2026-04-03,,Financial Services,Customer data,Customers
+akira,Charles River Insurance,2026-04-03,,Financial Services,Intellectual property / technical,Company
 akira,Charles River Insurance,2026-04-03,,Financial Services,Corporate confidential,Company
 akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Personal data (PII),Individuals (unspecified)
 akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Employee / HR,Employees
 akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Financial,Company
 akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Customer data,Customers
+akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Medical (PHI),Customers
 akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Legal / contracts,Company
+akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Intellectual property / technical,Company
 akira,"American Vintage Home, Briggs Plumbing Products, Genco Manuf acturing, American Vintage Hom e, Associates of Clifton Park.",2026-04-03,CN,Construction,Corporate confidential,Company
 akira,Serap,2026-04-02,FR,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Serap,2026-04-02,FR,Manufacturing,Employee / HR,Employees
 akira,Serap,2026-04-02,FR,Manufacturing,Financial,Company
 akira,Serap,2026-04-02,FR,Manufacturing,Customer data,Customers
 akira,Serap,2026-04-02,FR,Manufacturing,Legal / contracts,Company
+akira,Serap,2026-04-02,FR,Manufacturing,Intellectual property / technical,Company
 akira,Serap,2026-04-02,FR,Manufacturing,Corporate confidential,Company
 akira,DKN Hotels,2026-04-02,,Hospitality & Leisure,Personal data (PII),Individuals (unspecified)
 akira,DKN Hotels,2026-04-02,,Hospitality & Leisure,Employee / HR,Employees
 akira,DKN Hotels,2026-04-02,,Hospitality & Leisure,Financial,Company
 akira,DKN Hotels,2026-04-02,,Hospitality & Leisure,Customer data,Customers
+akira,DKN Hotels,2026-04-02,,Hospitality & Leisure,Legal / contracts,Company
 akira,DKN Hotels,2026-04-02,,Hospitality & Leisure,Corporate confidential,Company
 akira,"Tange , Mann & Garza",2026-04-01,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,"Tange , Mann & Garza",2026-04-01,,Business Services,Employee / HR,Employees
@@ -1634,6 +1823,7 @@ akira,Swagelok,2026-04-01,,Unknown,Employee / HR,Employees
 akira,Swagelok,2026-04-01,,Unknown,Financial,Company
 akira,Swagelok,2026-04-01,,Unknown,Customer data,Customers
 akira,Swagelok,2026-04-01,,Unknown,Legal / contracts,Company
+akira,Swagelok,2026-04-01,,Unknown,Intellectual property / technical,Company
 akira,Swagelok,2026-04-01,,Unknown,Corporate confidential,Company
 akira,Starr Insurance,2026-04-01,,Financial Services,Personal data (PII),Individuals (unspecified)
 akira,Starr Insurance,2026-04-01,,Financial Services,Employee / HR,Employees
@@ -1653,11 +1843,13 @@ akira,Alliance Roofing,2026-04-01,,Construction,Customer data,Customers
 akira,Alliance Roofing,2026-04-01,,Construction,Legal / contracts,Company
 akira,Alliance Roofing,2026-04-01,,Construction,Intellectual property / technical,Company
 akira,Alliance Roofing,2026-04-01,,Construction,Corporate confidential,Company
+incransom,submissionfinance.com,2026-03-31,AU,Financial Services,Credentials / IT,Company
 akira,MerchNOW,2026-03-31,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,MerchNOW,2026-03-31,,Retail & Consumer,Employee / HR,Employees
 akira,MerchNOW,2026-03-31,,Retail & Consumer,Financial,Company
 akira,MerchNOW,2026-03-31,,Retail & Consumer,Customer data,Customers
 akira,MerchNOW,2026-03-31,,Retail & Consumer,Legal / contracts,Company
+akira,MerchNOW,2026-03-31,,Retail & Consumer,Intellectual property / technical,Company
 akira,MerchNOW,2026-03-31,,Retail & Consumer,Corporate confidential,Company
 akira,Excel Healthcare Receivable Ma nagement & Consulting,2026-03-31,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Excel Healthcare Receivable Ma nagement & Consulting,2026-03-31,,Healthcare,Employee / HR,Employees
@@ -1666,11 +1858,14 @@ akira,Excel Healthcare Receivable Ma nagement & Consulting,2026-03-31,,Healthcar
 akira,Excel Healthcare Receivable Ma nagement & Consulting,2026-03-31,,Healthcare,Corporate confidential,Company
 akira,Dean Supply,2026-03-31,,Manufacturing,Employee / HR,Employees
 akira,Dean Supply,2026-03-31,,Manufacturing,Financial,Company
+akira,Dean Supply,2026-03-31,,Manufacturing,Medical (PHI),Customers
 akira,Dean Supply,2026-03-31,,Manufacturing,Legal / contracts,Company
+akira,Dean Supply,2026-03-31,,Manufacturing,Intellectual property / technical,Company
 akira,Dean Supply,2026-03-31,,Manufacturing,Corporate confidential,Company
 akira,Cox Design & Metal Fabrication,2026-03-31,,Manufacturing,Employee / HR,Employees
 akira,Cox Design & Metal Fabrication,2026-03-31,,Manufacturing,Financial,Company
 akira,Cox Design & Metal Fabrication,2026-03-31,,Manufacturing,Legal / contracts,Company
+akira,Cox Design & Metal Fabrication,2026-03-31,,Manufacturing,Intellectual property / technical,Company
 akira,Cox Design & Metal Fabrication,2026-03-31,,Manufacturing,Corporate confidential,Company
 play,Witt UK Group,2026-03-30,GB,Unknown,Personal data (PII),Individuals (unspecified)
 play,Witt UK Group,2026-03-30,GB,Unknown,Employee / HR,Employees
@@ -1721,39 +1916,49 @@ akira,"Office Peeps, Nappie's Food Se rvice, Janome America, IT-Supp orten, A-1 
 akira,"Office Peeps, Nappie's Food Se rvice, Janome America, IT-Supp orten, A-1 Pools.",2026-03-30,US,Government,Employee / HR,Employees
 akira,"Office Peeps, Nappie's Food Se rvice, Janome America, IT-Supp orten, A-1 Pools.",2026-03-30,US,Government,Financial,Company
 akira,"Office Peeps, Nappie's Food Se rvice, Janome America, IT-Supp orten, A-1 Pools.",2026-03-30,US,Government,Customer data,Customers
+akira,"Office Peeps, Nappie's Food Se rvice, Janome America, IT-Supp orten, A-1 Pools.",2026-03-30,US,Government,Medical (PHI),Customers
+akira,"Office Peeps, Nappie's Food Se rvice, Janome America, IT-Supp orten, A-1 Pools.",2026-03-30,US,Government,Intellectual property / technical,Company
 akira,"Office Peeps, Nappie's Food Se rvice, Janome America, IT-Supp orten, A-1 Pools.",2026-03-30,US,Government,Corporate confidential,Company
 akira,Motleys Asset Disposition Grou p,2026-03-30,,Real Estate,Personal data (PII),Individuals (unspecified)
 akira,Motleys Asset Disposition Grou p,2026-03-30,,Real Estate,Employee / HR,Employees
 akira,Motleys Asset Disposition Grou p,2026-03-30,,Real Estate,Financial,Company
 akira,Motleys Asset Disposition Grou p,2026-03-30,,Real Estate,Customer data,Customers
 akira,Motleys Asset Disposition Grou p,2026-03-30,,Real Estate,Legal / contracts,Company
+akira,Motleys Asset Disposition Grou p,2026-03-30,,Real Estate,Intellectual property / technical,Company
 akira,Motleys Asset Disposition Grou p,2026-03-30,,Real Estate,Corporate confidential,Company
 akira,Sheladia Associates,2026-03-27,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Sheladia Associates,2026-03-27,,Business Services,Employee / HR,Employees
 akira,Sheladia Associates,2026-03-27,,Business Services,Financial,Company
 akira,Sheladia Associates,2026-03-27,,Business Services,Customer data,Customers
+akira,Sheladia Associates,2026-03-27,,Business Services,Medical (PHI),Customers
 akira,Sheladia Associates,2026-03-27,,Business Services,Legal / contracts,Company
+akira,Sheladia Associates,2026-03-27,,Business Services,Intellectual property / technical,Company
 akira,Sheladia Associates,2026-03-27,,Business Services,Corporate confidential,Company
 akira,Quality Carton and Converting,2026-03-27,,Agriculture & Food,Personal data (PII),Individuals (unspecified)
 akira,Quality Carton and Converting,2026-03-27,,Agriculture & Food,Employee / HR,Employees
 akira,Quality Carton and Converting,2026-03-27,,Agriculture & Food,Financial,Company
 akira,Quality Carton and Converting,2026-03-27,,Agriculture & Food,Customer data,Customers
 akira,Quality Carton and Converting,2026-03-27,,Agriculture & Food,Legal / contracts,Company
+akira,Quality Carton and Converting,2026-03-27,,Agriculture & Food,Intellectual property / technical,Company
 akira,Quality Carton and Converting,2026-03-27,,Agriculture & Food,Corporate confidential,Company
 akira,GeoMechanics Technologies,2026-03-27,,Technology,Personal data (PII),Individuals (unspecified)
 akira,GeoMechanics Technologies,2026-03-27,,Technology,Employee / HR,Employees
 akira,GeoMechanics Technologies,2026-03-27,,Technology,Financial,Company
 akira,GeoMechanics Technologies,2026-03-27,,Technology,Customer data,Customers
+akira,GeoMechanics Technologies,2026-03-27,,Technology,Medical (PHI),Customers
 akira,GeoMechanics Technologies,2026-03-27,,Technology,Legal / contracts,Company
+akira,GeoMechanics Technologies,2026-03-27,,Technology,Intellectual property / technical,Company
 akira,GeoMechanics Technologies,2026-03-27,,Technology,Corporate confidential,Company
 akira,Frontier Technologies,2026-03-27,,Technology,Financial,Company
 akira,Frontier Technologies,2026-03-27,,Technology,Legal / contracts,Company
+akira,Frontier Technologies,2026-03-27,,Technology,Intellectual property / technical,Company
 akira,Frontier Technologies,2026-03-27,,Technology,Corporate confidential,Company
 akira,BHS Bau,2026-03-27,,Construction,Personal data (PII),Individuals (unspecified)
 akira,BHS Bau,2026-03-27,,Construction,Employee / HR,Employees
 akira,BHS Bau,2026-03-27,,Construction,Financial,Company
 akira,BHS Bau,2026-03-27,,Construction,Customer data,Customers
 akira,BHS Bau,2026-03-27,,Construction,Legal / contracts,Company
+akira,BHS Bau,2026-03-27,,Construction,Intellectual property / technical,Company
 akira,BHS Bau,2026-03-27,,Construction,Corporate confidential,Company
 akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Personal data (PII),Individuals (unspecified)
 akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Employee / HR,Employees
@@ -1761,6 +1966,7 @@ akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Financial,Com
 akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Customer data,Customers
 akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Medical (PHI),Customers
 akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Legal / contracts,Company
+akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Intellectual property / technical,Company
 akira,Axiomatic Technologies Corpora tion,2026-03-27,CA,Technology,Corporate confidential,Company
 play,TPIS Industrial Services,2026-03-26,US,Construction,Personal data (PII),Individuals (unspecified)
 play,TPIS Industrial Services,2026-03-26,US,Construction,Employee / HR,Employees
@@ -1799,6 +2005,7 @@ play,All Real Estate Title Solutions,2026-03-24,US,Real Estate,Employee / HR,Emp
 play,All Real Estate Title Solutions,2026-03-24,US,Real Estate,Financial,Company
 play,All Real Estate Title Solutions,2026-03-24,US,Real Estate,Customer data,Customers
 play,All Real Estate Title Solutions,2026-03-24,US,Real Estate,Corporate confidential,Company
+incransom,cerboniservices.com,2026-03-24,US,Financial Services,Credentials / IT,Company
 akira,Mooers Immigration,2026-03-24,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Mooers Immigration,2026-03-24,,Unknown,Financial,Company
 akira,Mooers Immigration,2026-03-24,,Unknown,Customer data,Customers
@@ -1821,6 +2028,8 @@ akira,"Concord Components, Wefapress, Environment Masters, Fairmont Hot Springs 
 akira,"Concord Components, Wefapress, Environment Masters, Fairmont Hot Springs Resort, Road Amer ica.",2026-03-24,CA,Manufacturing,Employee / HR,Employees
 akira,"Concord Components, Wefapress, Environment Masters, Fairmont Hot Springs Resort, Road Amer ica.",2026-03-24,CA,Manufacturing,Financial,Company
 akira,"Concord Components, Wefapress, Environment Masters, Fairmont Hot Springs Resort, Road Amer ica.",2026-03-24,CA,Manufacturing,Customer data,Customers
+akira,"Concord Components, Wefapress, Environment Masters, Fairmont Hot Springs Resort, Road Amer ica.",2026-03-24,CA,Manufacturing,Medical (PHI),Customers
+akira,"Concord Components, Wefapress, Environment Masters, Fairmont Hot Springs Resort, Road Amer ica.",2026-03-24,CA,Manufacturing,Intellectual property / technical,Company
 akira,"Concord Components, Wefapress, Environment Masters, Fairmont Hot Springs Resort, Road Amer ica.",2026-03-24,CA,Manufacturing,Corporate confidential,Company
 incransom,Kiswire,2026-03-23,KR,Manufacturing,Personal data (PII),Individuals (unspecified)
 incransom,Kiswire,2026-03-23,KR,Manufacturing,Employee / HR,Employees
@@ -1830,15 +2039,19 @@ incransom,Kiswire,2026-03-23,KR,Manufacturing,Corporate confidential,Company
 akira,Schmiede,2026-03-23,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Schmiede,2026-03-23,,Manufacturing,Employee / HR,Employees
 akira,Schmiede,2026-03-23,,Manufacturing,Legal / contracts,Company
+akira,Schmiede,2026-03-23,,Manufacturing,Intellectual property / technical,Company
 akira,Schmiede,2026-03-23,,Manufacturing,Corporate confidential,Company
 akira,Rioja Motor,2026-03-23,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Rioja Motor,2026-03-23,,Unknown,Employee / HR,Employees
 akira,Rioja Motor,2026-03-23,,Unknown,Financial,Company
 akira,Rioja Motor,2026-03-23,,Unknown,Customer data,Customers
+akira,Rioja Motor,2026-03-23,,Unknown,Medical (PHI),Customers
+akira,Rioja Motor,2026-03-23,,Unknown,Intellectual property / technical,Company
 akira,Rioja Motor,2026-03-23,,Unknown,Corporate confidential,Company
 akira,Nafco,2026-03-23,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,Nafco,2026-03-23,,Retail & Consumer,Employee / HR,Employees
 akira,Nafco,2026-03-23,,Retail & Consumer,Financial,Company
+akira,Nafco,2026-03-23,,Retail & Consumer,Medical (PHI),Customers
 akira,Nafco,2026-03-23,,Retail & Consumer,Legal / contracts,Company
 akira,Nafco,2026-03-23,,Retail & Consumer,Corporate confidential,Company
 akira,Dixon Electrical Systems & Con tracting,2026-03-23,,Technology,Personal data (PII),Individuals (unspecified)
@@ -1850,16 +2063,19 @@ akira,CONCEPTNET,2026-03-23,,Hospitality & Leisure,Personal data (PII),Individua
 akira,CONCEPTNET,2026-03-23,,Hospitality & Leisure,Employee / HR,Employees
 akira,CONCEPTNET,2026-03-23,,Hospitality & Leisure,Financial,Company
 akira,CONCEPTNET,2026-03-23,,Hospitality & Leisure,Legal / contracts,Company
+akira,CONCEPTNET,2026-03-23,,Hospitality & Leisure,Intellectual property / technical,Company
 akira,CONCEPTNET,2026-03-23,,Hospitality & Leisure,Corporate confidential,Company
 akira,Autitransa,2026-03-23,,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 akira,Autitransa,2026-03-23,,Transportation & Logistics,Employee / HR,Employees
 akira,Autitransa,2026-03-23,,Transportation & Logistics,Financial,Company
+akira,Autitransa,2026-03-23,,Transportation & Logistics,Medical (PHI),Customers
 akira,Autitransa,2026-03-23,,Transportation & Logistics,Legal / contracts,Company
 akira,Autitransa,2026-03-23,,Transportation & Logistics,Corporate confidential,Company
 akira,bdtronic,2026-03-20,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,bdtronic,2026-03-20,,Manufacturing,Employee / HR,Employees
 akira,bdtronic,2026-03-20,,Manufacturing,Financial,Company
 akira,bdtronic,2026-03-20,,Manufacturing,Legal / contracts,Company
+akira,bdtronic,2026-03-20,,Manufacturing,Intellectual property / technical,Company
 akira,bdtronic,2026-03-20,,Manufacturing,Corporate confidential,Company
 akira,Savvy Hawk,2026-03-20,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Savvy Hawk,2026-03-20,,Technology,Employee / HR,Employees
@@ -1872,6 +2088,7 @@ akira,Motorpal,2026-03-20,,Manufacturing,Personal data (PII),Individuals (unspec
 akira,Motorpal,2026-03-20,,Manufacturing,Employee / HR,Employees
 akira,Motorpal,2026-03-20,,Manufacturing,Financial,Company
 akira,Motorpal,2026-03-20,,Manufacturing,Legal / contracts,Company
+akira,Motorpal,2026-03-20,,Manufacturing,Intellectual property / technical,Company
 akira,Motorpal,2026-03-20,,Manufacturing,Corporate confidential,Company
 akira,Madesmart,2026-03-20,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Madesmart,2026-03-20,,Unknown,Employee / HR,Employees
@@ -1888,18 +2105,21 @@ akira,INP Schweiz,2026-03-20,,Energy & Utilities,Corporate confidential,Company
 akira,The Decorative Paving,2026-03-19,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,The Decorative Paving,2026-03-19,,Manufacturing,Employee / HR,Employees
 akira,The Decorative Paving,2026-03-19,,Manufacturing,Financial,Company
+akira,The Decorative Paving,2026-03-19,,Manufacturing,Intellectual property / technical,Company
 akira,The Decorative Paving,2026-03-19,,Manufacturing,Corporate confidential,Company
 akira,Career Adventures,2026-03-19,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Career Adventures,2026-03-19,,Manufacturing,Employee / HR,Employees
 akira,Career Adventures,2026-03-19,,Manufacturing,Financial,Company
 akira,Career Adventures,2026-03-19,,Manufacturing,Customer data,Customers
 akira,Career Adventures,2026-03-19,,Manufacturing,Legal / contracts,Company
+akira,Career Adventures,2026-03-19,,Manufacturing,Intellectual property / technical,Company
 akira,Career Adventures,2026-03-19,,Manufacturing,Corporate confidential,Company
 akira,Angus-Young Associates,2026-03-19,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Angus-Young Associates,2026-03-19,,Construction,Employee / HR,Employees
 akira,Angus-Young Associates,2026-03-19,,Construction,Financial,Company
 akira,Angus-Young Associates,2026-03-19,,Construction,Customer data,Customers
 akira,Angus-Young Associates,2026-03-19,,Construction,Legal / contracts,Company
+akira,Angus-Young Associates,2026-03-19,,Construction,Intellectual property / technical,Company
 akira,Angus-Young Associates,2026-03-19,,Construction,Corporate confidential,Company
 akira,Texollini,2026-03-18,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Texollini,2026-03-18,,Manufacturing,Employee / HR,Employees
@@ -1913,6 +2133,7 @@ akira,Reflex Angelo,2026-03-18,,Retail & Consumer,Employee / HR,Employees
 akira,Reflex Angelo,2026-03-18,,Retail & Consumer,Financial,Company
 akira,Reflex Angelo,2026-03-18,,Retail & Consumer,Customer data,Customers
 akira,Reflex Angelo,2026-03-18,,Retail & Consumer,Legal / contracts,Company
+akira,Reflex Angelo,2026-03-18,,Retail & Consumer,Intellectual property / technical,Company
 akira,Reflex Angelo,2026-03-18,,Retail & Consumer,Corporate confidential,Company
 akira,Rainbow Technology,2026-03-18,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Rainbow Technology,2026-03-18,,Manufacturing,Employee / HR,Employees
@@ -1988,6 +2209,7 @@ akira,Porsche Zentrum Fulda,2026-03-12,,Unknown,Personal data (PII),Individuals 
 akira,Porsche Zentrum Fulda,2026-03-12,,Unknown,Employee / HR,Employees
 akira,Porsche Zentrum Fulda,2026-03-12,,Unknown,Customer data,Customers
 akira,Porsche Zentrum Fulda,2026-03-12,,Unknown,Legal / contracts,Company
+akira,Porsche Zentrum Fulda,2026-03-12,,Unknown,Intellectual property / technical,Company
 akira,Porsche Zentrum Fulda,2026-03-12,,Unknown,Corporate confidential,Company
 akira,Mh Soluciones,2026-03-12,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Mh Soluciones,2026-03-12,,Business Services,Employee / HR,Employees
@@ -2001,7 +2223,9 @@ akira,Financial Brokerage,2026-03-12,,Financial Services,Customer data,Customers
 akira,Financial Brokerage,2026-03-12,,Financial Services,Corporate confidential,Company
 akira,Extreme Trailers,2026-03-12,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Extreme Trailers,2026-03-12,,Manufacturing,Employee / HR,Employees
+akira,Extreme Trailers,2026-03-12,,Manufacturing,Financial,Company
 akira,Extreme Trailers,2026-03-12,,Manufacturing,Customer data,Customers
+akira,Extreme Trailers,2026-03-12,,Manufacturing,Medical (PHI),Customers
 akira,Extreme Trailers,2026-03-12,,Manufacturing,Legal / contracts,Company
 akira,Extreme Trailers,2026-03-12,,Manufacturing,Corporate confidential,Company
 akira,Robinson Nursery,2026-03-11,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
@@ -2009,6 +2233,7 @@ akira,Robinson Nursery,2026-03-11,,Retail & Consumer,Employee / HR,Employees
 akira,Robinson Nursery,2026-03-11,,Retail & Consumer,Financial,Company
 akira,Robinson Nursery,2026-03-11,,Retail & Consumer,Customer data,Customers
 akira,Robinson Nursery,2026-03-11,,Retail & Consumer,Legal / contracts,Company
+akira,Robinson Nursery,2026-03-11,,Retail & Consumer,Intellectual property / technical,Company
 akira,Robinson Nursery,2026-03-11,,Retail & Consumer,Corporate confidential,Company
 akira,Priderock Capital Partners,2026-03-11,,Financial Services,Personal data (PII),Individuals (unspecified)
 akira,Priderock Capital Partners,2026-03-11,,Financial Services,Employee / HR,Employees
@@ -2021,8 +2246,10 @@ akira,Murray's Cheese,2026-03-11,,Retail & Consumer,Employee / HR,Employees
 akira,Murray's Cheese,2026-03-11,,Retail & Consumer,Financial,Company
 akira,Murray's Cheese,2026-03-11,,Retail & Consumer,Customer data,Customers
 akira,Murray's Cheese,2026-03-11,,Retail & Consumer,Legal / contracts,Company
+akira,Murray's Cheese,2026-03-11,,Retail & Consumer,Intellectual property / technical,Company
 akira,Murray's Cheese,2026-03-11,,Retail & Consumer,Corporate confidential,Company
 akira,D3 Embedded,2026-03-11,,Manufacturing,Legal / contracts,Company
+akira,D3 Embedded,2026-03-11,,Manufacturing,Intellectual property / technical,Company
 akira,D3 Embedded,2026-03-11,,Manufacturing,Corporate confidential,Company
 akira,Paass Logistik,2026-03-10,DE,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 akira,Paass Logistik,2026-03-10,DE,Transportation & Logistics,Employee / HR,Employees
@@ -2036,19 +2263,24 @@ akira,Exhibit Network,2026-03-10,,Transportation & Logistics,Financial,Company
 akira,Exhibit Network,2026-03-10,,Transportation & Logistics,Customer data,Customers
 akira,Exhibit Network,2026-03-10,,Transportation & Logistics,Legal / contracts,Company
 akira,Exhibit Network,2026-03-10,,Transportation & Logistics,Corporate confidential,Company
+incransom,Teknopres_TR,2026-03-09,TR,Manufacturing,Credentials / IT,Company
+incransom,LHT Holdings Limited,2026-03-09,SG,Manufacturing,Credentials / IT,Company
 akira,Woodfines,2026-03-09,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Woodfines,2026-03-09,,Business Services,Customer data,Customers
+akira,Woodfines,2026-03-09,,Business Services,Legal / contracts,Company
 akira,Woodfines,2026-03-09,,Business Services,Corporate confidential,Company
 akira,WEDGE,2026-03-09,,Real Estate,Personal data (PII),Individuals (unspecified)
 akira,WEDGE,2026-03-09,,Real Estate,Employee / HR,Employees
 akira,WEDGE,2026-03-09,,Real Estate,Financial,Company
 akira,WEDGE,2026-03-09,,Real Estate,Customer data,Customers
 akira,WEDGE,2026-03-09,,Real Estate,Legal / contracts,Company
+akira,WEDGE,2026-03-09,,Real Estate,Intellectual property / technical,Company
 akira,WEDGE,2026-03-09,,Real Estate,Corporate confidential,Company
 akira,Peninsular Electric Distributo rs,2026-03-09,,Manufacturing,Employee / HR,Employees
 akira,Peninsular Electric Distributo rs,2026-03-09,,Manufacturing,Financial,Company
 akira,Peninsular Electric Distributo rs,2026-03-09,,Manufacturing,Customer data,Customers
 akira,Peninsular Electric Distributo rs,2026-03-09,,Manufacturing,Legal / contracts,Company
+akira,Peninsular Electric Distributo rs,2026-03-09,,Manufacturing,Intellectual property / technical,Company
 akira,Peninsular Electric Distributo rs,2026-03-09,,Manufacturing,Corporate confidential,Company
 akira,Hauri AG Staffelbach,2026-03-09,,Unknown,Employee / HR,Employees
 akira,Hauri AG Staffelbach,2026-03-09,,Unknown,Financial,Company
@@ -2056,11 +2288,14 @@ akira,Hauri AG Staffelbach,2026-03-09,,Unknown,Customer data,Customers
 akira,Hauri AG Staffelbach,2026-03-09,,Unknown,Corporate confidential,Company
 akira,Fiberglass Hawaii,2026-03-09,,Manufacturing,Financial,Company
 akira,Fiberglass Hawaii,2026-03-09,,Manufacturing,Customer data,Customers
+akira,Fiberglass Hawaii,2026-03-09,,Manufacturing,Intellectual property / technical,Company
 akira,Fiberglass Hawaii,2026-03-09,,Manufacturing,Corporate confidential,Company
 akira,Colliers International Idaho,2026-03-09,,Real Estate,Personal data (PII),Individuals (unspecified)
 akira,Colliers International Idaho,2026-03-09,,Real Estate,Employee / HR,Employees
 akira,Colliers International Idaho,2026-03-09,,Real Estate,Financial,Company
+akira,Colliers International Idaho,2026-03-09,,Real Estate,Medical (PHI),Customers
 akira,Colliers International Idaho,2026-03-09,,Real Estate,Legal / contracts,Company
+akira,Colliers International Idaho,2026-03-09,,Real Estate,Intellectual property / technical,Company
 akira,Colliers International Idaho,2026-03-09,,Real Estate,Corporate confidential,Company
 play,Southern Concrete Construction,2026-03-08,US,Construction,Personal data (PII),Individuals (unspecified)
 play,Southern Concrete Construction,2026-03-08,US,Construction,Employee / HR,Employees
@@ -2119,16 +2354,20 @@ play,DFW Aero Mechanix,2026-03-06,US,Transportation & Logistics,Customer data,Cu
 play,DFW Aero Mechanix,2026-03-06,US,Transportation & Logistics,Corporate confidential,Company
 akira,WAG Funktion Design,2026-03-06,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,WAG Funktion Design,2026-03-06,,Unknown,Employee / HR,Employees
+akira,WAG Funktion Design,2026-03-06,,Unknown,Medical (PHI),Customers
 akira,WAG Funktion Design,2026-03-06,,Unknown,Legal / contracts,Company
+akira,WAG Funktion Design,2026-03-06,,Unknown,Intellectual property / technical,Company
 akira,WAG Funktion Design,2026-03-06,,Unknown,Corporate confidential,Company
 akira,Verdugo Tool & Engineering,2026-03-06,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Verdugo Tool & Engineering,2026-03-06,,Manufacturing,Employee / HR,Employees
 akira,Verdugo Tool & Engineering,2026-03-06,,Manufacturing,Legal / contracts,Company
+akira,Verdugo Tool & Engineering,2026-03-06,,Manufacturing,Intellectual property / technical,Company
 akira,Verdugo Tool & Engineering,2026-03-06,,Manufacturing,Corporate confidential,Company
 akira,Siwax Specialties Group,2026-03-06,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Siwax Specialties Group,2026-03-06,,Manufacturing,Employee / HR,Employees
 akira,Siwax Specialties Group,2026-03-06,,Manufacturing,Financial,Company
 akira,Siwax Specialties Group,2026-03-06,,Manufacturing,Legal / contracts,Company
+akira,Siwax Specialties Group,2026-03-06,,Manufacturing,Intellectual property / technical,Company
 akira,Siwax Specialties Group,2026-03-06,,Manufacturing,Corporate confidential,Company
 akira,Trionex,2026-03-05,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Trionex,2026-03-05,,Manufacturing,Employee / HR,Employees
@@ -2140,11 +2379,13 @@ akira,Schaltbau,2026-03-05,,Manufacturing,Personal data (PII),Individuals (unspe
 akira,Schaltbau,2026-03-05,,Manufacturing,Employee / HR,Employees
 akira,Schaltbau,2026-03-05,,Manufacturing,Customer data,Customers
 akira,Schaltbau,2026-03-05,,Manufacturing,Legal / contracts,Company
+akira,Schaltbau,2026-03-05,,Manufacturing,Intellectual property / technical,Company
 akira,Schaltbau,2026-03-05,,Manufacturing,Corporate confidential,Company
 akira,Ecofit,2026-03-05,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Ecofit,2026-03-05,,Manufacturing,Employee / HR,Employees
 akira,Ecofit,2026-03-05,,Manufacturing,Customer data,Customers
 akira,Ecofit,2026-03-05,,Manufacturing,Legal / contracts,Company
+akira,Ecofit,2026-03-05,,Manufacturing,Intellectual property / technical,Company
 akira,Ecofit,2026-03-05,,Manufacturing,Corporate confidential,Company
 akira,Donjon,2026-03-05,,Energy & Utilities,Personal data (PII),Individuals (unspecified)
 akira,Donjon,2026-03-05,,Energy & Utilities,Employee / HR,Employees
@@ -2154,15 +2395,20 @@ akira,Donjon,2026-03-05,,Energy & Utilities,Intellectual property / technical,Co
 akira,Donjon,2026-03-05,,Energy & Utilities,Corporate confidential,Company
 akira,DesignSourceCT,2026-03-05,,Retail & Consumer,Customer data,Customers
 akira,DesignSourceCT,2026-03-05,,Retail & Consumer,Legal / contracts,Company
+akira,DesignSourceCT,2026-03-05,,Retail & Consumer,Intellectual property / technical,Company
 akira,DesignSourceCT,2026-03-05,,Retail & Consumer,Corporate confidential,Company
 akira,Applied Products,2026-03-05,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Applied Products,2026-03-05,,Manufacturing,Employee / HR,Employees
 akira,Applied Products,2026-03-05,,Manufacturing,Customer data,Customers
 akira,Applied Products,2026-03-05,,Manufacturing,Legal / contracts,Company
+akira,Applied Products,2026-03-05,,Manufacturing,Intellectual property / technical,Company
 akira,Applied Products,2026-03-05,,Manufacturing,Corporate confidential,Company
 akira,Reynolds DeMarco & Boland,2026-03-04,,Financial Services,Personal data (PII),Individuals (unspecified)
+akira,Reynolds DeMarco & Boland,2026-03-04,,Financial Services,Employee / HR,Employees
+akira,Reynolds DeMarco & Boland,2026-03-04,,Financial Services,Financial,Company
 akira,Reynolds DeMarco & Boland,2026-03-04,,Financial Services,Customer data,Customers
 akira,Reynolds DeMarco & Boland,2026-03-04,,Financial Services,Medical (PHI),Customers
+akira,Reynolds DeMarco & Boland,2026-03-04,,Financial Services,Legal / contracts,Company
 akira,Reynolds DeMarco & Boland,2026-03-04,,Financial Services,Corporate confidential,Company
 akira,Nicholas & Tangeman,2026-03-04,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Nicholas & Tangeman,2026-03-04,,Business Services,Customer data,Customers
@@ -2173,28 +2419,35 @@ akira,MarketGraphics Research Group,2026-03-04,,Manufacturing,Employee / HR,Empl
 akira,MarketGraphics Research Group,2026-03-04,,Manufacturing,Financial,Company
 akira,MarketGraphics Research Group,2026-03-04,,Manufacturing,Customer data,Customers
 akira,MarketGraphics Research Group,2026-03-04,,Manufacturing,Legal / contracts,Company
+akira,MarketGraphics Research Group,2026-03-04,,Manufacturing,Intellectual property / technical,Company
 akira,MarketGraphics Research Group,2026-03-04,,Manufacturing,Corporate confidential,Company
 akira,HTH Companies,2026-03-04,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,HTH Companies,2026-03-04,,Manufacturing,Employee / HR,Employees
 akira,HTH Companies,2026-03-04,,Manufacturing,Financial,Company
+akira,HTH Companies,2026-03-04,,Manufacturing,Medical (PHI),Customers
 akira,HTH Companies,2026-03-04,,Manufacturing,Legal / contracts,Company
+akira,HTH Companies,2026-03-04,,Manufacturing,Intellectual property / technical,Company
 akira,HTH Companies,2026-03-04,,Manufacturing,Corporate confidential,Company
 akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Employee / HR,Employees
 akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Financial,Company
 akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Customer data,Customers
+akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Medical (PHI),Customers
 akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Legal / contracts,Company
+akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Intellectual property / technical,Company
 akira,Business Automation Specialist s of Minnesota,2026-03-04,,Unknown,Corporate confidential,Company
 akira,BK Group,2026-03-04,,Construction,Personal data (PII),Individuals (unspecified)
 akira,BK Group,2026-03-04,,Construction,Employee / HR,Employees
 akira,BK Group,2026-03-04,,Construction,Financial,Company
 akira,BK Group,2026-03-04,,Construction,Legal / contracts,Company
+akira,BK Group,2026-03-04,,Construction,Intellectual property / technical,Company
 akira,BK Group,2026-03-04,,Construction,Corporate confidential,Company
 play,GapVax,2026-03-03,US,Manufacturing,Personal data (PII),Individuals (unspecified)
 play,GapVax,2026-03-03,US,Manufacturing,Employee / HR,Employees
 play,GapVax,2026-03-03,US,Manufacturing,Financial,Company
 play,GapVax,2026-03-03,US,Manufacturing,Customer data,Customers
 play,GapVax,2026-03-03,US,Manufacturing,Corporate confidential,Company
+incransom,cwpa.com,2026-03-03,US,Retail & Consumer,Credentials / IT,Company
 play,WCC Technologies Group,2026-03-02,US,Technology,Personal data (PII),Individuals (unspecified)
 play,WCC Technologies Group,2026-03-02,US,Technology,Employee / HR,Employees
 play,WCC Technologies Group,2026-03-02,US,Technology,Financial,Company
@@ -2240,6 +2493,8 @@ akira,ICAFe Companies,2026-03-02,,Manufacturing,Financial,Company
 akira,ICAFe Companies,2026-03-02,,Manufacturing,Customer data,Customers
 akira,ICAFe Companies,2026-03-02,,Manufacturing,Legal / contracts,Company
 akira,ICAFe Companies,2026-03-02,,Manufacturing,Corporate confidential,Company
+incransom,pacepacific.com,2026-02-27,US,Construction,Credentials / IT,Company
+incransom,csi-ri.com,2026-02-27,US,Manufacturing,Credentials / IT,Company
 akira,Unisoft Communications,2026-02-27,,Financial Services,Employee / HR,Employees
 akira,Unisoft Communications,2026-02-27,,Financial Services,Financial,Company
 akira,Unisoft Communications,2026-02-27,,Financial Services,Customer data,Customers
@@ -2254,12 +2509,14 @@ akira,Gemsen,2026-02-27,CA,Retail & Consumer,Employee / HR,Employees
 akira,Gemsen,2026-02-27,CA,Retail & Consumer,Financial,Company
 akira,Gemsen,2026-02-27,CA,Retail & Consumer,Customer data,Customers
 akira,Gemsen,2026-02-27,CA,Retail & Consumer,Legal / contracts,Company
+akira,Gemsen,2026-02-27,CA,Retail & Consumer,Intellectual property / technical,Company
 akira,Gemsen,2026-02-27,CA,Retail & Consumer,Corporate confidential,Company
 akira,Com-Tec,2026-02-27,,Government,Personal data (PII),Individuals (unspecified)
 akira,Com-Tec,2026-02-27,,Government,Employee / HR,Employees
 akira,Com-Tec,2026-02-27,,Government,Financial,Company
 akira,Com-Tec,2026-02-27,,Government,Customer data,Customers
 akira,Com-Tec,2026-02-27,,Government,Legal / contracts,Company
+akira,Com-Tec,2026-02-27,,Government,Intellectual property / technical,Company
 akira,Com-Tec,2026-02-27,,Government,Corporate confidential,Company
 akira,American Beauty School,2026-02-27,,Education,Personal data (PII),Individuals (unspecified)
 akira,American Beauty School,2026-02-27,,Education,Employee / HR,Employees
@@ -2268,6 +2525,7 @@ akira,American Beauty School,2026-02-27,,Education,Corporate confidential,Compan
 akira,Ace Ethanol,2026-02-27,,Energy & Utilities,Personal data (PII),Individuals (unspecified)
 akira,Ace Ethanol,2026-02-27,,Energy & Utilities,Employee / HR,Employees
 akira,Ace Ethanol,2026-02-27,,Energy & Utilities,Financial,Company
+akira,Ace Ethanol,2026-02-27,,Energy & Utilities,Intellectual property / technical,Company
 akira,Ace Ethanol,2026-02-27,,Energy & Utilities,Corporate confidential,Company
 play,Landmark Rehab Group,2026-02-26,US,Construction,Personal data (PII),Individuals (unspecified)
 play,Landmark Rehab Group,2026-02-26,US,Construction,Employee / HR,Employees
@@ -2284,18 +2542,27 @@ play,BT Services,2026-02-26,US,Construction,Employee / HR,Employees
 play,BT Services,2026-02-26,US,Construction,Financial,Company
 play,BT Services,2026-02-26,US,Construction,Customer data,Customers
 play,BT Services,2026-02-26,US,Construction,Corporate confidential,Company
+incransom,APRO Asian Protection Pte Ltd,2026-02-26,SG,Unknown,Credentials / IT,Company
+incransom,"Law Offices Taenzer & Ettenson, P.C. (tesalaw.com)",2026-02-25,US,Business Services,Financial,Company
+incransom,"Law Offices Taenzer & Ettenson, P.C. (tesalaw.com)",2026-02-25,US,Business Services,Customer data,Customers
+incransom,"Law Offices Taenzer & Ettenson, P.C. (tesalaw.com)",2026-02-25,US,Business Services,Legal / contracts,Company
+incransom,"Law Offices Taenzer & Ettenson, P.C. (tesalaw.com)",2026-02-25,US,Business Services,Credentials / IT,Company
+incransom,"Law Offices Taenzer & Ettenson, P.C. (tesalaw.com)",2026-02-25,US,Business Services,Corporate confidential,Company
 akira,Westiform Germany,2026-02-24,DE,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Westiform Germany,2026-02-24,DE,Manufacturing,Employee / HR,Employees
 akira,Westiform Germany,2026-02-24,DE,Manufacturing,Financial,Company
 akira,Westiform Germany,2026-02-24,DE,Manufacturing,Legal / contracts,Company
+akira,Westiform Germany,2026-02-24,DE,Manufacturing,Intellectual property / technical,Company
 akira,Westiform Germany,2026-02-24,DE,Manufacturing,Corporate confidential,Company
 akira,Microforum,2026-02-24,,Manufacturing,Employee / HR,Employees
 akira,Microforum,2026-02-24,,Manufacturing,Financial,Company
 akira,Microforum,2026-02-24,,Manufacturing,Legal / contracts,Company
+akira,Microforum,2026-02-24,,Manufacturing,Intellectual property / technical,Company
 akira,Microforum,2026-02-24,,Manufacturing,Corporate confidential,Company
 akira,Huber,2026-02-24,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Huber,2026-02-24,,Manufacturing,Employee / HR,Employees
 akira,Huber,2026-02-24,,Manufacturing,Financial,Company
+akira,Huber,2026-02-24,,Manufacturing,Intellectual property / technical,Company
 akira,Huber,2026-02-24,,Manufacturing,Corporate confidential,Company
 akira,Employer Solutions Group,2026-02-24,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Employer Solutions Group,2026-02-24,,Business Services,Employee / HR,Employees
@@ -2306,6 +2573,7 @@ akira,Employer Solutions Group,2026-02-24,,Business Services,Corporate confident
 akira,CognitiveTPG,2026-02-24,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,CognitiveTPG,2026-02-24,,Healthcare,Employee / HR,Employees
 akira,CognitiveTPG,2026-02-24,,Healthcare,Legal / contracts,Company
+akira,CognitiveTPG,2026-02-24,,Healthcare,Intellectual property / technical,Company
 akira,CognitiveTPG,2026-02-24,,Healthcare,Corporate confidential,Company
 play,Hendrick Construction,2026-02-22,US,Construction,Personal data (PII),Individuals (unspecified)
 play,Hendrick Construction,2026-02-22,US,Construction,Employee / HR,Employees
@@ -2349,6 +2617,7 @@ akira,Fabcon,2026-02-20,,Manufacturing,Employee / HR,Employees
 akira,Fabcon,2026-02-20,,Manufacturing,Financial,Company
 akira,Fabcon,2026-02-20,,Manufacturing,Customer data,Customers
 akira,Fabcon,2026-02-20,,Manufacturing,Legal / contracts,Company
+akira,Fabcon,2026-02-20,,Manufacturing,Intellectual property / technical,Company
 akira,Fabcon,2026-02-20,,Manufacturing,Corporate confidential,Company
 play,Tropic Tool & Mold,2026-02-19,US,Manufacturing,Personal data (PII),Individuals (unspecified)
 play,Tropic Tool & Mold,2026-02-19,US,Manufacturing,Employee / HR,Employees
@@ -2395,33 +2664,39 @@ play,Arizona Lighting Sales,2026-02-19,US,Manufacturing,Employee / HR,Employees
 play,Arizona Lighting Sales,2026-02-19,US,Manufacturing,Financial,Company
 play,Arizona Lighting Sales,2026-02-19,US,Manufacturing,Customer data,Customers
 play,Arizona Lighting Sales,2026-02-19,US,Manufacturing,Corporate confidential,Company
+incransom,aircotedivoire.com,2026-02-19,ZA,Transportation & Logistics,Credentials / IT,Company
 akira,Cedar Grove Warehouse,2026-02-18,,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 akira,Cedar Grove Warehouse,2026-02-18,,Transportation & Logistics,Employee / HR,Employees
 akira,Cedar Grove Warehouse,2026-02-18,,Transportation & Logistics,Financial,Company
 akira,Cedar Grove Warehouse,2026-02-18,,Transportation & Logistics,Customer data,Customers
 akira,Cedar Grove Warehouse,2026-02-18,,Transportation & Logistics,Legal / contracts,Company
+akira,Cedar Grove Warehouse,2026-02-18,,Transportation & Logistics,Intellectual property / technical,Company
 akira,Cedar Grove Warehouse,2026-02-18,,Transportation & Logistics,Corporate confidential,Company
 akira,Cargo Largo,2026-02-18,,Retail & Consumer,Financial,Company
 akira,Cargo Largo,2026-02-18,,Retail & Consumer,Customer data,Customers
 akira,Cargo Largo,2026-02-18,,Retail & Consumer,Corporate confidential,Company
 akira,iSMA CONTROLLI,2026-02-16,,Technology,Customer data,Customers
+akira,iSMA CONTROLLI,2026-02-16,,Technology,Intellectual property / technical,Company
 akira,iSMA CONTROLLI,2026-02-16,,Technology,Corporate confidential,Company
 akira,Williams Brothers Construction,2026-02-16,US,Construction,Personal data (PII),Individuals (unspecified)
 akira,Williams Brothers Construction,2026-02-16,US,Construction,Employee / HR,Employees
 akira,Williams Brothers Construction,2026-02-16,US,Construction,Financial,Company
 akira,Williams Brothers Construction,2026-02-16,US,Construction,Customer data,Customers
 akira,Williams Brothers Construction,2026-02-16,US,Construction,Legal / contracts,Company
+akira,Williams Brothers Construction,2026-02-16,US,Construction,Intellectual property / technical,Company
 akira,Williams Brothers Construction,2026-02-16,US,Construction,Corporate confidential,Company
 akira,Icat Food SpA,2026-02-16,,Agriculture & Food,Personal data (PII),Individuals (unspecified)
 akira,Icat Food SpA,2026-02-16,,Agriculture & Food,Employee / HR,Employees
 akira,Icat Food SpA,2026-02-16,,Agriculture & Food,Financial,Company
 akira,Icat Food SpA,2026-02-16,,Agriculture & Food,Customer data,Customers
+akira,Icat Food SpA,2026-02-16,,Agriculture & Food,Intellectual property / technical,Company
 akira,Icat Food SpA,2026-02-16,,Agriculture & Food,Corporate confidential,Company
 akira,Charm Diamond Centres,2026-02-16,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,Charm Diamond Centres,2026-02-16,,Retail & Consumer,Employee / HR,Employees
 akira,Charm Diamond Centres,2026-02-16,,Retail & Consumer,Financial,Company
 akira,Charm Diamond Centres,2026-02-16,,Retail & Consumer,Customer data,Customers
 akira,Charm Diamond Centres,2026-02-16,,Retail & Consumer,Legal / contracts,Company
+akira,Charm Diamond Centres,2026-02-16,,Retail & Consumer,Intellectual property / technical,Company
 akira,Charm Diamond Centres,2026-02-16,,Retail & Consumer,Corporate confidential,Company
 play,Branagh,2026-02-15,US,Education,Personal data (PII),Individuals (unspecified)
 play,Branagh,2026-02-15,US,Education,Employee / HR,Employees
@@ -2453,6 +2728,17 @@ play,HMA,2026-02-13,US,Unknown,Employee / HR,Employees
 play,HMA,2026-02-13,US,Unknown,Financial,Company
 play,HMA,2026-02-13,US,Unknown,Customer data,Customers
 play,HMA,2026-02-13,US,Unknown,Corporate confidential,Company
+incransom,farbank.com (flywatertravel),2026-02-13,US,Financial Services,Financial,Company
+incransom,farbank.com (flywatertravel),2026-02-13,US,Financial Services,Customer data,Customers
+incransom,farbank.com (flywatertravel),2026-02-13,US,Financial Services,Legal / contracts,Company
+incransom,farbank.com (flywatertravel),2026-02-13,US,Financial Services,Credentials / IT,Company
+incransom,farbank.com (flywatertravel),2026-02-13,US,Financial Services,Corporate confidential,Company
+incransom,Hiwassee Builder Supply,2026-02-13,US,Financial Services,Financial,Company
+incransom,Hiwassee Builder Supply,2026-02-13,US,Financial Services,Customer data,Customers
+incransom,Hiwassee Builder Supply,2026-02-13,US,Financial Services,Legal / contracts,Company
+incransom,Hiwassee Builder Supply,2026-02-13,US,Financial Services,Credentials / IT,Company
+incransom,Hiwassee Builder Supply,2026-02-13,US,Financial Services,Corporate confidential,Company
+incransom,lohmann-tapes.com,2026-02-12,DE,Manufacturing,Credentials / IT,Company
 play,Makivik,2026-02-11,CA,Unknown,Personal data (PII),Individuals (unspecified)
 play,Makivik,2026-02-11,CA,Unknown,Employee / HR,Employees
 play,Makivik,2026-02-11,CA,Unknown,Financial,Company
@@ -2466,6 +2752,7 @@ play,Catalanatto & Barnes,2026-02-11,US,Business Services,Corporate confidential
 incransom,Valgo SA,2026-02-11,FR,Manufacturing,Financial,Company
 incransom,Valgo SA,2026-02-11,FR,Manufacturing,Customer data,Customers
 incransom,Valgo SA,2026-02-11,FR,Manufacturing,Legal / contracts,Company
+incransom,Valgo SA,2026-02-11,FR,Manufacturing,Intellectual property / technical,Company
 incransom,Valgo SA,2026-02-11,FR,Manufacturing,Corporate confidential,Company
 play,Milwaukee Forge,2026-02-10,US,Unknown,Personal data (PII),Individuals (unspecified)
 play,Milwaukee Forge,2026-02-10,US,Unknown,Employee / HR,Employees
@@ -2512,20 +2799,24 @@ akira,TriPartum,2026-02-06,,Financial Services,Employee / HR,Employees
 akira,TriPartum,2026-02-06,,Financial Services,Financial,Company
 akira,TriPartum,2026-02-06,,Financial Services,Customer data,Customers
 akira,TriPartum,2026-02-06,,Financial Services,Legal / contracts,Company
+akira,TriPartum,2026-02-06,,Financial Services,Intellectual property / technical,Company
 akira,TriPartum,2026-02-06,,Financial Services,Corporate confidential,Company
 akira,Peerson Audio,2026-02-06,,Government,Employee / HR,Employees
 akira,Peerson Audio,2026-02-06,,Government,Financial,Company
 akira,Peerson Audio,2026-02-06,,Government,Customer data,Customers
 akira,Peerson Audio,2026-02-06,,Government,Corporate confidential,Company
+akira,United Hospital Supply,2026-02-05,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,United Hospital Supply,2026-02-05,,Healthcare,Employee / HR,Employees
 akira,United Hospital Supply,2026-02-05,,Healthcare,Financial,Company
 akira,United Hospital Supply,2026-02-05,,Healthcare,Customer data,Customers
 akira,United Hospital Supply,2026-02-05,,Healthcare,Legal / contracts,Company
+akira,United Hospital Supply,2026-02-05,,Healthcare,Intellectual property / technical,Company
 akira,United Hospital Supply,2026-02-05,,Healthcare,Corporate confidential,Company
 akira,Farsound Aviation,2026-02-05,,Manufacturing,Employee / HR,Employees
 akira,Farsound Aviation,2026-02-05,,Manufacturing,Financial,Company
 akira,Farsound Aviation,2026-02-05,,Manufacturing,Customer data,Customers
 akira,Farsound Aviation,2026-02-05,,Manufacturing,Legal / contracts,Company
+akira,Farsound Aviation,2026-02-05,,Manufacturing,Intellectual property / technical,Company
 akira,Farsound Aviation,2026-02-05,,Manufacturing,Corporate confidential,Company
 play,Woodfield,2026-02-04,US,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 play,Woodfield,2026-02-04,US,Transportation & Logistics,Employee / HR,Employees
@@ -2552,20 +2843,27 @@ akira,Karl Geuther,2026-02-04,,Transportation & Logistics,Corporate confidential
 akira,D'Onofrio General Contractors,2026-02-04,JE,Construction,Personal data (PII),Individuals (unspecified)
 akira,D'Onofrio General Contractors,2026-02-04,JE,Construction,Employee / HR,Employees
 akira,D'Onofrio General Contractors,2026-02-04,JE,Construction,Financial,Company
+akira,D'Onofrio General Contractors,2026-02-04,JE,Construction,Intellectual property / technical,Company
 akira,D'Onofrio General Contractors,2026-02-04,JE,Construction,Corporate confidential,Company
 akira,Travelmarket,2026-02-03,DK,Hospitality & Leisure,Customer data,Customers
+akira,Travelmarket,2026-02-03,DK,Hospitality & Leisure,Intellectual property / technical,Company
 akira,Travelmarket,2026-02-03,DK,Hospitality & Leisure,Corporate confidential,Company
 akira,Rosenblum Schwartz & Fry,2026-02-03,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Rosenblum Schwartz & Fry,2026-02-03,,Business Services,Employee / HR,Employees
 akira,Rosenblum Schwartz & Fry,2026-02-03,,Business Services,Financial,Company
 akira,Rosenblum Schwartz & Fry,2026-02-03,,Business Services,Customer data,Customers
+akira,Rosenblum Schwartz & Fry,2026-02-03,,Business Services,Medical (PHI),Customers
+akira,Rosenblum Schwartz & Fry,2026-02-03,,Business Services,Legal / contracts,Company
 akira,Rosenblum Schwartz & Fry,2026-02-03,,Business Services,Corporate confidential,Company
 akira,PTI,2026-02-03,,Unknown,Financial,Company
+akira,PTI,2026-02-03,,Unknown,Intellectual property / technical,Company
 akira,PTI,2026-02-03,,Unknown,Corporate confidential,Company
 akira,Forella Group,2026-02-03,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Forella Group,2026-02-03,,Construction,Employee / HR,Employees
 akira,Forella Group,2026-02-03,,Construction,Financial,Company
+akira,Forella Group,2026-02-03,,Construction,Medical (PHI),Customers
 akira,Forella Group,2026-02-03,,Construction,Legal / contracts,Company
+akira,Forella Group,2026-02-03,,Construction,Intellectual property / technical,Company
 akira,Forella Group,2026-02-03,,Construction,Corporate confidential,Company
 akira,Drake Precision Dental Laborat ory,2026-02-03,,Healthcare,Personal data (PII),Individuals (unspecified)
 akira,Drake Precision Dental Laborat ory,2026-02-03,,Healthcare,Employee / HR,Employees
@@ -2582,17 +2880,20 @@ akira,Kilograph,2026-02-02,,Technology,Personal data (PII),Individuals (unspecif
 akira,Kilograph,2026-02-02,,Technology,Employee / HR,Employees
 akira,Kilograph,2026-02-02,,Technology,Financial,Company
 akira,Kilograph,2026-02-02,,Technology,Customer data,Customers
+akira,Kilograph,2026-02-02,,Technology,Medical (PHI),Customers
 akira,Kilograph,2026-02-02,,Technology,Legal / contracts,Company
 akira,Kilograph,2026-02-02,,Technology,Corporate confidential,Company
 akira,JST Power Equipment,2026-02-02,,Manufacturing,Employee / HR,Employees
 akira,JST Power Equipment,2026-02-02,,Manufacturing,Financial,Company
 akira,JST Power Equipment,2026-02-02,,Manufacturing,Customer data,Customers
 akira,JST Power Equipment,2026-02-02,,Manufacturing,Legal / contracts,Company
+akira,JST Power Equipment,2026-02-02,,Manufacturing,Intellectual property / technical,Company
 akira,JST Power Equipment,2026-02-02,,Manufacturing,Corporate confidential,Company
 akira,Ferretti Construction,2026-02-02,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Ferretti Construction,2026-02-02,,Construction,Employee / HR,Employees
 akira,Ferretti Construction,2026-02-02,,Construction,Financial,Company
 akira,Ferretti Construction,2026-02-02,,Construction,Legal / contracts,Company
+akira,Ferretti Construction,2026-02-02,,Construction,Intellectual property / technical,Company
 akira,Ferretti Construction,2026-02-02,,Construction,Corporate confidential,Company
 play,Deatak,2026-02-01,US,Manufacturing,Personal data (PII),Individuals (unspecified)
 play,Deatak,2026-02-01,US,Manufacturing,Employee / HR,Employees
@@ -2614,6 +2915,16 @@ incransom,Western New York Energy,2026-01-30,US,Energy & Utilities,Customer data
 incransom,Western New York Energy,2026-01-30,US,Energy & Utilities,Legal / contracts,Company
 incransom,Western New York Energy,2026-01-30,US,Energy & Utilities,Intellectual property / technical,Company
 incransom,Western New York Energy,2026-01-30,US,Energy & Utilities,Corporate confidential,Company
+incransom,PK PINHÃO & KOIFFMAN ATTORNEYS AT LAW,2026-01-30,BR,Financial Services,Financial,Company
+incransom,PK PINHÃO & KOIFFMAN ATTORNEYS AT LAW,2026-01-30,BR,Financial Services,Customer data,Customers
+incransom,PK PINHÃO & KOIFFMAN ATTORNEYS AT LAW,2026-01-30,BR,Financial Services,Legal / contracts,Company
+incransom,PK PINHÃO & KOIFFMAN ATTORNEYS AT LAW,2026-01-30,BR,Financial Services,Credentials / IT,Company
+incransom,PK PINHÃO & KOIFFMAN ATTORNEYS AT LAW,2026-01-30,BR,Financial Services,Corporate confidential,Company
+incransom,DIEHL & CELLA ADVOGADOS ASSOCIADOS,2026-01-30,BR,Financial Services,Financial,Company
+incransom,DIEHL & CELLA ADVOGADOS ASSOCIADOS,2026-01-30,BR,Financial Services,Customer data,Customers
+incransom,DIEHL & CELLA ADVOGADOS ASSOCIADOS,2026-01-30,BR,Financial Services,Legal / contracts,Company
+incransom,DIEHL & CELLA ADVOGADOS ASSOCIADOS,2026-01-30,BR,Financial Services,Credentials / IT,Company
+incransom,DIEHL & CELLA ADVOGADOS ASSOCIADOS,2026-01-30,BR,Financial Services,Corporate confidential,Company
 akira,Northeast Industrial Manufactu ring,2026-01-30,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Northeast Industrial Manufactu ring,2026-01-30,,Manufacturing,Employee / HR,Employees
 akira,Northeast Industrial Manufactu ring,2026-01-30,,Manufacturing,Financial,Company
@@ -2623,6 +2934,7 @@ akira,Fulcrum Construction,2026-01-30,,Construction,Personal data (PII),Individu
 akira,Fulcrum Construction,2026-01-30,,Construction,Employee / HR,Employees
 akira,Fulcrum Construction,2026-01-30,,Construction,Financial,Company
 akira,Fulcrum Construction,2026-01-30,,Construction,Legal / contracts,Company
+akira,Fulcrum Construction,2026-01-30,,Construction,Intellectual property / technical,Company
 akira,Fulcrum Construction,2026-01-30,,Construction,Corporate confidential,Company
 incransom,Beacon Mutual Insurance,2026-01-29,US,Financial Services,Personal data (PII),Individuals (unspecified)
 incransom,Beacon Mutual Insurance,2026-01-29,US,Financial Services,Employee / HR,Employees
@@ -2678,6 +2990,11 @@ akira,"Bantry Bespoke Joinery, Murnan e & O'Shea",2026-01-29,IE,Construction,Emp
 akira,"Bantry Bespoke Joinery, Murnan e & O'Shea",2026-01-29,IE,Construction,Financial,Company
 akira,"Bantry Bespoke Joinery, Murnan e & O'Shea",2026-01-29,IE,Construction,Legal / contracts,Company
 akira,"Bantry Bespoke Joinery, Murnan e & O'Shea",2026-01-29,IE,Construction,Corporate confidential,Company
+incransom,"The Trevino Group, Inc",2026-01-27,US,Financial Services,Financial,Company
+incransom,"The Trevino Group, Inc",2026-01-27,US,Financial Services,Customer data,Customers
+incransom,"The Trevino Group, Inc",2026-01-27,US,Financial Services,Legal / contracts,Company
+incransom,"The Trevino Group, Inc",2026-01-27,US,Financial Services,Intellectual property / technical,Company
+incransom,"The Trevino Group, Inc",2026-01-27,US,Financial Services,Corporate confidential,Company
 incransom,Callagy Law Firm,2026-01-27,US,Business Services,Personal data (PII),Individuals (unspecified)
 incransom,Callagy Law Firm,2026-01-27,US,Business Services,Financial,Company
 incransom,Callagy Law Firm,2026-01-27,US,Business Services,Customer data,Customers
@@ -2717,10 +3034,13 @@ akira,"M&W Manufacturing, Mirbeau Ho spitality Services, Reuland El ectric Motor
 akira,"M&W Manufacturing, Mirbeau Ho spitality Services, Reuland El ectric Motor Co, Spector Group .",2026-01-23,,Manufacturing,Employee / HR,Employees
 akira,"M&W Manufacturing, Mirbeau Ho spitality Services, Reuland El ectric Motor Co, Spector Group .",2026-01-23,,Manufacturing,Financial,Company
 akira,"M&W Manufacturing, Mirbeau Ho spitality Services, Reuland El ectric Motor Co, Spector Group .",2026-01-23,,Manufacturing,Customer data,Customers
+akira,"M&W Manufacturing, Mirbeau Ho spitality Services, Reuland El ectric Motor Co, Spector Group .",2026-01-23,,Manufacturing,Medical (PHI),Customers
+akira,"M&W Manufacturing, Mirbeau Ho spitality Services, Reuland El ectric Motor Co, Spector Group .",2026-01-23,,Manufacturing,Intellectual property / technical,Company
 akira,"M&W Manufacturing, Mirbeau Ho spitality Services, Reuland El ectric Motor Co, Spector Group .",2026-01-23,,Manufacturing,Corporate confidential,Company
 akira,IGI Global,2026-01-23,,Unknown,Personal data (PII),Individuals (unspecified)
 akira,IGI Global,2026-01-23,,Unknown,Employee / HR,Employees
 akira,IGI Global,2026-01-23,,Unknown,Financial,Company
+akira,IGI Global,2026-01-23,,Unknown,Medical (PHI),Customers
 akira,IGI Global,2026-01-23,,Unknown,Legal / contracts,Company
 akira,IGI Global,2026-01-23,,Unknown,Corporate confidential,Company
 akira,Aschwanden & Partner,2026-01-23,,Construction,Personal data (PII),Individuals (unspecified)
@@ -2737,26 +3057,31 @@ akira,Van Eycken,2026-01-22,,Unknown,Personal data (PII),Individuals (unspecifie
 akira,Van Eycken,2026-01-22,,Unknown,Employee / HR,Employees
 akira,Van Eycken,2026-01-22,,Unknown,Financial,Company
 akira,Van Eycken,2026-01-22,,Unknown,Legal / contracts,Company
+akira,Van Eycken,2026-01-22,,Unknown,Intellectual property / technical,Company
 akira,Van Eycken,2026-01-22,,Unknown,Corporate confidential,Company
 akira,Universal Builders Supply,2026-01-22,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Universal Builders Supply,2026-01-22,,Construction,Employee / HR,Employees
 akira,Universal Builders Supply,2026-01-22,,Construction,Financial,Company
 akira,Universal Builders Supply,2026-01-22,,Construction,Legal / contracts,Company
+akira,Universal Builders Supply,2026-01-22,,Construction,Intellectual property / technical,Company
 akira,Universal Builders Supply,2026-01-22,,Construction,Corporate confidential,Company
 akira,Spiros Industries,2026-01-22,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Spiros Industries,2026-01-22,,Manufacturing,Employee / HR,Employees
 akira,Spiros Industries,2026-01-22,,Manufacturing,Financial,Company
 akira,Spiros Industries,2026-01-22,,Manufacturing,Customer data,Customers
+akira,Spiros Industries,2026-01-22,,Manufacturing,Medical (PHI),Customers
 akira,Spiros Industries,2026-01-22,,Manufacturing,Legal / contracts,Company
 akira,Spiros Industries,2026-01-22,,Manufacturing,Corporate confidential,Company
 akira,Radial Engineering,2026-01-22,,Manufacturing,Employee / HR,Employees
 akira,Radial Engineering,2026-01-22,,Manufacturing,Financial,Company
 akira,Radial Engineering,2026-01-22,,Manufacturing,Customer data,Customers
 akira,Radial Engineering,2026-01-22,,Manufacturing,Legal / contracts,Company
+akira,Radial Engineering,2026-01-22,,Manufacturing,Intellectual property / technical,Company
 akira,Radial Engineering,2026-01-22,,Manufacturing,Corporate confidential,Company
 akira,Ocean Fish,2026-01-22,RO,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,Ocean Fish,2026-01-22,RO,Retail & Consumer,Employee / HR,Employees
 akira,Ocean Fish,2026-01-22,RO,Retail & Consumer,Financial,Company
+akira,Ocean Fish,2026-01-22,RO,Retail & Consumer,Intellectual property / technical,Company
 akira,Ocean Fish,2026-01-22,RO,Retail & Consumer,Corporate confidential,Company
 play,Cemtech,2026-01-21,US,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 play,Cemtech,2026-01-21,US,Retail & Consumer,Employee / HR,Employees
@@ -2768,8 +3093,14 @@ play,CE Electronics,2026-01-21,US,Manufacturing,Employee / HR,Employees
 play,CE Electronics,2026-01-21,US,Manufacturing,Financial,Company
 play,CE Electronics,2026-01-21,US,Manufacturing,Customer data,Customers
 play,CE Electronics,2026-01-21,US,Manufacturing,Corporate confidential,Company
+incransom,tuftco,2026-01-21,US,Manufacturing,Financial,Company
+incransom,tuftco,2026-01-21,US,Manufacturing,Customer data,Customers
+incransom,tuftco,2026-01-21,US,Manufacturing,Legal / contracts,Company
+incransom,tuftco,2026-01-21,US,Manufacturing,Credentials / IT,Company
+incransom,tuftco,2026-01-21,US,Manufacturing,Corporate confidential,Company
 akira,Mettler Partner,2026-01-21,,Business Services,Personal data (PII),Individuals (unspecified)
 akira,Mettler Partner,2026-01-21,,Business Services,Employee / HR,Employees
+akira,Mettler Partner,2026-01-21,,Business Services,Intellectual property / technical,Company
 akira,Mettler Partner,2026-01-21,,Business Services,Corporate confidential,Company
 akira,Clipper Petroleum,2026-01-21,GE,Retail & Consumer,Personal data (PII),Individuals (unspecified)
 akira,Clipper Petroleum,2026-01-21,GE,Retail & Consumer,Employee / HR,Employees
@@ -2782,6 +3113,12 @@ play,Eastern Ice,2026-01-20,US,Retail & Consumer,Employee / HR,Employees
 play,Eastern Ice,2026-01-20,US,Retail & Consumer,Financial,Company
 play,Eastern Ice,2026-01-20,US,Retail & Consumer,Customer data,Customers
 play,Eastern Ice,2026-01-20,US,Retail & Consumer,Corporate confidential,Company
+incransom,Sandberg,2026-01-20,GB,Financial Services,Financial,Company
+incransom,Sandberg,2026-01-20,GB,Financial Services,Customer data,Customers
+incransom,Sandberg,2026-01-20,GB,Financial Services,Legal / contracts,Company
+incransom,Sandberg,2026-01-20,GB,Financial Services,Credentials / IT,Company
+incransom,Sandberg,2026-01-20,GB,Financial Services,Corporate confidential,Company
+incransom,ecsc.org,2026-01-16,US,Energy & Utilities,Credentials / IT,Company
 akira,MicroPrecision,2026-01-16,,Energy & Utilities,Employee / HR,Employees
 akira,MicroPrecision,2026-01-16,,Energy & Utilities,Customer data,Customers
 akira,MicroPrecision,2026-01-16,,Energy & Utilities,Corporate confidential,Company
@@ -2827,6 +3164,7 @@ akira,Fechner Pump & Supply,2026-01-14,,Energy & Utilities,Employee / HR,Employe
 akira,Fechner Pump & Supply,2026-01-14,,Energy & Utilities,Financial,Company
 akira,Fechner Pump & Supply,2026-01-14,,Energy & Utilities,Customer data,Customers
 akira,Fechner Pump & Supply,2026-01-14,,Energy & Utilities,Legal / contracts,Company
+akira,Fechner Pump & Supply,2026-01-14,,Energy & Utilities,Intellectual property / technical,Company
 akira,Fechner Pump & Supply,2026-01-14,,Energy & Utilities,Corporate confidential,Company
 incransom,Ju Teng International Holdings Ltd,2026-01-13,TW,Unknown,Financial,Company
 incransom,Ju Teng International Holdings Ltd,2026-01-13,TW,Unknown,Customer data,Customers
@@ -2838,15 +3176,23 @@ akira,Itasca Consulting Group,2026-01-13,,Business Services,Employee / HR,Employ
 akira,Itasca Consulting Group,2026-01-13,,Business Services,Financial,Company
 akira,Itasca Consulting Group,2026-01-13,,Business Services,Customer data,Customers
 akira,Itasca Consulting Group,2026-01-13,,Business Services,Legal / contracts,Company
+akira,Itasca Consulting Group,2026-01-13,,Business Services,Intellectual property / technical,Company
 akira,Itasca Consulting Group,2026-01-13,,Business Services,Corporate confidential,Company
 akira,Bulk Handling Systems Companie s,2026-01-13,,Manufacturing,Personal data (PII),Individuals (unspecified)
 akira,Bulk Handling Systems Companie s,2026-01-13,,Manufacturing,Employee / HR,Employees
 akira,Bulk Handling Systems Companie s,2026-01-13,,Manufacturing,Financial,Company
 akira,Bulk Handling Systems Companie s,2026-01-13,,Manufacturing,Customer data,Customers
 akira,Bulk Handling Systems Companie s,2026-01-13,,Manufacturing,Legal / contracts,Company
+akira,Bulk Handling Systems Companie s,2026-01-13,,Manufacturing,Intellectual property / technical,Company
 akira,Bulk Handling Systems Companie s,2026-01-13,,Manufacturing,Corporate confidential,Company
+incransom,cirrusaviation,2026-01-12,US,Financial Services,Financial,Company
+incransom,cirrusaviation,2026-01-12,US,Financial Services,Customer data,Customers
+incransom,cirrusaviation,2026-01-12,US,Financial Services,Legal / contracts,Company
+incransom,cirrusaviation,2026-01-12,US,Financial Services,Credentials / IT,Company
+incransom,cirrusaviation,2026-01-12,US,Financial Services,Corporate confidential,Company
 akira,The Outdoor Recreation Group,2026-01-12,,Unknown,Financial,Company
 akira,The Outdoor Recreation Group,2026-01-12,,Unknown,Legal / contracts,Company
+akira,The Outdoor Recreation Group,2026-01-12,,Unknown,Intellectual property / technical,Company
 akira,The Outdoor Recreation Group,2026-01-12,,Unknown,Corporate confidential,Company
 akira,Syrstone,2026-01-12,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Syrstone,2026-01-12,,Construction,Employee / HR,Employees
@@ -2857,6 +3203,7 @@ akira,Syrstone,2026-01-12,,Construction,Corporate confidential,Company
 akira,Depth,2026-01-12,,Technology,Personal data (PII),Individuals (unspecified)
 akira,Depth,2026-01-12,,Technology,Employee / HR,Employees
 akira,Depth,2026-01-12,,Technology,Financial,Company
+akira,Depth,2026-01-12,,Technology,Intellectual property / technical,Company
 akira,Depth,2026-01-12,,Technology,Corporate confidential,Company
 akira,CSS Services,2026-01-12,US,Technology,Personal data (PII),Individuals (unspecified)
 akira,CSS Services,2026-01-12,US,Technology,Employee / HR,Employees
@@ -2878,6 +3225,10 @@ play,Denny's 5th Avenue Bakery,2026-01-10,US,Agriculture & Food,Employee / HR,Em
 play,Denny's 5th Avenue Bakery,2026-01-10,US,Agriculture & Food,Financial,Company
 play,Denny's 5th Avenue Bakery,2026-01-10,US,Agriculture & Food,Customer data,Customers
 play,Denny's 5th Avenue Bakery,2026-01-10,US,Agriculture & Food,Corporate confidential,Company
+incransom,stimgroup,2026-01-10,IT,Financial Services,Financial,Company
+incransom,stimgroup,2026-01-10,IT,Financial Services,Customer data,Customers
+incransom,stimgroup,2026-01-10,IT,Financial Services,Legal / contracts,Company
+incransom,stimgroup,2026-01-10,IT,Financial Services,Corporate confidential,Company
 akira,Triple Eight Transport,2026-01-09,,Transportation & Logistics,Personal data (PII),Individuals (unspecified)
 akira,Triple Eight Transport,2026-01-09,,Transportation & Logistics,Employee / HR,Employees
 akira,Triple Eight Transport,2026-01-09,,Transportation & Logistics,Financial,Company
@@ -2888,6 +3239,7 @@ akira,"Swavelle Group, Wearbest Sil-T ex Mills",2026-01-09,JE,Manufacturing,Pers
 akira,"Swavelle Group, Wearbest Sil-T ex Mills",2026-01-09,JE,Manufacturing,Employee / HR,Employees
 akira,"Swavelle Group, Wearbest Sil-T ex Mills",2026-01-09,JE,Manufacturing,Customer data,Customers
 akira,"Swavelle Group, Wearbest Sil-T ex Mills",2026-01-09,JE,Manufacturing,Legal / contracts,Company
+akira,"Swavelle Group, Wearbest Sil-T ex Mills",2026-01-09,JE,Manufacturing,Intellectual property / technical,Company
 akira,"Swavelle Group, Wearbest Sil-T ex Mills",2026-01-09,JE,Manufacturing,Corporate confidential,Company
 akira,McCraw Oil,2026-01-09,,Energy & Utilities,Employee / HR,Employees
 akira,McCraw Oil,2026-01-09,,Energy & Utilities,Customer data,Customers
@@ -2939,6 +3291,7 @@ akira,LG Energy Solution,2026-01-06,,Energy & Utilities,Employee / HR,Employees
 akira,LG Energy Solution,2026-01-06,,Energy & Utilities,Financial,Company
 akira,LG Energy Solution,2026-01-06,,Energy & Utilities,Customer data,Customers
 akira,LG Energy Solution,2026-01-06,,Energy & Utilities,Legal / contracts,Company
+akira,LG Energy Solution,2026-01-06,,Energy & Utilities,Intellectual property / technical,Company
 akira,LG Energy Solution,2026-01-06,,Energy & Utilities,Credentials / IT,Company
 akira,LG Energy Solution,2026-01-06,,Energy & Utilities,Corporate confidential,Company
 akira,The Lewis Bear,2026-01-05,,Retail & Consumer,Personal data (PII),Individuals (unspecified)
@@ -2946,16 +3299,19 @@ akira,The Lewis Bear,2026-01-05,,Retail & Consumer,Employee / HR,Employees
 akira,The Lewis Bear,2026-01-05,,Retail & Consumer,Financial,Company
 akira,The Lewis Bear,2026-01-05,,Retail & Consumer,Customer data,Customers
 akira,The Lewis Bear,2026-01-05,,Retail & Consumer,Legal / contracts,Company
+akira,The Lewis Bear,2026-01-05,,Retail & Consumer,Intellectual property / technical,Company
 akira,The Lewis Bear,2026-01-05,,Retail & Consumer,Corporate confidential,Company
 akira,Purcell Architects,2026-01-05,,Construction,Employee / HR,Employees
 akira,Purcell Architects,2026-01-05,,Construction,Financial,Company
 akira,Purcell Architects,2026-01-05,,Construction,Customer data,Customers
 akira,Purcell Architects,2026-01-05,,Construction,Legal / contracts,Company
+akira,Purcell Architects,2026-01-05,,Construction,Intellectual property / technical,Company
 akira,Purcell Architects,2026-01-05,,Construction,Corporate confidential,Company
 akira,Posillico,2026-01-05,,Construction,Personal data (PII),Individuals (unspecified)
 akira,Posillico,2026-01-05,,Construction,Employee / HR,Employees
 akira,Posillico,2026-01-05,,Construction,Financial,Company
 akira,Posillico,2026-01-05,,Construction,Legal / contracts,Company
+akira,Posillico,2026-01-05,,Construction,Intellectual property / technical,Company
 akira,Posillico,2026-01-05,,Construction,Credentials / IT,Company
 akira,Posillico,2026-01-05,,Construction,Corporate confidential,Company
 akira,KSL Ingenieure,2026-01-05,,Business Services,Personal data (PII),Individuals (unspecified)
@@ -2963,11 +3319,17 @@ akira,KSL Ingenieure,2026-01-05,,Business Services,Employee / HR,Employees
 akira,KSL Ingenieure,2026-01-05,,Business Services,Financial,Company
 akira,KSL Ingenieure,2026-01-05,,Business Services,Customer data,Customers
 akira,KSL Ingenieure,2026-01-05,,Business Services,Legal / contracts,Company
+akira,KSL Ingenieure,2026-01-05,,Business Services,Intellectual property / technical,Company
 akira,KSL Ingenieure,2026-01-05,,Business Services,Corporate confidential,Company
 akira,Gebrüder Bagusat GmbH & Co. KG,2026-01-05,,Agriculture & Food,Financial,Company
 akira,Gebrüder Bagusat GmbH & Co. KG,2026-01-05,,Agriculture & Food,Customer data,Customers
 akira,Gebrüder Bagusat GmbH & Co. KG,2026-01-05,,Agriculture & Food,Legal / contracts,Company
+akira,Gebrüder Bagusat GmbH & Co. KG,2026-01-05,,Agriculture & Food,Intellectual property / technical,Company
 akira,Gebrüder Bagusat GmbH & Co. KG,2026-01-05,,Agriculture & Food,Corporate confidential,Company
+incransom,CompactInd,2026-01-04,US,Manufacturing,Financial,Company
+incransom,CompactInd,2026-01-04,US,Manufacturing,Customer data,Customers
+incransom,CompactInd,2026-01-04,US,Manufacturing,Legal / contracts,Company
+incransom,CompactInd,2026-01-04,US,Manufacturing,Corporate confidential,Company
 incransom,proton-system_Serbia,2026-01-03,RS,Unknown,Personal data (PII),Individuals (unspecified)
 incransom,proton-system_Serbia,2026-01-03,RS,Unknown,Employee / HR,Employees
 incransom,proton-system_Serbia,2026-01-03,RS,Unknown,Customer data,Customers
@@ -2981,3 +3343,8 @@ play,Benise-Dowling & Associates,2026-01-02,US,Unknown,Employee / HR,Employees
 play,Benise-Dowling & Associates,2026-01-02,US,Unknown,Financial,Company
 play,Benise-Dowling & Associates,2026-01-02,US,Unknown,Customer data,Customers
 play,Benise-Dowling & Associates,2026-01-02,US,Unknown,Corporate confidential,Company
+incransom,Harrison Design,2026-01-02,US,Construction,Financial,Company
+incransom,Harrison Design,2026-01-02,US,Construction,Customer data,Customers
+incransom,Harrison Design,2026-01-02,US,Construction,Legal / contracts,Company
+incransom,Harrison Design,2026-01-02,US,Construction,Intellectual property / technical,Company
+incransom,Harrison Design,2026-01-02,US,Construction,Corporate confidential,Company
