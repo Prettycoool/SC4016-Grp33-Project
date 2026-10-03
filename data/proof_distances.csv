@@ -1,18 +1,10 @@
 group,victim,date,other_group,other_victim,other_date,gap_days,min_distance,mean_distance,close_images,proof_count,other_proof_count,overlap,identical
-incransom,el-group,2026-08-22,incransom,europe-qualité,2024-11-07,-653,2,2.0,1,1,33,1.0,0
-incransom,el-group,2026-08-22,qilin,Contacto Garantido,2026-07-26,-27,4,4.0,1,1,15,1.0,0
-incransom,el-group,2026-08-22,incransom,vbuzrt.hu,2024-11-06,-654,4,4.0,1,1,46,1.0,0
 qilin,Cary Pediatric Center,2026-01-15,qilin,carypeds.com,2025-09-27,-110,0,1.6,11,12,12,0.92,0
 qilin,Salag,2026-03-12,qilin,Luro,2026-03-03,-9,3,6.2,5,10,10,0.5,0
 qilin,Salag,2026-03-12,qilin,Ekmanian Tax & Accounting,2025-08-28,-196,0,6.3,4,10,13,0.4,0
 qilin,Salag,2026-03-12,qilin,Aluthea Group,2026-03-03,-9,2,6.2,4,10,10,0.4,0
 qilin,Luro,2026-03-03,incransom,"TAK Communications, Inc",2025-08-22,-193,2,6.3,4,10,11,0.4,0
 qilin,Luro,2026-03-03,qilin,Salag,2026-03-12,9,3,5.7,4,10,10,0.4,0
-incransom,Lansing Urgent Care,2026-08-17,qilin,RehaVital Gesundheitsservice GmbH,2026-07-21,-27,4,8.3,1,3,10,0.33,0
-incransom,Lansing Urgent Care,2026-08-17,incransom,Kaan Cronenberg & Partners Law,2025-11-13,-277,4,8.3,1,3,4,0.33,0
-incransom,Lansing Urgent Care,2026-08-17,incransom,dwgra.com,2025-10-26,-295,4,8.3,1,3,29,0.33,0
-incransom,Lansing Urgent Care,2026-08-17,qilin,Jbc,2026-09-07,21,4,9.7,1,3,9,0.33,0
-incransom,Lansing Urgent Care,2026-08-17,qilin,BKV Group,2025-09-05,-346,4,9.7,1,3,5,0.33,0
 incransom,Silergy Corp,2026-05-14,incransom,www.campbell.edu,2026-04-11,-33,4,12.3,1,3,39,0.33,0
 incransom,stimgroup,2026-01-10,qilin,ERR Raumplaner,2025-11-27,-44,4,13.0,1,3,10,0.33,0
 incransom,stimgroup,2026-01-10,qilin,Pangea Travel Store,2025-09-25,-107,4,14.3,1,3,14,0.33,0
@@ -22,8 +14,6 @@ qilin,Luro,2026-03-03,incransom,Kafka Conveyors & Equipment Inc,2025-08-28,-187,
 qilin,Cinépolis,2026-08-21,qilin,Fullerton Surgical Center (FSC),2025-08-20,-366,2,16.2,1,4,9,0.25,0
 qilin,Cinépolis,2026-08-21,qilin,gudeco.de,2025-06-25,-422,3,15.5,1,4,13,0.25,0
 qilin,Cinépolis,2026-08-21,incransom,Imagineering Finishing Technologies,2025-04-10,-498,3,15.5,1,4,45,0.25,0
-incransom,Sandberg,2026-01-20,incransom,depewgillen.com,2025-01-15,-370,4,13.8,1,4,65,0.25,0
-incransom,Sandberg,2026-01-20,incransom,Bitgo,2026-02-14,25,4,14.0,1,4,11,0.25,0
 qilin,Lindenhurst Fire Department,2026-02-05,qilin,ANCO,2025-11-02,-95,4,15.0,1,4,39,0.25,0
 incransom,acworth-ga.gov,2026-07-02,incransom,ucv.es,2024-11-07,-602,4,15.2,1,4,29,0.25,0
 qilin,Lindenhurst Fire Department,2026-02-05,incransom,Coop57,2025-04-08,-303,4,15.5,1,4,83,0.25,0
@@ -43,16 +33,12 @@ incransom,martek co ltd.,2026-04-10,incransom,Imagineering Finishing Technologie
 incransom,meridenct.gov,2026-03-11,incransom,Coop57,2025-04-08,-337,3,11.3,2,10,83,0.2,0
 incransom,martek co ltd.,2026-04-10,qilin,Philex Mining,2026-04-30,20,3,12.1,3,15,18,0.2,0
 qilin,BECKER CADCAMCAST,2026-02-16,incransom,cerboniservices.com,2026-03-24,36,3,13.6,1,5,67,0.2,0
-qilin,The Rosenthal Agency,2026-02-03,qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,65,3,14.4,1,5,22,0.2,0
 incransom,ukbjja.org,2026-09-24,qilin,Alicotrans,2026-09-14,-10,3,15.2,1,5,17,0.2,0
 incransom,Infonet Media d.o.o.,2026-04-03,qilin,www.balkankalip.com,2025-07-17,-260,3,16.2,1,5,13,0.2,0
 qilin,Luro,2026-03-03,incransom,Western New York Energy,2026-01-30,-32,4,7.6,2,10,11,0.2,0
-qilin,The Rosenthal Agency,2026-02-03,incransom,Midwestern Oil & Gas,2026-02-12,9,4,13.2,1,5,175,0.2,0
 qilin,P&B Textiles,2026-02-03,incransom,submissionfinance.com,2026-03-31,56,4,13.2,1,5,38,0.2,0
 incransom,ukbjja.org,2026-09-24,qilin,Edelman&Edelman,2025-09-20,-369,4,13.4,1,5,33,0.2,0
-qilin,The Rosenthal Agency,2026-02-03,qilin,Ahtna Incorporated,2025-07-31,-187,4,14.4,1,5,33,0.2,0
 qilin,BECKER CADCAMCAST,2026-02-16,incransom,starkaerospace.com,2025-01-23,-389,4,14.6,1,5,38,0.2,0
-qilin,The Rosenthal Agency,2026-02-03,incransom,OAB,2026-01-21,-13,4,14.6,1,5,17,0.2,0
 incransom,ukbjja.org,2026-09-24,incransom,DERBY SCHOOL,2024-06-11,-835,4,15.2,1,5,22,0.2,0
 qilin,Isuzu Motors,2026-06-08,incransom,GDN AR(Dorinka),2026-06-29,21,0,16.1,2,12,10,0.17,0
 qilin,Carrera Casting,2026-02-13,qilin,Ekmanian Tax & Accounting,2025-08-28,-169,0,16.2,2,12,13,0.17,0
@@ -61,29 +47,24 @@ qilin,Carrera Casting,2026-02-13,incransom,Humax Holdings,2025-09-12,-154,2,14.1
 incransom,DUCON,2026-07-24,qilin,www.datamaxx.com,2025-10-08,-289,2,15.7,1,6,21,0.17,0
 incransom,DUCON,2026-07-24,qilin,BCR Recouvrement,2025-10-04,-293,2,16.3,1,6,18,0.17,0
 incransom,DUCON,2026-07-24,qilin,Mediapost Spain,2026-05-12,-73,2,18.3,1,6,13,0.17,0
-incransom,takethehop.com,2026-07-23,qilin,HUB ASSET MANAGEMENT Co,2025-09-25,-301,3,14.0,1,6,17,0.17,0
 incransom,minigrip.com.mx,2026-07-24,incransom,phi.ca,2025-09-29,-298,3,14.8,1,6,63,0.17,0
 incransom,egnyte.com,2026-05-07,incransom,PHARMATIS-SAS,2024-11-15,-538,3,15.3,1,6,39,0.17,0
 incransom,DUCON,2026-07-24,qilin,Tecnología Especializada Asociada de México,2025-08-30,-328,3,17.2,1,6,12,0.17,0
 incransom,minigrip.com.mx,2026-07-24,qilin,Pacific Building Solutions (PBS),2026-04-06,-109,3,17.5,1,6,9,0.17,0
 qilin,Isuzu Motors,2026-06-08,incransom,rheem,2026-04-20,-49,3,18.8,2,12,10,0.17,0
-incransom,takethehop.com,2026-07-23,qilin,ABM Enviro,2026-07-23,0,4,12.8,1,6,17,0.17,0
 qilin,Aroostook Mental Health Services,2026-04-02,incransom,Crandall ISD (CISD.crandallisd.org),2024-05-20,-682,4,12.8,1,6,8,0.17,0
 qilin,Aroostook Mental Health Services,2026-04-02,incransom,Access Sports Medicine & Orthopaedics,2024-05-18,-684,4,13.0,1,6,10,0.17,0
-incransom,Estra Automotive,2026-03-07,incransom,Midwestern Oil & Gas,2026-02-12,-23,4,13.3,1,6,175,0.17,0
 qilin,Aroostook Mental Health Services,2026-04-02,incransom,Planar,2024-06-25,-646,4,14.0,1,6,9,0.17,0
 qilin,Aroostook Mental Health Services,2026-04-02,incransom,Seaman's Mechanical,2024-05-03,-699,4,14.3,1,6,10,0.17,0
 qilin,Complete Packaging Solutions,2026-08-31,qilin,Leone Film Group SpA,2026-04-27,-126,4,14.8,1,6,11,0.17,0
 incransom,minigrip.com.mx,2026-07-24,incransom,Foamtec International,2026-02-01,-173,4,14.8,1,6,101,0.17,0
 incransom,minigrip.com.mx,2026-07-24,incransom,www.marvimundo.com,2025-07-15,-374,4,15.5,1,6,56,0.17,0
-incransom,Estra Automotive,2026-03-07,incransom,OAB,2026-01-21,-45,4,15.5,1,6,17,0.17,0
 incransom,minigrip.com.mx,2026-07-24,qilin,Frisquet,2025-10-12,-285,4,16.0,1,6,22,0.17,0
 incransom,DUCON,2026-07-24,qilin,Five Star Sheets,2026-07-20,-4,4,17.5,1,6,8,0.17,0
 qilin,Isuzu Motors,2026-06-08,qilin,Evergreen Title,2026-07-21,43,4,17.6,2,12,14,0.17,0
 qilin,Isuzu Motors,2026-06-08,qilin,DV Hardwoods,2025-10-14,-237,4,18.2,2,12,10,0.17,0
 qilin,Carrera Casting,2026-02-13,qilin,ESIC_TR,2025-08-30,-167,4,19.4,2,12,8,0.17,0
 qilin,Carrera Casting,2026-02-13,qilin,camaradealmeria.com,2025-08-27,-170,4,19.6,2,12,9,0.17,0
-incransom,submissionfinance.com,2026-03-31,incransom,Miesa,2025-09-09,-203,2,8.5,6,38,222,0.16,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,partitio.com,2025-10-27,-247,1,12.5,7,48,8,0.15,0
 incransom,https://www.roundshield.com/,2026-07-01,qilin,Allied Recycling,2026-08-31,61,1,13.1,7,48,3,0.15,0
 incransom,APRO Asian Protection Pte Ltd,2026-02-26,qilin,Rihatec.de,2025-10-04,-145,2,18.6,1,7,28,0.14,0
@@ -127,9 +108,6 @@ incransom,lalsgroup.com,2026-05-11,incransom,Hadwins Volkswagen,2024-11-25,-532,
 incransom,lalsgroup.com,2026-05-11,incransom,Lamberts Business Systems,2025-07-09,-306,3,17.4,1,8,17,0.12,0
 incransom,lalsgroup.com,2026-05-11,qilin,Fairfield City Council,2025-10-29,-194,3,21.0,1,8,6,0.12,0
 qilin,Alicotrans,2026-09-14,incransom,ukbjja.org,2026-09-24,10,3,22.7,2,17,5,0.12,0
-qilin,Crystal Pharmatech,2026-08-30,incransom,dwgra.com,2025-10-26,-308,4,13.9,2,17,29,0.12,0
-qilin,Crystal Pharmatech,2026-08-30,qilin,RehaVital Gesundheitsservice GmbH,2026-07-21,-40,4,14.8,2,17,10,0.12,0
-qilin,Crystal Pharmatech,2026-08-30,incransom,Kaan Cronenberg & Partners Law,2025-11-13,-290,4,14.8,2,17,4,0.12,0
 qilin,G.M.A. GRANDI MARCHE AUTOMOBILI - S.R.L,2026-08-11,incransom,Kiswire,2026-03-23,-141,4,14.9,2,17,21,0.12,0
 qilin,Five Star Sheets,2026-07-20,qilin,www.datamaxx.com,2025-10-08,-285,4,16.0,1,8,21,0.12,0
 incransom,lalsgroup.com,2026-05-11,qilin,Clifford Paper Inc,2025-10-06,-217,4,16.4,1,8,20,0.12,0
@@ -157,8 +135,6 @@ qilin,Després Mécanique Mobile,2026-04-13,qilin,Magicline,2025-10-30,-165,4,20
 qilin,Mills Products,2026-01-21,qilin,The Holiday:Adult Care Community & Retirement Homes,2025-05-21,-245,4,25.1,1,9,4,0.11,0
 incransom,GDN AR(Dorinka),2026-06-29,qilin,Isuzu Motors,2026-06-08,-21,0,16.6,1,10,12,0.1,0
 qilin,Alamo Heights School District,2026-04-01,qilin,Fusion Superplex,2026-03-02,-30,0,17.1,1,10,9,0.1,0
-incransom,JDV Products,2026-03-12,incransom,Miesa,2025-09-09,-184,2,11.0,1,10,222,0.1,0
-incransom,JDV Products,2026-03-12,incransom,Technology Assurance Group,2025-09-15,-178,2,13.4,1,10,28,0.1,0
 qilin,Aluthea Group,2026-03-03,qilin,Salag,2026-03-12,9,2,15.2,1,10,10,0.1,0
 qilin,McKenna Pro,2026-03-09,incransom,Pastor Real Estate,2024-11-24,-470,2,16.2,1,10,20,0.1,0
 qilin,Alamo Heights School District,2026-04-01,qilin,Applied Technology Resources,2025-10-22,-161,2,16.3,1,10,27,0.1,0
@@ -170,9 +146,6 @@ qilin,Luro,2026-03-03,qilin,Aluthea Group,2026-03-03,0,3,7.3,1,10,10,0.1,0
 qilin,Salag,2026-03-12,incransom,Western New York Energy,2026-01-30,-41,3,7.4,1,10,11,0.1,0
 qilin,Salag,2026-03-12,incransom,"TAK Communications, Inc",2025-08-22,-202,3,7.6,1,10,11,0.1,0
 qilin,Luro,2026-03-03,qilin,L-Pimenta (etdeletronics),2025-08-10,-205,3,10.7,1,10,14,0.1,0
-incransom,JDV Products,2026-03-12,incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,46,3,11.9,1,10,34,0.1,0
-incransom,JDV Products,2026-03-12,incransom,polymedicure.com,2026-02-20,-20,3,12.3,1,10,131,0.1,0
-incransom,JDV Products,2026-03-12,qilin,Gericke AG,2025-10-23,-140,3,14.2,1,10,10,0.1,0
 incransom,Cape Fear Country Club,2026-01-09,incransom,www.labiennale.org,2025-07-17,-176,3,14.5,1,10,62,0.1,0
 qilin,Aluthea Group,2026-03-03,incransom,Western New York Energy,2026-01-30,-32,3,14.6,1,10,11,0.1,0
 incransom,GDN AR(Dorinka),2026-06-29,qilin,WireCo,2026-08-26,58,3,15.2,1,10,37,0.1,0
@@ -222,30 +195,12 @@ qilin,1-800-dentist,2026-06-28,qilin,Cary Pediatric Center,2026-01-15,-164,0,17.
 qilin,1-800-dentist,2026-06-28,qilin,Buanderie Blanchelle,2025-10-15,-256,0,19.1,2,23,6,0.09,0
 qilin,1-800-dentist,2026-06-28,qilin,Dublin Medical Center,2025-11-09,-231,0,19.3,2,23,6,0.09,0
 incransom,bergen1.net,2026-05-07,incransom,www.entecheng.com,2025-07-17,-294,1,5.4,1,11,50,0.09,0
-incransom,Bitgo,2026-02-14,incransom,Foamtec International,2026-02-01,-13,1,7.9,1,11,101,0.09,0
-incransom,Bitgo,2026-02-14,incransom,JDV Products,2026-03-12,26,1,9.4,1,11,10,0.09,0
 qilin,Imperial Healthcare Solutions,2026-09-11,qilin,Alma Realty,2025-11-18,-297,1,17.7,1,11,18,0.09,0
 incransom,bergen1.net,2026-05-07,incransom,www.marvimundo.com,2025-07-15,-296,2,5.5,1,11,56,0.09,0
-incransom,Bitgo,2026-02-14,incransom,rswater.ae,2026-02-12,-2,2,7.5,1,11,34,0.09,0
-incransom,Bitgo,2026-02-14,qilin,Lindabury,2026-05-08,83,2,8.2,1,11,11,0.09,0
-incransom,bergen1.net,2026-05-07,incransom,deerfield.com / singulargenomics.com,2025-09-11,-238,2,8.4,1,11,19,0.09,0
-incransom,bergen1.net,2026-05-07,incransom,DeRenzis & Associates,2026-01-25,-102,2,8.9,1,11,52,0.09,0
-incransom,Bitgo,2026-02-14,incransom,thethibeauxfirm.com,2026-03-11,25,2,9.0,1,11,44,0.09,0
 qilin,Lindabury,2026-05-08,qilin,ABM Enviro,2026-07-23,76,2,10.4,1,11,17,0.09,0
-incransom,trrac.net,2026-06-02,incransom,rainbowtel.net,2025-11-28,-186,2,12.4,1,11,45,0.09,0
 qilin,Jet Specialty,2026-09-09,incransom,GARDNER ORTHOPEDICS,2025-05-06,-491,2,13.4,1,11,44,0.09,0
-qilin,Leone Film Group SpA,2026-04-27,incransom,Midwestern Oil & Gas,2026-02-12,-74,2,13.7,1,11,175,0.09,0
-incransom,newkirklaw.com,2026-01-27,incransom,CONTROLNET,2024-05-29,-608,2,14.8,1,11,15,0.09,0
 qilin,Schulte-Lindhorst GmbH & Co.,2026-05-14,incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,-17,2,16.7,1,11,34,0.09,0
 qilin,Schulte-Lindhorst GmbH & Co.,2026-05-14,incransom,Nothing,2026-05-19,5,2,22.6,1,11,10,0.09,0
-incransom,Bitgo,2026-02-14,incransom,www.pucobre.cl,2026-02-02,-12,3,8.3,1,11,101,0.09,0
-incransom,Bitgo,2026-02-14,incransom,Technology Assurance Group,2025-09-15,-152,3,8.3,1,11,28,0.09,0
-incransom,Bitgo,2026-02-14,incransom,cwpa.com,2026-03-03,17,3,8.5,1,11,31,0.09,0
-incransom,bergen1.net,2026-05-07,incransom,American Pools & Spas,2025-12-02,-156,3,9.6,1,11,38,0.09,0
-incransom,Bitgo,2026-02-14,qilin,Tripod Farmers,2026-04-17,62,3,9.7,1,11,7,0.09,0
-qilin,Leone Film Group SpA,2026-04-27,incransom,tob-bmw.sk,2026-01-23,-94,3,14.5,1,11,82,0.09,0
-qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,incransom,OAB,2026-01-21,-78,3,16.2,2,22,17,0.09,0
-qilin,Asphalt Specialists,2026-05-06,incransom,Medical Center of Marin,2025-06-25,-315,3,16.4,1,11,21,0.09,0
 qilin,Newton County School System,2026-08-28,qilin,WireCo,2026-08-26,-2,3,16.7,1,11,37,0.09,0
 incransom,Western New York Energy,2026-01-30,qilin,Ekmanian Tax & Accounting,2025-08-28,-155,3,17.0,1,11,13,0.09,0
 incransom,farbank.com (flywatertravel),2026-02-13,incransom,Thiekon Constructie,2025-04-08,-311,3,17.6,1,11,48,0.09,0
@@ -253,18 +208,11 @@ incransom,Western New York Energy,2026-01-30,qilin,Aluthea Group,2026-03-03,32,3
 incransom,Western New York Energy,2026-01-30,qilin,Salag,2026-03-12,41,3,18.0,1,11,10,0.09,0
 incransom,Western New York Energy,2026-01-30,incransom,rainbowtel.net,2025-11-28,-63,3,18.2,1,11,45,0.09,0
 incransom,bergen1.net,2026-05-07,incransom,Evolve Mortgage Services,2025-10-27,-192,4,8.1,1,11,39,0.09,0
-incransom,Bitgo,2026-02-14,incransom,naffco.com,2025-11-17,-89,4,10.0,1,11,49,0.09,0
 qilin,Jet Specialty,2026-09-09,incransom,Midwestern Oil & Gas,2026-02-12,-209,4,10.1,1,11,175,0.09,0
 qilin,Jet Specialty,2026-09-09,incransom,Bitgo,2026-02-14,-207,4,12.2,1,11,11,0.09,0
-qilin,Jet Specialty,2026-09-09,incransom,www.pucobre.cl,2026-02-02,-219,4,12.2,1,11,101,0.09,0
-incransom,bergen1.net,2026-05-07,qilin,Metricon Homes,2025-08-07,-273,4,12.5,1,11,18,0.09,0
 qilin,Jet Specialty,2026-09-09,incransom,DeRenzis & Associates,2026-01-25,-227,4,13.0,1,11,52,0.09,0
-incransom,trrac.net,2026-06-02,incransom,visufarma.com,2024-11-28,-551,4,13.1,1,11,47,0.09,0
-incransom,trrac.net,2026-06-02,qilin,Brazosport College,2026-08-25,84,4,14.0,1,11,13,0.09,0
 incransom,Core Supply,2026-02-06,incransom,Midwestern Oil & Gas,2026-02-12,6,4,14.5,1,11,175,0.09,0
 qilin,Retelit SpA PIVA,2026-07-14,incransom,https://www.roundshield.com/,2026-07-01,-13,4,15.0,1,11,48,0.09,0
-qilin,Leone Film Group SpA,2026-04-27,incransom,Bitgo,2026-02-14,-72,4,15.6,1,11,11,0.09,0
-incransom,trrac.net,2026-06-02,incransom,rswater.ae,2026-02-12,-110,4,15.9,1,11,34,0.09,0
 qilin,Leone Film Group SpA,2026-04-27,incransom,MENTAL HEALTH,2025-04-04,-388,4,16.0,1,11,52,0.09,0
 incransom,Core Supply,2026-02-06,incransom,Venlogistics,2025-09-15,-144,4,16.1,1,11,55,0.09,0
 qilin,SHERIFF,2026-05-09,qilin,More Than Gourmet,2025-10-22,-199,4,16.5,1,11,16,0.09,0
@@ -282,7 +230,6 @@ qilin,SHERIFF,2026-05-09,incransom,Evolve Mortgage Services,2025-10-27,-194,4,18
 qilin,Leone Film Group SpA,2026-04-27,qilin,SKLG,2026-09-28,154,4,18.5,1,11,9,0.09,0
 qilin,Leone Film Group SpA,2026-04-27,qilin,Complete Packaging Solutions,2026-08-31,126,4,18.5,1,11,6,0.09,0
 qilin,Counts & Dobyns,2026-07-13,qilin,Black Cat Engineering Construction Wll,2026-08-30,48,4,18.7,1,11,25,0.09,0
-incransom,trrac.net,2026-06-02,qilin,Enterprise Network Group of Indiana,2026-03-01,-93,4,18.9,1,11,5,0.09,0
 incransom,Western New York Energy,2026-01-30,qilin,Luro,2026-03-03,32,4,19.3,1,11,10,0.09,0
 qilin,Tanner,2026-09-02,qilin,www.balkankalip.com,2025-07-17,-412,4,19.8,1,11,13,0.09,0
 qilin,Counts & Dobyns,2026-07-13,qilin,Joyce Manufacturing,2026-02-11,-152,4,19.8,1,11,15,0.09,0
@@ -320,7 +267,6 @@ qilin,Alarmco,2026-03-12,qilin,Nopa Industriearmaturen,2026-03-05,-7,3,18.7,1,12
 qilin,Nopa Industriearmaturen,2026-03-05,incransom,gamaus.com,2026-08-12,160,3,18.7,1,12,14,0.08,0
 qilin,Diversified Supply Inc.,2026-03-04,incransom,onsolve.com,2025-11-17,-107,3,18.8,1,12,3,0.08,0
 qilin,Brazosport College,2026-08-25,incransom,Midwestern Oil & Gas,2026-02-12,-194,4,10.9,1,13,175,0.08,0
-incransom,gbmme.com,2026-01-12,incransom,American Pools & Spas,2025-12-02,-41,4,14.0,2,25,38,0.08,0
 qilin,Carrera Casting,2026-02-13,incransom,dwgra.com,2025-10-26,-110,4,15.2,1,12,29,0.08,0
 qilin,Isuzu Motors,2026-06-08,incransom,The Saint James Hospital Group,2025-05-01,-403,4,17.2,1,12,37,0.08,0
 qilin,Bristol Place,2026-06-29,incransom,Brueck Golosow Kim & Associates,2024-11-21,-585,4,17.4,1,13,33,0.08,0
@@ -352,7 +298,6 @@ qilin,Payne & Brockway,2026-03-02,qilin,Cinépolis,2026-08-21,172,4,23.4,1,12,4,
 qilin,Nopa Industriearmaturen,2026-03-05,incransom,californiaclingpeaches.com,2025-02-20,-378,4,24.2,1,12,3,0.08,0
 qilin,Opera Comique,2026-06-08,qilin,villagecoin.com,2025-07-01,-342,4,26.8,1,13,2,0.08,0
 incransom,gamaus.com,2026-08-12,incransom,piercecountylibrary.org,2025-05-22,-447,0,16.3,1,14,36,0.07,0
-incransom,Tract Consulting,2026-02-27,incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,59,1,12.6,2,27,34,0.07,0
 qilin,Machinerie P&W,2026-07-23,incransom,Darlington EMS,2024-11-23,-607,1,16.5,1,14,15,0.07,0
 qilin,Machinerie P&W,2026-07-23,incransom,Service Avicole JGL,2024-11-23,-607,1,16.8,1,14,13,0.07,0
 qilin,Machinerie P&W,2026-07-23,incransom,Schuck-Gruppe,2024-11-23,-607,1,17.0,1,14,15,0.07,0
@@ -383,20 +328,16 @@ incransom,https://sza.it/,2026-06-30,qilin,hydrometrics.com,2025-08-25,-309,3,18
 qilin,Korsmo Construction,2026-02-10,qilin,ABM Enviro,2026-07-23,163,3,18.7,1,15,17,0.07,0
 incransom,www.integer.net,2026-03-13,incransom,Guhring USA,2024-07-02,-619,3,19.4,1,14,9,0.07,0
 qilin,Henley,2026-04-19,qilin,rfsd13.org,2025-04-30,-354,3,21.0,1,15,4,0.07,0
-incransom,PWNA Plains,2026-03-24,incransom,Midwestern Oil & Gas,2026-02-12,-40,4,12.8,3,40,175,0.07,0
 qilin,Machinerie P&W,2026-07-23,incransom,dwgra.com,2025-10-26,-270,4,13.1,1,14,29,0.07,0
 incransom,martek co ltd.,2026-04-10,qilin,Bristol Place,2026-06-29,80,4,13.1,1,15,13,0.07,0
 qilin,Machinerie P&W,2026-07-23,incransom,DeRenzis & Associates,2026-01-25,-179,4,13.7,1,14,52,0.07,0
 qilin,Machinerie P&W,2026-07-23,incransom,ACS Accountancy,2026-02-15,-158,4,14.4,1,14,26,0.07,0
 incransom,Ruby Seven Studios,2026-08-27,incransom,www.labiennale.org,2025-07-17,-406,4,14.7,1,15,62,0.07,0
 qilin,DISTINET MURCIA SL,2026-06-12,incransom,Foamtec International,2026-02-01,-131,4,14.9,1,15,101,0.07,0
-qilin,Machinerie P&W,2026-07-23,incransom,www.pucobre.cl,2026-02-02,-171,4,15.1,1,14,101,0.07,0
 qilin,Korsmo Construction,2026-02-10,qilin,BiznessHosting,2025-09-16,-147,4,15.3,1,15,18,0.07,0
 qilin,Nan Liu Enterprises,2026-04-09,qilin,City of Winchester,2026-08-07,120,4,15.5,1,15,21,0.07,0
 qilin,Contacto Garantido,2026-07-26,incransom,vbuzrt.hu,2024-11-06,-627,4,15.6,1,15,46,0.07,0
 qilin,Mulino Padano,2026-08-16,incransom,delapazlaw.com,2026-03-31,-138,4,15.7,1,14,90,0.07,0
-qilin,Machinerie P&W,2026-07-23,incransom,cerboniservices.com,2026-03-24,-121,4,16.1,1,14,67,0.07,0
-qilin,Machinerie P&W,2026-07-23,incransom,thethibeauxfirm.com,2026-03-11,-134,4,16.3,1,14,44,0.07,0
 incransom,www.integer.net,2026-03-13,incransom,europe-qualité,2024-11-07,-491,4,16.3,1,14,33,0.07,0
 qilin,Brm,2026-02-19,incransom,MENTAL HEALTH,2025-04-04,-321,4,16.9,1,14,52,0.07,0
 incransom,www.integer.net,2026-03-13,incransom,vbuzrt.hu,2024-11-06,-492,4,17.0,1,14,46,0.07,0
@@ -412,18 +353,15 @@ qilin,Evergreen Title,2026-07-21,incransom,GDN AR(Dorinka),2026-06-29,-22,4,19.1
 incransom,gamaus.com,2026-08-12,qilin,www.clubcar.com,2025-04-15,-484,4,19.7,1,14,2,0.07,0
 incransom,belpointeasset.com \ belpointe.com,2026-06-22,qilin,gudeco.de,2025-06-25,-362,4,19.8,1,15,13,0.07,0
 incransom,lopezlawfl.com,2026-05-10,incransom,Schuck-Gruppe,2024-11-23,-533,4,19.8,2,28,15,0.07,0
-qilin,Machinerie P&W,2026-07-23,qilin,Ethical Packaging Solutions,2025-08-15,-342,4,20.1,1,14,11,0.07,0
 qilin,Evergreen Title,2026-07-21,qilin,Isuzu Motors,2026-06-08,-43,4,20.1,1,14,12,0.07,0
 incransom,MTCI,2026-04-26,qilin,Alamo Heights School District,2026-04-01,-25,4,20.9,1,14,10,0.07,0
 qilin,Contacto Garantido,2026-07-26,incransom,Precise Benefits Group LLC,2025-12-12,-226,4,21.1,1,15,11,0.07,0
 qilin,Machinerie P&W,2026-07-23,qilin,fiestafranchise.com,2025-06-18,-400,4,22.6,1,14,4,0.07,0
 qilin,Brm,2026-02-19,qilin,villagecoin.com,2025-07-01,-233,4,26.4,1,14,2,0.07,0
 qilin,Contacto Garantido,2026-07-26,incransom,el-group,2026-08-22,27,4,27.3,1,15,1,0.07,0
-incransom,JLK Rosenberger,2026-01-25,incransom,Blystone & Bailey,2026-02-01,7,0,12.2,2,32,40,0.06,0
 incransom,DeRenzis & Associates,2026-01-25,incransom,atfservices.com.au,2024-11-23,-428,0,13.6,3,52,42,0.06,0
 qilin,ABM Enviro,2026-07-23,incransom,dwgra.com,2025-10-26,-270,1,11.4,1,17,29,0.06,0
 incransom,napolinlaw.com,2026-03-03,incransom,lopezlawfl.com,2026-05-10,68,1,18.1,1,17,28,0.06,0
-incransom,cwpa.com,2026-03-03,incransom,Foamtec International,2026-02-01,-30,2,11.3,2,31,101,0.06,0
 qilin,G.M.A. GRANDI MARCHE AUTOMOBILI - S.R.L,2026-08-11,incransom,formpipe.com,2024-11-25,-624,2,13.5,1,17,40,0.06,0
 qilin,ABM Enviro,2026-07-23,qilin,Lindabury,2026-05-08,-76,2,14.4,1,17,11,0.06,0
 qilin,G.M.A. GRANDI MARCHE AUTOMOBILI - S.R.L,2026-08-11,incransom,Pastor Real Estate,2024-11-24,-625,2,15.3,1,17,20,0.06,0
@@ -441,9 +379,6 @@ qilin,Conpet S.A. (COTE.RO),2026-02-05,qilin,Wyong Rugby League Club,2025-08-17,
 qilin,STADLER Sensorik CNC-Technik,2026-08-05,qilin,Aarsleff,2026-09-16,42,2,21.2,1,16,13,0.06,0
 incransom,obrieneng.com,2026-07-30,incransom,https://sza.it/,2026-06-30,-30,3,14.6,1,18,27,0.06,0
 qilin,Anteriad,2026-01-08,incransom,tob-bmw.sk,2026-01-23,15,3,14.6,1,18,82,0.06,0
-qilin,Crystal Pharmatech,2026-08-30,qilin,Miller Stratvert,2026-08-12,-18,3,15.1,1,17,21,0.06,0
-qilin,Crystal Pharmatech,2026-08-30,qilin,Five Star Sheets,2026-07-20,-41,3,15.3,1,17,8,0.06,0
-incransom,rswater.ae,2026-02-12,incransom,Venlogistics,2025-09-15,-150,3,15.3,2,34,55,0.06,0
 incransom,https://www.roundshield.com/,2026-07-01,qilin,Dublin Medical Center,2025-11-09,-234,3,15.4,3,48,6,0.06,0
 qilin,STADLER Sensorik CNC-Technik,2026-08-05,qilin,runaces.com,2025-09-07,-332,3,15.8,1,16,17,0.06,0
 qilin,ABM Enviro,2026-07-23,qilin,Korsmo Construction,2026-02-10,-163,3,16.8,1,17,15,0.06,0
@@ -474,15 +409,11 @@ qilin,Agora coopérative agricole,2026-09-24,incransom,wmk-hvb.de,2025-02-27,-57
 qilin,Alicotrans,2026-09-14,incransom,Cobra Rolamentos e Autopeças,2025-09-27,-352,3,29.3,1,17,1,0.06,0
 qilin,G.M.A. GRANDI MARCHE AUTOMOBILI - S.R.L,2026-08-11,incransom,visufarma.com,2024-11-28,-621,4,12.8,1,17,47,0.06,0
 qilin,STADLER Sensorik CNC-Technik,2026-08-05,incransom,starkaerospace.com,2025-01-23,-559,4,15.1,1,16,38,0.06,0
-incransom,obrieneng.com,2026-07-30,incransom,Venlogistics,2025-09-15,-318,4,15.1,1,18,55,0.06,0
-qilin,Crystal Pharmatech,2026-08-30,incransom,OAB,2026-01-21,-221,4,15.5,1,17,17,0.06,0
 qilin,Anteriad,2026-01-08,incransom,https://daricon.com/ (military US/CA/NATO),2026-02-26,49,4,15.7,1,18,28,0.06,0
 qilin,Columbus Informatica,2026-09-22,incransom,tob-bmw.sk,2026-01-23,-242,4,15.9,1,16,82,0.06,0
-incransom,obrieneng.com,2026-07-30,incransom,Woom GmbH,2025-11-22,-250,4,15.9,1,18,8,0.06,0
 qilin,Anteriad,2026-01-08,incransom,https://www.roundshield.com/,2026-07-01,174,4,15.9,1,18,48,0.06,0
 qilin,Anteriad,2026-01-08,qilin,WireCo,2026-08-26,230,4,16.0,1,18,37,0.06,0
 qilin,Medasa,2026-02-03,qilin,Zebra Asset Management Co,2025-09-17,-139,4,16.1,1,16,25,0.06,0
-qilin,Geieg,2026-09-15,incransom,CONTROLNET,2024-05-29,-839,4,16.5,1,17,15,0.06,0
 qilin,REIC,2026-02-16,incransom,Imagineering Finishing Technologies,2025-04-10,-312,4,16.6,1,16,45,0.06,0
 qilin,Anteriad,2026-01-08,incransom,distinctive-systems.com,2026-02-17,40,4,16.8,1,18,23,0.06,0
 qilin,G.M.A. GRANDI MARCHE AUTOMOBILI - S.R.L,2026-08-11,qilin,McKenna Pro,2026-03-09,-155,4,16.9,1,17,10,0.06,0
@@ -502,7 +433,6 @@ qilin,Columbus Informatica,2026-09-22,incransom,jsgroup,2025-09-15,-372,4,19.1,1
 incransom,Foresee Pharmaceuticals,2026-08-18,qilin,Aluthea Group,2026-03-03,-168,4,19.4,1,17,10,0.06,0
 qilin,KV Final,2026-02-07,qilin,Astro Industries Inc.,2025-07-25,-197,4,19.4,1,18,9,0.06,0
 qilin,Commission de la construction du Quebec (CCQ),2026-09-03,incransom,borohradek,2024-11-23,-649,4,19.5,1,17,26,0.06,0
-qilin,Inspira,2026-04-27,incransom,OAB,2026-01-21,-96,4,19.6,1,16,17,0.06,0
 qilin,Conpet S.A. (COTE.RO),2026-02-05,incransom,United Bakery Equipment,2024-11-21,-441,4,19.7,1,16,13,0.06,0
 qilin,ATCOM Outsourcing,2026-06-18,qilin,Noi Hotels,2026-03-26,-84,4,19.8,1,16,20,0.06,0
 qilin,Conpet S.A. (COTE.RO),2026-02-05,qilin,Clinica Maitenes,2026-06-02,117,4,20.0,1,16,12,0.06,0
@@ -515,12 +445,12 @@ incransom,napolinlaw.com,2026-03-03,incransom,autorisk.org,2026-05-07,65,4,21.1,
 qilin,Hamer Childs,2026-05-20,qilin,ESIC_TR,2025-08-30,-263,4,21.2,1,18,8,0.06,0
 incransom,napolinlaw.com,2026-03-03,qilin,foiegrasespinet,2025-07-24,-222,4,21.4,1,17,5,0.06,0
 qilin,KV Final,2026-02-07,qilin,GS Long,2025-10-16,-114,4,21.8,1,18,4,0.06,0
-qilin,Inspira,2026-04-27,qilin,Volume Transportation,2025-09-13,-226,4,22.0,1,16,5,0.06,0
 incransom,jms building corporation,2026-09-07,incransom,Schmidt's,2025-11-25,-286,4,22.3,1,18,8,0.06,0
 incransom,napolinlaw.com,2026-03-03,qilin,blainemn.gov,2025-05-16,-291,4,23.0,1,17,5,0.06,0
 qilin,KV Final,2026-02-07,incransom,Otjiwarongo Municipality,2025-07-15,-207,4,23.0,1,18,4,0.06,0
 incransom,Blystone & Bailey,2026-02-01,incransom,Tract Consulting,2026-02-27,26,0,6.2,2,40,27,0.05,0
 qilin,Miller Stratvert,2026-08-12,qilin,NPIAV,2025-09-03,-343,0,21.1,1,21,9,0.05,0
+incransom,submissionfinance.com,2026-03-31,incransom,Miesa,2025-09-09,-203,2,8.5,2,38,222,0.05,0
 incransom,BELFOR,2026-04-27,qilin,denali-industrial.com,2025-09-12,-227,2,18.7,1,19,22,0.05,0
 qilin,Miller Stratvert,2026-08-12,qilin,ESIC_TR,2025-08-30,-347,2,19.3,1,21,8,0.05,0
 qilin,Centro Científico e Cultural de Macau,2026-07-13,incransom,Foxconn Interconnect Technology Limited (FIT),2025-12-08,-217,2,19.4,1,19,21,0.05,0
@@ -529,10 +459,8 @@ incransom,Kiswire,2026-03-23,qilin,Osool Poultry,2026-04-30,38,2,20.2,1,21,6,0.0
 incransom,Kiswire,2026-03-23,qilin,Hunter-Kelsey of Texas,2026-02-10,-41,2,20.3,1,21,9,0.05,0
 qilin,Centro Científico e Cultural de Macau,2026-07-13,qilin,Kengen,2025-08-06,-341,2,20.4,1,19,9,0.05,0
 incransom,Kiswire,2026-03-23,qilin,Mississippi Market,2026-02-05,-46,2,20.9,1,21,14,0.05,0
-incransom,submissionfinance.com,2026-03-31,incransom,Goldsmith & Hull,2024-11-21,-495,3,9.6,2,38,21,0.05,0
-incransom,thethibeauxfirm.com,2026-03-11,incransom,StudioVaiani,2025-05-01,-314,3,14.7,2,44,64,0.05,0
-qilin,Orthopaedic Specialists of Massachusetts,2026-01-17,incransom,Bitgo,2026-02-14,28,3,15.1,1,22,11,0.05,0
 qilin,Orthopaedic Specialists of Massachusetts,2026-01-17,incransom,gamaus.com,2026-08-12,207,3,15.6,1,22,14,0.05,0
+qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,incransom,OAB,2026-01-21,-78,3,16.2,1,22,17,0.05,0
 qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,incransom,distinctive-systems.com,2026-02-17,-51,3,17.0,1,22,23,0.05,0
 qilin,Orthopaedic Specialists of Massachusetts,2026-01-17,incransom,borohradek,2024-11-23,-420,3,17.2,1,22,26,0.05,0
 qilin,Miller Stratvert,2026-08-12,qilin,Crystal Pharmatech,2026-08-30,18,3,17.8,1,21,17,0.05,0
@@ -540,29 +468,21 @@ qilin,Centro Científico e Cultural de Macau,2026-07-13,incransom,United Bakery 
 qilin,Miller Stratvert,2026-08-12,qilin,Yellow Cab of Columbus,2025-12-04,-251,3,19.3,1,21,16,0.05,0
 qilin,Anabuki Kosan,2026-02-10,qilin,Providence Medical Group,2026-04-15,64,3,19.3,1,19,19,0.05,0
 qilin,Midwest Wheel,2026-02-12,incransom,Foxconn Interconnect Technology Limited (FIT),2025-12-08,-66,3,19.4,1,20,21,0.05,0
-qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,qilin,The Rosenthal Agency,2026-02-03,-65,3,19.6,1,22,5,0.05,0
 qilin,Centro Científico e Cultural de Macau,2026-07-13,qilin,Joyce Manufacturing,2026-02-11,-152,3,19.8,1,19,15,0.05,0
 qilin,Midwest Wheel,2026-02-12,qilin,Lam Soon,2026-06-29,137,3,20.1,1,20,16,0.05,0
 qilin,Providence Medical Group,2026-04-15,qilin,Anabuki Kosan,2026-02-10,-64,3,20.2,1,19,19,0.05,0
 qilin,Noi Hotels,2026-03-26,qilin,David Weekley Homes,2025-12-19,-97,3,20.4,1,20,16,0.05,0
-incransom,hopkins-law.com,2026-03-03,qilin,Next Clinics,2026-07-07,126,3,20.6,1,22,5,0.05,0
 qilin,Midwest Wheel,2026-02-12,qilin,Wyong Rugby League Club,2025-08-17,-179,3,23.6,1,20,7,0.05,0
-incransom,submissionfinance.com,2026-03-31,incransom,www.labiennale.org,2025-07-17,-257,4,8.9,2,38,62,0.05,0
 qilin,Service d'usinage 9002,2026-08-09,incransom,PWNA Plains,2026-03-24,-138,4,14.9,1,20,40,0.05,0
-qilin,Orthopaedic Specialists of Massachusetts,2026-01-17,incransom,tob-bmw.sk,2026-01-23,6,4,14.9,1,22,82,0.05,0
 qilin,Miller Stratvert,2026-08-12,incransom,Coop57,2025-04-08,-491,4,15.5,1,21,83,0.05,0
 qilin,Miller Stratvert,2026-08-12,qilin,Ahtna Incorporated,2025-07-31,-377,4,16.1,1,21,33,0.05,0
-incransom,thethibeauxfirm.com,2026-03-11,incransom,CONTROLNET,2024-05-29,-651,4,16.3,2,44,15,0.05,0
 qilin,Orthopaedic Specialists of Massachusetts,2026-01-17,qilin,Centro de Formación San Nicolás,2025-11-04,-74,4,16.6,1,22,18,0.05,0
 qilin,Mera Metal,2026-08-05,incransom,Midwestern Oil & Gas,2026-02-12,-174,4,16.7,1,22,175,0.05,0
 qilin,Service d'usinage 9002,2026-08-09,incransom,Audubon Nature Institute (auduboninstitute.org),2024-04-23,-838,4,16.8,1,20,15,0.05,0
-incransom,PWNA Plains,2026-03-24,incransom,GARDNER ORTHOPEDICS,2025-05-06,-322,4,16.9,2,40,44,0.05,0
-qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,qilin,ABM Enviro,2026-07-23,105,4,17.0,1,22,17,0.05,0
 qilin,Miller Stratvert,2026-08-12,incransom,lohmann-tapes.com,2026-02-12,-181,4,17.2,1,21,18,0.05,0
 qilin,City of Winchester,2026-08-07,incransom,Republica De Panama,2025-09-05,-336,4,17.2,1,21,45,0.05,0
 qilin,Service d'usinage 9002,2026-08-09,qilin,Kajima Europe,2025-11-22,-260,4,17.4,1,20,17,0.05,0
 incransom,earthsystems.com.au earthsystemseurope.com,2026-05-07,incransom,vbuzrt.hu,2024-11-06,-547,4,17.4,1,21,46,0.05,0
-incransom,PWNA Plains,2026-03-24,incransom,DeRenzis & Associates,2026-01-25,-58,4,17.4,2,40,52,0.05,0
 qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,incransom,ucv.es,2024-11-07,-518,4,17.5,1,22,29,0.05,0
 qilin,Orthopaedic Specialists of Massachusetts,2026-01-17,incransom,alphaoil.ca,2025-03-19,-304,4,17.8,1,22,10,0.05,0
 qilin,The Nueva School,2026-07-18,incransom,Boldon James,2025-01-29,-535,4,18.0,1,21,38,0.05,0
@@ -576,38 +496,25 @@ qilin,The Nueva School,2026-07-18,qilin,Recsa,2026-07-22,4,4,19.7,1,21,13,0.05,0
 qilin,Centro Científico e Cultural de Macau,2026-07-13,incransom,Precise Benefits Group LLC,2025-12-12,-213,4,19.7,1,19,11,0.05,0
 qilin,WEBA Meubelen,2026-08-16,qilin,Studio Corvo Parma,2025-11-06,-283,4,19.8,1,20,17,0.05,0
 qilin,"HIGASHIYAMA INDUSTRIES Co.,Ltd.",2026-04-09,qilin,Nopa Industriearmaturen,2026-03-05,-35,4,19.9,1,22,12,0.05,0
-incransom,Ju Teng International Holdings Ltd,2026-01-13,incransom,Sa.SS Datentechnik,2024-11-24,-415,4,19.9,1,21,17,0.05,0
 qilin,Noi Hotels,2026-03-26,qilin,ATCOM Outsourcing,2026-06-18,84,4,20.1,1,20,16,0.05,0
-incransom,Ju Teng International Holdings Ltd,2026-01-13,incransom,Woom GmbH,2025-11-22,-52,4,20.1,1,21,8,0.05,0
 qilin,Miller Stratvert,2026-08-12,incransom,bnlawmacau.com www.bn-ip.com,2026-09-24,43,4,20.3,1,21,10,0.05,0
 qilin,Miller Stratvert,2026-08-12,qilin,Columbia Medical Practice,2025-11-25,-260,4,21.0,1,21,8,0.05,0
 qilin,Exco Technologies,2026-05-08,qilin,Bay West,2025-10-09,-211,4,21.4,1,19,15,0.05,0
 qilin,Centro Científico e Cultural de Macau,2026-07-13,qilin,ferrocortes,2025-08-06,-341,4,21.7,1,19,7,0.05,0
 incransom,Kiswire,2026-03-23,incransom,Security First Credit Union,2025-08-25,-210,4,21.8,1,21,10,0.05,0
 qilin,Noi Hotels,2026-03-26,qilin,Clinica Maitenes,2026-06-02,68,4,22.1,1,20,12,0.05,0
-incransom,hopkins-law.com,2026-03-03,incransom,neuwoges.de,2026-06-16,105,4,22.1,1,22,4,0.05,0
 qilin,Jgb,2026-04-30,qilin,Hale Makua Health Services,2025-09-25,-217,4,26.1,1,20,4,0.05,0
-incransom,Tract Consulting,2026-02-27,incransom,www.entecheng.com,2025-07-17,-225,0,11.9,1,27,50,0.04,0
 incransom,Tract Consulting,2026-02-27,incransom,Blystone & Bailey,2026-02-01,-26,0,12.7,1,27,40,0.04,0
-incransom,Tract Consulting,2026-02-27,incransom,ACS Accountancy,2026-02-15,-12,0,13.1,1,27,26,0.04,0
-incransom,ACS Accountancy,2026-02-15,incransom,Tract Consulting,2026-02-27,12,0,14.1,1,26,27,0.04,0
-incransom,ACS Accountancy,2026-02-15,incransom,www.entecheng.com,2025-07-17,-213,1,12.7,1,26,50,0.04,0
-incransom,ACS Accountancy,2026-02-15,incransom,www.labiennale.org,2025-07-17,-213,1,13.6,1,26,62,0.04,0
 qilin,1-800-dentist,2026-06-28,qilin,PTR Asset Management,2025-09-28,-273,1,22.1,1,23,21,0.04,0
-incransom,ACS Accountancy,2026-02-15,incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,71,2,13.9,1,26,34,0.04,0
 incransom,https://daricon.com/ (military US/CA/NATO),2026-02-26,qilin,1-800-dentist,2026-06-28,122,2,17.2,1,28,23,0.04,0
-incransom,distinctive-systems.com,2026-02-17,incransom,Arban & Carosi,2026-04-14,56,2,17.6,1,23,64,0.04,0
 incransom,https://www.roundshield.com/,2026-07-01,qilin,Landmark Management,2025-10-06,-268,3,11.9,2,48,16,0.04,0
-incransom,ACS Accountancy,2026-02-15,incransom,www.marvimundo.com,2025-07-15,-215,3,12.5,1,26,56,0.04,0
 incransom,autorisk.org,2026-05-07,incransom,lopezlawfl.com,2026-05-10,3,3,14.0,1,23,28,0.04,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,thevisapro.com (Yibirin Law Group),2025-11-04,-239,3,14.1,2,48,8,0.04,0
 qilin,1-800-dentist,2026-06-28,qilin,Machinerie P&W,2026-07-23,25,3,15.9,1,23,14,0.04,0
 incransom,lopezlawfl.com,2026-05-10,incransom,https://sza.it/,2026-06-30,51,3,16.2,1,28,27,0.04,0
-incransom,distinctive-systems.com,2026-02-17,incransom,Humax Holdings,2025-09-12,-158,3,18.1,1,23,35,0.04,0
 incransom,LGBTQ Center Orange county,2026-01-25,incransom,deerfield.com / singulargenomics.com,2025-09-11,-136,3,18.3,1,24,19,0.04,0
 incransom,https://daricon.com/ (military US/CA/NATO),2026-02-26,qilin,Prime Asset Fund,2025-09-17,-162,3,18.7,1,28,12,0.04,0
 incransom,lopezlawfl.com,2026-05-10,qilin,Saebom Asset Management,2025-09-17,-235,3,19.2,1,28,12,0.04,0
-incransom,distinctive-systems.com,2026-02-17,qilin,Centro de Formación San Nicolás,2025-11-04,-105,3,19.3,1,23,18,0.04,0
 incransom,ACS Accountancy,2026-02-15,incransom,Rainier Clinical Research Center,2026-02-15,0,3,19.3,1,26,13,0.04,0
 qilin,Black Cat Engineering Construction Wll,2026-08-30,incransom,borohradek,2024-11-23,-645,3,19.6,1,25,26,0.04,0
 incransom,autorisk.org,2026-05-07,incransom,vviewisd.net,2025-11-19,-169,3,19.8,1,23,7,0.04,0
@@ -617,11 +524,8 @@ qilin,Black Cat Engineering Construction Wll,2026-08-30,incransom,onsolve.com,20
 qilin,1-800-dentist,2026-06-28,incransom,Gorrie-Regan,2024-06-13,-745,3,22.8,1,23,9,0.04,0
 qilin,Black Cat Engineering Construction Wll,2026-08-30,qilin,Magicline,2025-10-30,-304,3,23.5,1,25,8,0.04,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,Evolve Mortgage Services,2025-10-27,-247,4,11.7,2,48,39,0.04,0
-incransom,Tract Consulting,2026-02-27,incransom,Midwestern Oil & Gas,2026-02-12,-15,4,12.4,1,27,175,0.04,0
-incransom,gbmme.com,2026-01-12,incransom,www.entecheng.com,2025-07-17,-179,4,13.1,1,25,50,0.04,0
-incransom,gbmme.com,2026-01-12,incransom,Blystone & Bailey,2026-02-01,20,4,13.4,1,25,40,0.04,0
+incransom,gbmme.com,2026-01-12,incransom,American Pools & Spas,2025-12-02,-41,4,14.0,1,25,38,0.04,0
 incransom,Tract Consulting,2026-02-27,incransom,depewgillen.com,2025-01-15,-408,4,14.1,1,27,65,0.04,0
-incransom,gbmme.com,2026-01-12,incransom,Nacsworld.com,2025-10-01,-103,4,14.7,1,25,28,0.04,0
 incransom,https://daricon.com/ (military US/CA/NATO),2026-02-26,incransom,Coop57,2025-04-08,-324,4,15.3,1,28,83,0.04,0
 incransom,nyklawfirm.com nyk.ae,2026-08-18,incransom,tob-bmw.sk,2026-01-23,-207,4,15.6,1,25,82,0.04,0
 incransom,Ondine Biomedical,2026-02-15,incransom,deerfield.com / singulargenomics.com,2025-09-11,-157,4,16.5,1,24,19,0.04,0
@@ -633,12 +537,10 @@ incransom,https://bellowsmfg.com/company/,2026-01-13,qilin,Imex International,20
 incransom,nyklawfirm.com nyk.ae,2026-08-18,incransom,importantsteps.com,2025-03-29,-507,4,18.2,1,25,9,0.04,0
 incransom,https://sza.it/,2026-06-30,qilin,New Jersey Property-Liability Insurance Guaranty Association,2025-10-14,-259,4,18.2,1,27,13,0.04,0
 incransom,LGBTQ Center Orange county,2026-01-25,incransom,Ondine Biomedical,2026-02-15,21,4,18.2,1,24,24,0.04,0
-incransom,distinctive-systems.com,2026-02-17,incransom,cwpa.com,2026-03-03,14,4,18.4,1,23,31,0.04,0
 incransom,https://daricon.com/ (military US/CA/NATO),2026-02-26,qilin,Anteriad,2026-01-08,-49,4,18.5,1,28,18,0.04,0
 incransom,nyklawfirm.com nyk.ae,2026-08-18,incransom,DUCON,2026-07-24,-25,4,18.6,1,25,6,0.04,0
 incransom,LGBTQ Center Orange county,2026-01-25,qilin,follet-rivoire-avocats.com,2025-09-04,-143,4,18.6,1,24,32,0.04,0
 incransom,autorisk.org,2026-05-07,incransom,napolinlaw.com,2026-03-03,-65,4,18.8,1,23,17,0.04,0
-incransom,distinctive-systems.com,2026-02-17,incransom,naffco.com,2025-11-17,-92,4,18.8,1,23,49,0.04,0
 incransom,lopezlawfl.com,2026-05-10,incransom,egnyte.com,2026-05-07,-3,4,19.0,1,28,6,0.04,0
 qilin,Thorndale Foundation,2026-09-15,qilin,G.M.A. GRANDI MARCHE AUTOMOBILI - S.R.L,2026-08-11,-35,4,19.3,1,23,17,0.04,0
 incransom,LGBTQ Center Orange county,2026-01-25,qilin,Bay West,2025-10-09,-108,4,19.6,1,24,15,0.04,0
@@ -649,23 +551,16 @@ incransom,Blystone & Bailey,2026-02-01,incransom,coruzcitywndata+,2025-06-26,-22
 incransom,Blystone & Bailey,2026-02-01,incransom,GARDNER ORTHOPEDICS,2025-05-06,-271,0,6.6,1,40,44,0.03,0
 incransom,Blystone & Bailey,2026-02-01,incransom,American Pools & Spas,2025-12-02,-61,0,7.2,1,40,38,0.03,0
 incransom,Blystone & Bailey,2026-02-01,incransom,Nacsworld.com,2025-10-01,-123,0,7.4,1,40,28,0.03,0
-incransom,submissionfinance.com,2026-03-31,incransom,phi.ca,2025-09-29,-183,1,9.4,1,38,63,0.03,0
+incransom,JLK Rosenberger,2026-01-25,incransom,Blystone & Bailey,2026-02-01,7,0,12.2,1,32,40,0.03,0
 incransom,Blystone & Bailey,2026-02-01,incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,85,1,9.4,1,40,34,0.03,0
 qilin,Premier Medical Group,2026-06-26,qilin,Saginaw Chippewa Indian Tribe,2025-10-02,-267,1,17.6,1,30,21,0.03,0
 qilin,Premier Medical Group,2026-06-26,qilin,Wouters France,2025-09-09,-290,1,18.9,1,30,14,0.03,0
-incransom,submissionfinance.com,2026-03-31,incransom,Midwestern Oil & Gas,2026-02-12,-47,2,8.6,1,38,175,0.03,0
-incransom,submissionfinance.com,2026-03-31,incransom,Foamtec International,2026-02-01,-58,2,9.5,1,38,101,0.03,0
-incransom,cwpa.com,2026-03-03,incransom,StudioVaiani,2025-05-01,-306,2,11.6,1,31,64,0.03,0
 incransom,cwpa.com,2026-03-03,incransom,gamaus.com,2026-08-12,162,2,13.8,1,31,14,0.03,0
-incransom,cwpa.com,2026-03-03,qilin,WireCo,2026-08-26,176,2,14.5,1,31,37,0.03,0
 incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,incransom,www.lincecomercial.com,2025-07-17,-284,2,15.0,1,34,13,0.03,0
-incransom,PWNA Plains,2026-03-24,incransom,Audubon Nature Institute (auduboninstitute.org),2024-04-23,-700,2,16.2,1,40,15,0.03,0
 incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,qilin,Schulte-Lindhorst GmbH & Co.,2026-05-14,17,2,17.4,1,34,11,0.03,0
 incransom,pacificwestinjury.com,2026-05-23,incransom,krwlawyers.com,2026-04-22,-31,2,17.8,1,40,43,0.03,0
 qilin,WireCo,2026-08-26,qilin,Noble Compaña de Seguros,2025-11-06,-293,2,18.9,1,37,26,0.03,0
-incransom,submissionfinance.com,2026-03-31,incransom,polymedicure.com,2026-02-20,-39,3,9.3,1,38,131,0.03,0
 incransom,Blystone & Bailey,2026-02-01,incransom,www.labiennale.org,2025-07-17,-199,3,9.4,1,40,62,0.03,0
-incransom,cwpa.com,2026-03-03,incransom,polymedicure.com,2026-02-20,-11,3,12.0,1,31,131,0.03,0
 incransom,callhorton.com,2026-06-26,incransom,ITL Systemhaus,2025-11-22,-216,3,15.0,1,31,6,0.03,0
 incransom,Blystone & Bailey,2026-02-01,incransom,borohradek,2024-11-23,-435,3,15.3,1,40,26,0.03,0
 incransom,cmswpc.com,2026-05-07,incransom,www.marvimundo.com,2025-07-15,-296,3,15.9,1,39,56,0.03,0
@@ -675,21 +570,17 @@ qilin,WireCo,2026-08-26,incransom,atfservices.com.au,2024-11-23,-641,3,16.5,1,37
 incransom,Blystone & Bailey,2026-02-01,incransom,https://pacific-construction.com/,2026-08-13,193,3,16.6,1,40,14,0.03,0
 qilin,WireCo,2026-08-26,qilin,Rasi Laboratories,2025-10-15,-315,3,16.9,1,37,25,0.03,0
 incransom,cmswpc.com,2026-05-07,incransom,dwgra.com,2025-10-26,-193,3,17.1,1,39,29,0.03,0
-incransom,rswater.ae,2026-02-12,incransom,submissionfinance.com,2026-03-31,47,3,17.2,1,34,38,0.03,0
 qilin,Premier Medical Group,2026-06-26,qilin,Nan Liu Enterprises,2026-04-09,-78,3,18.9,1,30,15,0.03,0
 qilin,WireCo,2026-08-26,qilin,ITinSell group,2025-05-15,-468,3,19.3,1,37,13,0.03,0
 incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,qilin,Opera Comique,2026-06-08,42,3,19.9,1,34,13,0.03,0
 qilin,Premier Medical Group,2026-06-26,qilin,San Miguel,2025-12-01,-207,3,21.3,1,30,8,0.03,0
 qilin,Premier Medical Group,2026-06-26,qilin,Adult & Pediatric Dermatology,2025-08-13,-317,3,21.7,1,30,6,0.03,0
+incransom,submissionfinance.com,2026-03-31,incransom,www.labiennale.org,2025-07-17,-257,4,8.9,1,38,62,0.03,0
 incransom,submissionfinance.com,2026-03-31,incransom,Arban & Carosi,2026-04-14,14,4,9.4,1,38,64,0.03,0
-incransom,submissionfinance.com,2026-03-31,incransom,atfservices.com.au,2024-11-23,-493,4,9.5,1,38,42,0.03,0
 incransom,submissionfinance.com,2026-03-31,incransom,Blystone & Bailey,2026-02-01,-58,4,9.8,1,38,40,0.03,0
 incransom,Blystone & Bailey,2026-02-01,incransom,submissionfinance.com,2026-03-31,58,4,10.1,1,40,38,0.03,0
 incransom,submissionfinance.com,2026-03-31,incransom,krwlawyers.com,2026-04-22,22,4,11.8,1,38,43,0.03,0
-incransom,PWNA Plains,2026-03-24,incransom,Miesa,2025-09-09,-196,4,13.3,1,40,222,0.03,0
 qilin,Mountain Rheumatology,2026-07-17,incransom,Foamtec International,2026-02-01,-166,4,13.9,1,29,101,0.03,0
-incransom,PWNA Plains,2026-03-24,incransom,polymedicure.com,2026-02-20,-32,4,14.0,1,40,131,0.03,0
-incransom,PWNA Plains,2026-03-24,incransom,tob-bmw.sk,2026-01-23,-60,4,14.3,1,40,82,0.03,0
 qilin,Mountain Rheumatology,2026-07-17,incransom,polymedicure.com,2026-02-20,-147,4,14.4,1,29,131,0.03,0
 incransom,theswansonlawgroup.com,2026-06-26,incransom,Woom GmbH,2025-11-22,-216,4,14.4,1,30,8,0.03,0
 incransom,theswansonlawgroup.com,2026-06-26,incransom,europe-qualité,2024-11-07,-596,4,14.4,1,30,33,0.03,0
@@ -697,16 +588,11 @@ incransom,theswansonlawgroup.com,2026-06-26,incransom,Maryhaven (MHCLINICAL.LOCA
 incransom,theswansonlawgroup.com,2026-06-26,incransom,Lamberts Business Systems,2025-07-09,-352,4,14.9,1,30,17,0.03,0
 incransom,theswansonlawgroup.com,2026-06-26,qilin,"Asahi Group Holdings, Ltd.",2025-10-07,-262,4,15.1,1,30,29,0.03,0
 incransom,callhorton.com,2026-06-26,qilin,www.nuggetent.com,2025-08-25,-305,4,15.2,1,31,9,0.03,0
-incransom,cerboniservices.com,2026-03-24,qilin,HUB ASSET MANAGEMENT Co,2025-09-25,-180,4,15.3,2,67,17,0.03,0
-incransom,PWNA Plains,2026-03-24,qilin,Service d'usinage 9002,2026-08-09,138,4,15.6,1,40,20,0.03,0
 qilin,Mountain Rheumatology,2026-07-17,incransom,www.labiennale.org,2025-07-17,-365,4,15.7,1,29,62,0.03,0
 incransom,PWNA Plains,2026-03-24,qilin,PTR Asset Management,2025-09-28,-177,4,15.9,1,40,21,0.03,0
 incransom,cmswpc.com,2026-05-07,incransom,MENTAL HEALTH,2025-04-04,-398,4,16.2,1,39,52,0.03,0
-incransom,ChokChey Finance,2026-02-02,incransom,rswater.ae,2026-02-12,10,4,16.4,2,59,34,0.03,0
 qilin,WireCo,2026-08-26,incransom,distinctive-systems.com,2026-02-17,-190,4,16.5,1,37,23,0.03,0
 incransom,submissionfinance.com,2026-03-31,qilin,P&B Textiles,2026-02-03,-56,4,16.5,1,38,5,0.03,0
-incransom,ChokChey Finance,2026-02-02,qilin,Yooshin Engineering Corporation,2025-09-26,-129,4,16.5,2,59,19,0.03,0
-incransom,PWNA Plains,2026-03-24,incransom,International AIDS Vaccine Initiative (iavi.org),2025-01-15,-433,4,16.6,1,40,11,0.03,0
 incransom,Blystone & Bailey,2026-02-01,qilin,Yellow Cab of Columbus,2025-12-04,-59,4,16.6,1,40,16,0.03,0
 qilin,Premier Medical Group,2026-06-26,qilin,ANCO,2025-11-02,-236,4,16.9,1,30,39,0.03,0
 qilin,WireCo,2026-08-26,qilin,Integrasoft,2025-10-19,-311,4,17.1,1,37,17,0.03,0
@@ -718,23 +604,17 @@ qilin,Premier Medical Group,2026-06-26,incransom,www.pucobre.cl,2026-02-02,-144,
 qilin,Premier Medical Group,2026-06-26,incransom,DeRenzis & Associates,2026-01-25,-152,4,17.5,1,30,52,0.03,0
 qilin,Premier Medical Group,2026-06-26,qilin,More Than Gourmet,2025-10-22,-247,4,18.1,1,30,16,0.03,0
 incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,qilin,Clayco Electric,2025-10-22,-187,4,18.1,1,34,16,0.03,0
-incransom,parkerlipman.com,2026-03-05,incransom,Miesa,2025-09-09,-177,4,18.1,1,32,222,0.03,0
-incransom,brockmaninjurylawyer.com,2026-03-03,incransom,www.pucobre.cl,2026-02-02,-29,4,18.2,1,31,101,0.03,0
 qilin,Premier Medical Group,2026-06-26,incransom,www.entecheng.com,2025-07-17,-344,4,18.4,1,30,50,0.03,0
 incransom,www.campbell.edu,2026-04-11,qilin,BiznessHosting,2025-09-16,-207,4,18.6,1,39,18,0.03,0
-incransom,brockmaninjurylawyer.com,2026-03-03,incransom,bclawoffices.com,2026-03-03,0,4,18.8,1,31,32,0.03,0
 qilin,WireCo,2026-08-26,qilin,City of Winchester,2026-08-07,-19,4,19.2,1,37,21,0.03,0
 qilin,Premier Medical Group,2026-06-26,incransom,Lemon Law,2026-09-23,89,4,19.2,1,30,10,0.03,0
 qilin,WireCo,2026-08-26,qilin,AIP Asset Management,2025-10-04,-326,4,19.4,1,37,8,0.03,0
-incransom,parkerlipman.com,2026-03-05,incransom,tnlottery.com,2025-01-29,-400,4,19.5,1,32,30,0.03,0
 qilin,Premier Medical Group,2026-06-26,incransom,Woom GmbH,2025-11-22,-216,4,19.6,1,30,8,0.03,0
 incransom,cmswpc.com,2026-05-07,qilin,Brm,2026-02-19,-77,4,20.0,1,39,14,0.03,0
 incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,incransom,Nothing,2026-05-19,22,4,20.5,1,34,10,0.03,0
 incransom,www.campbell.edu,2026-04-11,qilin,morgan911.org,2025-07-24,-261,4,20.7,1,39,10,0.03,0
 incransom,www.campbell.edu,2026-04-11,incransom,Silergy Corp,2026-05-14,33,4,23.4,1,39,3,0.03,0
 incransom,DeRenzis & Associates,2026-01-25,incransom,ACS Accountancy,2026-02-15,21,0,13.9,1,52,26,0.02,0
-incransom,DeRenzis & Associates,2026-01-25,incransom,GARDNER ORTHOPEDICS,2025-05-06,-264,0,15.2,1,52,44,0.02,0
-incransom,DeRenzis & Associates,2026-01-25,incransom,American Pools & Spas,2025-12-02,-54,1,15.4,1,52,38,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,qilin,"Asahi Group Holdings, Ltd.",2025-10-07,-267,1,15.7,1,48,29,0.02,0
 incransom,DeRenzis & Associates,2026-01-25,qilin,WEBA Meubelen,2026-08-16,203,1,16.2,1,52,20,0.02,0
 incransom,DeRenzis & Associates,2026-01-25,qilin,Alert Medical Alarms,2025-06-30,-209,1,18.4,1,52,8,0.02,0
@@ -746,10 +626,10 @@ incransom,https://www.roundshield.com/,2026-07-01,incransom,IPE Engwicht,2024-11
 incransom,https://www.roundshield.com/,2026-07-01,incransom,gamaus.com,2026-08-12,42,2,16.3,1,48,14,0.02,0
 incransom,krwlawyers.com,2026-04-22,incransom,pacificwestinjury.com,2026-05-23,31,2,17.2,1,43,40,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,Wiraswasta Gemilang,2025-11-06,-237,2,17.9,1,48,23,0.02,0
-incransom,DeRenzis & Associates,2026-01-25,incransom,bergen1.net,2026-05-07,102,2,18.6,1,52,11,0.02,0
 incransom,Arban & Carosi,2026-04-14,incransom,distinctive-systems.com,2026-02-17,-56,2,18.7,1,64,23,0.02,0
 incransom,DeRenzis & Associates,2026-01-25,qilin,Flavor & Fragrance Specialties,2025-08-13,-165,2,21.9,1,52,4,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,yeanshalle.de,2025-03-10,-478,2,22.4,1,48,1,0.02,0
+incransom,thethibeauxfirm.com,2026-03-11,incransom,StudioVaiani,2025-05-01,-314,3,14.7,1,44,64,0.02,0
 incransom,Kentucky Injury,2026-03-11,incransom,ChokChey Finance,2026-02-02,-37,3,15.8,1,54,59,0.02,0
 incransom,ChokChey Finance,2026-02-02,incransom,Kentucky Injury,2026-03-11,37,3,16.1,1,59,54,0.02,0
 incransom,Arban & Carosi,2026-04-14,incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,13,3,16.2,1,64,34,0.02,0
@@ -758,7 +638,6 @@ incransom,DeRenzis & Associates,2026-01-25,qilin,Richmond Behavioral Health Auth
 incransom,DeRenzis & Associates,2026-01-25,qilin,nexa.bb,2025-07-11,-198,3,17.7,1,52,19,0.02,0
 incransom,glenmarkpharma.com,2026-03-25,qilin,Contacto Garantido,2026-07-26,123,3,18.4,1,62,15,0.02,0
 incransom,H-Behbehani Brothers WLL,2026-02-02,incransom,Nacsworld.com,2025-10-01,-124,3,18.6,1,45,28,0.02,0
-incransom,Arban & Carosi,2026-04-14,incransom,Woom GmbH,2025-11-22,-143,3,19.0,1,64,8,0.02,0
 incransom,glenmarkpharma.com,2026-03-25,incransom,ITL Systemhaus,2025-11-22,-123,3,19.4,1,62,6,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,ucv.es,2024-11-07,-601,3,19.9,1,48,29,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,egnyte.com,2026-05-07,-55,3,20.4,1,48,6,0.02,0
@@ -773,16 +652,12 @@ incransom,https://www.roundshield.com/,2026-07-01,incransom,Cape Fear Country Cl
 incransom,DeRenzis & Associates,2026-01-25,qilin,Machinerie P&W,2026-07-23,179,4,15.8,1,52,14,0.02,0
 incransom,tob-bmw.sk,2026-01-23,qilin,Mmlk,2025-11-19,-65,4,16.1,2,82,78,0.02,0
 incransom,Arban & Carosi,2026-04-14,incransom,naffco.com,2025-11-17,-148,4,16.3,1,64,49,0.02,0
+incransom,thethibeauxfirm.com,2026-03-11,incransom,CONTROLNET,2024-05-29,-651,4,16.3,1,44,15,0.02,0
 incransom,H-Behbehani Brothers WLL,2026-02-02,incransom,United Quality Cooperative / www.uqcoop.com,2026-04-27,84,4,16.3,1,45,34,0.02,0
-incransom,DeRenzis & Associates,2026-01-25,qilin,Metricon Homes,2025-08-07,-171,4,16.4,1,52,18,0.02,0
 incransom,thethibeauxfirm.com,2026-03-11,incransom,europe-qualité,2024-11-07,-489,4,16.7,1,44,33,0.02,0
-incransom,thethibeauxfirm.com,2026-03-11,qilin,Machinerie P&W,2026-07-23,134,4,17.2,1,44,14,0.02,0
-incransom,ChokChey Finance,2026-02-02,qilin,Lindabury,2026-05-08,95,4,17.2,1,59,11,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,qilin,Lingkaran Trans Kota Holdings Berhad,2025-05-16,-411,4,17.3,1,48,16,0.02,0
 incransom,Arban & Carosi,2026-04-14,incransom,submissionfinance.com,2026-03-31,-14,4,17.5,1,64,38,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,incransom,Foxconn Interconnect Technology Limited (FIT),2025-12-08,-205,4,17.6,1,48,21,0.02,0
-incransom,DeRenzis & Associates,2026-01-25,incransom,deerfield.com / singulargenomics.com,2025-09-11,-136,4,17.6,1,52,19,0.02,0
-incransom,ChokChey Finance,2026-02-02,incransom,Bitgo,2026-02-14,12,4,18.0,1,59,11,0.02,0
 incransom,wright-ryan.com,2026-04-10,incransom,Audubon Nature Institute (auduboninstitute.org),2024-04-23,-717,4,18.1,1,41,15,0.02,0
 incransom,Arban & Carosi,2026-04-14,qilin,Integrasoft,2025-10-19,-177,4,18.7,1,64,17,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,qilin,Rasi Laboratories,2025-10-15,-259,4,18.9,1,48,25,0.02,0
@@ -793,55 +668,32 @@ incransom,DeRenzis & Associates,2026-01-25,qilin,Pangea Travel Store,2025-09-25,
 incransom,Arban & Carosi,2026-04-14,qilin,City of Winchester,2026-08-07,115,4,20.6,1,64,21,0.02,0
 incransom,DeRenzis & Associates,2026-01-25,qilin,volpatoindustrie.it,2025-07-07,-202,4,20.6,1,52,6,0.02,0
 incransom,https://www.roundshield.com/,2026-07-01,qilin,Astro Industries Inc.,2025-07-25,-341,4,22.7,1,48,9,0.02,0
-incransom,Arban & Carosi,2026-04-14,incransom,Devon,2025-07-22,-266,4,23.1,1,64,5,0.02,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,Miesa,2025-09-09,-156,0,13.4,2,175,222,0.01,1
 incransom,Foamtec International,2026-02-01,incransom,Midwestern Oil & Gas,2026-02-12,11,0,13.9,1,101,175,0.01,1
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,phi.ca,2025-09-29,-136,1,14.5,1,175,63,0.01,0
-incransom,Midwestern Oil & Gas,2026-02-12,incransom,tob-bmw.sk,2026-01-23,-20,1,14.8,1,175,82,0.01,0
-incransom,Foamtec International,2026-02-01,incransom,Bitgo,2026-02-14,13,1,17.4,1,101,11,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,Venlogistics,2025-09-15,-150,2,14.6,1,175,55,0.01,0
 incransom,tob-bmw.sk,2026-01-23,incransom,Miesa,2025-09-09,-136,2,14.9,1,82,222,0.01,0
-incransom,Midwestern Oil & Gas,2026-02-12,incransom,cerboniservices.com,2026-03-24,40,2,15.4,1,175,67,0.01,0
-incransom,delapazlaw.com,2026-03-31,incransom,StudioVaiani,2025-05-01,-334,2,16.8,1,90,64,0.01,0
-incransom,Foamtec International,2026-02-01,incransom,Wiraswasta Gemilang,2025-11-06,-87,2,16.9,1,101,23,0.01,0
-incransom,cerboniservices.com,2026-03-24,incransom,StudioVaiani,2025-05-01,-327,3,13.8,1,67,64,0.01,0
-incransom,cerboniservices.com,2026-03-24,qilin,RehaVital Gesundheitsservice GmbH,2026-07-21,119,3,14.6,1,67,10,0.01,0
-incransom,cerboniservices.com,2026-03-24,incransom,dwgra.com,2025-10-26,-149,3,14.8,1,67,29,0.01,0
-incransom,cerboniservices.com,2026-03-24,incransom,Kaan Cronenberg & Partners Law,2025-11-13,-131,3,15.2,1,67,4,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,thethibeauxfirm.com,2026-03-11,27,3,15.2,2,175,44,0.01,0
-incransom,tob-bmw.sk,2026-01-23,incransom,StudioVaiani,2025-05-01,-267,3,15.7,1,82,64,0.01,0
 incransom,cerboniservices.com,2026-03-24,qilin,vericore.com,2025-10-16,-159,3,16.2,1,67,5,0.01,0
-incransom,Midwestern Oil & Gas,2026-02-12,incransom,starkaerospace.com,2025-01-23,-385,3,16.2,1,175,38,0.01,0
-incransom,www.pucobre.cl,2026-02-02,incransom,DeRenzis & Associates,2026-01-25,-8,3,17.4,1,101,52,0.01,0
 incransom,Foamtec International,2026-02-01,qilin,Pacific Building Solutions (PBS),2026-04-06,64,3,18.2,1,101,9,0.01,0
-incransom,www.pucobre.cl,2026-02-02,incransom,Bitgo,2026-02-14,12,3,18.3,1,101,11,0.01,0
 incransom,tob-bmw.sk,2026-01-23,qilin,Leone Film Group SpA,2026-04-27,94,3,18.3,1,82,11,0.01,0
 incransom,delapazlaw.com,2026-03-31,qilin,www.datamaxx.com,2025-10-08,-174,3,19.3,1,90,21,0.01,0
-incransom,tob-bmw.sk,2026-01-23,incransom,TLD Law.com,2025-09-24,-121,3,19.6,1,82,19,0.01,0
 incransom,delapazlaw.com,2026-03-31,qilin,Aarsleff,2026-09-16,169,3,22.2,1,90,13,0.01,0
 incransom,cerboniservices.com,2026-03-24,incransom,Venlogistics,2025-09-15,-190,4,14.0,1,67,55,0.01,0
 incransom,cerboniservices.com,2026-03-24,incransom,Radford City Schools,2025-08-01,-235,4,14.2,1,67,45,0.01,0
 incransom,cerboniservices.com,2026-03-24,incransom,www.pucobre.cl,2026-02-02,-50,4,14.4,1,67,101,0.01,0
 incransom,cerboniservices.com,2026-03-24,qilin,Machinerie P&W,2026-07-23,121,4,15.3,1,67,14,0.01,0
 incransom,Foamtec International,2026-02-01,incransom,www.marvimundo.com,2025-07-15,-201,4,15.6,1,101,56,0.01,0
-incransom,delapazlaw.com,2026-03-31,incransom,Midwestern Oil & Gas,2026-02-12,-47,4,15.7,1,90,175,0.01,0
-incransom,Foamtec International,2026-02-01,incransom,thethibeauxfirm.com,2026-03-11,38,4,15.8,1,101,44,0.01,0
 incransom,Foamtec International,2026-02-01,qilin,Mmlk,2025-11-19,-74,4,16.0,1,101,78,0.01,0
-incransom,delapazlaw.com,2026-03-31,incransom,Miesa,2025-09-09,-203,4,16.2,1,90,222,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,qilin,Brazosport College,2026-08-25,194,4,16.3,1,175,13,0.01,0
 incransom,www.pucobre.cl,2026-02-02,incransom,cerboniservices.com,2026-03-24,50,4,16.3,1,101,67,0.01,0
 incransom,delapazlaw.com,2026-03-31,incransom,Coop57,2025-04-08,-357,4,16.6,1,90,83,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,McKibbin,2024-12-01,-438,4,16.6,1,175,25,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,rainbowtel.net,2025-11-28,-76,4,16.7,1,175,45,0.01,0
-incransom,www.pucobre.cl,2026-02-02,incransom,www.entecheng.com,2025-07-17,-200,4,16.9,1,101,50,0.01,0
-incransom,Foamtec International,2026-02-01,qilin,Lindabury,2026-05-08,96,4,16.9,1,101,11,0.01,0
 incransom,tob-bmw.sk,2026-01-23,qilin,Orthopaedic Specialists of Massachusetts,2026-01-17,-6,4,17.2,1,82,22,0.01,0
-incransom,Foamtec International,2026-02-01,qilin,Brazosport College,2026-08-25,205,4,17.4,1,101,13,0.01,0
 incransom,Foamtec International,2026-02-01,qilin,Mountain Rheumatology,2026-07-17,166,4,17.5,1,101,29,0.01,0
 incransom,www.pucobre.cl,2026-02-02,qilin,Machinerie P&W,2026-07-23,171,4,17.7,1,101,14,0.01,0
 incransom,tob-bmw.sk,2026-01-23,incransom,Delano Adult School (DJUHSD.ORG),2024-04-17,-646,4,17.7,1,82,16,0.01,0
-incransom,www.pucobre.cl,2026-02-02,qilin,ANCO,2025-11-02,-92,4,17.8,1,101,39,0.01,0
-incransom,www.pucobre.cl,2026-02-02,qilin,Premier Medical Group,2026-06-26,144,4,17.9,1,101,30,0.01,0
 incransom,Foamtec International,2026-02-01,qilin,SiloKing,2025-06-27,-219,4,17.9,1,101,19,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,ITL Systemhaus,2025-11-22,-82,4,18.1,1,175,6,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,qilin,Bolt & Nut Manufacturing,2026-07-20,158,4,18.3,1,175,10,0.01,0
@@ -849,9 +701,10 @@ incransom,Foamtec International,2026-02-01,qilin,DISTINET MURCIA SL,2026-06-12,1
 incransom,polymedicure.com,2026-02-20,incransom,Youth Eastside Services,2024-12-17,-430,4,18.9,1,131,15,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,qilin,Mera Metal,2026-08-05,174,4,18.9,1,175,22,0.01,0
 incransom,Foamtec International,2026-02-01,incransom,aclaser.com.au,2024-11-23,-435,4,18.9,1,101,12,0.01,0
-incransom,delapazlaw.com,2026-03-31,incransom,napolinlaw.com,2026-03-03,-28,4,19.2,1,90,17,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,arkansasprimarycare.com,2025-04-22,-296,4,19.7,1,175,7,0.01,0
 incransom,polymedicure.com,2026-02-20,qilin,Cenomi Retail,2025-07-03,-232,4,20.1,1,131,18,0.01,0
 incransom,Foamtec International,2026-02-01,incransom,minigrip.com.mx,2026-07-24,173,4,20.2,1,101,6,0.01,0
 incransom,delapazlaw.com,2026-03-31,qilin,Mulino Padano,2026-08-16,138,4,20.6,1,90,14,0.01,0
 incransom,Midwestern Oil & Gas,2026-02-12,incransom,wog-kaiserbaeder.de,2025-03-09,-340,4,25.0,1,175,1,0.01,0
+incransom,Foamtec International,2026-02-01,incransom,Miesa,2025-09-09,-145,0,13.5,0,101,222,0.0,1
+incransom,Midwestern Oil & Gas,2026-02-12,incransom,Foamtec International,2026-02-01,-11,0,13.8,0,175,101,0.0,1

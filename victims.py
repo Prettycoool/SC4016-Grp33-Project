@@ -1206,6 +1206,9 @@ def proofs(groups=None, workers=6):
     main()
 
 PROOF_DISTANCE_MAX = 4
+# plain pages (tables, blank forms) hash alike, so an image with many posts near it is not a re-post either
+PROOF_DENSITY_RADIUS = 6
+PROOF_DENSITY_MIN = 15
 POPCOUNT = np.array([bin(i).count('1') for i in range(256)], dtype=np.uint8)
 
 def bit_distance(left, right):
@@ -1228,6 +1231,11 @@ def write_proof_distances(study, records):
                 owners.append(index)
     hashes, owners = np.array(hashes, dtype=np.uint64), np.array(owners)
     study_keys = {victimkey(r['group'], r['victim']) for r in study}
+    # the same file under two posts is a re-post however crowded its hash is
+    sha_owners = {}
+    for index, record in enumerate(posts):
+        for value in set((record.get('proof_sha256') or '').split(';')) - {''}:
+            sha_owners.setdefault(value, set()).add(index)
     rows = []
     for index, record in enumerate(posts):
         if victimkey(record['group'], record['victim']) not in study_keys:
@@ -1240,10 +1248,12 @@ def write_proof_distances(study, records):
         close = distance <= PROOF_DISTANCE_MAX
         # an image close to many posts is a banner or a blank-ish page, not a re-post
         for row in range(close.shape[0]):
-            if len(set(others[close[row]])) > PROOF_TEMPLATE_MIN:
+            if (len(set(others[close[row]])) > PROOF_TEMPLATE_MIN
+                    or len(set(others[distance[row] <= PROOF_DENSITY_RADIUS])) > PROOF_DENSITY_MIN):
                 close[row] = False
         sha = set((record.get('proof_sha256') or '').split(';')) - {''}
-        for other in sorted(set(others[close.any(axis=0)])):
+        same_file = set().union(*(sha_owners[value] for value in sha)) - {index}
+        for other in sorted(set(others[close.any(axis=0)]) | same_file):
             columns = others == other
             best = distance[:, columns].min(axis=1)
             matched = posts[other]
