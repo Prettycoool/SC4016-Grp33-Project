@@ -53,6 +53,7 @@ COLUMNS = [
     'activity', 'activity_raw', 'activity_source',
     'revenue_usd', 'revenue_band', 'revenue_source', 'employees', 'employee_band', 'employees_source',
     'data_types', 'data_types_source', 'leak_subject', 'listing_entries', 'data_size', 'data_files', 'proof_count', 'proof_ids', 'proof_sha256', 'proof_dhash',
+    'proof_source',
     'encrypted', 'status', 'views',
     'description', 'leak_claim', 'leak_claim_generic', 'post_url', 'source_url',
 ]
@@ -937,6 +938,7 @@ def backfill(since, maxpages=100, workers=6, groups=None):
 leak listings
 safepay & qilin say nothing about what they took, but publish a browsable index of the stolen files.
 only that index is read, never a file: archive links are skipped, non-html responses are dropped unread
+(the one exception is rw proofs, which hashes a few safepay images in memory - see proof hashes below)
 and every response is capped. folder & file names often carry personal data (people's names, patients,
 employees), so names only ever exist in memory - each is turned into a data type on the spot and only the
 per-type counts are kept, in source/listing/ & on the record. no name is ever logged or written to disk
@@ -1001,8 +1003,9 @@ def fetch_capped(url):
         return None, None
 
 def listing_entries(content, url):
-    '''(names, subfolder urls) on an index page - autoindex style links, or name/path fields of a json index'''
-    names, folders = [], []
+    '''(names, subfolder urls, file urls) on an index page - autoindex style links, or name/path fields of a json
+    index. file urls are only for autoindex pages, a json index gives no links'''
+    names, folders, files = [], [], []
     if content.lstrip()[:1] in '[{':
         try:
             stack = [json.loads(content)]
@@ -1016,7 +1019,7 @@ def listing_entries(content, url):
                 stack.extend(v for v in item.values() if isinstance(v, (dict, list)))
             elif isinstance(item, list):
                 stack.extend(item)
-        return names, folders
+        return names, folders, files
     host = urlsplit(url).netloc
     for link in BeautifulSoup(content, 'html.parser').find_all('a'):
         href, text = link.get('href', ''), clean(link.get_text()) or ''
@@ -1028,11 +1031,14 @@ def listing_entries(content, url):
         # an autoindex link extends the index url, other indexes (qilin) are read by link text
         if target.startswith(url):
             names.append(unquote(target[len(url):].rstrip('/')))
-            if target.endswith('/') and not ARCHIVE_RE.search(target.rstrip('/')):
-                folders.append(target)
+            if target.endswith('/'):
+                if not ARCHIVE_RE.search(target.rstrip('/')):
+                    folders.append(target)
+            else:
+                files.append(target)
         elif text:
             names.append(text)
-    return names, folders
+    return names, folders, files
 
 def name_types(name):
     '''data types a folder or file name points at - "HR_Payroll/Lohn2024.xlsx" -> employee & financial'''
@@ -1050,7 +1056,7 @@ def read_listing(url):
     content, url = fetch_capped(url)
     if content is None:
         return None
-    names, folders = listing_entries(content, url)
+    names, folders, _ = listing_entries(content, url)
     for folder in folders[:LISTING_MAX_SUBDIRS]:
         page, served = fetch_capped(folder)
         if page:
@@ -1117,11 +1123,18 @@ a group's proof ids are upload ids, so the same screenshot posted again gets a n
 proofs each proof image is fetched & hashed - sha256 for the identical file, a 64 bit difference hash for
 the same picture re-saved or resized. proofs are usually photos of the stolen documents, so an image only
 ever exists in memory: it is hashed & dropped, never written to disk, and only the hashes are kept
-(source/proofhash/<group>.json, proof id -> [sha256, dhash]). qilin is read from its thumbnails
+(source/proofhash/<group>.json, proof id -> [sha256, dhash]). qilin is read from its thumbnails.
+safepay posts no proofs, so up to LISTING_PROOF_MAX images are taken from each published post's leak index
+instead, hashed the same way. their ids are sha1s of the url, never the file name, and
+source/proofhash/safepay-posts.json says which ids belong to which index
 '''
 
 PROOF_MAX_BYTES = 10 * 1024 * 1024
 PROOF_GROUPS = ('qilin', 'incransom')
+# groups that post no proofs - a few images from the leak index stand in for them (proof_source = listing)
+LISTING_PROOF_GROUPS = ('safepay',)
+LISTING_PROOF_MAX = 15
+IMAGE_RE = re.compile(r'\.(jpe?g|png|gif|webp|bmp|tiff?)$', re.IGNORECASE)
 QILIN_THUMB_RE = re.compile(r'src="(/uploads/blog/\d+/photos/thumbs/([0-9a-f]{32})\.\w+)"')
 # a hash shared by more posts than this is a group banner or template, not a re-post
 PROOF_TEMPLATE_MIN = 5
@@ -1154,7 +1167,9 @@ def hash_proof(url):
     '''[sha256, dhash] of the image at url, or None - the image itself is never kept'''
     try:
         with requests.get(url, proxies=oproxies, headers=headers(), timeout=90, verify=False, stream=True) as response:
-            if response.status_code != 200 or not response.headers.get('Content-Type', '').startswith('image/'):
+            kind = response.headers.get('Content-Type', '').lower()
+            # file servers often send images as octet-stream - anything that isn't an image fails Image.open
+            if response.status_code != 200 or not kind.startswith(('image/', 'application/octet-stream')):
                 return None
             body = b''
             for chunk in response.iter_content(65536):
@@ -1171,25 +1186,93 @@ def proof_hash_cache(group):
     path = os.path.join(PROOFHASHDIR, group + '.json')
     return openjson(path) if os.path.exists(path) else {}
 
-def apply_proof_hashes(records):
-    caches = {group: proof_hash_cache(group) for group in PROOF_GROUPS}
+def listing_key(url):
+    return hashlib.sha1(url.encode()).hexdigest()[:16]
+
+def proof_posts_cache(group):
+    '''leak index key -> ids of the images sampled from it'''
+    path = os.path.join(PROOFHASHDIR, group + '-posts.json')
+    return openjson(path) if os.path.exists(path) else {}
+
+def listing_images(url):
+    '''
+    {proof id: url} for up to LISTING_PROOF_MAX images in a leak index & its subfolders, or None if the index
+    can't be read. the url carries the file name, so only its sha1 is ever stored as the id. sorted, so a rerun
+    samples the same images
+    '''
+    content, url = fetch_capped(url)
+    if content is None:
+        return None
+    _, folders, files = listing_entries(content, url)
+    for folder in folders[:LISTING_MAX_SUBDIRS]:
+        page, served = fetch_capped(folder)
+        if page:
+            files.extend(listing_entries(page, served)[2])
+    images = sorted(f for f in set(files) if IMAGE_RE.search(urlsplit(f).path))[:LISTING_PROOF_MAX]
+    return {hashlib.sha1(image.encode()).hexdigest(): image for image in images}
+
+def sample_listings(group, records, cache, workers):
+    '''{proof id: url} of the images to hash for every published post whose index isn't fully hashed yet'''
+    posts = proof_posts_cache(group)
+    todo = {}
     for record in records:
-        hashes = [caches[record['group']][p] for p in (record.get('proof_ids') or '').split(';')
-                  if record['group'] in caches and p in caches[record['group']]]
+        if record['group'] != group or record.get('status') == 'pending' or not record.get('post_url'):
+            continue
+        url = listing_url(record)
+        if url and not (listing_key(url) in posts and all(p in cache for p in posts[listing_key(url)])):
+            todo[listing_key(url)] = url
+    stdlog('victims: proofs - ' + group + ' - ' + str(len(todo)) + ' leak indexes to sample')
+    found = {}
+    def work(item):
+        images = listing_images(item[1])
+        if images is not None:
+            posts[item[0]] = sorted(images)
+            found.update(images)
+        return images is not None
+    items = list(todo.items())
+    probe = [work(item) for item in items[:LISTING_PROBE]]
+    if items and not any(probe):
+        errlog('victims: proofs - ' + group + ' - first ' + str(len(probe)) + ' indexes unreachable, skipping '
+               + str(len(items) - len(probe)) + ' more')
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            list(pool.map(work, items[LISTING_PROBE:]))
+    with open(os.path.join(PROOFHASHDIR, group + '-posts.json'), 'w', encoding='utf-8') as cachefile:
+        json.dump(posts, cachefile)
+    return found
+
+def apply_proof_hashes(records):
+    caches = {group: proof_hash_cache(group) for group in PROOF_GROUPS + LISTING_PROOF_GROUPS}
+    posts = {group: proof_posts_cache(group) for group in LISTING_PROOF_GROUPS}
+    for record in records:
+        group = record['group']
+        if group in posts:
+            url = listing_url(record) if record.get('post_url') else None
+            ids = [p for p in posts[group].get(listing_key(url), []) if p in caches[group]] if url else []
+            record['proof_ids'] = ';'.join(ids) or None
+            record['proof_count'] = len(ids) or None
+        hashes = [caches[group][p] for p in (record.get('proof_ids') or '').split(';')
+                  if group in caches and p in caches[group]]
         record['proof_sha256'] = ';'.join(h[0] for h in hashes) or None
         record['proof_dhash'] = ';'.join(h[1] for h in hashes) or None
+        if record.get('proof_ids'):
+            record['proof_source'] = 'listing' if group in posts else 'site'
+        else:
+            record['proof_source'] = None
 
 def proofs(groups=None, workers=6):
     '''hash every proof image not hashed yet, then rebuild the tables'''
     records = list(load_existing(HISTJSON).values()) + list(load_existing().values())
     os.makedirs(PROOFHASHDIR, exist_ok=True)
-    for group in PROOF_GROUPS:
+    for group in PROOF_GROUPS + LISTING_PROOF_GROUPS:
         if groups and group not in groups:
             continue
         cache = proof_hash_cache(group)
         todo = {}
+        if group in LISTING_PROOF_GROUPS:
+            todo = {p: u for p, u in sample_listings(group, records, cache, workers).items() if p not in cache}
         for record in records:
-            if record['group'] == group:
+            if record['group'] == group and group in PROOF_GROUPS:
                 todo.update({p: u for p, u in proof_urls(record).items() if p not in cache})
         stdlog('victims: proofs - ' + group + ' - ' + str(len(todo)) + ' images to hash, ' + str(len(cache)) + ' done')
         items = list(todo.items())

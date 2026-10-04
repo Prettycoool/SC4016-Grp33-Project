@@ -36,7 +36,7 @@ rw backfill --name akira,play   # backfill only the named groups (comma separate
 rw backfill --since 2023-01-01 --pages 400   # deep history: posts before 2026 go to data/history.json/.csv, the 2026 table is unchanged
 rw listings   # read the leak file indexes of published safepay/qilin posts → data types (see "Leak listings" below)
 rw listings --name safepay   # only the named groups
-rw proofs     # hash every qilin/incransom proof image (kept in memory only) → proof_sha256/proof_dhash + data/proof_distances.csv
+rw proofs     # hash every qilin/incransom proof image, plus up to 15 images per safepay leak index (kept in memory only) → proof_sha256/proof_dhash + data/proof_distances.csv
 rw add --name <group> --location http://<address>.onion   # track a new site
 ```
 
@@ -52,7 +52,7 @@ What each leak site publishes, and so which columns can be filled. "No" means th
 | `revenue_usd` | rarely, in text | yes | no | no | posts before 2026 (`Revenue $X Million`) |
 | `employees` | rarely, in text | `Employees:` line on some posts | no | no | sometimes, in text |
 | `activity_raw` | no | `Industry:` line on some posts | yes | yes | no |
-| proof images | no | yes | no | yes | no |
+| proof images | no | yes | no | yes | sampled from the leak index (`rw proofs`) |
 | `encrypted` | no | yes (tag) | no | no | no |
 
 ## Output fields
@@ -89,10 +89,11 @@ One row per victim post. Both files have the same columns. `victims.csv` holds p
 | `leak_subject` | whose data that is: `Customers`, `Employees`, `Individuals (unspecified)`, `Company`. `Unclassified` if there is a claim but no type matched |
 | `data_size` | claimed leak size, e.g. `130 GB` (play, qilin, akira/incransom claims, incransom `Laek:` lines and pasted `dir` listings) |
 | `data_files` | claimed file count (qilin, incransom pasted `dir` listings) |
-| `proof_count` | number of proof files/screenshots posted (incransom, qilin) |
-| `proof_ids` | identifiers of the proof files as the site names them (qilin photo names, incransom upload ids). These are upload ids, so the same screenshot posted again gets a new id |
+| `proof_count` | number of proof files/screenshots posted (incransom, qilin), or of images sampled from the leak index (safepay) |
+| `proof_ids` | identifiers of the proof files as the site names them (qilin photo names, incransom upload ids). These are upload ids, so the same screenshot posted again gets a new id. For safepay, the SHA-1 of each sampled image's URL (the file name itself is never stored) |
 | `proof_sha256` | SHA-256 of each proof image, in `proof_ids` order (`rw proofs`). Same value = byte-identical image |
 | `proof_dhash` | 64-bit perceptual (difference) hash of each proof image. Same value = the same picture, even if re-saved or resized |
+| `proof_source` | `site` (proofs the group posted: qilin, incransom) or `listing` (images sampled from safepay's leak index, not chosen by the group as proof). Filter on it if you only want real proofs |
 | `encrypted` | `True` if the site tags the post as encrypted (incransom). Empty means unknown, not "not encrypted" |
 | `status` | post state as the site shows it: `published` / `pending` (akira, qilin, safepay), `published full` / `N days before publication` (play), post tags like `Encrypted,Proof,AD%20Dump` (incransom) |
 | `views` | view counter shown on the leak site |
@@ -108,7 +109,7 @@ safepay and qilin don't say what they stole, but they publish a browsable index 
 
 How this stays safe:
 
-- **No leak file is ever downloaded.** Archive links (`.rar`, `.zip`, …) are never requested, any response that isn't an HTML/JSON page is dropped unread, and every page is capped at 2 MB.
+- **No leak file is ever downloaded by `rw listings`.** The one exception is `rw proofs`, which hashes up to 15 safepay images per post in memory (see "Proof hashes" below). Archive links (`.rar`, `.zip`, …) are never requested, any response that isn't an HTML/JSON page is dropped unread, and every page is capped at 2 MB.
 - **No folder or file name is ever stored.** Names often contain personal data (people's names, patients, employees). Each name is mapped to a data type in memory and thrown away. Only per-type counts are saved, in `source/listing/*.json`. Names are never logged.
 - A type is kept only if at least 2 names point to it, and listing types are used only when the group's own claim gives none.
 - Requests go through Tor like the rest of the scrape.
@@ -121,8 +122,9 @@ Proof IDs can't show a re-posted leak, because a re-upload gets a new ID. `rw pr
 - **Images are never saved.** Proofs are usually photos of the stolen documents. Each image is held in memory, hashed and discarded. Only the two hashes are kept, in `source/proofhash/<group>.json` (proof id → `[sha256, dhash]`).
 - Responses that aren't images, or are over 10 MB, are skipped.
 - Progress is saved every 200 images, so an interrupted run picks up where it stopped. Already-hashed proofs are never fetched again.
-- A full first run takes a few hours: about 8,200 qilin thumbnails (~15 KB each) and about 8,200 full-size incransom images (incransom has no thumbnails).
-- akira, play and safepay post no proof images.
+- A full first run takes a few hours: about 8,200 qilin thumbnails (~15 KB each) and about 8,200 full-size incransom images (incransom has no thumbnails). safepay adds about 430 leak indexes and up to about 6,400 images (`rw proofs --name safepay` runs only that part).
+- safepay posts no proof images, so `rw proofs` takes up to 15 image files (`.jpg`, `.png`, …) from each published post's leak index and its first level of subfolders and hashes them the same way. The images are picked in sorted URL order, so a rerun samples the same ones. Only the SHA-1 of each image URL is kept as its id, never the file name. `source/proofhash/safepay-posts.json` records which ids belong to which post. These images come from the leak itself, not a proof set the group chose, so they are marked `proof_source = listing`.
+- akira and play post no proof images and publish their leaks only as archives (akira by torrent, play as password-protected RARs), so they have no proof hashes. Their archives are never downloaded.
 
 ### `data/proof_distances.csv`
 
