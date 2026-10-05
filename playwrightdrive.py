@@ -7,18 +7,17 @@ used as a fallback to geckodrive.py for sites that fail against selenium
 '''
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError, Error as PlaywrightError
 
-from sharedutils import checktcp
+from sharedutils import requiresocks
 from sharedutils import randomagent
 from sharedutils import sockshost, socksport
-from sharedutils import stdlog, dbglog, errlog, honk
+from sharedutils import stdlog, dbglog, errlog
 
 def main(webpage):
     stdlog('playwrightdrive: ' + 'starting to fetch ' + webpage)
     proxy = None
     if '.onion' in webpage:
         stdlog('playwrightdrive: ' + 'appears we are dealing with an onionsite')
-        if not checktcp(sockshost, socksport):
-            honk('playwrightdrive: ' + 'socks proxy unavailable and required to fetch onionsites!')
+        requiresocks('playwrightdrive: ')
         proxy = {'server': 'socks5://' + sockshost + ':' + str(socksport)}
         dbglog('playwrightdrive: ' + 'configured proxy - ' + proxy['server'])
     source = None

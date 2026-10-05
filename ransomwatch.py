@@ -7,7 +7,6 @@ does what it says on the tin
 '''
 import os
 import sys
-import json
 import argparse
 from datetime import datetime
 
@@ -18,14 +17,12 @@ import playwrightdrive
 from markdown import main as markdown
 
 from sharedutils import striptld
-from sharedutils import openjson
-from sharedutils import checktcp
+from sharedutils import openjson, writejson
+from sharedutils import requiresocks
 from sharedutils import siteschema
 from sharedutils import socksfetcher
 from sharedutils import getsitetitle
-from sharedutils import getonionversion
 from sharedutils import checkgeckodriver
-from sharedutils import sockshost, socksport
 from sharedutils import stdlog, dbglog, errlog, honk
 
 if len(sys.argv) == 1:
@@ -61,13 +58,8 @@ args = parser.parse_args()
 if args.mode == ('add') and (args.name is None or args.location is None):
     parser.error("operation requires --name and --location")
 
-if args.location:
-    if args.location.endswith('.onion'):
-        siteinfo = getonionversion(args.location)
-        if siteinfo[0] is None:
-            parser.error("location does not appear to be a v2 or v3 onionsite")
-    else:
-        errlog("location does not appear to be an onionsite, assuming clearnet")
+if args.location and not args.location.endswith('.onion'):
+    errlog("location does not appear to be an onionsite, assuming clearnet")
 
 def creategroup(name, location):
     '''
@@ -131,17 +123,14 @@ def scraper():
                     stdlog('ransomwatch: ' + 'saving ' + name)
                     with open(name, 'w', encoding='utf-8') as sitesource:
                         sitesource.write(response)
-                        sitesource.close()
                     dbglog('ransomwatch: ' + 'saving ' + name + ' successful')
                     host['available'] = True
                     host['title'] = getsitetitle(name)
                     host['lastscrape'] = str(datetime.today())            
                     host['updated'] = str(datetime.today())
                     dbglog('ransomwatch: ' + 'scrape successful')
-                    with open('groups.json', 'w', encoding='utf-8') as groupsfile:
-                        json.dump(groups, groupsfile, ensure_ascii=False, indent=4)
-                        groupsfile.close()
-                        dbglog('ransomwatch: ' + 'groups.json updated')
+                    writejson('groups.json', groups)
+                    dbglog('ransomwatch: ' + 'groups.json updated')
                 else:
                     errlog('ransomwatch: ' + 'task on ' + group['name'] + ' failed to return a response')
             else:
@@ -158,8 +147,7 @@ def adder(name, location):
         groups = openjson("groups.json")
         newrec = creategroup(name, location)
         groups.append(dict(newrec))
-        with open('groups.json', 'w', encoding='utf-8') as groupsfile:
-            json.dump(groups, groupsfile, ensure_ascii=False, indent=4)
+        writejson('groups.json', groups)
         stdlog('ransomwatch: ' + 'record for ' + name + ' added to groups.json')
 
 def appender(name, location):
@@ -174,15 +162,13 @@ def appender(name, location):
             group['locations'].append(siteschema(location))
             success = True
     if success:
-        with open('groups.json', 'w', encoding='utf-8') as groupsfile:
-            json.dump(groups, groupsfile, ensure_ascii=False, indent=4)
+        writejson('groups.json', groups)
     else:
         honk('cannot append to non-existing provider')
 
 if args.mode == 'scrape':
     stdlog('ransomwatch: ' + 'starting scrape job on all active group locations')
-    if not checktcp(sockshost, socksport):
-        honk("socks proxy unavailable and required to fetch onionsites!")
+    requiresocks()
     if checkgeckodriver() is False:
         honk('ransomwatch: ' + 'geckodriver not found in $PATH and required for scraping')
     scraper()
@@ -194,20 +180,20 @@ if args.mode == 'add':
 if args.mode == 'victims':
     victims.main()
 
+# backfill, listings & proofs take --name as a comma separated list of groups
+names = args.name.split(',') if args.name else None
+
 if args.mode == 'backfill':
-    if not checktcp(sockshost, socksport):
-        honk("socks proxy unavailable and required to fetch onionsites!")
-    victims.backfill(args.since, maxpages=args.pages, groups=args.name.split(',') if args.name else None)
+    requiresocks()
+    victims.backfill(args.since, maxpages=args.pages, groups=names)
 
 if args.mode == 'listings':
-    if not checktcp(sockshost, socksport):
-        honk("socks proxy unavailable and required to fetch onionsites!")
-    victims.listings(groups=args.name.split(',') if args.name else None)
+    requiresocks()
+    victims.listings(groups=names)
 
 if args.mode == 'proofs':
-    if not checktcp(sockshost, socksport):
-        honk("socks proxy unavailable and required to fetch onionsites!")
-    victims.proofs(groups=args.name.split(',') if args.name else None)
+    requiresocks()
+    victims.proofs(groups=names)
 
 if args.mode == 'markdown':
     markdown()
@@ -320,7 +306,6 @@ if args.mode == 'parse':
     parsers.alphalocker()
     parsers.ransomhub()
     parsers.lockbit3fs()
-    #parsers.mogilevich()
     parsers.blackout()
     parsers.donex()
     parsers.killsecurity()

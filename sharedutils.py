@@ -8,7 +8,6 @@ import sys
 import json
 import time
 import socket
-import codecs
 import random
 import logging
 from datetime import datetime
@@ -17,7 +16,6 @@ import subprocess
 import tldextract
 import lxml.html
 import requests
-from requests_oauthlib import OAuth1
 import tweepy
 
 sockshost = '127.0.0.1'
@@ -93,27 +91,6 @@ def headers():
     '''
     headerstr = {'User-Agent': str(randomagent())}
     return headerstr
-
-def metafetch(url):
-    '''
-    return the status code & http server using oproxies and headers
-    '''
-    try:
-        stdlog('sharedutils: ' + 'meta prefetch request to ' + str(url))
-        request = requests.head(url, proxies=oproxies, headers=headers(), timeout=35)
-        statcode = request.status_code
-        try:
-            response = request.headers['server']
-            return statcode, response
-        except KeyError as ke:
-            errlog('sharedutils: ' + 'meta prefetch did not discover server - ' + str(ke))
-            return statcode, None
-    except requests.exceptions.Timeout as ret:
-        errlog('sharedutils: ' + 'meta request timeout - ' + str(ret))
-        return None, None
-    except requests.exceptions.ConnectionError as rec:
-        errlog('sharedutils: ' + 'meta request connection error - ' + str(rec))
-        return None, None
 
 def socksfetcher(url):
     '''
@@ -225,18 +202,11 @@ def gcount(posts):
             group_counts[post['group_name']] = 1
     return group_counts
 
-def hasprotocol(slug):
-    '''
-    checks if a url begins with http - cheap protocol check before we attempt to fetch a page
-    '''
-    return bool(slug.startswith('http'))
-
 def getapex(slug):
     '''
     returns the domain for a given webpage/url slug
     '''
     stripurl = tldextract.extract(slug)
-    print(stripurl)
     if stripurl.subdomain:
         return stripurl.subdomain + '.' + stripurl.domain + '.' + stripurl.suffix
     return stripurl.domain + '.' + stripurl.suffix
@@ -268,14 +238,6 @@ def getonionversion(slug):
         version = 0
     return version, location
 
-def openhtml(file):
-    '''
-    opens a file and returns the html
-    '''
-    with open(file, 'r', encoding='utf-8') as f:
-        html = f.read()
-    return html
-
 def openjson(file):
     '''
     opens a file and returns the json as a dict
@@ -283,6 +245,13 @@ def openjson(file):
     with open(file, encoding='utf-8') as jsonfile:
         data = json.load(jsonfile)
     return data
+
+def writejson(file, data, **kwargs):
+    '''
+    writes data to a file as json - utf-8 kept as is & indented unless told otherwise
+    '''
+    with open(file, 'w', encoding='utf-8') as jsonfile:
+        json.dump(data, jsonfile, **{'ensure_ascii': False, 'indent': 4, **kwargs})
 
 def checktcp(host, port):
     '''
@@ -298,86 +267,51 @@ def checktcp(host, port):
     stdlog('sharedutils: ' + 'socket failed connection to ' + str(host) + ':' + str(port))
     return False
 
+def requiresocks(prefix=''):
+    '''
+    exits if the socks proxy needed to reach onionsites is down
+    '''
+    if not checktcp(sockshost, socksport):
+        honk(prefix + 'socks proxy unavailable and required to fetch onionsites!')
+
 def postcount():
-    post_count = 1
-    posts = openjson('posts.json')
-    for post in posts:
-        post_count += 1
-    return post_count
+    # counts from 1, as it always has - the published totals carry that offset
+    return len(openjson('posts.json')) + 1
 
 def groupcount():
     groups = openjson('groups.json')
     return len(groups)
 
 def parsercount():
-    groups = openjson('groups.json')
-    parse_count = 1
-    for group in groups:
-        if group['parser'] is True:
-            parse_count += 1
-    return parse_count
+    # counts from 1, as it always has
+    return 1 + sum(1 for group in openjson('groups.json') if group['parser'] is True)
 
-def hostcount():
-    groups = openjson('groups.json')
-    host_count = 0
-    for group in groups:
-        for host in group['locations']:
-            host_count += 1
-    return host_count
+def hostcount(online_only=False):
+    '''
+    number of locations across all groups, or only those up at the last scrape
+    '''
+    return sum(1 for group in openjson('groups.json') for host in group['locations']
+               if host['available'] is True or not online_only)
 
-def onlinecount():
-    groups = openjson('groups.json')
-    online_count = 0
-    for group in groups:
-        for host in group['locations']:
-            if host['available'] is True:
-                online_count += 1
-    return online_count
+def countposts(within):
+    '''
+    number of posts whose discovered time passes the within check
+    '''
+    return sum(1 for post in openjson('posts.json')
+               if within(datetime.strptime(post['discovered'], '%Y-%m-%d %H:%M:%S.%f')))
 
 def monthlypostcount():
-    '''
-    returns the number of posts within the current month
-    '''
-    post_count = 0
-    posts = openjson('posts.json')
-    current_month = datetime.now().month
-    current_year = datetime.now().year
-    for post in posts:
-        datetime_object = datetime.strptime(post['discovered'], '%Y-%m-%d %H:%M:%S.%f')
-        if datetime_object.year == current_year and datetime_object.month == current_month:
-                post_count += 1
-    return post_count
+    '''returns the number of posts within the current month'''
+    now = datetime.now()
+    return countposts(lambda found: found.year == now.year and found.month == now.month)
 
 def postssince(days):
     '''returns the number of posts within the last x days'''
-    post_count = 0
-    posts = openjson('posts.json')
-    for post in posts:
-        datetime_object = datetime.strptime(post['discovered'], '%Y-%m-%d %H:%M:%S.%f')
-        if datetime_object > datetime.now() - timedelta(days=days):
-            post_count += 1
-    return post_count
+    return countposts(lambda found: found > datetime.now() - timedelta(days=days))
 
 def poststhisyear():
     '''returns the number of posts within the current year'''
-    post_count = 0
-    posts = openjson('posts.json')
-    current_year = datetime.now().year
-    for post in posts:
-        datetime_object = datetime.strptime(post['discovered'], '%Y-%m-%d %H:%M:%S.%f')
-        if datetime_object.year == current_year:
-            post_count += 1
-    return post_count
-
-def postslast24h():
-    '''returns the number of posts within the last 24 hours'''
-    post_count = 0
-    posts = openjson('posts.json')
-    for post in posts:
-        datetime_object = datetime.strptime(post['discovered'], '%Y-%m-%d %H:%M:%S.%f')
-        if datetime_object > datetime.now() - timedelta(hours=24):
-            post_count += 1
-    return post_count
+    return countposts(lambda found: found.year == datetime.now().year)
 
 def todiscord(post_title, group, hook_uri):
     '''
@@ -413,56 +347,6 @@ def todiscord(post_title, group, hook_uri):
         honk('sharedutils: ' + 'recieved discord webhook error resonse ' + str(hookpost.status_code) + ' with text ' + str(hookpost.text))
     return False
 
-def toteams(post_title, group):
-    '''
-    sends a post to a miCroSoFt tEaMs webhook defined as an envar
-    '''
-    stdlog('sharedutils: ' + 'sending to microsoft teams webhook')
-    # avoid json decode errors by escaping the title if contains \ or "
-    post_title = post_title.replace('\\', '\\\\').replace('"', '\\"')
-    teams_data = '''
-    {
-    "type":"message",
-    "attachments":[
-        {
-            "contentType":"application/vnd.microsoft.card.adaptive",
-            "contentUrl":null,
-            "content":{
-                "type": "AdaptiveCard",
-                "body": [
-                    {
-                        "type": "TextBlock",
-                        "text": "%s",
-                        "isSubtle": true,
-                        "wrap": true
-                    }
-                ],
-                "actions": [
-                    {
-                        "type": "Action.OpenUrl",
-                        "title": "%s",
-                        "url": "https://ransomwatch.telemetry.ltd/#/profiles?id=%s"
-                    }
-                ],
-                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-                "version": "1.4"
-            }
-        }
-    ]
-    }''' % (post_title, group, group)
-    try:
-        hook_uri = os.environ.get('MS_TEAMS_WEBHOOK')
-        hookpost = requests.post(hook_uri, data=teams_data, headers={'Content-Type': 'application/json'})
-    except requests.exceptions.RequestException as e:
-        honk('sharedutils: ' + 'error sending to microsoft teams webhook: ' + str(e))
-    if hookpost.status_code == 200:
-        return True
-    if hookpost.status_code == 429:
-        errlog('sharedutils: ' + 'microsoft teams webhook rate limit exceeded')
-    else:
-        honk('sharedutils: ' + 'recieved microsoft teams webhook error resonse ' + str(hookpost.status_code) + ' with text ' + str(hookpost.text))
-    return False
-    
 def totweet(post_title, group):
     stdlog('sharedutils: ' + 'posting to x')
     X_CONSUMER_KEY = str(os.environ.get('X_CONSUMER_KEY'))

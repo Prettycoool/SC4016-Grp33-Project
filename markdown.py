@@ -5,20 +5,17 @@ import time
 import urllib.parse
 from datetime import datetime as dt
 
-from sharedutils import gcount
 from sharedutils import openjson
 from sharedutils import postcount
 from sharedutils import hostcount
 from sharedutils import groupcount
 from sharedutils import postssince
 from sharedutils import parsercount
-from sharedutils import onlinecount
-from sharedutils import postslast24h
 from sharedutils import poststhisyear
 from sharedutils import currentmonthstr
 from sharedutils import monthlypostcount
-from sharedutils import stdlog, dbglog, errlog, honk
-from plotting import trend_posts_per_day, plot_posts_by_group, pie_posts_by_group, plot_posts_by_group_past_7_days
+from sharedutils import stdlog, dbglog
+from plotting import trend_posts_per_day, plot_posts_by_group, pie_posts_by_group
 
 def suffix(d):
     return 'th' if 11<=d<=13 else {1:'st',2:'nd',3:'rd'}.get(d%10, 'th')
@@ -33,19 +30,6 @@ def writeline(file, line):
     with open(file, 'a', encoding='utf-8') as f:
         f.write(line + '\n')
         f.close()
-
-def groupreport():
-    '''
-    create a list with number of posts per unique group
-    '''
-    stdlog('generating group report')
-    posts = openjson('posts.json')
-    # count the number of posts by group_name within posts.json
-    group_counts = gcount(posts)
-    # sort the group_counts - descending
-    sorted_group_counts = sorted(group_counts.items(), key=lambda x: x[1], reverse=True)
-    stdlog('group report generated with %d groups' % len(sorted_group_counts))
-    return sorted_group_counts
 
 def howoldami():
     now = dt.now()
@@ -70,7 +54,7 @@ def mainpage():
     writeline(uptime_sheet, '')
     writeline(uptime_sheet, 'ransomwatch is currently crawling `' + str(hostcount()) + '` sites belonging to `' + str(groupcount()) + '` unique groups')
     writeline(uptime_sheet, '')
-    writeline(uptime_sheet, '⏲ there have been `' + str(postslast24h()) + '` posts within the `last 24 hours`')
+    writeline(uptime_sheet, '⏲ there have been `' + str(postssince(1)) + '` posts within the `last 24 hours`')
     writeline(uptime_sheet, '')
     writeline(uptime_sheet, '🦈 there have been `' + str(monthlypostcount()) + '` posts within the `month of ' + currentmonthstr() + '`')
     writeline(uptime_sheet, '')
@@ -78,7 +62,7 @@ def mainpage():
     writeline(uptime_sheet, '')
     writeline(uptime_sheet, '🏚 there have been `' + str(poststhisyear()) + '` posts within the `year of ' + str(dt.now().year) + '`')
     writeline(uptime_sheet, '')
-    writeline(uptime_sheet, '_⚙️ there are currently `' + str(onlinecount()) + '` online hosts & `' + str(parsercount()) + '` custom parsers._')
+    writeline(uptime_sheet, '_⚙️ there are currently `' + str(hostcount(online_only=True)) + '` online hosts & `' + str(parsercount()) + '` custom parsers._')
     writeline(uptime_sheet, '')
     writeline(uptime_sheet, '🦕 ransomwatch has been running for `' + howoldami() + '` and indexed `' + str(postcount()) + '` posts')
     writeline(uptime_sheet, '')
@@ -178,6 +162,11 @@ def recentpage():
         writeline(recentpage, line)
     stdlog('recent posts page generated')
 
+def ddmmyyyy(stamp):
+    '''yyyy-mm-dd hh:mm:ss timestamp -> dd/mm/yyyy'''
+    year, month, day = stamp.split(' ')[0].split('-')
+    return day + '/' + month + '/' + year
+
 def profilepage():
     '''
     create a profile page for each group in their unique markdown files within docs/profiles
@@ -190,6 +179,7 @@ def profilepage():
     writeline(profilepage, '# 🐦 profiles')
     writeline(profilepage, '')
     groups = openjson('groups.json')
+    posts_sorted = sorted(openjson('posts.json'), key=lambda x: x['discovered'], reverse=True)
     for group in groups:
         writeline(profilepage, '## ' + group['name'])
         writeline(profilepage, '')
@@ -216,30 +206,17 @@ def profilepage():
         writeline(profilepage, '| title | available | version | last visit | fqdn')
         writeline(profilepage, '|---|---|---|---|---|')        
         for host in group['locations']:
-            # convert date to ddmmyyyy hh:mm
-            date = host['lastscrape'].split(' ')[0]
-            date = date.split('-')
-            date = date[2] + '/' + date[1] + '/' + date[0]
-            time = host['lastscrape'].split(' ')[1]
-            time = time.split(':')
-            time = time[0] + ':' + time[1]
-            if host['title'] is not None:
-                line = '| ' + host['title'].replace('|', '-') + ' | ' + str(host['available']) +  ' | ' + str(host['version']) + ' | ' + time + ' ' + date + ' | `' + host['fqdn'] + '` |'
-                writeline(profilepage, line)
-            else:
-                line = '| none | ' + str(host['available']) +  ' | ' + str(host['version']) + ' | ' + time + ' ' + date + ' | `' + host['fqdn'] + '` |'
-                writeline(profilepage, line)
+            # hh:mm dd/mm/yyyy
+            time = ':'.join(host['lastscrape'].split(' ')[1].split(':')[:2])
+            title = host['title'].replace('|', '-') if host['title'] is not None else 'none'
+            line = '| ' + title + ' | ' + str(host['available']) +  ' | ' + str(host['version']) + ' | ' + time + ' ' + ddmmyyyy(host['lastscrape']) + ' | `' + host['fqdn'] + '` |'
+            writeline(profilepage, line)
         writeline(profilepage, '')
         writeline(profilepage, '| post | date |')
         writeline(profilepage, '|---|---|')
-        posts = openjson('posts.json')
-        posts_sorted = sorted(posts, key=lambda x: x['discovered'], reverse=True)
         for post in posts_sorted:
             if post['group_name'] == group['name']:
-                date = post['discovered'].split(' ')[0]
-                date = date.split('-')
-                date = date[2] + '/' + date[1] + '/' + date[0]
-                line = '| ' + '`' + post['post_title'].replace('|', '') + '`' + ' | ' + date + ' |'
+                line = '| ' + '`' + post['post_title'].replace('|', '') + '`' + ' | ' + ddmmyyyy(post['discovered']) + ' |'
                 writeline(profilepage, line)
         writeline(profilepage, '')
         dbglog('profile page for ' + group['name'] + ' generated')
@@ -258,6 +235,6 @@ def main():
         trend_posts_per_day()
         plot_posts_by_group()
         pie_posts_by_group()
-        plot_posts_by_group_past_7_days()
+        plot_posts_by_group(days=7)
     else:
         stdlog('posts.json has not been modified within the last 45 mins, assuming no new posts discovered')

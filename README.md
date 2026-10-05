@@ -82,7 +82,7 @@ One row per victim post. Both files have the same columns. `victims.csv` holds p
 | `revenue_band` | `revenue_usd` bucketed: `<$10M`, `$10M-50M`, `$50M-250M`, `$250M-1B`, `>$1B` |
 | `revenue_source` | `site` (a revenue field: incransom's API, safepay's `Revenue $X Million` line, incransom's `Revenue:` line) or `text` (a sentence in `description`, e.g. "$7.3 million in revenue") |
 | `employees` / `employee_band` | headcount the group gives for the victim; for a range, the lower bound. Band: `<50`, `50-249`, `250-999`, `1,000-4,999`, `5,000+` |
-| `employees_source` | `site` (incransom's `Employees:` line) or `text` (a sentence in `description`, e.g. "with over 140 employees"). Filter out `text` if you want only site fields. For company size from Wikidata, see `company_size.csv` |
+| `employees_source` | `site` (incransom's `Employees:` line) or `text` (a sentence in `description`, e.g. "with over 140 employees"). Filter out `text` if you want only site fields. |
 | `data_types` | stolen data categories, e.g. `Financial;Employee / HR`. From keywords in `leak_claim` plus incransom's `AD Dump` tag (`Credentials / IT`); if the group gave neither, from the folder and file names in the leak index (`rw listings`) |
 | `data_types_source` | `claim` (the group's claim or tags) or `listing` (the leak index's folder/file names) |
 | `listing_entries` | number of folder/file names read from the leak index. Empty means no index was read, not an empty leak |
@@ -156,23 +156,3 @@ Long format: one row per victim per data type. `victim_data_types.csv` is built 
 | `data_type` | one entry from `data_types` |
 | `subject` | whose data that type is about (`Customers`, `Employees`, `Individuals (unspecified)`, `Company`) |
 
-### `data/company_size.csv` (`companysize.py`)
-
-One row per victim, matched or not, so you can see the coverage. The data comes from Wikidata, which mostly covers large and listed companies.
-
-Run it on the host, not in Docker. It reads `data/victims.json` and queries Wikidata over the clearnet, not Tor, so it takes about 10-20 minutes:
-
-```bash
-python3 companysize.py 2026-01-01   # victims dated on/after this date → data/company_size.csv
-```
-
-| field | meaning |
-|---|---|
-| `group`, `victim`, `website`, `date` | copied from `victims.json` |
-| `match_method` | `website` (domain equals the Wikidata item's official website), `name` (exact label/alias of exactly one business), or empty if no match |
-| `wikidata_id` / `wikidata_label` | matched Wikidata item (e.g. `Q312`) and its English name |
-| `employees` / `employees_year` | latest employee count and the year it refers to |
-| `revenue` / `revenue_currency` / `revenue_year` | latest revenue in its original currency, and the year |
-| `revenue_usd` | `revenue` only when it is already in USD (no exchange rates are applied) |
-| `wikidata_country` | ISO alpha-2 country of the item |
-| `wikidata_industry` | Wikidata industry labels |

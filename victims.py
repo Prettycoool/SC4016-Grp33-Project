@@ -30,7 +30,7 @@ from PIL import Image
 import pycountry
 from bs4 import BeautifulSoup
 
-from sharedutils import openjson, striptld, socksfetcher, oproxies, headers
+from sharedutils import openjson, writejson, striptld, socksfetcher, oproxies, headers
 from sharedutils import stdlog, errlog
 
 DATADIR = 'data'
@@ -65,11 +65,6 @@ def ms_to_date(ms):
     if not ms or ms < 0:
         return None
     return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime('%Y-%m-%d')
-
-def s_to_date(sec):
-    if not sec or sec < 0:
-        return None
-    return datetime.fromtimestamp(sec, timezone.utc).strftime('%Y-%m-%d')
 
 def clean(text):
     if text is None:
@@ -118,11 +113,8 @@ def split_claim(lines):
             return clean(' '.join(lines[:index])), clean(' '.join(lines[index:]))
     return clean(' '.join(lines)), None
 
-def strip_noise(text):
-    return clean(CLAIM_NOISE_RE.sub('', text)) if text else None
-
-def strip_downloads(text):
-    return clean(DOWNLOAD_NOISE_RE.sub('', text)) if text else None
+def strip_noise(text, pattern=CLAIM_NOISE_RE):
+    return clean(pattern.sub('', text)) if text else None
 
 '''
 per-group parsers
@@ -348,16 +340,18 @@ DETAIL_PARSERS = {
     'qilin': parse_qilin_detail,
 }
 
+def pager(path, suffix=''):
+    return lambda slug, n: base_url(slug) + path + str(n) + suffix
+
 # how to request page n of each of a group's victim feeds, given one of its location slugs
 # feeds are walked in order & later ones win on merge - akira's leaks feed goes first so the news feed's
 # announcement date wins over the leak date, while merge keeps the published status
 PAGERS = {
-    'incransom': [lambda slug, n: base_url(slug) + '/api/v1/blog/get/announcements?page=' + str(n) + '&perPage=100'],
-    'qilin': [lambda slug, n: base_url(slug) + '/?page=' + str(n)],
-    'play': [lambda slug, n: base_url(slug) + '/index.php?page=' + str(n)],
-    'safepay': [lambda slug, n: base_url(slug) + '/?page=' + str(n)],
-    'akira': [lambda slug, n: base_url(slug) + '/l?page=' + str(n) + '&sort=date%3Adesc',
-              lambda slug, n: base_url(slug) + '/n?page=' + str(n) + '&sort=date%3Adesc'],
+    'incransom': [pager('/api/v1/blog/get/announcements?page=', '&perPage=100')],
+    'qilin': [pager('/?page=')],
+    'play': [pager('/index.php?page=')],
+    'safepay': [pager('/?page=')],
+    'akira': [pager('/l?page=', '&sort=date%3Adesc'), pager('/n?page=', '&sort=date%3Adesc')],
 }
 
 '''
@@ -452,8 +446,13 @@ INDUSTRIES = {
                            'beverage', 'dairy', 'meat', 'seafood', 'bakery', 'brewery', 'winery'],
     'Real Estate': ['real estate', 'property', 'properties', 'realty', 'housing'],
 }
-INDUSTRY_RES = {name: re.compile(r'\b(' + '|'.join(re.escape(k) for k in words) + r')(?:s|es)?\b')
-                for name, words in INDUSTRIES.items()}
+
+def keyword_res(table, plural=True):
+    '''{name: pattern matching any of its keywords as whole words}'''
+    tail = r'(?:s|es)?\b' if plural else r'\b'
+    return {name: re.compile(r'\b(' + '|'.join(re.escape(k) for k in words) + r')' + tail) for name, words in table.items()}
+
+INDUSTRY_RES = keyword_res(INDUSTRIES)
 
 def classify(text, patterns):
     '''highest keyword hit count wins, ties go to the earlier category'''
@@ -497,8 +496,7 @@ DATA_TYPES = {
                                'emails', 'email', 'mail', 'strategy', 'nda', 'counterparties', 'partners information',
                                'suppliers', 'business partners'],
 }
-DATA_TYPE_RES = {name: re.compile(r'\b(' + '|'.join(re.escape(k) for k in words) + r')(?:s|es)?\b')
-                 for name, words in DATA_TYPES.items()}
+DATA_TYPE_RES = keyword_res(DATA_TYPES)
 
 # who each data type is about - the question a victim's customers & staff care about
 SUBJECTS = {
@@ -635,6 +633,16 @@ def first_match(patterns, text):
                 return match
     return None
 
+def fill_fact(record, field, source_field, text, site_re, text_res, value, minimum):
+    '''a labelled site value, else one from prose - only where the record has none yet'''
+    if record.get(field):
+        return
+    match, source = site_re.search(text), 'site'
+    if not match:
+        match, source = first_match(text_res, text), 'text'
+    if match and value(match) >= minimum:
+        record[field], record[source_field] = value(match), source
+
 def site_facts(record):
     '''fills revenue, employees, industry, leak size & claim from the stored post text - safe to run repeatedly'''
     description = record.get('description') or ''
@@ -646,21 +654,9 @@ def site_facts(record):
 
     if record.get('revenue_usd') and not record.get('revenue_source'):
         record['revenue_source'] = 'site'
-    if not record.get('revenue_usd'):
-        match = SITE_REVENUE_RE.search(description)
-        source = 'site'
-        if not match:
-            match, source = first_match(TEXT_REVENUE_RES, description), 'text'
-        if match and money(match) >= 1000:
-            record['revenue_usd'], record['revenue_source'] = money(match), source
-
-    if not record.get('employees'):
-        match = SITE_EMPLOYEES_RE.search(description)
-        source = 'site'
-        if not match:
-            match, source = first_match(TEXT_EMPLOYEES_RES, description), 'text'
-        if match and count(match.group(1)) > 0:
-            record['employees'], record['employees_source'] = count(match.group(1)), source
+    fill_fact(record, 'revenue_usd', 'revenue_source', description, SITE_REVENUE_RE, TEXT_REVENUE_RES, money, 1000)
+    fill_fact(record, 'employees', 'employees_source', description, SITE_EMPLOYEES_RE, TEXT_EMPLOYEES_RES,
+              lambda match: count(match.group(1)), 1)
 
     industry = INDUSTRY_LABEL_RE.search(description)
     if industry and not record.get('activity_raw'):
@@ -708,12 +704,25 @@ table building
 def victimkey(group, victim):
     return group + '|' + re.sub(r'[^a-z0-9]', '', (victim or '').lower())
 
+def filled(fields):
+    '''only the fields that hold a value, so an empty one never overwrites what a record has'''
+    return {k: v for k, v in fields.items() if v not in (None, '')}
+
+def tag(victims, group, slug):
+    for victim in victims:
+        victim['group'], victim['source_url'] = group, slug
+    return victims
+
 def load_existing(jsonfile=JSONFILE):
     '''stored victims, minus any group no longer in groups.json - dropping a group there drops its rows'''
     if not os.path.exists(jsonfile):
         return {}
     tracked = {group['name'] for group in openjson('groups.json')}
     return {victimkey(r['group'], r['victim']): r for r in openjson(jsonfile) if r['group'] in tracked}
+
+def all_records():
+    '''history & current records together'''
+    return list(load_existing(HISTJSON).values()) + list(load_existing().values())
 
 def collect():
     '''run the structured parsers over every saved source page for supported groups'''
@@ -735,11 +744,7 @@ def collect():
                 errlog('victims: ' + group['name'] + ' - could not parse ' + filename + ' - ' + str(error))
                 continue
             stdlog('victims: ' + group['name'] + ' - ' + str(len(victims)) + ' victims from ' + filename)
-            for victim in victims:
-                if victim.get('victim'):
-                    victim['group'] = group['name']
-                    victim['source_url'] = host['slug']
-                    found.append(victim)
+            found.extend(tag([v for v in victims if v.get('victim')], group['name'], host['slug']))
     return found
 
 GENERIC_CLAIM_MIN = 5
@@ -753,7 +758,7 @@ def merge(existing, found, cutoff=CUTOFF):
         if record.get('status') == 'published' and victim.get('status') == 'pending':
             victim = {k: v for k, v in victim.items() if k != 'status'}
         # keep previously captured values if this page no longer shows them
-        record.update({k: v for k, v in victim.items() if v not in (None, '')})
+        record.update(filled(victim))
         record['last_seen'] = timestamp
         existing[key] = enrich(record)
     for record in existing.values():
@@ -765,8 +770,8 @@ def merge(existing, found, cutoff=CUTOFF):
             key = (record['group'], record['leak_claim'][:100].lower())
             claims[key] = claims.get(key, 0) + 1
     for record in existing.values():
-        record['description'] = strip_downloads(record.get('description'))
-        record['leak_claim'] = strip_downloads(record.get('leak_claim'))
+        record['description'] = strip_noise(record.get('description'), DOWNLOAD_NOISE_RE)
+        record['leak_claim'] = strip_noise(record.get('leak_claim'), DOWNLOAD_NOISE_RE)
         classify_leak(record)
         if record.get('leak_claim'):
             record['leak_claim_generic'] = claims[(record['group'], record['leak_claim'][:100].lower())] >= GENERIC_CLAIM_MIN
@@ -783,16 +788,18 @@ def merge(existing, found, cutoff=CUTOFF):
            + str(len(existing) - len(kept) - undated) + ' older & ' + str(undated) + ' with no site date')
     return sorted(kept, key=lambda r: (r['date'], r['group'], r['victim']), reverse=True)
 
-def write(records, jsonpath=JSONFILE, csvpath=CSVFILE, typespath=TYPESFILE):
-    os.makedirs(DATADIR, exist_ok=True)
-    with open(jsonpath, 'w', encoding='utf-8') as jsonfile:
-        json.dump(records, jsonfile, ensure_ascii=False, indent=4)
-    with open(csvpath, 'w', encoding='utf-8', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=COLUMNS, extrasaction='ignore')
+def write_csv(path, columns, rows):
+    with open(path, 'w', encoding='utf-8', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=columns, extrasaction='ignore')
         writer.writeheader()
-        writer.writerows(records)
-    if typespath is None:
-        return
+        writer.writerows(rows)
+
+def write(records, history=False):
+    '''the current table, or with history the table of posts dated before the cutoff'''
+    jsonpath, csvpath, typespath = (HISTJSON, HISTCSV, HISTTYPES) if history else (JSONFILE, CSVFILE, TYPESFILE)
+    os.makedirs(DATADIR, exist_ok=True)
+    writejson(jsonpath, records)
+    write_csv(csvpath, COLUMNS, records)
     with open(typespath, 'w', encoding='utf-8', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['group', 'victim', 'date', 'country', 'activity', 'data_type', 'subject'])
@@ -801,6 +808,7 @@ def write(records, jsonpath=JSONFILE, csvpath=CSVFILE, typespath=TYPESFILE):
                 if data_type:
                     writer.writerow([r['group'], r['victim'], r['date'], r.get('country'), r['activity'], data_type,
                                      subject_of(data_type)])
+    stdlog('victims: ' + str(len(records)) + (' older' if history else '') + ' victims written to ' + csvpath)
 
 '''
 backfill
@@ -847,15 +855,28 @@ FETCHERS = {
     'akira': akira_fetcher,
 }
 
+def url_key(url):
+    return hashlib.sha1(url.encode()).hexdigest()[:16]
+
+def detail_cache(group, url):
+    return os.path.join(DETAILDIR, group + '-' + url_key(url) + '.html')
+
+def read_detail(group, url):
+    '''a cached post page, or None if we have none'''
+    cache = detail_cache(group, url)
+    if not os.path.exists(cache) or os.path.getsize(cache) == 0:
+        return None
+    with open(cache, encoding='utf-8', errors='ignore') as cachefile:
+        return cachefile.read()
+
 def fetch_detail(group, url):
-    cache = os.path.join(DETAILDIR, group + '-' + hashlib.sha1(url.encode()).hexdigest()[:16] + '.html')
-    if os.path.exists(cache) and os.path.getsize(cache) > 0:
-        with open(cache, encoding='utf-8', errors='ignore') as cachefile:
-            return cachefile.read()
+    content = read_detail(group, url)
+    if content is not None:
+        return content
     content = fetch(url)
     if content:
         os.makedirs(DETAILDIR, exist_ok=True)
-        with open(cache, 'w', encoding='utf-8') as cachefile:
+        with open(detail_cache(group, url), 'w', encoding='utf-8') as cachefile:
             cachefile.write(content)
     return content
 
@@ -868,7 +889,7 @@ def add_details(group, victims, workers):
             if content is None:
                 errlog('victims: ' + group + ' - could not fetch post ' + victim['post_url'])
                 continue
-            victim.update({k: v for k, v in parser(content).items() if v not in (None, '')})
+            victim.update(filled(parser(content)))
 
 def backfill_feed(group, host, pager, getter, since, maxpages, workers):
     parser = PARSERS[group['name']]
@@ -887,10 +908,7 @@ def backfill_feed(group, host, pager, getter, since, maxpages, workers):
         if not victims or all((v.get('post_url') or v.get('victim')) in seen for v in victims):
             break
         add_details(group['name'], victims, workers)
-        for victim in victims:
-            victim['group'] = group['name']
-            victim['source_url'] = host['slug']
-        found.extend(victims)
+        found.extend(tag(victims, group['name'], host['slug']))
         dates = [v['published'] for v in victims if v.get('published')]
         stdlog('victims: backfill ' + group['name'] + ' page ' + str(page) + ' - ' + str(len(victims))
                + ' victims, oldest ' + str(min(dates) if dates else 'undated'))
@@ -929,10 +947,8 @@ def backfill(since, maxpages=100, workers=6, groups=None):
     current = [r for r in records if r['date'] >= CUTOFF]
     history = [r for r in records if r['date'] < CUTOFF]
     write(current)
-    stdlog('victims: ' + str(len(current)) + ' victims written to ' + CSVFILE)
     if history or os.path.exists(HISTJSON):
-        write(history, HISTJSON, HISTCSV, HISTTYPES)
-        stdlog('victims: ' + str(len(history)) + ' older victims written to ' + HISTCSV)
+        write(history, history=True)
 
 '''
 leak listings
@@ -960,22 +976,19 @@ FOLDER_TYPES = {
     'Credentials / IT': ['bak', 'mdf', 'ldf', 'vmdk', 'vhdx', 'kdbx', 'it'],
     'Corporate confidential': ['pst', 'ost', 'management', 'geschaeftsfuehrung', 'geschäftsführung'],
 }
-FOLDER_TYPE_RES = {name: re.compile(r'\b(' + '|'.join(re.escape(k) for k in words) + r')\b')
-                   for name, words in FOLDER_TYPES.items()}
+FOLDER_TYPE_RES = keyword_res(FOLDER_TYPES, plural=False)
 ARCHIVE_RE = re.compile(r'\.(rar|zip|7z|tar|gz|tgz|bz2|xz|iso|exe|bin)$', re.IGNORECASE)
 SKIP_LINK_RE = re.compile(r'^(\.\./?|/|\?.*|#.*|parent directory)$', re.IGNORECASE)
 
 def listing_cache(group, url):
-    return os.path.join(LISTINGDIR, group + '-' + hashlib.sha1(url.encode()).hexdigest()[:16] + '.json')
+    return os.path.join(LISTINGDIR, group + '-' + url_key(url) + '.json')
 
 def listing_url(record):
     '''the leak index linked from a cached post page - none for archives or posts we have no page for'''
-    cache = os.path.join(DETAILDIR, record['group'] + '-' + hashlib.sha1(record['post_url'].encode()).hexdigest()[:16]
-                         + '.html')
-    if not os.path.exists(cache):
+    content = read_detail(record['group'], record['post_url'])
+    if content is None:
         return None
-    with open(cache, encoding='utf-8', errors='ignore') as cachefile:
-        soup = BeautifulSoup(cachefile.read(), 'html.parser')
+    soup = BeautifulSoup(content, 'html.parser')
     if record['group'] == 'safepay':
         links = [a.get('href', '') for a in soup.select('a.btn-teal')]
         links = [link for link in links if '.onion/' in link and link.endswith('/')]
@@ -1049,19 +1062,38 @@ def name_types(name):
     types = data_types_from(text)
     return types + [t for t, pattern in FOLDER_TYPE_RES.items() if pattern.search(text) and t not in types]
 
-def read_listing(url):
-    '''{data type: number of names pointing at it} & how many names were read, over the index & its subfolders'''
-    counts, entries = {}, 0
+def crawl_listing(url):
+    '''(names, file urls) over a leak index & its first subfolders, or None if the index can't be read'''
     # qilin's data page redirects to the index on a separate file server
     content, url = fetch_capped(url)
     if content is None:
         return None
-    names, folders, _ = listing_entries(content, url)
+    names, folders, files = listing_entries(content, url)
     for folder in folders[:LISTING_MAX_SUBDIRS]:
         page, served = fetch_capped(folder)
         if page:
-            names.extend(folder[len(url):] + name for name in listing_entries(page, served)[0])
-    for name in names:
+            subnames, _, subfiles = listing_entries(page, served)
+            names.extend(folder[len(url):] + name for name in subnames)
+            files.extend(subfiles)
+    return names, files
+
+def probe_then_pool(items, work, workers, label):
+    '''work over every item - the first few one at a time, the rest only if any of those worked. returns successes'''
+    probe = [work(item) for item in items[:LISTING_PROBE]]
+    if items and not any(probe):
+        errlog('victims: ' + label + ' - first ' + str(len(probe)) + ' indexes unreachable, skipping '
+               + str(len(items) - len(probe)) + ' more')
+        return 0
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        return sum(probe) + sum(pool.map(work, items[LISTING_PROBE:]))
+
+def read_listing(url):
+    '''{data type: number of names pointing at it} & how many names were read, over the index & its subfolders'''
+    counts, entries = {}, 0
+    crawled = crawl_listing(url)
+    if crawled is None:
+        return None
+    for name in crawled[0]:
         entries += 1
         for data_type in name_types(name):
             counts[data_type] = counts.get(data_type, 0) + 1
@@ -1082,7 +1114,7 @@ def apply_listing(record):
 
 def listings(groups=None, workers=4):
     '''read the leak index of every published safepay / qilin post we have a page for, then rebuild the tables'''
-    records = list(load_existing(HISTJSON).values()) + list(load_existing().values())
+    records = all_records()
     todo = {}
     for record in records:
         if record['group'] not in LISTING_GROUPS or (groups and record['group'] not in groups):
@@ -1099,21 +1131,12 @@ def listings(groups=None, workers=4):
         summary = read_listing(url)
         # failures aren't cached, so the next run tries them again
         if summary is not None:
-            with open(listing_cache(group, url), 'w', encoding='utf-8') as cachefile:
-                json.dump(summary, cachefile)
+            writejson(listing_cache(group, url), summary, ensure_ascii=True, indent=None)
         return summary is not None
     done = 0
     for group in LISTING_GROUPS:
         items = [(url, g) for url, g in todo.items() if g == group]
-        if not items:
-            continue
-        probe = [work(item) for item in items[:LISTING_PROBE]]
-        if not any(probe):
-            errlog('victims: listings - ' + group + ' - first ' + str(len(probe)) + ' indexes unreachable, skipping '
-                   + str(len(items) - len(probe)) + ' more')
-            continue
-        with ThreadPoolExecutor(max_workers=workers) as pool:
-            done += sum(probe) + sum(pool.map(work, items[LISTING_PROBE:]))
+        done += probe_then_pool(items, work, workers, 'listings - ' + group)
     stdlog('victims: listings - read ' + str(done) + ' of ' + str(len(todo)))
     main()
 
@@ -1148,12 +1171,10 @@ def proof_urls(record):
     if record['group'] == 'incransom':
         # the blog renders each proof from {api}/api/v1/blog/download/{id}
         return {p: base_url(record['source_url']) + '/api/v1/blog/download/' + p for p in ids}
-    cache = os.path.join(DETAILDIR, 'qilin-' + hashlib.sha1((record.get('post_url') or '').encode()).hexdigest()[:16]
-                         + '.html')
-    if not os.path.exists(cache):
+    content = read_detail(record['group'], record.get('post_url') or '')
+    if content is None:
         return {}
-    with open(cache, encoding='utf-8', errors='ignore') as cachefile:
-        thumbs = {digest: path for path, digest in QILIN_THUMB_RE.findall(cachefile.read())}
+    thumbs = {digest: path for path, digest in QILIN_THUMB_RE.findall(content)}
     return {p: base_url(record['post_url']) + thumbs[p] for p in ids if p in thumbs}
 
 def dhash(image):
@@ -1182,16 +1203,12 @@ def hash_proof(url):
         errlog('victims: proof - ' + url + ' - ' + type(error).__name__)
         return None
 
-def proof_hash_cache(group):
-    path = os.path.join(PROOFHASHDIR, group + '.json')
-    return openjson(path) if os.path.exists(path) else {}
+def proof_cache_path(group, suffix=''):
+    return os.path.join(PROOFHASHDIR, group + suffix + '.json')
 
-def listing_key(url):
-    return hashlib.sha1(url.encode()).hexdigest()[:16]
-
-def proof_posts_cache(group):
-    '''leak index key -> ids of the images sampled from it'''
-    path = os.path.join(PROOFHASHDIR, group + '-posts.json')
+def proof_cache(group, suffix=''):
+    '''proof id -> [sha256, dhash], or with suffix -posts, leak index key -> ids of the images sampled from it'''
+    path = proof_cache_path(group, suffix)
     return openjson(path) if os.path.exists(path) else {}
 
 def listing_images(url):
@@ -1200,27 +1217,22 @@ def listing_images(url):
     can't be read. the url carries the file name, so only its sha1 is ever stored as the id. sorted, so a rerun
     samples the same images
     '''
-    content, url = fetch_capped(url)
-    if content is None:
+    crawled = crawl_listing(url)
+    if crawled is None:
         return None
-    _, folders, files = listing_entries(content, url)
-    for folder in folders[:LISTING_MAX_SUBDIRS]:
-        page, served = fetch_capped(folder)
-        if page:
-            files.extend(listing_entries(page, served)[2])
-    images = sorted(f for f in set(files) if IMAGE_RE.search(urlsplit(f).path))[:LISTING_PROOF_MAX]
+    images = sorted(f for f in set(crawled[1]) if IMAGE_RE.search(urlsplit(f).path))[:LISTING_PROOF_MAX]
     return {hashlib.sha1(image.encode()).hexdigest(): image for image in images}
 
 def sample_listings(group, records, cache, workers):
     '''{proof id: url} of the images to hash for every published post whose index isn't fully hashed yet'''
-    posts = proof_posts_cache(group)
+    posts = proof_cache(group, '-posts')
     todo = {}
     for record in records:
         if record['group'] != group or record.get('status') == 'pending' or not record.get('post_url'):
             continue
         url = listing_url(record)
-        if url and not (listing_key(url) in posts and all(p in cache for p in posts[listing_key(url)])):
-            todo[listing_key(url)] = url
+        if url and not (url_key(url) in posts and all(p in cache for p in posts[url_key(url)])):
+            todo[url_key(url)] = url
     stdlog('victims: proofs - ' + group + ' - ' + str(len(todo)) + ' leak indexes to sample')
     found = {}
     def work(item):
@@ -1229,26 +1241,18 @@ def sample_listings(group, records, cache, workers):
             posts[item[0]] = sorted(images)
             found.update(images)
         return images is not None
-    items = list(todo.items())
-    probe = [work(item) for item in items[:LISTING_PROBE]]
-    if items and not any(probe):
-        errlog('victims: proofs - ' + group + ' - first ' + str(len(probe)) + ' indexes unreachable, skipping '
-               + str(len(items) - len(probe)) + ' more')
-    else:
-        with ThreadPoolExecutor(max_workers=workers) as pool:
-            list(pool.map(work, items[LISTING_PROBE:]))
-    with open(os.path.join(PROOFHASHDIR, group + '-posts.json'), 'w', encoding='utf-8') as cachefile:
-        json.dump(posts, cachefile)
+    probe_then_pool(list(todo.items()), work, workers, 'proofs - ' + group)
+    writejson(proof_cache_path(group, '-posts'), posts, ensure_ascii=True, indent=None)
     return found
 
 def apply_proof_hashes(records):
-    caches = {group: proof_hash_cache(group) for group in PROOF_GROUPS + LISTING_PROOF_GROUPS}
-    posts = {group: proof_posts_cache(group) for group in LISTING_PROOF_GROUPS}
+    caches = {group: proof_cache(group) for group in PROOF_GROUPS + LISTING_PROOF_GROUPS}
+    posts = {group: proof_cache(group, '-posts') for group in LISTING_PROOF_GROUPS}
     for record in records:
         group = record['group']
         if group in posts:
             url = listing_url(record) if record.get('post_url') else None
-            ids = [p for p in posts[group].get(listing_key(url), []) if p in caches[group]] if url else []
+            ids = [p for p in posts[group].get(url_key(url), []) if p in caches[group]] if url else []
             record['proof_ids'] = ';'.join(ids) or None
             record['proof_count'] = len(ids) or None
         hashes = [caches[group][p] for p in (record.get('proof_ids') or '').split(';')
@@ -1262,12 +1266,12 @@ def apply_proof_hashes(records):
 
 def proofs(groups=None, workers=6):
     '''hash every proof image not hashed yet, then rebuild the tables'''
-    records = list(load_existing(HISTJSON).values()) + list(load_existing().values())
+    records = all_records()
     os.makedirs(PROOFHASHDIR, exist_ok=True)
     for group in PROOF_GROUPS + LISTING_PROOF_GROUPS:
         if groups and group not in groups:
             continue
-        cache = proof_hash_cache(group)
+        cache = proof_cache(group)
         todo = {}
         if group in LISTING_PROOF_GROUPS:
             todo = {p: u for p, u in sample_listings(group, records, cache, workers).items() if p not in cache}
@@ -1283,8 +1287,7 @@ def proofs(groups=None, workers=6):
                 for (proof, _), hashes in zip(batch, pool.map(lambda item: hash_proof(item[1]), batch)):
                     if hashes:
                         cache[proof] = hashes
-            with open(os.path.join(PROOFHASHDIR, group + '.json'), 'w', encoding='utf-8') as cachefile:
-                json.dump(cache, cachefile)
+            writejson(proof_cache_path(group), cache, ensure_ascii=True, indent=None)
             stdlog('victims: proofs - ' + group + ' - ' + str(min(start + 200, len(items))) + '/' + str(len(items)))
     main()
 
@@ -1354,12 +1357,9 @@ def write_proof_distances(study, records):
             })
             rows[-1]['overlap'] = round(rows[-1]['close_images'] / rows[-1]['proof_count'], 2)
     rows.sort(key=lambda r: (-r['overlap'], r['min_distance'], r['mean_distance']))
-    columns = ['group', 'victim', 'date', 'other_group', 'other_victim', 'other_date', 'gap_days', 'min_distance',
-               'mean_distance', 'close_images', 'proof_count', 'other_proof_count', 'overlap', 'identical']
-    with open(PROOFDISTANCES, 'w', encoding='utf-8', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=columns)
-        writer.writeheader()
-        writer.writerows(rows)
+    write_csv(PROOFDISTANCES, ['group', 'victim', 'date', 'other_group', 'other_victim', 'other_date', 'gap_days',
+                               'min_distance', 'mean_distance', 'close_images', 'proof_count', 'other_proof_count',
+                               'overlap', 'identical'], rows)
     stdlog('victims: ' + str(len(rows)) + ' post pairs within ' + str(PROOF_DISTANCE_MAX) + ' bits written to '
            + PROOFDISTANCES)
 
@@ -1369,13 +1369,10 @@ def refresh_details(records):
         parser = DETAIL_PARSERS.get(record['group'])
         if parser is None or not record.get('post_url'):
             continue
-        cache = os.path.join(DETAILDIR, record['group'] + '-' + hashlib.sha1(record['post_url'].encode()).hexdigest()[:16]
-                             + '.html')
-        if not os.path.exists(cache) or os.path.getsize(cache) == 0:
+        content = read_detail(record['group'], record['post_url'])
+        if content is None:
             continue
-        with open(cache, encoding='utf-8', errors='ignore') as cachefile:
-            fields = parser(cachefile.read())
-        record.update({k: v for k, v in fields.items() if v not in (None, '') and record.get(k) in (None, '')})
+        record.update({k: v for k, v in filled(parser(content)).items() if record.get(k) in (None, '')})
         apply_listing(record)
 
 def main():
@@ -1385,15 +1382,13 @@ def main():
     apply_proof_hashes(existing.values())
     records = merge(existing, collect())
     write(records)
-    stdlog('victims: ' + str(len(records)) + ' victims written to ' + CSVFILE)
     history = []
     if os.path.exists(HISTJSON):
         history = load_existing(HISTJSON)
         refresh_details(history.values())
         apply_proof_hashes(history.values())
         history = [r for r in merge(history, [], cutoff='0000-00-00') if r['date'] < CUTOFF]
-        write(history, HISTJSON, HISTCSV, HISTTYPES)
-        stdlog('victims: ' + str(len(history)) + ' older victims written to ' + HISTCSV)
+        write(history, history=True)
     # the study period is the 2026 table, matched against every post we hold
     write_proof_distances(records, records + history)
 

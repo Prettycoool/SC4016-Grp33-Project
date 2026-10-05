@@ -12,10 +12,10 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 from selenium.common.exceptions import WebDriverException
 
-from sharedutils import checktcp
+from sharedutils import requiresocks
 from sharedutils import randomagent
 from sharedutils import sockshost, socksport
-from sharedutils import stdlog, dbglog, errlog, honk
+from sharedutils import stdlog, dbglog, errlog
 
 requests.packages.urllib3.disable_warnings()
 
@@ -29,18 +29,13 @@ def main(webpage):
     options.set_preference("general.useragent.override", randomagent())
     if '.onion' in webpage:
         stdlog('geckodriver: ' + 'appears we are dealing with an onionsite')
-        if not checktcp(sockshost, socksport):
-            honk('geckodriver: ' + 'socks proxy unavailable and required to fetch onionsites!')
-        else:
-            stdlog(
-                'geckodriver: ' + 'assumed torsocks proxy found - tcp://' \
-                + sockshost + ':' + str(socksport)
-            )
-            stdlog('geckodriver: ' + 'configuring proxy settings')
-            options.set_preference('network.proxy.type', 1)
-            options.set_preference('network.proxy.socks', sockshost)
-            options.set_preference('network.proxy.socks_port', int(socksport))
-            options.set_preference("network.proxy.socks_remote_dns", True)
+        requiresocks('geckodriver: ')
+        stdlog('geckodriver: ' + 'assumed torsocks proxy found - tcp://' + sockshost + ':' + str(socksport))
+        stdlog('geckodriver: ' + 'configuring proxy settings')
+        options.set_preference('network.proxy.type', 1)
+        options.set_preference('network.proxy.socks', sockshost)
+        options.set_preference('network.proxy.socks_port', int(socksport))
+        options.set_preference("network.proxy.socks_remote_dns", True)
     driver = None
     try:
         stdlog('geckodriver: ' + 'starting webdriver')
@@ -68,12 +63,8 @@ def main(webpage):
             driver.quit()
             return None
         sleeptz = 5
-        if 'lockbitapt' in webpage:
-            time.sleep(7)
-            driver.implicitly_wait(3)
-            # driver.add_cookie({"name": "ddosproteck", "value": "lol"})
-            # driver.find_element_by_css_selector('button').click()
-        if 'snatchteam' in webpage or 'hl66646wtlp2n' in webpage:
+        # slow sites get extra time before the standard wait
+        if any(site in webpage for site in ('lockbitapt', 'snatchteam', 'hl66646wtlp2n')):
             time.sleep(7)
             driver.implicitly_wait(3)
         stdlog('geckodriver: ' + 'waiting ' + str(sleeptz) + ' seconds to render elements')
